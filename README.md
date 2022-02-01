@@ -1,4 +1,4 @@
-# mysimpleapp
+# Posh Theme One (Blue)
 
 ## Project setup
 ```
