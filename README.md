@@ -1,4 +1,4 @@
-# Posh Theme One (Blue)
+# Posh Project One (Blue)
 
 ## Project setup
 ```
