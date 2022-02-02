@@ -10,6 +10,14 @@
                 <img src="img/menu-template/components.png" />Components<i
                   class="fas fa-angle-right"
                 ></i>
+                <ul class="side-submenu">
+										<li><a href="#">Components</a></li>
+										<li><a href="#">Computer Systems</a></li>
+										<li><a href="#">Electronics</a></li>
+										<li><a href="#">Gaming</a></li>
+										<li><a href="#">Networking</a></li>
+										<li><a href="#">Office Solutions</a></li>
+									</ul>
               </li>
               <li>
                 <img src="img/menu-template/computer.png" />Computer Systems<i
