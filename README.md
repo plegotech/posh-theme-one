@@ -1,4 +1,4 @@
-# mysimpleapp
+# Posh Project One (Blue)
 
 ## Project setup
 ```
