@@ -1,0 +1,164 @@
+/*  4 FEB WORK  */
+.btn-sign-register {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    padding-left: 30px;
+}
+.bask-bx {
+    width: 125px;
+}
+.container-fluid {
+    padding-right: 30px;
+    padding-left: 30px;
+    max-width: 1920px;
+}
+.container-fluid.about-foot {
+    position: relative;
+}
+.for-signup {
+    border: 1px solid #E0E0E0;
+    padding: 0;
+    background: url(../img/Authentication.png) no-repeat;
+    background-position: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-evenly;
+}
+.signup-btn-bx {
+    text-align: center;
+    margin-top: 0;
+}
+/* START HERE:: RESPONSIVE STYLES */
+@media (min-width: 2000px){
+    .side-menu>ul>li {
+        padding: 16px 15px;
+    }
+    }
+@media (max-width: 1440px){
+    .side-menu>ul>li {
+        padding: 9px 15px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 1024px){
+    .about-foot p {
+        font-size: 13px;
+    }
+    .side-menu h1 {
+        font-size: 14px;
+        padding: 4px 10px;
+    }
+    .side-menu>ul>li {
+    padding: 4px 15px;
+    font-size: 13px;
+    }
+}
+@media (min-width: 992px){
+    
+    div#navbarTogglerSidebar {
+        display: none!important;
+    }
+}
+@media (max-width: 991px){
+    .side-menu ul li:hover ul.side-submenu {
+        display: initial;
+    }
+    ul.side-submenu {
+        position: inherit!important;
+        width: 100%;
+        left: initial;
+    }
+    .seller-temp nav .navbar-brand, button.navbar-toggler {
+        padding-top: 0;
+    }
+    img.bask-icon {
+        width: 25px;
+    }
+    .seller-temp nav form button {
+        padding-right: 9px;
+        padding-left: 10px;
+    }
+    img.uicon {
+    width: 22px;
+    height: auto;
+}
+    .btn-sign-register {
+        padding-left: 0;
+    }
+    .side-menu {
+        margin-top: 0;
+    }
+    .side-menu h1 {
+        font-size: 14px;
+        padding: 10px 10px;
+    }
+    div#navbarTogglerSidebar {
+        width: 100%;
+        height: 100%;
+        background: #1a00008f;
+        min-height: 1000px;
+    }
+    .side-menu>ul>li {
+        padding: 13px 15px;
+        font-size: 13px;
+    }
+    span.navbar-toggler-icon {
+        background: #fff;
+        border-radius: 4px;
+    }
+    .head-right-info {
+        margin-left: 0;
+        width: 100%;
+    }
+    button.btn.btn-outline-success.my-2.my-sm-0 {
+        margin-top: 0px!important;
+    }
+    .signin-reg {
+        flex-direction: row;
+        width: 180px;
+        justify-content: space-between;
+    }
+    .seller-temp nav form {
+        width: 100%;
+    }   
+    .seller-temp nav {
+        background: #0862A3;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .hide-mobile-bx{display: none;}
+    div#navbarTogglerSidebar.show {
+        left: 0;
+    }
+    div#navbarTogglerSidebar {
+        position: absolute;
+        top:50px;
+        z-index: 9;
+        display: block;
+        left: -100%;
+        transition: 0.5s;
+    }
+h3.prod-title {
+    font-size: 12px;
+}
+}
+@media (max-width: 768px){
+    .about-foot img.img-fluid {
+        height: 150px;
+        width: auto;
+    }
+    ul.footer-list {
+        padding-bottom: 25px;
+    }
+    .no-pr-pl {
+        padding-right: 15px;
+    padding-left: 15px;
+    }
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+}

@@ -2,8 +2,8 @@
   <div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-2">
-          <div class="side-menu mt-3">
+        <div class="col-xl-2 col-sm-3">
+          <div class="side-menu mt-3 hide-mobile-bx">
             <h1>TOP CATEGORIES</h1>
             <ul>
               <li>
@@ -66,7 +66,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-sm-7 no-pr-pl">
+        <div class="col-xl-7 col-sm-6 no-pr-pl">
           <div
             id="HomecarouselControls"
             class="carousel slide mt-3"
@@ -121,7 +121,7 @@
             </a>
           </div>
         </div>
-        <div class="col-sm-3 mt-3">
+        <div class="col-xl-3 col-sm-3 mt-3">
           <div class="mb-4">
             <img src="img/rectangle_1.png" class="banner" alt="" />
           </div>
@@ -140,7 +140,7 @@
               src="img/new-arrivals-img.jpg"
               width="100%"
               alt=""
-              style="height: 319px"
+              style=""
             />
           </div>
           <div class="mb-4">
@@ -149,7 +149,7 @@
         </div>
         <div class="col-sm-8 mt-4">
           <div class="row">
-            <div class="col-sm-7">
+            <div class="col-sm-7 mb-4">
               <img src="img/hot_categories.png" width="100%" alt="" />
             </div>
             <div class="col-sm-5 mb-4">
@@ -168,11 +168,11 @@
                 src="img/electronic-deals-img.jpg"
                 width="100%"
                 alt=""
-                style="height: 369px"
+                style="height: 100%"
               />
             </div>
             <div class="col-sm-7">
-              <img src="img/home_and_kitchens.png" width="100%" alt="" />
+              <img src="img/home_and_kitchens.png" width="100%" alt="" style="height:100%" />
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@
     </div>
 
     <div class="container-fluid bgcolor-gl">
-      <div class="produ-listing-bx">
+      <div class="produ-listing-bx mt-4">
         <div class="row">
           <div class="col-12">
             <h2 class="cat-title">Featured Products</h2>

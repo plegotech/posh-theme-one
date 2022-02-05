@@ -12,6 +12,9 @@ $('.calendar').each(function(){
 } );
 
 $(document).ready(function(){
+    $(".side-menu>ul>li").click(function(){
+        $("ul.side-submenu").slideToggle("slow");
+      });
 	// DETAILS SLIDER 
 	$('.slider1').owlCarousel({
     loop: true,
