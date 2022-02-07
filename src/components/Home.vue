@@ -2,7 +2,7 @@
   <div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-xl-2 col-sm-3">
+        <div class="col-xl-2 col-sm-3 hideOnMobile">
           <div class="side-menu mt-3 hide-mobile-bx">
             <h1>TOP CATEGORIES</h1>
             <ul>
@@ -66,7 +66,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-xl-7 col-sm-6 no-pr-pl">
+        <div class="col-xl-7 col-lg-6 col-9 no-pr-pl" id="MainSliderbx">
           <div
             id="HomecarouselControls"
             class="carousel slide mt-3"
@@ -121,7 +121,7 @@
             </a>
           </div>
         </div>
-        <div class="col-xl-3 col-sm-3 mt-3">
+        <div class="col-xl-3 col-lg-3 col-3 mt-3" id="MainSideBanner">
           <div class="mb-4">
             <img src="img/rectangle_1.png" class="banner" alt="" />
           </div>
@@ -134,25 +134,27 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-4 mt-4">
+        <div class="col-md-4 col-12 mt-4 flex-sm">
           <div class="mb-4">
-            <img
-              src="img/new-arrivals-img.jpg"
-              width="100%"
-              alt=""
-              style=""
-            />
+            <picture>
+              <source media="(min-width:991px)" srcset="img/new-arrivals-img.jpg">
+              <img src="img/new-arrivals-img-2.jpg" alt="" class="img-fluid">
+            </picture>
+                    
           </div>
           <div class="mb-4">
-            <img src="img/hot-items-in-gaming-img.jpg" width="100%" alt="" />
+            <picture>
+              <source media="(min-width:991px)" srcset="img/hot-items-in-gaming-img.jpg">
+              <img src="img/hot-items-in-gaming-img-2.jpg" alt="" class="img-fluid">
+            </picture>
           </div>
         </div>
-        <div class="col-sm-8 mt-4">
+        <div class="col-md-8 mt-4 flex-sm-bx">
           <div class="row">
-            <div class="col-sm-7 mb-4">
+            <div class="col-lg-7  mb-4">
               <img src="img/hot_categories.png" width="100%" alt="" />
             </div>
-            <div class="col-sm-5 mb-4">
+            <div class="col-lg-5 mb-4">
               <div class="for-signup">
                 <h5>For more details and updates</h5>
                 <div class="signup-btn-bx">
@@ -163,13 +165,8 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-5">
-              <img
-                src="img/electronic-deals-img.jpg"
-                width="100%"
-                alt=""
-                style="height: 100%"
-              />
+            <div class="col-sm-5 mb-4">
+              <img src="img/electronic-deals-img.jpg" alt="">
             </div>
             <div class="col-sm-7">
               <img src="img/home_and_kitchens.png" width="100%" alt="" style="height:100%" />
@@ -197,7 +194,7 @@
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
-                  Goodthreads Men’s Slim-Fit Long-Sleeve End on End Shirt
+                  Goodthreads Men's Slim-Fit Long-Sleeve End on End Shirt
                 </h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$22.50</span
@@ -207,7 +204,6 @@
                   /></span>
                 </div>
               </div>
-              s
             </div>
           </div>
           <div class="col-sm-3">
@@ -271,7 +267,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-6"><img src="img/mobile-phones-img.png" /></div>
+          <div class="col-sm-6 mb-4"><img src="img/mobile-phones-img.png" /></div>
           <div class="col-sm-6"><img src="img/new-jackets-img.png" /></div>
         </div>
       </div>
@@ -360,10 +356,7 @@
                 </h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$19.49</span
-                  ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
-                  /></span>
+                  ><span class="pro-icons"><img src="img/buy.png" class="img-fluid" /><img src="img/heart.png" /></span>
                 </div>
               </div>
             </div>
@@ -458,7 +451,7 @@
             src="img/Online-Shopping.png"
             width="229"
             height="335"
-            class="img-fluid"
+            class="img-fluid onlineShp"
             alt=""
           />
         </div>

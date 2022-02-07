@@ -12,8 +12,23 @@ $('.calendar').each(function(){
 } );
 
 $(document).ready(function(){
+    // Increment a number 
+	var $inputNum = $(".qty-number");
+	$(".incrementNum").click(function(){
+    if ($(this).hasClass('btnplus-item'))
+        $inputNum.val(parseInt($inputNum.val())+1);
+    else if ($inputNum.val()>=1)
+        $inputNum.val(parseInt($inputNum.val())-1);
+});
+// Increment a number 
+    $("span.navbar-toggler-icon").click(function(){
+        $(this).toggleClass("btn-active-list");
+        $(this).parents('body').toggleClass("openMobileMenu");
+      });
+    
     $(".side-menu>ul>li").click(function(){
-        $("ul.side-submenu").slideToggle("slow");
+        $(this).find("ul.side-submenu").slideToggle("slow");
+        $(this).toggleClass("active-list");
       });
 	// DETAILS SLIDER 
 	$('.slider1').owlCarousel({

@@ -110,7 +110,7 @@
     <div class="sec-nav">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-6">
             <div class="show-all-cat">
               <span
                 ><img src="img/menu-template/category.png" />Show All Categories
@@ -123,7 +123,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-6">
             <div class="order-track">
               <ul>
                 <li><a href="#">Track Your Order</a></li>
