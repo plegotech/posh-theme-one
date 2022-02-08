@@ -232,6 +232,12 @@ span.navbar-toggler-icon:before {
     }
 }
 @media (max-width: 767px){
+    .gallery-pm-thumb .owl-thumbs {
+        padding: 10px;
+    }
+    .detial-sect {
+        padding-left: 0;
+    }
     .checkout-payment-info {
         padding: 8px;
     }
