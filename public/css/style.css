@@ -107,9 +107,9 @@ body.home{background:#fff}
 .seller-temp .third-nav ul li:first-child {}
 .seller-temp .third-nav ul li:last-child {}
 .btn-outline-success:hover {
-    color: #fff;
-    background-color: #64b3ed;
-    border-color: #64b3ed;
+    background-color: transparent;
+    border-color: #0862a3;
+    color: #0862a3;
 }
 img.uicon {
     width: 29px;
@@ -925,7 +925,6 @@ button.btnplus-item, button.btnminus-item {
     line-height: 1px;
     color: #1B1B1B;
     font-weight: bold;
-    border: 1px solid #9D9D9D;
     cursor: pointer;
 }
 button.btnplus-item:hover, button.btnminus-item:hover {
@@ -944,7 +943,7 @@ button.btnplus-item:hover, button.btnminus-item:hover {
     display: flex;
     align-items: center;
     padding-bottom: 17px;
-	justify-content: space-between;
+	justify-content: revert;
 }
 .csi-title {
     flex: 0 0 67%;
@@ -960,6 +959,7 @@ button.btnplus-item:hover, button.btnminus-item:hover {
 }
 .csi-title-t {
     font-size: 26px;
+    flex: 0 0 57%;
 }
 .carInput-fileds input, .carInput-fileds select {
     height: 43px;
@@ -1202,6 +1202,7 @@ img.credit-card-icon {
 }
 .select-cvv {
     max-width: 100px;
+    float: right;
 }
 .csi-total-amount {
     font-size: 23px;
