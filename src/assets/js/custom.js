@@ -12,6 +12,14 @@ $( function() {
     } );
     
     $(document).ready(function(){
+        $("span.navbar-toggler-icon").click(function(){
+            $(this).toggleClass("btn-active-list");
+          });
+        
+        $(".side-menu>ul>li").click(function(){
+            $("ul.side-submenu").slideToggle();
+            $(this).toggleClass("active-list");
+          });
         // Increment a number 
         var $inputNum = $(".qty-number");
         $(".incrementNum").click(function(){
