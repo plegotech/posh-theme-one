@@ -89,132 +89,132 @@
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<a href="/product"><img src="img/810G-B68TYL1.png" alt=""></a>
+										<a href="/product"><img src="../assets/img/810G-B68TYL1.png" alt=""></a>
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title"><a href="/product">Omen 13 HP Laptop for Gaming</a></h3>
-										<div class="prod-p-icon"><span class="pro-price">$900.90</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$900.90</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-1.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-1.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Asus 2021 Flagship TUF FX505GT</h3>
-										<div class="prod-p-icon"><span class="pro-price">$800.99</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$800.99</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-2.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-2.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-3.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-3.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-4.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-4.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-5.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-5.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-6.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-6.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-7.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-7.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-8.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-8.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-9.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-9.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-10.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-10.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>
 							<div class="col-sm-4">				
 								<div class="product-item">
 									<div class="pro-img-bx">
-										<img src="img/810G-B68TYL1-11.png" alt="">
+										<img src="../assets/img/810G-B68TYL1-11.png" alt="">
 									</div>
 									<div class="pro-title-bx">
 										<h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="img/buy.png" class="img-fluid"><img src="img/heart.png"></span></div>
+										<div class="prod-p-icon"><span class="pro-price">$700.25</span><span class="pro-icons"><img src="../assets/img/buy.png" class="img-fluid"><img src="../assets/img/heart.png"></span></div>
 									</div>
 								</div>
 							</div>

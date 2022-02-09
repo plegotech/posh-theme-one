@@ -1,6 +1,20 @@
 <template>
 <div>
     <header-comp></header-comp>
+    <div class="breadcrumbs">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-sm-12">
+							<ul class="breadcrumbs-list"> 
+								<li><a href="">All Categories</a></li>
+								<li><a href="">Laptop Computers</a></li>
+								<li><a href="">Traditional Laptop Computers</a></li>
+								<li>Item#: N82E16834235729</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
   <div class="wrapper seller-temp">
     <div class="container-fluid">
       <div class="details-pm-section">
@@ -11,9 +25,9 @@
                 <!-- START GALLERY HERE -->
 
                 <div class="slider1 owl-carousel" data-slider-id="1">
-                  <div><p><img src="img/Rectangle28.png" alt="" class="img-fluid" /></p></div>
-                  <div><p><img src="img/Rectangle28.png" alt="" class="img-fluid" /></p></div>
-                  <div><p><img src="img/Rectangle28.png" alt="" class="img-fluid" /></p></div>
+                  <div><p><img src="../assets/img/Rectangle28.png" alt="" class="img-fluid" /></p></div>
+                  <div><p><img src="../assets/img/Rectangle28.png" alt="" class="img-fluid" /></p></div>
+                  <div><p><img src="../assets/img/Rectangle28.png" alt="" class="img-fluid" /></p></div>
                 </div>
                 <!-- END:: GALLERY HERE -->
               </div>
@@ -21,32 +35,32 @@
                 <div class="owl-thumbs" data-slider-id="1">
                   <button class="owl-thumb-item">
                     <div class="userimg">
-                      <img src="img/akn-1250-1.png" alt="" />
+                      <img src="../assets/img/akn-1250-1.png" alt="" />
                     </div>
                   </button>
                   <button class="owl-thumb-item">
                     <div class="userimg">
-                      <img src="img/akn-1250.png" alt="" />
+                      <img src="../assets/img/akn-1250.png" alt="" />
                     </div>
                   </button>
                   <button class="owl-thumb-item">
                     <div class="userimg">
-                      <img src="img/akn-1250-3.png" alt="" />
+                      <img src="../assets/img/akn-1250-3.png" alt="" />
                     </div>
                   </button>
                   <button class="owl-thumb-item">
                     <div class="userimg">
-                      <img src="img/akn-1250-3.png" alt="" />
+                      <img src="../assets/img/akn-1250-3.png" alt="" />
                     </div>
                   </button>
                   <button class="owl-thumb-item">
                     <div class="userimg">
-                      <img src="img/akn-1250-1.png" alt="" />
+                      <img src="../assets/img/akn-1250-1.png" alt="" />
                     </div>
                   </button>
                   <button class="owl-thumb-item">
                     <div class="userimg">
-                      <img src="img/akn-1250.png" alt="" />
+                      <img src="../assets/img/akn-1250.png" alt="" />
                     </div>
                   </button>
                 </div>
@@ -97,7 +111,7 @@
 									<input value="1" placeholder="1" id="txtAcrescimo" class="qty-number" >
 									<button class="incrementNum btnminus-item" >-</button>
 								</div>
-								<button class="primary">Add to Cart</button>
+								<a href="/shipping"><button class="primary">Add to Cart</button></a>
 							</div>
             </div>
           </div>
@@ -118,7 +132,7 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYL1-10.png" alt="" />
+                <img src="../assets/img/810G-B68TYL1-10.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -127,8 +141,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$1,200.50</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -137,7 +151,7 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYL1-3.png" alt="" />
+                <img src="../assets/img/810G-B68TYL1-3.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -146,8 +160,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$1,000.50</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -156,15 +170,15 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYL1-2.png" alt="" />
+                <img src="../assets/img/810G-B68TYL1-2.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$700.25</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -173,15 +187,15 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYL1-5.png" alt="" />
+                <img src="../assets/img/810G-B68TYL1-5.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">DELL Strix G15 (2021) Gaming Laptop</h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$899.99</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -204,15 +218,15 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/ab810G-B68TYL1.png" alt="" />
+                <img src="../assets/img/ab810G-B68TYL1.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">Logitech M310 910-001675</h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$19.49</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -221,7 +235,7 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/ab810G-B68TYL4.png" alt="" />
+                <img src="../assets/img/ab810G-B68TYL4.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -230,8 +244,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$34.99</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -240,15 +254,15 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/ab810G-B68TYL3.png" alt="" />
+                <img src="../assets/img/ab810G-B68TYL3.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">Logitech S120 2.0 Stereo Speakers</h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$179.49</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -257,15 +271,15 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/ab810G-B68TYL2.png" alt="" />
+                <img src="../assets/img/ab810G-B68TYL2.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">Logitech 910-002726</h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$25.04</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>

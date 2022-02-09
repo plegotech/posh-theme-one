@@ -8,7 +8,7 @@
             <h1>TOP CATEGORIES</h1>
             <ul>
               <li>
-                <img src="img/menu-template/components.png" />Components<i
+                <img src="../assets/img/menu-template/components.png" />Components<i
                   class="fas fa-angle-right"
                 ></i>
                 <ul class="side-submenu">
@@ -24,46 +24,46 @@
                 </ul>
               </li>
               <li>
-                <img src="img/menu-template/computer.png" />Computer Systems<i
+                <img src="../assets/img/menu-template/computer.png" />Computer Systems<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/electronics.png" />Electronics<i
+                <img src="../assets/img/menu-template/electronics.png" />Electronics<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/game.png" />Gaming<i
+                <img src="../assets/img/menu-template/game.png" />Gaming<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/networking.png" />Networking<i
+                <img src="../assets/img/menu-template/networking.png" />Networking<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/office.png" />Office Solutions<i
+                <img src="../assets/img/menu-template/office.png" />Office Solutions<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/software-service.png" />Software
+                <img src="../assets/img/menu-template/software-service.png" />Software
                 Services<i class="fas fa-angle-right"></i>
               </li>
               <li>
-                <img src="img/menu-template/automotive.png" />Automotives<i
+                <img src="../assets/img/menu-template/automotive.png" />Automotives<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/home&tool.png" />Home & Tools<i
+                <img src="../assets/img/menu-template/home&tool.png" />Home & Tools<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/health.png" />Health & Sports<i
+                <img src="../assets/img/menu-template/health.png" />Health & Sports<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
@@ -80,21 +80,21 @@
               <div class="carousel-item active">
                 <img
                   class="d-block w-100"
-                  src="img/ecommerce.png"
+                  src="../assets/img/ecommerce.png"
                   alt="First slide"
                 />
               </div>
               <div class="carousel-item">
                 <img
                   class="d-block w-100"
-                  src="img/ecommerce.png"
+                  src="../assets/img/ecommerce.png"
                   alt="Second slide"
                 />
               </div>
               <div class="carousel-item">
                 <img
                   class="d-block w-100"
-                  src="img/ecommerce.png"
+                  src="../assets/img/ecommerce.png"
                   alt="Third slide"
                 />
               </div>
@@ -127,10 +127,10 @@
         </div>
         <div class="col-xl-3 col-lg-3 col-3 mt-3" id="MainSideBanner">
           <div class="mb-4">
-            <img src="img/rectangle_1.png" class="banner" alt="" />
+            <img src="../assets/img/rectangle_1.png" class="banner" alt="" />
           </div>
           <div class="">
-            <img src="img/rectangle_2.png" class="banner" alt="" />
+            <img src="../assets/img/rectangle_2.png" class="banner" alt="" />
           </div>
         </div>
       </div>
@@ -143,19 +143,19 @@
             <picture>
               <source
                 media="(min-width:991px)"
-                srcset="img/new-arrivals-img.jpg"
+                srcset="../assets/img/new-arrivals-img.jpg"
               />
-              <img src="img/new-arrivals-img-2.jpg" alt="" class="img-fluid" />
+              <img src="../assets/img/new-arrivals-img-2.jpg" alt="" class="img-fluid" />
             </picture>
           </div>
           <div class="mb-4">
             <picture>
               <source
                 media="(min-width:991px)"
-                srcset="img/hot-items-in-gaming-img.jpg"
+                srcset="../assets/img/hot-items-in-gaming-img.jpg"
               />
               <img
-                src="img/hot-items-in-gaming-img-2.jpg"
+                src="../assets/img/hot-items-in-gaming-img-2.jpg"
                 alt=""
                 class="img-fluid"
               />
@@ -165,7 +165,7 @@
         <div class="col-md-8 mt-4 flex-sm-bx">
           <div class="row">
             <div class="col-lg-7 mb-4">
-              <img src="img/hot_categories.png" width="100%" alt="" />
+              <img src="../assets/img/hot_categories.png" width="100%" alt="" />
             </div>
             <div class="col-lg-5 mb-4">
               <div class="for-signup">
@@ -179,11 +179,11 @@
           </div>
           <div class="row">
             <div class="col-sm-5 mb-4">
-              <img src="img/electronic-deals-img.jpg" alt="" />
+              <img src="../assets/img/electronic-deals-img.jpg" alt="" />
             </div>
             <div class="col-sm-7">
               <img
-                src="img/home_and_kitchens.png"
+                src="../assets/img/home_and_kitchens.png"
                 width="100%"
                 alt=""
                 style="height: 100%"
@@ -208,7 +208,7 @@
           <div class="col-sm-3">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYL-111.png" alt="" />
+                <img src="../assets/img/810G-B68TYL-111.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -217,8 +217,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$22.50</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -227,7 +227,7 @@
           <div class="col-sm-3">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYL-1.png" alt="" />
+                <img src="../assets/img/810G-B68TYL-1.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -237,8 +237,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$22.50</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -247,7 +247,7 @@
           <div class="col-sm-3">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYL-11.png" alt="" />
+                <img src="../assets/img/810G-B68TYL-11.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -256,8 +256,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$22.50</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -266,7 +266,7 @@
           <div class="col-sm-3">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYL-12.png" alt="" />
+                <img src="../assets/img/810G-B68TYL-12.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -276,8 +276,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$22.50</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -286,9 +286,9 @@
         </div>
         <div class="row">
           <div class="col-sm-6 mb-4">
-            <img src="img/mobile-phones-img.png" />
+            <img src="../assets/img/mobile-phones-img.png" />
           </div>
-          <div class="col-sm-6"><img src="img/new-jackets-img.png" /></div>
+          <div class="col-sm-6"><img src="../assets/img/new-jackets-img.png" /></div>
         </div>
       </div>
     </div>
@@ -306,47 +306,47 @@
         <div class="row">
           <div class="owl-carousel owl-theme" id="sellerCAtegories">
             <div class="bsc-slider-bx">
-              <img src="img/Group-59.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-59.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
             <div class="bsc-slider-bx">
-              <img src="img/Group-60.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-60.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
             <div class="bsc-slider-bx">
-              <img src="img/Group-61.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-61.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
             <div class="bsc-slider-bx">
-              <img src="img/Group-62.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-62.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
             <div class="bsc-slider-bx">
-              <img src="img/Group-63.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-63.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
             <div class="bsc-slider-bx">
-              <img src="img/Group-64.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-64.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
             <div class="bsc-slider-bx">
-              <img src="img/Group-65.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-65.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
             <div class="bsc-slider-bx">
-              <img src="img/Group-66.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-66.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
             <div class="bsc-slider-bx">
-              <img src="img/Group-64.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-64.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
             <div class="bsc-slider-bx">
-              <img src="img/Group-65.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-65.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
             <div class="bsc-slider-bx">
-              <img src="img/Group-66.png" alt="" class="img-fluid" />
+              <img src="../assets/img/Group-66.png" alt="" class="img-fluid" />
               <h5>Watches</h5>
             </div>
           </div>
@@ -368,7 +368,7 @@
           <div class="col-sm-3">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYL-122.png" alt="" />
+                <img src="../assets/img/810G-B68TYL-122.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -377,8 +377,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$19.49</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -387,7 +387,7 @@
           <div class="col-sm-3">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYL111-1.png" alt="" />
+                <img src="../assets/img/810G-B68TYL111-1.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -397,8 +397,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$34.99</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -407,7 +407,7 @@
           <div class="col-sm-3">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYLL1-2.png" alt="" />
+                <img src="../assets/img/810G-B68TYLL1-2.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -417,8 +417,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$179.49</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -427,7 +427,7 @@
           <div class="col-sm-3">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="img/810G-B68TYLp1-3.png" alt="" />
+                <img src="../assets/img/810G-B68TYLp1-3.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -437,8 +437,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$25.04</span
                   ><span class="pro-icons"
-                    ><img src="img/buy.png" class="img-fluid" /><img
-                      src="img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -471,7 +471,7 @@
         </div>
         <div class="col-sm-2">
           <img
-            src="img/Online-Shopping.png"
+            src="../assets/img/Online-Shopping.png"
             width="229"
             height="335"
             class="img-fluid onlineShp"

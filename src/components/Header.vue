@@ -20,7 +20,7 @@
             <h1>TOP CATEGORIES</h1>
             <ul>
               <li>
-                <img src="img/menu-template/components.png" />Components<i
+                <img src="../assets/img/menu-template/components.png" />Components<i
                   class="fas fa-angle-right"
                 ></i>
                 <ul class="side-submenu">
@@ -33,46 +33,46 @@
 									</ul>
               </li>
               <li>
-                <img src="img/menu-template/computer.png" />Computer Systems<i
+                <img src="../assets/img/menu-template/computer.png" />Computer Systems<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/electronics.png" />Electronics<i
+                <img src="../assets/img/menu-template/electronics.png" />Electronics<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/game.png" />Gaming<i
+                <img src="../assets/img/menu-template/game.png" />Gaming<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/networking.png" />Networking<i
+                <img src="../assets/img/menu-template/networking.png" />Networking<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/office.png" />Office Solutions<i
+                <img src="../assets/img/menu-template/office.png" />Office Solutions<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/software-service.png" />Software
+                <img src="../assets/img/menu-template/software-service.png" />Software
                 Services<i class="fas fa-angle-right"></i>
               </li>
               <li>
-                <img src="img/menu-template/automotive.png" />Automotives<i
+                <img src="../assets/img/menu-template/automotive.png" />Automotives<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/home&tool.png" />Home & Tools<i
+                <img src="../assets/img/menu-template/home&tool.png" />Home & Tools<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="img/menu-template/health.png" />Health & Sports<i
+                <img src="../assets/img/menu-template/health.png" />Health & Sports<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
@@ -87,12 +87,12 @@
           placeholder="Search"
         />
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search <img class="search-icon" src="../assets/img/Search-head.png" />
+          Search <img class="search-icon" src="../assets/../assets/img/Search-head.png" />
         </button>
       </form>
       <div class="head-right-info">
         <div class="btn-sign-register">
-          <img src="../assets/img/user-icon.png" class="uicon" />
+          <img src="../assets/../assets/img/user-icon.png" class="uicon" />
           <div class="signin-reg">
             <span class="sign-reg"><a href="/login">Sign In</a></span>
             <span class="sign-or-reg">or</span>
@@ -100,7 +100,7 @@
           </div>
         </div>
         <div class="bask-bx">
-          <a href="/shipping"><img src="../assets/img/bask-icon.png" class="bask-icon" /></a>
+          <a href="/shipping"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a>
           <span class="bx-amount">$0.00</span>
         </div>
       </div>
@@ -113,7 +113,7 @@
           <div class="col-6">
             <div class="show-all-cat">
               <span
-                ><img src="img/menu-template/category.png" />Show All Categories
+                ><img src="../assets/img/menu-template/category.png" />Show All Categories
                 <i class="fas fa-chevron-down"></i
               ></span>
               <ul>
@@ -134,20 +134,6 @@
         </div>
       </div>
     </div>
-    <div class="breadcrumbs">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-sm-12">
-							<ul class="breadcrumbs-list"> 
-								<li><a href="">All Categories</a></li>
-								<li><a href="">Laptop Computers</a></li>
-								<li><a href="">Traditional Laptop Computers</a></li>
-								<li>Item#: N82E16834235729</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
   </div>
 </template>
 <script>

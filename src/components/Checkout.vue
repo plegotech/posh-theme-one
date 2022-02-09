@@ -49,7 +49,7 @@
                       <div class="form-group mb-4 creditcardNo">
                         <input type="text" placeholder="0000 0000 0000 0000*" />
                         <img
-                          src="img/credit-card-icon.png"
+                          src="../assets/img/credit-card-icon.png"
                           class="credit-card-icon"
                         />
                       </div>
@@ -96,7 +96,7 @@
                         ></label>
                       </li>
                     </ul>
-                    <img src="img/paypal-icon.png" class="img-paypal" />
+                    <img src="../assets/img/paypal-icon.png" class="img-paypal" />
                   </div>
                   <div class="col-12">
                     <button class="primary nxtbtn">PLACE ORDER</button>
@@ -110,7 +110,7 @@
           <div class="cartSummary-bx shipping-right">
             <div class="cartsum-title">Your Order</div>
             <div class="youorder-opt-bx">
-              <img src="img/cart-item-1.png" alt="" />
+              <img src="../assets/img/cart-item-1.png" alt="" />
               <div class="youorder-item">
                 <h5>ASUS VivoBook 15 S513</h5>
                 <div class="yr-disc">
@@ -123,7 +123,7 @@
               </div>
             </div>
             <div class="youorder-opt-bx">
-              <img src="img/cart-item-2.png" alt="" />
+              <img src="../assets/img/cart-item-2.png" alt="" />
               <div class="youorder-item">
                 <h5>ASUS UltraPad Pro</h5>
                 <div class="yr-disc">
@@ -153,7 +153,7 @@
                 <div class="csi-total-amount">$<strong>3,088.55</strong></div>
               </div>
               <button class="primary">
-                PROCEED TO CHECKOUT <img src="img/checkout-icon.png" />
+                PROCEED TO CHECKOUT <img src="../assets/img/checkout-icon.png" />
               </button>
             </div>
           </div>

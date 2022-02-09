@@ -143,7 +143,7 @@
           <div class="cartSummary-bx shipping-right">
             <div class="cartsum-title">Your Order</div>
             <div class="youorder-opt-bx">
-              <img src="img/cart-item-1.png" alt="" />
+              <img src="../assets/img/cart-item-1.png" alt="" />
               <div class="youorder-item">
                 <h5>ASUS VivoBook 15 S513</h5>
                 <div class="yr-disc">
@@ -156,7 +156,7 @@
               </div>
             </div>
             <div class="youorder-opt-bx">
-              <img src="img/cart-item-2.png" alt="" />
+              <img src="../assets/img/cart-item-2.png" alt="" />
               <div class="youorder-item">
                 <h5>ASUS UltraPad Pro</h5>
                 <div class="yr-disc">
@@ -186,7 +186,7 @@
                 <div class="csi-total-amount">$<strong>3,088.55</strong></div>
               </div>
               <a class="primary" href="/cart"
-                >PROCEED TO CHECKOUT <img src="img/checkout-icon.png"
+                >PROCEED TO CHECKOUT <img src="../assets/img/checkout-icon.png"
               /></a>
             </div>
           </div>
