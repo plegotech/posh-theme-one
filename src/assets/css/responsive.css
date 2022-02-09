@@ -106,6 +106,10 @@ span.navbar-toggler-icon:before {
     }
 }
 @media (max-width: 991px){
+    
+    .form-group input.form-control, .form-group select.form-control, .form-group select.form-control {
+        height: 40px!important;
+    }
     .col-sm-2.hide-xs-bx {
         display: none;
     }
@@ -232,6 +236,20 @@ span.navbar-toggler-icon:before {
     }
 }
 @media (max-width: 767px){
+    .registration-dvs-form {
+        padding-right: 25px;
+        padding-left: 25px;
+    }
+    .bg-primary-posh-m {
+        background-color: #0862A3;
+        height: 248px;
+    }
+    .wrapper-signup {
+        position: initial;
+    }
+    .bg-primary-posh-m:after {
+        bottom: -124px;
+    }
     .checkout-payment-info {
         padding: 8px;
     }
