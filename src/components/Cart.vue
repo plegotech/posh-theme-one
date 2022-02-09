@@ -105,25 +105,25 @@
 										<div class="">$<strong>1,500</strong> X 01</div>
 									</div>
 								</div>
-								<div class="cartSum-list">
-									<div class="cartSummary-items">
-                                        <div class="csi-title">Item(s)</div>
-                                        <div class="csi-title-amount">$<strong>3069.99</strong></div>
-                                    </div>
-									<div class="cartSummary-items">
-                                        <div class="csi-title">Est. Delivery</div>
-                                        <div class="csi-title-amount">$<strong>28.56</strong></div>
-                                    </div>
-									<div class="cartSummary-items">
-                                        <div class="csi-title">Discount Code:</div>
-                                        <div class="csi-title-dc">Posh200</div>
-                                    </div>
-									<div class="cartSummary-items">
-                                        <div class="csi-title-t">Total</div>
-                                        <div class="csi-total-amount">$<strong>3,088.55</strong></div>
-                                    </div>
-									<button class="primary">PROCEED TO CHECKOUT <img src="../assets/img/checkout-icon.png"></button>
-								</div>								
+								 <div class="cartSum-list">
+              <div class="cartSummary-items">
+                <div class="csi-title">Item(s)</div>
+                <div class="csi-title-amount">$<strong>3069.99</strong></div>
+              </div>
+              <div class="cartSummary-items">
+                <div class="csi-title">Est. Delivery</div>
+                <div class="csi-title-amount">$<strong>28.56</strong></div>
+              </div>
+              <div class="cartSummary-items bt-0">
+                <div class="csi-title">Discount</div>
+                <div class="csi-title-amount">$<strong>-$10.00</strong></div>
+              </div>
+              <div class="cartSummary-items pt-4">
+                <div class="csi-title-t">Total</div>
+                <div class="csi-total-amount">$<strong>3,088.55</strong></div>
+              </div>
+             
+            </div>					
 							</div>
 						</div>
                     </div>
