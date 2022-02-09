@@ -21,7 +21,7 @@
               <p class="txt-gray regis-subtitle">
                 Enter your details below to continue
               </p>
-              <form ref="form">
+              <form ref="form" @submit.prevent="postData" method="POST">
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <input
@@ -29,6 +29,7 @@
                       placeholder="First Name*"
                       class="form-control"
                       type="text"
+                      v-model="signup.fname"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -37,6 +38,7 @@
                       placeholder="Last Name*"
                       class="form-control"
                       type="text"
+                      v-model="signup.lname"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -44,10 +46,14 @@
                       placeholder="Email Address*"
                       class="form-control"
                       type="email"
+                      v-model="signup.email"
                     />
                   </div>
                   <div class="form-group col-md-6">
-                    <select class="form-control select-custom-point">
+                    <select
+                      class="form-control select-custom-point"
+                      v-model="signup.gender"
+                    >
                       <option>Gender*</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
@@ -60,10 +66,14 @@
                       placeholder="Address*"
                       class="form-control"
                       type="text"
+                      v-model="signup.address"
                     />
                   </div>
                   <div class="form-group col-md-6">
-                    <select class="form-control select-custom-point">
+                    <select
+                      class="form-control select-custom-point"
+                      v-model="signup.state"
+                    >
                       <option>State*</option>
                       <option value="male">US</option>
                       <option value="female">UK</option>
@@ -74,6 +84,7 @@
                       placeholder="City*"
                       class="form-control"
                       type="text"
+                      v-model="signup.city"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -81,6 +92,7 @@
                       placeholder="Zip Code*"
                       class="form-control"
                       type="text"
+                      v-model="signup.zip"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -88,6 +100,7 @@
                       placeholder="Phone Number*"
                       class="form-control"
                       type="tel"
+                      v-model="signup.phone"
                     />
                   </div>
 
@@ -96,6 +109,7 @@
                       placeholder="Password*"
                       class="form-control"
                       type="password"
+                      v-model="signup.password"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -103,12 +117,13 @@
                       placeholder="Confirm Password*"
                       class="form-control"
                       type="password"
+                      v-model="signup.cpassword"
                     />
                   </div>
                 </div>
 
                 <div class="form-row text-center sub-btn-bx">
-                  <button type="button" class="primary rsv-bx">
+                  <button type="submit" class="primary rsv-bx">
                     <strong>REGISTER</strong>
                   </button>
                   <p class="mt-3 mb-1">Already Have an account?</p>
@@ -127,7 +142,36 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: "Signup",
+  data() {
+    return {
+      signup: {
+        fname: null,
+        lname: null,
+        gender: null,
+        address: null,
+        password: null,
+        cpassword: null,
+        state: null,
+        city: null,
+        phone: null,
+        zip: null,
+      },
+    };
+  },
+  methods: {
+    postData(e) {
+      //console.log(this.signup);
+      // axios.get("https://api.coindesk.com/v1/bpi/currentprice.json").then((result)=>{
+      //   console.log(result);
+      // })
+      axios.post("http://127.0.0.1:8000/user",this.signup).then((result)=>{
+        console.log(result);
+      })
+      e.preventDefault();
+    },
+  },
 };
 </script>
