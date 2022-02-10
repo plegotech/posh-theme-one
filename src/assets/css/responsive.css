@@ -239,6 +239,18 @@ span.navbar-toggler-icon:before {
     }
 }
 @media (max-width: 767px){
+    .userLogined {
+        padding-left: 12px;
+    }
+    .cat-option-pg {
+        display: flex;
+        align-items: center;
+        align-self: self-end;
+        margin-top: 22px;
+    }
+    .cat-title-pg {
+        flex-direction: column;
+    }
     .registration-dvs-form {
         padding-right: 25px;
         padding-left: 25px;

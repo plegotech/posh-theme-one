@@ -17,9 +17,10 @@ $( function() {
           });
         $("span.navbar-toggler-icon").click(function(){
             $(this).toggleClass("btn-active-list");
+            $(this).parents().toggleClass("openMobileMenu");
           });
           if ($(window).width() < 990) {
-            $(".side-menu>ul>li.test").click(function(){
+            $(".side-menu>ul>li").click(function(){
                 $("ul.side-submenu").slideToggle();
                 $(this).toggleClass("active-list");
               });

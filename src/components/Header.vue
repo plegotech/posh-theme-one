@@ -19,7 +19,7 @@
       <div class="side-menu">
             <h1>TOP CATEGORIES</h1>
             <ul>
-              <li class="test">
+              <li>
                 <img src="../assets/img/menu-template/components.png" />Components<i
                   class="fas fa-angle-right"
                 ></i>
@@ -96,6 +96,7 @@
           <div class="usr-title">John Doe </div>
           <i class="fas fa-chevron-down"></i>
           <ul class="userProfileMenu">
+            <li><a href="#">Dashboard</a></li>
               <li><a href="#">My Orders</a></li>
                <li><a href="#">Track My Order</a></li>
                 <li><a href="#">My Profile</a></li>

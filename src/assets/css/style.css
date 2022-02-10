@@ -1560,7 +1560,6 @@ ul.userProfileMenu {
     width: 100%;
     z-index: 9;
     border-radius: 4px;
-    height: 106px;
     display: none;
 }
 ul.userProfileMenu li a {
