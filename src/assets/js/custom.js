@@ -12,14 +12,20 @@ $( function() {
     } );
     
     $(document).ready(function(){
+        $(".userLogined").click(function(){
+            $(this).toggleClass("showUserPro");
+          });
         $("span.navbar-toggler-icon").click(function(){
             $(this).toggleClass("btn-active-list");
+            $(this).parents().toggleClass("openMobileMenu");
           });
+          if ($(window).width() < 990) {
+            $(".side-menu>ul>li").click(function(){
+                $("ul.side-submenu").slideToggle();
+                $(this).toggleClass("active-list");
+              });
+         }
         
-        $(".side-menu>ul>li").click(function(){
-            $("ul.side-submenu").slideToggle();
-            $(this).toggleClass("active-list");
-          });
         // Increment a number 
         var $inputNum = $(".qty-number");
         $(".incrementNum").click(function(){
