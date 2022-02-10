@@ -153,7 +153,7 @@
                 <div class="csi-total-amount">$<strong>3,088.55</strong></div>
               </div>
               <button class="primary">
-                PROCEED TO CHECKOUT <img src="../assets/img/checkout-icon.png" />
+                PROCEED TO CHECKOUT <i class="fa fa-cart-plus"></i>
               </button>
             </div>
           </div>
