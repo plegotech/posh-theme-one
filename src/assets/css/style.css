@@ -1530,3 +1530,53 @@ ul.side-submenu li a:hover {
 .price-limit-opt span {
     padding-right: 15px;
 }
+
+/* Profile */
+.userLogined {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    padding-left: 30px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+}
+img.proImg {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+.usr-title {
+    color: #fff;
+    white-space: nowrap;
+    padding-left: 12px;
+    padding-right: 8px;
+}
+ul.userProfileMenu {
+    background: #fff;
+    padding: 2px 10px;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 9;
+    border-radius: 4px;
+    height: 106px;
+    display: none;
+}
+ul.userProfileMenu li a {
+    color: #0862a3;
+    padding: 4px 10px;
+    display: block;
+}
+ul.userProfileMenu li {
+    border-bottom: 1px solid #adadad73;
+}
+ul.userProfileMenu li:last-child {
+    border-bottom: 0px;
+}
+.userLogined.showUserPro ul.userProfileMenu {
+    display: block;
+}
+.userLogined:hover ul.userProfileMenu {
+    display: block;
+}

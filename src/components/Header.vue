@@ -91,7 +91,17 @@
         </button>
       </form>
       <div class="head-right-info">
-        <div class="btn-sign-register">
+        <div class="userLogined ">
+          <div class="usr-img"><img src="../assets/../assets/img/profile.png" class="proImg"></div>
+          <div class="usr-title">John Doe </div>
+          <i class="fas fa-chevron-down"></i>
+          <ul class="userProfileMenu">
+              <li><a href="#">My Orders</a></li>
+               <li><a href="#">Track My Order</a></li>
+                <li><a href="#">My Profile</a></li>
+            </ul>
+        </div>
+        <div class="btn-sign-register" style="display: none;">
           <img src="../assets/../assets/img/user-icon.png" class="uicon" />
           <div class="signin-reg">
             <span class="sign-reg"><a href="/login">Sign In</a></span>
