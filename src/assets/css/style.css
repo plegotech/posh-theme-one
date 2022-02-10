@@ -1577,6 +1577,3 @@ ul.userProfileMenu li:last-child {
 .userLogined.showUserPro ul.userProfileMenu {
     display: block;
 }
-.userLogined:hover ul.userProfileMenu {
-    display: block;
-}

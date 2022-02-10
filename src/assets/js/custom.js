@@ -19,7 +19,7 @@ $( function() {
             $(this).toggleClass("btn-active-list");
           });
           if ($(window).width() < 990) {
-            $(".side-menu>ul>li").click(function(){
+            $(".side-menu>ul>li.test").click(function(){
                 $("ul.side-submenu").slideToggle();
                 $(this).toggleClass("active-list");
               });

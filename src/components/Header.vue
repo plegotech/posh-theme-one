@@ -19,7 +19,7 @@
       <div class="side-menu">
             <h1>TOP CATEGORIES</h1>
             <ul>
-              <li>
+              <li class="test">
                 <img src="../assets/img/menu-template/components.png" />Components<i
                   class="fas fa-angle-right"
                 ></i>
