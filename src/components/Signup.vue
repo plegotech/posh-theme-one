@@ -29,7 +29,7 @@
                       placeholder="First Name*"
                       class="form-control"
                       type="text"
-                      v-model="signup.fname"
+                      v-model="signup.first_name"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -38,7 +38,7 @@
                       placeholder="Last Name*"
                       class="form-control"
                       type="text"
-                      v-model="signup.lname"
+                      v-model="signup.last_name"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -66,15 +66,15 @@
                       placeholder="Address*"
                       class="form-control"
                       type="text"
-                      v-model="signup.address"
+                      v-model="signup.u_address"
                     />
                   </div>
                   <div class="form-group col-md-6">
                     <select
                       class="form-control select-custom-point"
-                      v-model="signup.state"
+                      v-model="signup.u_state"
                     >
-                      <option disabled :value="null">State*</option>
+                    <option disabled :value="null">State*</option>
                       <option value="male">US</option>
                       <option value="female">UK</option>
                     </select>
@@ -84,7 +84,7 @@
                       placeholder="City*"
                       class="form-control"
                       type="text"
-                      v-model="signup.city"
+                      v-model="signup.u_city"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -92,7 +92,7 @@
                       placeholder="Zip Code*"
                       class="form-control"
                       type="text"
-                      v-model="signup.zip"
+                      v-model="signup.u_zip"
                     />
                   </div>
                   <div class="form-group col-md-6">
@@ -117,7 +117,7 @@
                       placeholder="Confirm Password*"
                       class="form-control"
                       type="password"
-                      v-model="signup.cpassword"
+                      v-model="signup.password_confirmation"
                     />
                   </div>
                 </div>
@@ -128,7 +128,7 @@
                   </button>
                   <p class="mt-3 mb-1">Already Have an account?</p>
                   <span class="link-b-b">
-                    <a href="#"><strong>Sign-In</strong></a>
+                    <a href="/login"><strong>Sign-In</strong></a>
                   </span>
                 </div>
               </form>
@@ -148,26 +148,37 @@ export default {
   data() {
     return {
       signup: {
-        fname: null,
-        lname: null,
+        first_name: null,
+        last_name: null,
         gender: null,
-        address: null,
+        u_address: null,
         password: null,
-        cpassword: null,
-        state: null,
-        city: null,
+        password_confirmation: null,
+        u_state: null,
+        u_city: null,
         phone: null,
-        zip: null,
+        u_zip: null,
       },
     };
   },
   methods: {
     postData(e) {
+      
       //console.log(this.signup);
       // axios.get("https://api.coindesk.com/v1/bpi/currentprice.json").then((result)=>{
       //   console.log(result);
       // })
-      axios.post("http://127.0.0.1:8000/user",this.signup).then((result)=>{
+      //axios.post("http://127.0.0.1:8000/api/user",this.signup).then((result)=>{
+      axios.post("https://posh-marketplace.plego.pro/api/user",this.signup).then((result)=>{
+        console.log(result.data);
+        const obj = result.data;
+        console.log(obj);
+        if(obj.success==true){
+          alert(obj.message);
+          this.signup="";
+        } else {
+          alert("Some error occured");
+        }
         console.log(result);
       })
       e.preventDefault();

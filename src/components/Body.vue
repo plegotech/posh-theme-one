@@ -16,7 +16,7 @@
                 <ul class="side-submenu">
                   <li><a href="#">Components</a></li>
                   <li>
-                    <a href="/allproducts">Computer Systems</a>
+                    <a href="/allproducts"  >Computer Systems</a>
                   </li>
                   <li><a href="#">Electronics</a></li>
                   <li><a href="#">Gaming</a></li>

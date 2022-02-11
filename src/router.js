@@ -5,8 +5,8 @@ import Body from './components/Body.vue'
 import Profile from './components/Profile.vue'
 import Allproducts from './components/Allproducts.vue'
 import Product from './components/Product.vue'
-
 import Cart from './components/Cart.vue'
+import Payment from './components/Payment.vue'
 import Signup from './components/Signup.vue'
 import Login from './components/Login.vue'
 import Checkout from './components/Checkout.vue'
@@ -61,6 +61,11 @@ const routes = [
         name: 'Cart',
         path: '/cart',
         component: Cart
+    },
+    {
+        name: 'Payment',
+        path: '/payment',
+        component: Payment
     },
     {
         name: 'Profile',

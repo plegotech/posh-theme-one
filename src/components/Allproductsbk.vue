@@ -290,36 +290,216 @@
               </div>
             </div>
           </div>
-		  <div class="row my-4">
-            <div class="col-sm-4  item" v-for="item in list" :key="item.id">
+          <div class="row my-4 productspage" v-html="productspage">
+            <div class="col-sm-4">
               <div class="product-item">
                 <div class="pro-img-bx">
-					<!-- <a href="/product/{{item.id}}">
-				  		<img :src="item.featured_image"  alt=""/>
-				  	</a> -->
-					  <router-link :to="{ path: '/product', query: { id: item.id }}">
-					  <img src="../assets/img/810G-B68TYL1.png" alt=""/>
-					  </router-link>
-                  <!-- <a href="/product/{{item.id}}">
-				  <img src="../assets/img/810G-B68TYL1.png" alt=""/>
-					</a> -->
+                  <a href="/product"
+                    ><img src="../assets/img/810G-B68TYL1.png" alt=""
+                  /></a>
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-					  <router-link :to="{ path: '/product', query: { id: item.id }}">{{item.name}}</router-link>
+                    <a href="/product">Omen 13 HP Laptop for Gaming</a>
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">${{item.net_price}}</span>
-					<span class="pro-icons">
-					  <img src="../assets/img/buy.png" class="img-fluid" />
-					  <img src="../assets/img/heart.png" />
-					</span>
+                    <span class="pro-price">$900.90</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
                   </div>
                 </div>
               </div>
             </div>
-		  </div>
-		  
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-1.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Asus 2021 Flagship TUF FX505GT</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$800.99</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-2.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$700.25</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-3.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$700.25</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-4.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$700.25</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-5.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$700.25</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-6.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$700.25</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-7.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$700.25</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-8.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$700.25</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-9.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$700.25</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-10.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$700.25</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="product-item">
+                <div class="pro-img-bx">
+                  <img src="../assets/img/810G-B68TYL1-11.png" alt="" />
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
+                  <div class="prod-p-icon">
+                    <span class="pro-price">$700.25</span
+                    ><span class="pro-icons"
+                      ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="row my-5">
             <div class="col-sm-12 d-flex justify-content-center">
               <div aria-label="Page navigation paginate-bx">
@@ -331,12 +511,16 @@
                       ></span>
                     </a>
                   </li>
-                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
                   <li class="page-item"><a class="page-link" href="#">2</a></li>
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item">
-					<a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true"
+                        ><i class="fas fa-chevron-right"></i
+                      ></span>
                     </a>
                   </li>
                 </ul>
@@ -362,27 +546,63 @@ export default {
     HeaderComp,
     FooterComp,
   },
+  data : {
+	  productspage : "Loading"
+  },
   data() {
     return {
-      list:[]
+      products: {
+        category: "computers",
+        subcategory: "dell",
+      },
     };
   },
-
-  async mounted () {
-	  let result = axios.get( "https://posh-marketplace.plego.pro/api/products")
-	 console.warn("Check Data") 
-	  console.warn((await result).data.data)
-	  this.list = (await result).data.data; 
+  mounted () {
+    this.getPosts('home');
   },
   methods: {
-    startLoader(){
-      var target_ContId = document.getElementById("loader-container");
-      target_ContId.style.display='block';
+    getPosts(e) {
+      axios
+        .get("https://posh-marketplace.plego.pro/api/products")
+        .then((result) => {
+          console.log(result.data);
+          const obj = result.data;
+          console.log(obj);
+		  var MyDiv = "";
+		  result.data.data.forEach(element => {
+			  console.log(element.parent_category);
+			  MyDiv+='<div class="col-sm-4"><div class="product-item">'+
+							'<div class="pro-img-bx">'+
+							' <a href="/product"'+
+							'  ><img src="../assets/img/810G-B68TYL1.png" alt=""'+
+							'/></a>'+
+							'</div>'+
+							'<div class="pro-title-bx">'+
+							' <h3 class="prod-title">'+
+							'   <a href="/product">'+(element.name)+'</a>'+
+							' </h3>'+
+							' <div class="prod-p-icon">'+
+							'   <span class="pro-price">$'+(element.net_price)+'</span'+
+							'   ><span class="pro-icons"'+
+							'     ><img src="../assets/img/buy.png" class="img-fluid" /><img'+
+							'       src="../assets/img/heart.png"'+
+							'   /></span>'+
+							' </div>'+
+							'</div>'+
+						'</div>'+
+						'</div>';
+		  });
+		  this.productspage = MyDiv;
+          // if(obj.success==true){
+          //   alert(obj.message);
+          //   this.signup="";
+          // } else {
+          //   alert("Some error occured");
+          // }
+          // console.log(result);
+        });
+      
     },
-    EndLoader(){
-      var target_ContId = document.getElementById("loader-container");
-      target_ContId.style.display='none';
-    }
-  }
+  },
 };
 </script>
