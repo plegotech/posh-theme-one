@@ -1,4 +1,9 @@
 <template>
+
+  <div id="loader-container">
+    <div class="back-load"></div>
+    <div class="loader"></div>
+  </div>
   <div>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
