@@ -54,7 +54,7 @@
                       class="form-control select-custom-point"
                       v-model="signup.gender"
                     >
-                      <option>Gender*</option>
+                      <option disabled :value="null">Gender*</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                       <option value="other">Other</option>
@@ -74,7 +74,7 @@
                       class="form-control select-custom-point"
                       v-model="signup.state"
                     >
-                      <option>State*</option>
+                      <option disabled :value="null">State*</option>
                       <option value="male">US</option>
                       <option value="female">UK</option>
                     </select>

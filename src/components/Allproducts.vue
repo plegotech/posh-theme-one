@@ -71,7 +71,7 @@
 												<input type="text" placeholder="Min" class="h-34 form-control min-price">
 												<span> - </span>
 												<input type="text" placeholder="Max" class="h-34 form-control max-price">
-												<button class="primary h-34">Go</button>
+												<button class="primary h-34 mas" @click="startLoader">Go</button>
 											</div>
 										</div>
 										<div class="sortby-opt">
@@ -257,6 +257,16 @@ export default {
   name: "Allproducts",
   components: {
       HeaderComp, FooterComp
+  },
+  methods: {
+    startLoader(){
+      var target_ContId = document.getElementById("loader-container");
+      target_ContId.style.display='block';
+    },
+    EndLoader(){
+      var target_ContId = document.getElementById("loader-container");
+      target_ContId.style.display='none';
+    }
   }
 };
 </script>
