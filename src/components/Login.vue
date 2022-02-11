@@ -9,10 +9,10 @@
 
         <div class="login-box mb-5">
           <h1>Sign-In</h1>
-          <form>
-            <input type="email" placeholder="Email Address*" />
+          <form @submit.prevent="loginData" method="POST">
+            <input type="email" placeholder="Email Address*" v-model="login.email" />
             <span class="eye-icon-pass"
-              ><input type="password" placeholder="Password*" /><i
+              ><input type="password" placeholder="Password*" v-model="login.password" /><i
                 class="fas fa-eye"
               ></i
             ></span>
@@ -23,13 +23,13 @@
             </label>
 
             <a href="#">Forgot Password?</a>
-            <button class="primary btn-block">Login</button>
+            <button class="primary btn-block" type="submit">Login</button>
           </form>
         </div>
         <div class="info-login">
           <h2>Don't have account yet?</h2>
           <ul>
-            <li><a href="#" class="">User Signup</a></li>
+            <li><a href="/signup" class="">User Signup</a></li>
           </ul>
         </div>
       </div>
@@ -40,7 +40,33 @@
 
 
 <script>
+import axios from 'axios';
 export default {
   name: "Login",
+  data() {
+    return {
+      login: {
+        email: null,
+        password: null
+      },
+    };
+  },
+  methods: {
+    loginData(e) {
+      axios.post("https://posh-marketplace.plego.pro/api/login",this.login).then((result)=>{
+        console.log(result.data);
+        const obj = result.data;
+        console.log(obj);
+        if(obj.success==true){
+          alert(obj.message);
+          this.$router.push('/home')
+        } else {
+          alert("Some error occured");
+        }
+        console.log(result);
+      })
+      e.preventDefault();
+    },
+  },
 };
 </script>

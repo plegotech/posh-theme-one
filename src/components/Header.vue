@@ -116,7 +116,7 @@
           </div>
         </div>
         <div class="bask-bx">
-          <a href="/shipping"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a>
+          <a href="/cart"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a>
           <span class="bx-amount">$0.00</span>
         </div>
       </div>

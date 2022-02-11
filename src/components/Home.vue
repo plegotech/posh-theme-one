@@ -17,10 +17,10 @@
                     <a href="/allproducts">Computer Systems</a
                     ><router-link path="/profile"></router-link>
                   </li>
-                  <li><a href="#">Electronics</a></li>
-                  <li><a href="#">Gaming</a></li>
-                  <li><a href="#">Networking</a></li>
-                  <li><a href="#">Office Solutions</a></li>
+                  <li><a href="/allproducts">Electronics</a></li>
+                  <li><a href="/allproducts">Gaming</a></li>
+                  <li><a href="/allproducts">Networking</a></li>
+                  <li><a href="/allproducts">Office Solutions</a></li>
                 </ul>
               </li>
               <li>
