@@ -12,6 +12,8 @@
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      v-model="params.brand"
+                      @click="updateParams"
                       class="form-check-input"
                       value="" />HP <span class="checkmark"></span
                   ></label>
@@ -290,36 +292,43 @@
               </div>
             </div>
           </div>
-		  <div class="row my-4">
-            <div class="col-sm-4  item" v-for="item in list" :key="item.id">
+          <div class="row my-4">
+            <div class="col-sm-4 item" v-for="item in list" :key="item.id">
               <div class="product-item">
                 <div class="pro-img-bx">
-					<!-- <a href="/product/{{item.id}}">
+                  <!-- <a href="/product/{{item.id}}">
 				  		<img :src="item.featured_image"  alt=""/>
 				  	</a> -->
-					  <router-link :to="{ path: '/product', query: { id: item.id }}">
-					  <img src="../assets/img/810G-B68TYL1.png" alt=""/>
-					  </router-link>
+                  <router-link
+                    :to="{ path: '/product', query: { id: item.id } }"
+                  >
+                    <img :src="getImgUrl(item.featured_image)" @error="$event.target.src='https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'"
+                      
+                    />
+                  </router-link>
                   <!-- <a href="/product/{{item.id}}">
 				  <img src="../assets/img/810G-B68TYL1.png" alt=""/>
 					</a> -->
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-					  <router-link :to="{ path: '/product', query: { id: item.id }}">{{item.name}}</router-link>
+                    <router-link
+                      :to="{ path: '/product', query: { id: item.id } }"
+                      >{{ item.name }}</router-link
+                    >
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">${{item.net_price}}</span>
-					<span class="pro-icons">
-					  <img src="../assets/img/buy.png" class="img-fluid" />
-					  <img src="../assets/img/heart.png" />
-					</span>
+                    <span class="pro-price">${{ item.net_price }}</span>
+                    <span class="pro-icons">
+                      <img src="../assets/img/buy.png" class="img-fluid" />
+                      <img src="../assets/img/heart.png" />
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
-		  </div>
-		  
+          </div>
+
           <div class="row my-5">
             <div class="col-sm-12 d-flex justify-content-center">
               <div aria-label="Page navigation paginate-bx">
@@ -331,12 +340,20 @@
                       ></span>
                     </a>
                   </li>
-                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
                   <li class="page-item"><a class="page-link" href="#">2</a></li>
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item">
-					<a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+                    <a
+                      class="page-link"
+                      v-on:click="pagination"
+                      aria-label="Next"
+                    >
+                      <span aria-hidden="true"
+                        ><i class="fas fa-chevron-right"></i
+                      ></span>
                     </a>
                   </li>
                 </ul>
@@ -353,9 +370,8 @@
 <script>
 import HeaderComp from "./Header.vue";
 import FooterComp from "./Footer.vue";
-import axios from 'axios';
-
-
+import axios from "axios";
+var paginate = 1;
 export default {
   name: "Allproducts",
   components: {
@@ -364,25 +380,59 @@ export default {
   },
   data() {
     return {
-      list:[]
+      list: [],
+      params: {
+        page: 1,
+        user: "",
+        orderBy: "",
+        order: "",
+        search: "",
+        status: "",
+        category: "",
+        sub_category: "",
+      },
+	  img_url : 'https://posh-marketplace.plego.pro/img/product-images/997/'
     };
   },
 
-  async mounted () {
-	  let result = axios.get( "https://posh-marketplace.plego.pro/api/products")
-	 console.warn("Check Data") 
-	  console.warn((await result).data.data)
-	  this.list = (await result).data.data; 
+  created() {},
+  async mounted() {
+    this.startLoader();
+    let result = axios.get(
+      "https://posh-marketplace.plego.pro/api/products",
+      this.params
+    );
+    console.warn("Check Data");
+    console.warn((await result).data.data);
+    this.list = (await result).data.data;
+    this.EndLoader();
+
+    setTimeout(() => {
+      this.pagination();
+    }, 2000);
   },
   methods: {
-    startLoader(){
-      var target_ContId = document.getElementById("loader-container");
-      target_ContId.style.display='block';
+    getImgUrl(pet) {
+		return this.img_url+pet;
     },
-    EndLoader(){
+    pagination() {
+      this.paginate += 1;
+      this.startLoader();
+      let result = axios.get(
+        "https://posh-marketplace.plego.pro/api/products/?page=" + this.paginate
+      );
+
+      this.EndLoader();
+      //alert("Hello");
+    },
+    startLoader() {
       var target_ContId = document.getElementById("loader-container");
-      target_ContId.style.display='none';
-    }
-  }
+      target_ContId.style.display = "block";
+    },
+    EndLoader() {
+      var target_ContId = document.getElementById("loader-container");
+      target_ContId.style.display = "none";
+    },
+  },
 };
 </script>

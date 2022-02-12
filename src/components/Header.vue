@@ -96,18 +96,19 @@
         </button>
       </form>
       <div class="head-right-info">
-        <div class="userLogined ">
+        <div class="userLogined " v-if="isHidden" >
           <div class="usr-img"><img src="../assets/../assets/img/profile.png" class="proImg"></div>
-          <div class="usr-title">John Doe </div>
+          <div class="usr-title">{{ userTitle }}</div>
           <i class="fas fa-chevron-down"></i>
           <ul class="userProfileMenu">
             <li><a href="#">Dashboard</a></li>
               <li><a href="#">My Orders</a></li>
                <li><a href="#">Track My Order</a></li>
                 <li><a href="#">My Profile</a></li>
+                <li><a href="#" @click="logout">Logout</a></li>
             </ul>
         </div>
-        <div class="btn-sign-register" style="display: none;">
+        <div class="btn-sign-register" v-if="!isHidden" >
           <img src="../assets/../assets/img/user-icon.png" class="uicon" />
           <div class="signin-reg">
             <span class="sign-reg"><a href="/login">Sign In</a></span>
@@ -155,6 +156,32 @@
 <script>
 export default {
   name: "header",
+  
+  data() {
+    return {
+      userTitle:"John",
+      isHidden: false
+    };
+  },
+  async mounted(){
+    if(localStorage.getItem("login")){
+      console.log("Login Data")
+      const logindata = JSON.parse(localStorage.getItem("login"));
+      this.userTitle=logindata.first_name+" "+logindata.last_name;
+      console.log(localStorage.getItem("login"))
+      this.isHidden=true;
+    } else {
+      localStorage.clear();
+      //this.$router.push({name:"Login"})
+    }
+  },
+  methods:{
+    logout() {
+      localStorage.clear();
+      alert("Logout Success");
+      this.isHidden=false;
+    }
+  }
 };
 </script>
 

@@ -51,19 +51,32 @@ export default {
       },
     };
   },
+  created(){
+  },
+  async mounted() {
+    if(localStorage.getItem("login")){
+      
+      this.$router.push({name:"Home"});
+    } else {
+      //alert("Not Logged In");
+    }
+
+  },
   methods: {
     loginData(e) {
       axios.post("https://posh-marketplace.plego.pro/api/login",this.login).then((result)=>{
         console.log(result.data);
         const obj = result.data;
-        console.log(obj);
+        //console.log(obj);
         if(obj.success==true){
           alert(obj.message);
+          localStorage.setItem("login", JSON.stringify(obj.userdetail));
+          
           this.$router.push('/home')
         } else {
-          alert("Some error occured");
+          //alert("Some error occured");
         }
-        console.log(result);
+        //console.log(result);
       })
       e.preventDefault();
     },
