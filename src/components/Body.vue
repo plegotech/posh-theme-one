@@ -81,21 +81,21 @@
               <div class="carousel-item active">
                 <img
                   class="d-block w-100"
-                  src="../assets/img/ecommerce.png"
+                  src="../assets/img/poshslider-1.png"
                   alt="First slide"
                 />
               </div>
               <div class="carousel-item">
                 <img
                   class="d-block w-100"
-                  src="../assets/img/ecommerce.png"
+                  src="../assets/img/poshslider-1.png"
                   alt="Second slide"
                 />
               </div>
               <div class="carousel-item">
                 <img
                   class="d-block w-100"
-                  src="../assets/img/ecommerce.png"
+                  src="../assets/img/poshslider-1.png"
                   alt="Third slide"
                 />
               </div>
@@ -127,7 +127,7 @@
           </div>
         </div>
         <div class="col-xl-3 col-lg-3 col-3 mt-3" id="MainSideBanner">
-          <div class="mb-4">
+          <div class="mb-3">
             <img src="../assets/img/rectangle_1.png" class="banner" alt="" />
           </div>
           <div class="">
@@ -172,14 +172,14 @@
               <div class="for-signup">
                 <h5>For more details and updates</h5>
                 <div class="signup-btn-bx">
-                  <button class="primary">Sign up</button>
-                  <p>Already Registered?<a href=""> SIGN IN </a></p>
+                  <a href="/signup"><button class="primary">Sign up</button></a>
+                  <p>Already Registered?<a href="/login"> SIGN IN </a></p>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-5 mb-4">
+            <div class="col-sm-5 mb-sm-0 mb-4">
               <img src="../assets/img/electronic-deals-img.jpg" alt="" />
             </div>
             <div class="col-sm-7">

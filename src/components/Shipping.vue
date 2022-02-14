@@ -29,8 +29,8 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group mb-4">
+              <div class="col-sm-6 mb-4">
+                <div class="form-group">
                   <label class="top-position">First Name*</label>
                   <input type="text" value="William" />
                 </div>
@@ -68,13 +68,13 @@
               </div>
               <div class="col-sm-6 mb-4">
                 <div class="form-group">
-                  <label class="top-position">State/Province*</label>
+                  <label class="top-position">City*</label>
                   <input type="text" value="California" />
                 </div>
               </div>
               <div class="col-sm-6 mb-4">
                 <div class="form-group">
-                  <label class="top-position">City*</label>
+                  <label class="top-position">Postal Zip Code*</label>
                   <input type="text" value="190001" />
                 </div>
               </div>
@@ -179,9 +179,9 @@
               </div>
               <div class="cartSummary-items bt-0">
                 <div class="csi-title">Discount</div>
-                <div class="csi-title-amount">$<strong>-$10.00</strong></div>
+                <div class="csi-title-amount">-$<strong> 10.00</strong></div>
               </div>
-              <div class="cartSummary-items pt-4">
+              <div class="cartSummary-items justify-sbetw pt-4">
                 <div class="csi-title-t">Total</div>
                 <div class="csi-total-amount">$<strong>3,088.55</strong></div>
               </div>
