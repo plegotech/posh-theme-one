@@ -11,6 +11,7 @@ import Signup from './components/Signup.vue'
 import Login from './components/Login.vue'
 import Checkout from './components/Checkout.vue'
 import Shipping from './components/Shipping.vue'
+import Carousel from './components/Carousel.vue'
 
 const routes = [
     {
@@ -71,6 +72,11 @@ const routes = [
         name: 'Profile',
         path: '/profile',
         component: Profile
+    },
+    {
+        name: 'Carousel',
+        path: '/cars',
+        component: Carousel
     },
 ]
 

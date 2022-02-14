@@ -296,19 +296,13 @@
             <div class="col-sm-4 item" v-for="item in list" :key="item.id">
               <div class="product-item">
                 <div class="pro-img-bx">
-                  <!-- <a href="/product/{{item.id}}">
-				  		<img :src="item.featured_image"  alt=""/>
-				  	</a> -->
-                  <router-link
-                    :to="{ path: '/product', query: { id: item.id } }"
-                  >
-                    <img :src="getImgUrl(item.featured_image)" @error="$event.target.src='https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'"
-                      
+                  <router-link :to="{ path: '/product', query: { id: item.id } }">
+                    <img :src="getImgUrl(item.featured_image)" @error="
+                        $event.target.src =
+                          'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                      "
                     />
                   </router-link>
-                  <!-- <a href="/product/{{item.id}}">
-				  <img src="../assets/img/810G-B68TYL1.png" alt=""/>
-					</a> -->
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
@@ -348,6 +342,7 @@
                   <li class="page-item">
                     <a
                       class="page-link"
+                      @click.prevent="next ='Foo'" 
                       v-on:click="pagination"
                       aria-label="Next"
                     >
@@ -391,7 +386,7 @@ export default {
         category: "",
         sub_category: "",
       },
-	  img_url : 'https://posh-marketplace.plego.pro/img/product-images/997/'
+      img_url: "https://posh-marketplace.plego.pro/img/product-images/997/",
     };
   },
 
@@ -409,19 +404,22 @@ export default {
 
     setTimeout(() => {
       this.pagination();
-    }, 2000);
+    }, 5000);
   },
   methods: {
     getImgUrl(pet) {
-		return this.img_url+pet;
+      return this.img_url + pet;
     },
-    pagination() {
+    async pagination() {
       this.paginate += 1;
       this.startLoader();
       let result = axios.get(
-        "https://posh-marketplace.plego.pro/api/products/?page=" + this.paginate
+        "https://posh-marketplace.plego.pro/api/products",
+        { params: { page: 2 } }, { useCredentails: true }
       );
-
+    console.warn("Check Data2");
+    console.warn((await result).data.data);
+    this.list = (await result).data.data;
       this.EndLoader();
       //alert("Hello");
     },

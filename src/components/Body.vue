@@ -305,6 +305,15 @@
           </div>
         </div>
         <div class="row">
+          <carousel
+    :starting-image="2"
+    :images="images"
+    :auto-slide-interval="5000"
+    :show-progress-bar="true"
+></carousel>
+
+        </div>
+        <div class="row">
           <div class="owl-carousel owl-theme" id="sellerCAtegories">
             <div class="bsc-slider-bx">
               <img src="../assets/img/Group-59.png" alt="" class="img-fluid" />
@@ -354,7 +363,6 @@
         </div>
       </div>
     </div>
-
     <div class="container-fluid bgcolor-gl">
       <div class="produ-listing-bx">
         <div class="row">
@@ -491,10 +499,12 @@
 
 import HeaderComp from './Header.vue'
 import FooterComp from "./Footer.vue";
+
+import Carousel from "./Carousel.vue"
 export default {
   name: "Body",
   components: {
-      HeaderComp, FooterComp
+      HeaderComp, FooterComp, Carousel
   }
 };
 </script>
