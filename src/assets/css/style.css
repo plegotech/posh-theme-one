@@ -578,7 +578,7 @@ label.top-position {
     top: -13px;
     left: 5px;
     background: #fff;
-    z-index: 9;
+    z-index: 2;
     padding: 0px 10px;
     font-size: 14px;
 }
@@ -786,6 +786,8 @@ section.testimonials {
 }
 .qty-push-bx {
     margin-right: 25px;
+    display: flex;
+    align-items: center;
 }
  .qty-push-bx button.btnminus-item {
     border-radius: 0 3px 3px 0;
