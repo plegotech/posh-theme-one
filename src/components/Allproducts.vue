@@ -407,6 +407,16 @@ export default {
     }, 5000);
   },
   methods: {
+    startLoader() {
+      console.log("karachi")
+      var target_ContId = document.getElementById("loader-container");
+      target_ContId.style.display = "block";
+    },
+    EndLoader() {
+      console.log("pak")
+      var target_ContId = document.getElementById("loader-container");
+      target_ContId.style.display = "none";
+    },
     getImgUrl(pet) {
       return this.img_url + pet;
     },
@@ -422,14 +432,6 @@ export default {
     this.list = (await result).data.data;
       this.EndLoader();
       //alert("Hello");
-    },
-    startLoader() {
-      var target_ContId = document.getElementById("loader-container");
-      target_ContId.style.display = "block";
-    },
-    EndLoader() {
-      var target_ContId = document.getElementById("loader-container");
-      target_ContId.style.display = "none";
     },
   },
 };
