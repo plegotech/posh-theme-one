@@ -55,8 +55,8 @@
                   </div>
                   <!-- END:: GALLERY HERE -->
                 </div>
-                <div class="gallery-pm-thumb">
-                  <div class="owl-thumbs" data-slider-id="1">
+                
+                  <div class="owl-thumbs gallery-pm-thumb" data-slider-id="1">
                     <button class="owl-thumb-item">
                       <div class="userimg">
                         <img src="../assets/img/akn-1250-1.png" alt="" />
@@ -90,7 +90,6 @@
                   </div>
                 </div>
               </div>
-            </div>
             <div class="col-lg-7">
               <div class="detial-sect">
                 <h1 class="title-pm-detail">
