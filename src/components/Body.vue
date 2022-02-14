@@ -305,12 +305,15 @@
           </div>
         </div>
         <div class="row">
-          <carousel
-    :starting-image="2"
-    :images="images"
-    :auto-slide-interval="5000"
-    :show-progress-bar="true"
-></carousel>
+        <img :src="currentImage" alt="">
+    <div 
+    v-for="(image, index) in  images"
+    :key="image.id"
+    :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
+    @click="activateImage(index)"
+    >
+    <img :src="image.thumb">
+</div>
 
         </div>
         <div class="row">
