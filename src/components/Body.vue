@@ -138,7 +138,19 @@
     </div>
 
     <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <Carousel :itemsToShow="3.95" :wrapAround="true">
+          <Slide v-for="slide in 10" :key="slide">
+            <div class="carousel__item">{{ slide }}</div>
+          </Slide>
+
+          ...
+        </Carousel>
+      </div>
+    </div>
       <div class="row">
+      
         <div class="col-md-4 col-12 mt-4 flex-sm">
           <div class="mb-4">
             <picture>
@@ -194,6 +206,8 @@
         </div>
       </div>
     </div>
+
+    
 
     <div class="container-fluid bgcolor-gl">
       <div class="produ-listing-bx mt-4">
@@ -502,12 +516,14 @@
 
 import HeaderComp from './Header.vue'
 import FooterComp from "./Footer.vue";
+import { defineComponent } from 'vue'
+import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
 
-import Carousel from "./Carousel.vue"
+
 export default {
   name: "Body",
   components: {
-      HeaderComp, FooterComp, Carousel
+      HeaderComp, FooterComp, Carousel, Slide, Pagination, Navigation,
   }
 };
 </script>
