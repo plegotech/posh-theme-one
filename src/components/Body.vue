@@ -304,6 +304,7 @@
             </div>
           </div>
         </div>
+
         <div class="row">
           <img :src="currentImage" alt="">
             <div 
@@ -314,7 +315,6 @@
             >
             <img :src="image.thumb">
         </div>
-
         <div class="row">
           <div class="owl-carousel owl-theme" id="sellerCAtegories">
             <div class="bsc-slider-bx">
