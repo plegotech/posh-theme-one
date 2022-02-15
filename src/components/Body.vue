@@ -315,6 +315,7 @@
             >
             <img :src="image.thumb">
         </div>
+        </div>
         <div class="row">
           <div class="owl-carousel owl-theme" id="sellerCAtegories">
             <div class="bsc-slider-bx">
