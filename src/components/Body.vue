@@ -305,17 +305,16 @@
           </div>
         </div>
         <div class="row">
-        <img :src="currentImage" alt="">
-    <div 
-    v-for="(image, index) in  images"
-    :key="image.id"
-    :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
-    @click="activateImage(index)"
-    >
-    <img :src="image.thumb">
-</div>
-
+          <img :src="currentImage" alt="">
+            <div 
+            v-for="(image, index) in  images"
+            :key="image.id"
+            :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
+            @click="activateImage(index)"
+            >
+            <img :src="image.thumb">
         </div>
+
         <div class="row">
           <div class="owl-carousel owl-theme" id="sellerCAtegories">
             <div class="bsc-slider-bx">
