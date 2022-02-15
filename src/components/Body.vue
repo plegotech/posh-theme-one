@@ -304,15 +304,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <carousel
-    :starting-image="2"
-    :images="images"
-    :auto-slide-interval="5000"
-    :show-progress-bar="true"
-></carousel>
 
-        </div>
         <div class="row">
           <div class="owl-carousel owl-theme" id="sellerCAtegories">
             <div class="bsc-slider-bx">
