@@ -406,8 +406,8 @@ export default {
     EndLoader() {
       console.log("pak")
       var target_ContId = document.getElementById("loader-container");
-      target_ContId.style.display = "none";    
-      },
+      target_ContId.style.display = "none";
+    },
     getImgUrl(pet) {
       return this.img_url + pet;
     },
