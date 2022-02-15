@@ -304,7 +304,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
+                <div class="row">
         <img :src="currentImage" alt="">
     <div 
     v-for="(image, index) in  images"
@@ -315,7 +315,6 @@
     <img :src="image.thumb">
 </div>
 
-        </div>
         <div class="row">
           <div class="owl-carousel owl-theme" id="sellerCAtegories">
             <div class="bsc-slider-bx">

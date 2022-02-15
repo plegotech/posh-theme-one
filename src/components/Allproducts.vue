@@ -12,8 +12,7 @@
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
-                      v-model="params.brand"
-                      @click="updateParams"
+                      @change="Filter('HP')"
                       class="form-check-input"
                       value="" />HP <span class="checkmark"></span
                   ></label>
@@ -22,6 +21,7 @@
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('Dell')"
                       class="form-check-input"
                       value="" />Dell <span class="checkmark"></span
                   ></label>
@@ -30,6 +30,7 @@
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('Asus')"
                       class="form-check-input"
                       value="" />ASUS <span class="checkmark"></span
                   ></label>
@@ -38,6 +39,7 @@
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('Lenovo')"
                       class="form-check-input"
                       value="" />Lenovo <span class="checkmark"></span
                   ></label>
@@ -46,6 +48,7 @@
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('Apple')"
                       class="form-check-input"
                       value="" />Apple <span class="checkmark"></span
                   ></label>
@@ -54,6 +57,7 @@
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('Acer')"
                       class="form-check-input"
                       value="" />Acer <span class="checkmark"></span
                   ></label>
@@ -62,6 +66,7 @@
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('MS')"
                       class="form-check-input"
                       value="" />MSI <span class="checkmark"></span
                   ></label>
@@ -70,6 +75,7 @@
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('Razor')"
                       class="form-check-input"
                       value="" />Razor <span class="checkmark"></span
                   ></label>
@@ -83,64 +89,36 @@
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('Black')"
                       class="form-check-input"
-                      value="" />HP <span class="checkmark"></span
+                      value="" />Black<span class="checkmark"></span
                   ></label>
                 </li>
                 <li>
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('White')"
                       class="form-check-input"
-                      value="" />Dell <span class="checkmark"></span
+                      value="" />White<span class="checkmark"></span
                   ></label>
                 </li>
                 <li>
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('Red')"
                       class="form-check-input"
-                      value="" />ASUS <span class="checkmark"></span
+                      value="" />Red<span class="checkmark"></span
                   ></label>
                 </li>
                 <li>
                   <label class="form-check-label"
                     ><input
                       type="checkbox"
+                      @change="Filter('Green')"
                       class="form-check-input"
-                      value="" />Lenovo <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />Apple <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />Acer <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />MSI <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />Razor <span class="checkmark"></span
+                      value="" />Green<span class="checkmark"></span
                   ></label>
                 </li>
               </ul>
@@ -257,6 +235,14 @@
               </ul>
             </div>
           </div>
+          <!-- <button
+            type="button"
+            name="filter"
+            class="col-sm-12 primary h-34"
+            @click="Filter"
+          >
+            Apply Filter
+          </button> -->
         </div>
         <div class="col-lg-10">
           <div class="row">
@@ -296,8 +282,12 @@
             <div class="col-sm-4 item" v-for="item in list" :key="item.id">
               <div class="product-item">
                 <div class="pro-img-bx">
-                  <router-link :to="{ path: '/product', query: { id: item.id } }">
-                    <img :src="getImgUrl(item.featured_image)" @error="
+                  <router-link
+                    :to="{ path: '/product', query: { id: item.id } }"
+                  >
+                    <img
+                      :src="getImgUrl(item.featured_image)"
+                      @error="
                         $event.target.src =
                           'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
                       "
@@ -328,11 +318,15 @@
               <div aria-label="Page navigation paginate-bx">
                 <ul class="pagination bottm-pagination">
                   <li class="page-item inactive">
-                    <a class="page-link" href="#" aria-label="Previous">
+                    <button
+                      class="page-link"
+                      aria-label="Previous"
+                      @click="pagination('b')"
+                    >
                       <span aria-hidden="true"
                         ><i class="fas fa-chevron-left"></i
                       ></span>
-                    </a>
+                    </button>
                   </li>
                   <li class="page-item active">
                     <a class="page-link" href="#">1</a>
@@ -340,16 +334,15 @@
                   <li class="page-item"><a class="page-link" href="#">2</a></li>
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item">
-                    <a
+                    <button
                       class="page-link"
-                      @click.prevent="next ='Foo'" 
-                      v-on:click="pagination"
                       aria-label="Next"
+                      @click="pagination('n')"
                     >
                       <span aria-hidden="true"
                         ><i class="fas fa-chevron-right"></i
                       ></span>
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -390,7 +383,6 @@ export default {
     };
   },
 
-  created() {},
   async mounted() {
     this.startLoader();
     let result = axios.get(
@@ -401,12 +393,11 @@ export default {
     console.warn((await result).data.data);
     this.list = (await result).data.data;
     this.EndLoader();
-
-    setTimeout(() => {
-      this.pagination();
-    }, 5000);
   },
   methods: {
+    data: {
+      brand: "",
+    },
     startLoader() {
       console.log("karachi")
       var target_ContId = document.getElementById("loader-container");
@@ -415,21 +406,41 @@ export default {
     EndLoader() {
       console.log("pak")
       var target_ContId = document.getElementById("loader-container");
-      target_ContId.style.display = "none";
-    },
+      target_ContId.style.display = "none";    
+      },
     getImgUrl(pet) {
       return this.img_url + pet;
     },
-    async pagination() {
-      this.paginate += 1;
+    async Filter(brand) {
+      alert(brand);
       this.startLoader();
       let result = axios.get(
         "https://posh-marketplace.plego.pro/api/products",
-        { params: { page: 2 } }, { useCredentails: true }
+        { params: { sub_category: brand } },
+        { useCredentails: true }
       );
-    console.warn("Check Data2");
-    console.warn((await result).data.data);
-    this.list = (await result).data.data;
+      console.warn("Check Data2");
+      console.warn((await result).data.data);
+      this.list = (await result).data.data;
+      this.EndLoader();
+    },
+    async pagination(action) {
+      if (action == "b") {
+        if (paginate > 0) paginate -= 1;
+        alert("Back: " + paginate);
+      } else {
+        if (paginate <= 3) paginate += 1;
+        alert("Next: " + paginate);
+      }
+      this.startLoader();
+      let result = axios.get(
+        "https://posh-marketplace.plego.pro/api/products",
+        { params: { page: paginate } },
+        { useCredentails: true }
+      );
+      console.warn("Check Data2");
+      console.warn((await result).data.data);
+      this.list = (await result).data.data;
       this.EndLoader();
       //alert("Hello");
     },
