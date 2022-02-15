@@ -82,8 +82,8 @@ body.home{background:#fff}
 .seller-temp nav .navbar-brand {color:white;}
 .seller-temp nav {
     background: #0862A3;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 0px;
+    padding-left: 0px;
 }
 .seller-temp nav form {float: right;display: block;width: 70%;position: relative;}
 .seller-temp nav form input.form-control {
@@ -231,6 +231,56 @@ img.search-icon {
     background: #f1f1f1;
     margin-bottom: 0;
 }
+.loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #0862A3;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    z-index: 11;
+    position: absolute;
+    top: calc(50% - 60px);
+    left: calc(50% - 60px);
+}
+div#loader-container {
+    display: none;
+}
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+.back-load {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    background: white;
+    opacity: .7;
+}
 .side-menu ul {
     list-style: none;
 }
@@ -284,8 +334,10 @@ h3.prod-title a,h3.prod-title{
     color: #19191D;
 }
 .for-signup h5 {
-    text-align: center;
+    text-align: left;
     padding-top: 10px;
+    width: 100%;
+    padding-left: 20px;
 }
 img.onlineShp {
     text-align: center;
@@ -302,9 +354,10 @@ img.onlineShp {
 span.pro-icons {
     float: right;
     padding-top: 5px;
+    padding-right: 15px;
 }
 span.pro-icons img {
-    width: 40px;
+    width: 38px;
     cursor: pointer;
 }
 h2.cat-title {
