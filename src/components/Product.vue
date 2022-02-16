@@ -22,53 +22,53 @@
           <div class="col-lg-5">
             <div class="gallery-pm-detail">
               <div class="gallery-pm-main">
+                <!-- START GALLERY HERE -->               
+                  <div class="mySlides">
+                    <img src="../assets/img/810G-B68TYL1-7.png" style="width:100%">
+                  </div>
 
-                <Carousel :itemsToShow="1" :wrapAround="true" >
-                  <Slide v-for="slide in 3" :key="slide">
-                    <div class="bsc-slider-bx">
-                      <img src="../assets/img/Rectangle28.png" alt="" class="img-fluid" />
+                  <div class="mySlides">
+                    <img src="../assets/img/810G-B68TYL1-6.png" style="width:100%">
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="../assets/img/810G-B68TYL1-5.png" style="width:100%">
+                  </div>
+                    
+                  <div class="mySlides">
+                    <img src="../assets/img/810G-B68TYL1-4.png" style="width:100%">
+                  </div>
+
+                  <div class="mySlides">
+                    <img src="../assets/img/810G-B68TYL1-3.png" style="width:100%">
+                  </div>
+                    
+                  <div class="mySlides">
+                    <img src="../assets/img/810G-B68TYL-1.png" style="width:100%">
+                  </div>
+                  <div class="row gallery-pm-thumb">
+                    <div class="column">
+                      <img class="demo cursor" src="../assets/img/pro-thu-1.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
                     </div>
-                  </Slide>
-                    <template #addons>
-                      <Navigation />
-                    </template>
-                </Carousel>
-
-                <!-- START GALLERY HERE -->
+                    <div class="column">
+                      <img class="demo cursor" src="../assets/img/pro-thu-2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
+                    </div>
+                    <div class="column">
+                      <img class="demo cursor" src="../assets/img/pro-thu-3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+                    </div>
+                    <div class="column">
+                      <img class="demo cursor" src="../assets/img/pro-thu-4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+                    </div>
+                    <div class="column">
+                      <img class="demo cursor" src="../assets/img/pro-thu-5.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+                    </div>    
+                    <div class="column">
+                      <img class="demo cursor" src="../assets/img/pro-thu-6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+                    </div>
+                  </div>              
                 <!-- END:: GALLERY HERE -->
               </div>
-                <div class="owl-thumbs gallery-pm-thumb" data-slider-id="1">
-                  <button class="owl-thumb-item">
-                    <div class="userimg">
-                      <img src="../assets/img/akn-1250-1.png" alt="" />
-                    </div>
-                  </button>
-                  <button class="owl-thumb-item">
-                    <div class="userimg">
-                      <img src="../assets/img/akn-1250.png" alt="" />
-                    </div>
-                  </button>
-                  <button class="owl-thumb-item">
-                    <div class="userimg">
-                      <img src="../assets/img/akn-1250-3.png" alt="" />
-                    </div>
-                  </button>
-                  <button class="owl-thumb-item">
-                    <div class="userimg">
-                      <img src="../assets/img/akn-1250-3.png" alt="" />
-                    </div>
-                  </button>
-                  <button class="owl-thumb-item">
-                    <div class="userimg">
-                      <img src="../assets/img/akn-1250-1.png" alt="" />
-                    </div>
-                  </button>
-                  <button class="owl-thumb-item">
-                    <div class="userimg">
-                      <img src="../assets/img/akn-1250.png" alt="" />
-                    </div>
-                  </button>
-                </div>
+                
               </div>
             </div>
           <div class="col-lg-7">
