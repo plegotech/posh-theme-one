@@ -48,7 +48,7 @@
                   </div>
                   <div class="row gallery-pm-thumb">
                     <div class="column">
-                      <img class="demo cursor" src="../assets/img/pro-thu-1.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+                      <img class="demo cursor active" src="../assets/img/pro-thu-1.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
                     </div>
                     <div class="column">
                       <img class="demo cursor" src="../assets/img/pro-thu-2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
