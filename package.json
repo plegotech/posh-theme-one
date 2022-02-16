@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.25.0",
     "cors": "^2.8.5",
+    "hooper": "^0.3.4",
     "vue": "^3.2.25",
     "vue-carousel": "^0.18.0",
     "vue-router": "^4.0.12",
