@@ -138,17 +138,7 @@
     </div>
 
     <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-12">
-        <Carousel :itemsToShow="3.95" :wrapAround="true">
-          <Slide v-for="slide in 10" :key="slide">
-            <div class="carousel__item">{{ slide }}</div>
-          </Slide>
-
-          ...
-        </Carousel>
-      </div>
-    </div>
+    
       <div class="row">
       
         <div class="col-md-4 col-12 mt-4 flex-sm">
@@ -319,18 +309,22 @@
           </div>
         </div>
 
-        <div class="row">
-          <img :src="currentImage" alt="">
-            <div 
-            v-for="(image, index) in  images"
-            :key="image.id"
-            :class="['thumbnail-image', (activeImage == index) ? 'active' : '']"
-            @click="activateImage(index)"
-            >
-            <img :src="image.thumb">
-        </div>
-        </div>
-        <div class="row">
+       <div class="row">
+      <div class="col-sm-12">
+        <Carousel :itemsToShow="8" :wrapAround="true" >
+          <Slide v-for="slide in 20" :key="slide">
+             <div class="bsc-slider-bx">
+              <img src="../assets/img/Group-59.png" alt="" class="img-fluid" />
+              <h5>Watches</h5>
+            </div>
+          </Slide>
+          <template #addons>
+            <Navigation />
+          </template>
+        </Carousel>
+      </div>
+    </div>
+        <div class="row" style="display:none">
           <div class="owl-carousel owl-theme" id="sellerCAtegories">
             <div class="bsc-slider-bx">
               <img src="../assets/img/Group-59.png" alt="" class="img-fluid" />
@@ -516,7 +510,7 @@
 
 import HeaderComp from './Header.vue'
 import FooterComp from "./Footer.vue";
-import { defineComponent } from 'vue'
+import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
 
 

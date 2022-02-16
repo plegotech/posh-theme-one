@@ -1586,7 +1586,11 @@ ul.side-submenu li a:hover {
 .price-limit-opt span {
     padding-right: 15px;
 }
-
+section.carousel .carousel__prev, section.carousel .carousel__next {
+    background: transparent;
+    color: #ccc;
+    font-size: calc(var(--vc-nav-width) * 5 / 6);
+}
 /* Profile */
 .userLogined {
     display: flex;

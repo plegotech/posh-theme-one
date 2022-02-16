@@ -22,13 +22,19 @@
           <div class="col-lg-5">
             <div class="gallery-pm-detail">
               <div class="gallery-pm-main">
-                <!-- START GALLERY HERE -->
 
-                <div class="slider1 owl-carousel" data-slider-id="1">
-                  <div><img src="../assets/img/Rectangle28.png" alt="" class="img-fluid" /></div>
-                  <div><img src="../assets/img/Rectangle28.png" alt="" class="img-fluid" /></div>
-                  <div><img src="../assets/img/Rectangle28.png" alt="" class="img-fluid" /></div>
-                </div>
+                <Carousel :itemsToShow="1" :wrapAround="true" >
+                  <Slide v-for="slide in 3" :key="slide">
+                    <div class="bsc-slider-bx">
+                      <img src="../assets/img/Rectangle28.png" alt="" class="img-fluid" />
+                    </div>
+                  </Slide>
+                    <template #addons>
+                      <Navigation />
+                    </template>
+                </Carousel>
+
+                <!-- START GALLERY HERE -->
                 <!-- END:: GALLERY HERE -->
               </div>
                 <div class="owl-thumbs gallery-pm-thumb" data-slider-id="1">
@@ -295,10 +301,13 @@
 
 import HeaderComp from './Header.vue'
 import FooterComp from "./Footer.vue";
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
+
 export default {
   name: "Product",
   components: {
-      HeaderComp, FooterComp
+      HeaderComp, FooterComp, Carousel, Slide, Pagination, Navigation,
   }
 };
 </script>
