@@ -4,245 +4,245 @@
     <div class="container-fluid">
       <div class="row mt-5">
         <div class="col-sm-2 hide-xs-bx">
-          <div class="sidebar-options mt-3">
-            <div class="brand-options">
-              <h5>Brand</h5>
-              <ul class="products-cat-opt">
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('HP')"
-                      class="form-check-input"
-                      value="" />HP <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('Dell')"
-                      class="form-check-input"
-                      value="" />Dell <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('Asus')"
-                      class="form-check-input"
-                      value="" />ASUS <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('Lenovo')"
-                      class="form-check-input"
-                      value="" />Lenovo <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('Apple')"
-                      class="form-check-input"
-                      value="" />Apple <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('Acer')"
-                      class="form-check-input"
-                      value="" />Acer <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('MS')"
-                      class="form-check-input"
-                      value="" />MSI <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('Razor')"
-                      class="form-check-input"
-                      value="" />Razor <span class="checkmark"></span
-                  ></label>
-                </li>
-              </ul>
+          <form @submit.prevent="getFilterData" method="post">
+            <div class="sidebar-options mt-3">
+              <div class="brand-options">
+                <h5>Brand</h5>
+                <ul class="products-cat-opt">
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="brand"
+                        class="form-check-input"
+                        value="HP" />HP <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="brand"
+                        class="form-check-input"
+                        value="Dell" />Dell <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        v-model="brand"
+                        type="checkbox"
+                        class="form-check-input"
+                        value="Asus" />ASUS <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="brand"
+                        class="form-check-input"
+                        value="Lenovo" />Lenovo <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="Apple"
+                        class="form-check-input"
+                        value="" />Apple <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="brand"
+                        class="form-check-input"
+                        value="Acer" />Acer <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="brand"
+                        class="form-check-input"
+                        value="MSi" />MSI <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="brand"
+                        class="form-check-input"
+                        value="Razor" />Razor <span class="checkmark"></span
+                    ></label>
+                  </li>
+                </ul>
+              </div>
+              <div class="brand-options">
+                <h5>Available Colours</h5>
+                <ul class="products-cat-opt">
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="colors"
+                        class="form-check-input"
+                        value="black" />Black<span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="colors"
+                        class="form-check-input"
+                        value="white" />White<span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="colors"
+                        class="form-check-input"
+                        value="red" />Red<span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="colors"
+                        class="form-check-input"
+                        value="green" />Green<span class="checkmark"></span
+                    ></label>
+                  </li>
+                </ul>
+              </div>
+              <div class="brand-options">
+                <h5>Warranty Duration</h5>
+                <ul class="products-cat-opt">
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="warranty"
+                        class="form-check-input"
+                        value="1" />1 Year <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        v-model="warranty"
+                        type="checkbox"
+                        class="form-check-input"
+                        value="2" />2 Years <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="warranty"
+                        class="form-check-input"
+                        value="3" />3 Years <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="warranty"
+                        class="form-check-input"
+                        value="4" />4 Years <span class="checkmark"></span
+                    ></label>
+                  </li>
+                </ul>
+              </div>
+              <div class="brand-options">
+                <h5>Processor Type</h5>
+                <ul class="products-cat-opt">
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="processor"
+                        class="form-check-input"
+                        value="3" />Core i3 <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="processor"
+                        class="form-check-input"
+                        value="5" />Core i5 <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="processor"
+                        class="form-check-input"
+                        value="7" />Core i7 <span class="checkmark"></span
+                    ></label>
+                  </li>
+                </ul>
+              </div>
+              <div class="brand-options">
+                <h5>RAM</h5>
+                <ul class="products-cat-opt">
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="ram"
+                        class="form-check-input"
+                        value="2" />2 GB RAM <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="ram"
+                        class="form-check-input"
+                        value="4" />4 GB RAM <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="ram"
+                        class="form-check-input"
+                        value="8" />8 GB RAM <span class="checkmark"></span
+                    ></label>
+                  </li>
+                  <li>
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="ram"
+                        class="form-check-input"
+                        value="16" />16 GB RAM <span class="checkmark"></span
+                    ></label>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="brand-options">
-              <h5>Available Colours</h5>
-              <ul class="products-cat-opt">
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('Black')"
-                      class="form-check-input"
-                      value="" />Black<span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('White')"
-                      class="form-check-input"
-                      value="" />White<span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('Red')"
-                      class="form-check-input"
-                      value="" />Red<span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      @change="Filter('Green')"
-                      class="form-check-input"
-                      value="" />Green<span class="checkmark"></span
-                  ></label>
-                </li>
-              </ul>
-            </div>
-            <div class="brand-options">
-              <h5>Warranty Duration</h5>
-              <ul class="products-cat-opt">
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />HP <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />Dell <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />ASUS <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />Lenovo <span class="checkmark"></span
-                  ></label>
-                </li>
-              </ul>
-            </div>
-            <div class="brand-options">
-              <h5>Processor Type</h5>
-              <ul class="products-cat-opt">
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />HP <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />Dell <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />ASUS <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />Lenovo <span class="checkmark"></span
-                  ></label>
-                </li>
-              </ul>
-            </div>
-            <div class="brand-options">
-              <h5>CPU Speed</h5>
-              <ul class="products-cat-opt">
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />HP <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />Dell <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />ASUS <span class="checkmark"></span
-                  ></label>
-                </li>
-                <li>
-                  <label class="form-check-label"
-                    ><input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="" />Lenovo <span class="checkmark"></span
-                  ></label>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- <button
-            type="button"
-            name="filter"
-            class="col-sm-12 primary h-34"
-            @click="Filter"
-          >
-            Apply Filter
-          </button> -->
+            <button type="submit" name="filter" class="col-sm-12 primary h-34">
+              Apply Filter
+            </button>
+          </form>
         </div>
         <div class="col-lg-10">
           <div class="row">
@@ -368,17 +368,13 @@ export default {
   },
   data() {
     return {
+      query: null,
       list: [],
-      params: {
-        page: 1,
-        user: "",
-        orderBy: "",
-        order: "",
-        search: "",
-        status: "",
-        category: "",
-        sub_category: "",
-      },
+      brand: [],
+      colors: [],
+      warranty: [],
+      ram: [],
+      processor: [],
       img_url: "https://posh-marketplace.plego.pro/img/product-images/997/",
     };
   },
@@ -395,16 +391,34 @@ export default {
     this.EndLoader();
   },
   methods: {
-    data: {
-      brand: "",
+    async getFilterData() {
+      alert(this.brand.toString() + "\n\n" + this.colors.toString());
+      this.startLoader();
+      let result = axios.get(
+        "https://posh-marketplace.plego.pro/api/products",
+        {
+          params: {
+            sub_category: this.brand.toString(),
+            color: this.colors.toString(),
+            processor: this.processor.toString(),
+            ram: this.ram.toString(),
+            warranty: this.warranty.toString(),
+          },
+        },
+        { useCredentails: true }
+      );
+      console.warn("Check Data2");
+      console.warn((await result).data.data);
+      this.list = (await result).data.data;
+      this.EndLoader();
     },
     startLoader() {
-      console.log("karachi")
+      console.log("karachi");
       var target_ContId = document.getElementById("loader-container");
       target_ContId.style.display = "block";
     },
     EndLoader() {
-      console.log("pak")
+      console.log("pak");
       var target_ContId = document.getElementById("loader-container");
       target_ContId.style.display = "none";
     },
