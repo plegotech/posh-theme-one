@@ -133,7 +133,8 @@
                 </ul>
               </div>
               <div class="col-12 mb-5">
-                <a class="primary nxtbtn" href="/payment">NEXT</a>
+                
+                <router-link class="primary nxtbtn" to="payment">NEXT</router-link>
               </div>
             </div>
           </div>

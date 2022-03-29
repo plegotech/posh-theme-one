@@ -7,7 +7,8 @@
   <div>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-      <a class="navbar-brand" href="/home">Posh Market</a>
+      <!-- <a class="navbar-brand" href="/home">Posh Market</a> -->
+      <router-link to="home" class="navbar-brand">Posh Market</router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -105,19 +106,28 @@
               <li><a href="#">My Orders</a></li>
                <li><a href="#">Track My Order</a></li>
                 <li><a href="#">My Profile</a></li>
-                <li><a href="#" @click="logout">Logout</a></li>
+                <li>
+                  <a href="#" @click="logout">Logout</a>
+                  </li>
             </ul>
         </div>
         <div class="btn-sign-register" v-if="!isHidden" >
           <img src="../assets/../assets/img/user-icon.png" class="uicon" />
           <div class="signin-reg">
-            <span class="sign-reg"><a href="/login">Sign In</a></span>
+            <span class="sign-reg">
+              <!-- <a href="/login">Sign In</a> -->
+              <router-link to="login">Sign In</router-link>
+            </span>
             <span class="sign-or-reg">or</span>
-            <span class="sign-reg"><a href="/signup">Register</a></span>
+            <span class="sign-reg">
+              <!-- <a href="/signup">Register</a> -->
+              <router-link to="signup">Register</router-link>
+            </span>
           </div>
         </div>
         <div class="bask-bx">
-          <a href="/cart"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a>
+          <!-- <a href="/cart"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a> -->
+          <router-link to="cart" class="cartitems"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /><span></span></router-link>
           <span class="bx-amount">$0.00</span>
         </div>
       </div>
@@ -167,6 +177,12 @@ export default {
     if(localStorage.getItem("login")){
       console.log("Login Data")
       const logindata = JSON.parse(localStorage.getItem("login"));
+      var totalQty=0;
+      logindata.cartitems.forEach(function(items) {
+        console.log("Qty: "+items.quantity)
+        totalQty+=items.quantity
+      })
+      $(".cartitems span").html(totalQty);
       this.userTitle=logindata.first_name+" "+logindata.last_name;
       console.log(localStorage.getItem("login"))
       this.isHidden=true;

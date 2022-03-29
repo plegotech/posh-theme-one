@@ -2,9 +2,12 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import axios from 'axios';
-
 import 'vue3-carousel/dist/carousel.css';
+const dev = process.env.NODE_ENV == 'production';
+// axios.defaults.baseURL="https://posh-marketplace.plego.pro/api/";
+const url = dev ? 'http://127.0.0.1:8000' : 'https://posh-marketplace.plego.pro';
 
-axios.defaults.baseURL="https://posh-marketplace.plego.pro/api/";
-//Vue.prototype.$http = axios;
+axios.defaults.baseURL=url+"/api/";
+
+//app.config.globalProperties.$assets = assets+"/src/assets";
 createApp(App).use(router, axios).mount('#app')

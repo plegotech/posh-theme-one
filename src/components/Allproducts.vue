@@ -15,7 +15,7 @@
                         type="checkbox"
                         v-model="brand"
                         class="form-check-input"
-                        value="HP" />HP <span class="checkmark"></span
+                        value="hp" />HP <span class="checkmark"></span
                     ></label>
                   </li>
                   <li>
@@ -24,7 +24,7 @@
                         type="checkbox"
                         v-model="brand"
                         class="form-check-input"
-                        value="Dell" />Dell <span class="checkmark"></span
+                        value="dell" />Dell <span class="checkmark"></span
                     ></label>
                   </li>
                   <li>
@@ -33,7 +33,7 @@
                         v-model="brand"
                         type="checkbox"
                         class="form-check-input"
-                        value="Asus" />ASUS <span class="checkmark"></span
+                        value="asus" />ASUS <span class="checkmark"></span
                     ></label>
                   </li>
                   <li>
@@ -42,7 +42,7 @@
                         type="checkbox"
                         v-model="brand"
                         class="form-check-input"
-                        value="Lenovo" />Lenovo <span class="checkmark"></span
+                        value="lenovo" />Lenovo <span class="checkmark"></span
                     ></label>
                   </li>
                   <li>
@@ -51,7 +51,7 @@
                         type="checkbox"
                         v-model="Apple"
                         class="form-check-input"
-                        value="" />Apple <span class="checkmark"></span
+                        value="Apple" />Apple <span class="checkmark"></span
                     ></label>
                   </li>
                   <li>
@@ -60,7 +60,7 @@
                         type="checkbox"
                         v-model="brand"
                         class="form-check-input"
-                        value="Acer" />Acer <span class="checkmark"></span
+                        value="acer" />Acer <span class="checkmark"></span
                     ></label>
                   </li>
                   <li>
@@ -250,23 +250,31 @@
               <div class="cat-title-pg">
                 <h4>Gaming Laptops</h4>
                 <div class="cat-option-pg">
+                  <form @submit.prevent="getFilterData" method="post">
                   <div class="price-limit-opt">
+                    
                     <span>Price: </span>
                     <div class="form-group min-max-bx">
-                      <input
-                        type="text"
-                        placeholder="Min"
-                        class="h-34 form-control min-price"
-                      />
-                      <span> - </span>
-                      <input
-                        type="text"
-                        placeholder="Max"
-                        class="h-34 form-control max-price"
-                      />
-                      <button class="primary h-34">Go</button>
+                      
+                        <input
+                          type="text"
+                          v-model="min_price"
+                          placeholder="Min"
+                          class="h-34 form-control min-price"
+                        />
+                        <span> - </span>
+                        <input
+                          type="text"
+                          v-model="max_price"
+                          placeholder="Max"
+                          class="h-34 form-control max-price"
+                        />
+                        <button class="primary h-34" type="submit" name="filter">Go</button>
+                      
                     </div>
+                    
                   </div>
+                  </form>
                   <div class="sortby-opt">
                     <label class="top-position">Sort By</label>
                     <select class="select-custom-point">
@@ -283,7 +291,7 @@
               <div class="product-item">
                 <div class="pro-img-bx">
                   <router-link
-                    :to="{ path: '/product', query: { id: item.id } }"
+                    :to="{ path: '/product', query: { id: item.id }, props: true }"
                   >
                     <img
                       :src="getImgUrl(item.featured_image)"
@@ -297,7 +305,7 @@
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
                     <router-link
-                      :to="{ path: '/product', query: { id: item.id } }"
+                      :to="{ path: '/product', query: { id: item.id }, params: item.id }"
                       >{{ item.name }}</router-link
                     >
                   </h3>
@@ -314,7 +322,7 @@
           </div>
 
           <div class="row my-5">
-            <div class="col-sm-12 d-flex justify-content-center">
+            <div class="col-sm-12 d-flex align-items-end">
               <div aria-label="Page navigation paginate-bx">
                 <ul class="pagination bottm-pagination">
                   <li class="page-item inactive">
@@ -328,11 +336,7 @@
                       ></span>
                     </button>
                   </li>
-                  <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+
                   <li class="page-item">
                     <button
                       class="page-link"
@@ -362,6 +366,9 @@ import axios from "axios";
 var paginate = 1;
 export default {
   name: "Allproducts",
+  props : {
+    product_id:0
+  },
   components: {
     HeaderComp,
     FooterComp,
@@ -376,15 +383,14 @@ export default {
       ram: [],
       processor: [],
       img_url: "https://posh-marketplace.plego.pro/img/product-images/997/",
+      min_price: 0,
+      max_price: 0,
     };
   },
 
   async mounted() {
     this.startLoader();
-    let result = axios.get(
-      "https://posh-marketplace.plego.pro/api/products",
-      this.params
-    );
+    let result = axios.get(axios.defaults.baseURL + "products", this.params);
     console.warn("Check Data");
     console.warn((await result).data.data);
     this.list = (await result).data.data;
@@ -392,17 +398,21 @@ export default {
   },
   methods: {
     async getFilterData() {
-      alert(this.brand.toString() + "\n\n" + this.colors.toString());
+      // alert("\n\nBrand:\n"+this.brand.toString() + "\n\nColors:\n" + this.colors.toString()
+      // +"\n\nWarranty:\n"+this.warranty.toString()+"\n\nProcessor:\n"+this.processor.toString()
+      // +"\n\nRAM:\n"+this.ram.toString());
       this.startLoader();
       let result = axios.get(
-        "https://posh-marketplace.plego.pro/api/products",
+        axios.defaults.baseURL + "products",
         {
           params: {
-            sub_category: this.brand.toString(),
-            color: this.colors.toString(),
-            processor: this.processor.toString(),
-            ram: this.ram.toString(),
-            warranty: this.warranty.toString(),
+              min_price:this.min_price,
+              max_price:this.max_price,
+              brand:this.brand.toString(), 
+              colors: this.colors.toString(),
+              warranty: this.warranty.toString(), 
+              ram:this.ram.toString(),
+              processor: this.processor.toString()
           },
         },
         { useCredentails: true }
@@ -425,30 +435,17 @@ export default {
     getImgUrl(pet) {
       return this.img_url + pet;
     },
-    async Filter(brand) {
-      alert(brand);
-      this.startLoader();
-      let result = axios.get(
-        "https://posh-marketplace.plego.pro/api/products",
-        { params: { sub_category: brand } },
-        { useCredentails: true }
-      );
-      console.warn("Check Data2");
-      console.warn((await result).data.data);
-      this.list = (await result).data.data;
-      this.EndLoader();
-    },
     async pagination(action) {
       if (action == "b") {
         if (paginate > 0) paginate -= 1;
-        alert("Back: " + paginate);
+        //alert("Back: " + paginate);
       } else {
         if (paginate <= 3) paginate += 1;
-        alert("Next: " + paginate);
+        //alert("Next: " + paginate);
       }
       this.startLoader();
       let result = axios.get(
-        "https://posh-marketplace.plego.pro/api/products",
+        axios.defaults.baseURL + "products",
         { params: { page: paginate } },
         { useCredentails: true }
       );
