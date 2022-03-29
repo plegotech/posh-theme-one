@@ -30,8 +30,9 @@ const routes = [
     },
     {
         name: 'Allproducts',
-        path: '/allproducts',
-        component: Allproducts
+        path: '/allproducts/:id?',
+        component: Allproducts,
+        props: true
     },
     {
         name: 'Product',

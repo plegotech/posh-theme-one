@@ -326,7 +326,7 @@
               <div aria-label="Page navigation paginate-bx">
                 <ul class="pagination bottm-pagination">
                   <li class="page-item inactive">
-                    <button
+                    <button id="back"
                       class="page-link"
                       aria-label="Previous"
                       @click="pagination('b')"
@@ -337,8 +337,8 @@
                     </button>
                   </li>
 
-                  <li class="page-item">
-                    <button
+                  <li class="page-item ">
+                    <button id="next"
                       class="page-link"
                       aria-label="Next"
                       @click="pagination('n')"
@@ -376,6 +376,7 @@ export default {
   data() {
     return {
       query: null,
+      subcategory: null,
       list: [],
       brand: [],
       colors: [],
@@ -390,7 +391,17 @@ export default {
 
   async mounted() {
     this.startLoader();
-    let result = axios.get(axios.defaults.baseURL + "products", this.params);
+        $("#back").prop('disabled', true);
+        $("#back").parent().addClass('inactive');
+
+    this.sub_category = this.$route.query.id;
+    let result = axios.get(axios.defaults.baseURL + "products", 
+    {
+          params: {
+              sub_category: this.$route.query.id
+          },
+        },
+        { useCredentails: true });
     console.warn("Check Data");
     console.warn((await result).data.data);
     this.list = (await result).data.data;
@@ -398,6 +409,10 @@ export default {
   },
   methods: {
     async getFilterData() {
+
+        $("#back").prop('disabled', true);
+        $("#back").parent().addClass('inactive');
+
       // alert("\n\nBrand:\n"+this.brand.toString() + "\n\nColors:\n" + this.colors.toString()
       // +"\n\nWarranty:\n"+this.warranty.toString()+"\n\nProcessor:\n"+this.processor.toString()
       // +"\n\nRAM:\n"+this.ram.toString());
@@ -412,7 +427,8 @@ export default {
               colors: this.colors.toString(),
               warranty: this.warranty.toString(), 
               ram:this.ram.toString(),
-              processor: this.processor.toString()
+              processor: this.processor.toString(),
+              sub_category: this.sub_category
           },
         },
         { useCredentails: true }
@@ -446,12 +462,33 @@ export default {
       this.startLoader();
       let result = axios.get(
         axios.defaults.baseURL + "products",
-        { params: { page: paginate } },
+        {
+          params: {
+              min_price:this.min_price,
+              max_price:this.max_price,
+              brand:this.brand.toString(), 
+              colors: this.colors.toString(),
+              warranty: this.warranty.toString(), 
+              ram:this.ram.toString(),
+              processor: this.processor.toString(),
+              sub_category: this.sub_category,
+              page: paginate
+          },
+        },
         { useCredentails: true }
       );
       console.warn("Check Data2");
+      var t_data = (await result).data;
+      var remaining = t_data.total-t_data.per_page;
+
+      console.warn("Total: "+(t_data.total));
+      console.warn("Per Page: "+(t_data.per_page));
+      console.warn("remaining: "+remaining);
+      console.warn("current_page: "+(t_data.current_page));
+      
       console.warn((await result).data.data);
       this.list = (await result).data.data;
+      //page: paginate
       this.EndLoader();
       //alert("Hello");
     },
