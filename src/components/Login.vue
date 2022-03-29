@@ -29,7 +29,10 @@
         <div class="info-login">
           <h2>Don't have account yet?</h2>
           <ul>
-            <li><a href="/signup" class="">User Signup</a></li>
+            <li>
+              
+              <router-link to="signup">User Signup</router-link>
+            </li>
           </ul>
         </div>
       </div>
@@ -64,7 +67,7 @@ export default {
   },
   methods: {
     loginData(e) {
-      axios.post("https://posh-marketplace.plego.pro/api/login",this.login).then((result)=>{
+      axios.post(axios.defaults.baseURL +"login",this.login).then((result)=>{
         console.log(result.data);
         const obj = result.data;
         //console.log(obj);
@@ -72,7 +75,7 @@ export default {
           alert(obj.message);
           localStorage.setItem("login", JSON.stringify(obj.userdetail));
           
-          this.$router.push('/home')
+          this.$router.push('home')
         } else {
           //alert("Some error occured");
         }

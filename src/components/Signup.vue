@@ -128,7 +128,7 @@
                   </button>
                   <p class="mt-3 mb-1">Already Have an account?</p>
                   <span class="link-b-b">
-                    <a href="/login"><strong>Sign-In</strong></a>
+                    <router-link to="login"><strong>Sign-In</strong></router-link>
                   </span>
                 </div>
               </form>
@@ -163,13 +163,7 @@ export default {
   },
   methods: {
     postData(e) {
-      
-      //console.log(this.signup);
-      // axios.get("https://api.coindesk.com/v1/bpi/currentprice.json").then((result)=>{
-      //   console.log(result);
-      // })
-      //axios.post("http://127.0.0.1:8000/api/user",this.signup).then((result)=>{
-      axios.post("https://posh-marketplace.plego.pro/api/user",this.signup).then((result)=>{
+      axios.post(axios.defaults.baseURL +"user",this.signup).then((result)=>{
         console.log(result.data);
         const obj = result.data;
         console.log(obj);

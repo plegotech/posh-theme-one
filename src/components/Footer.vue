@@ -51,8 +51,16 @@
           <div class="col-md-2 col-6">
             <h5>Download App</h5>
             <div class="download-links">
-              <img src="../assets/img/Google-Play.png" class="downloadapp" alt="" />
-              <img src="../assets/img/App-Store.png" class="downloadapp" alt="" />
+              <img
+                src="../assets/img/Google-Play.png"
+                class="downloadapp"
+                alt=""
+              />
+              <img
+                src="../assets/img/App-Store.png"
+                class="downloadapp"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -61,14 +69,34 @@
     <div class="footer-weaccept">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12 ">
+          <div class="col-12">
             <p class="footer-wa">We Accept</p>
             <div class="footer-cards">
-              <img src="../assets/img/Rectangle-22.png" class="img-fluid" alt="" />
-              <img src="../assets/img/Rectangle-23.png" class="img-fluid" alt="" />
-              <img src="../assets/img/Rectangle-24.png" class="img-fluid" alt="" />
-              <img src="../assets/img/Rectangle-25.png" class="img-fluid" alt="" />
-              <img src="../assets/img/Rectangle-26.png" class="img-fluid" alt="" />
+              <img
+                src="../assets/img/Rectangle-22.png"
+                class="img-fluid"
+                alt=""
+              />
+              <img
+                src="../assets/img/Rectangle-23.png"
+                class="img-fluid"
+                alt=""
+              />
+              <img
+                src="../assets/img/Rectangle-24.png"
+                class="img-fluid"
+                alt=""
+              />
+              <img
+                src="../assets/img/Rectangle-25.png"
+                class="img-fluid"
+                alt=""
+              />
+              <img
+                src="../assets/img/Rectangle-26.png"
+                class="img-fluid"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -86,14 +114,12 @@
       </div>
     </div>
   </footer>
-
-  
 </template>
                 
 
 
 <script>
 export default {
-  name: 'Footer'
-}
+  name: "Footer"
+};
 </script>

@@ -110,12 +110,17 @@
                 </ul>
               </div>
               <div class="addtocart-select-pm">
-								<div class="qty-push-bx">							
-									<button class="incrementNum btnplus-item" >+</button>
-									<input value="1" placeholder="1" id="txtAcrescimo" class="qty-number" >
-									<button class="incrementNum btnminus-item" >-</button>
-								</div>
-								<a href="/shipping"><button class="primary">Add to Cart</button></a>
+                <form method="post" @submit.prevent="addtocart">
+                  <div class="qty-push-bx">							
+                    <button class="incrementNum btnplus-item" >+</button>
+                    <input type="hidden" v-model="product_id" />
+                    <input type="hidden" v-model="user_id" />
+                    <input type="text" v-model="cartform.quantity" placeholder="1" id="txtAcrescimo" class="qty-number" />
+                    <button class="incrementNum btnminus-item" >-</button>
+                  </div>
+                  
+                  <button type="submit" class="primary" on>Add to Cart</button>
+                </form>
 							</div>
             </div>
           </div>
@@ -302,12 +307,63 @@
 import HeaderComp from './Header.vue'
 import FooterComp from "./Footer.vue";
 import 'vue3-carousel/dist/carousel.css';
+import axios from "axios";
 import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
+
 
 export default {
   name: "Product",
   components: {
       HeaderComp, FooterComp, Carousel, Slide, Pagination, Navigation,
-  }
+  },
+  data() {
+    return {
+      cartform: {
+        product_id: 0,
+        user_id:0,
+        quantity:0
+      }
+      
+    };
+  },
+  async mounted(){
+    if(localStorage.getItem("login")){
+      console.log("Login Data")
+      const logindata = JSON.parse(localStorage.getItem("login"));
+      this.cartform.user_id = logindata.id
+    }
+  },
+  methods: {
+    async addtocart(e) {
+
+    if(this.cartform.quantity==0){
+      alert("Quantity must be atleast 1")
+    } else {
+      this.cartform.product_id = this.$route.query.id;
+      console.log(this.cartform)
+        axios.post(axios.defaults.baseURL +"addtocart",this.cartform).then((result)=>{
+          console.log(result.data);
+          const obj = result.data;
+          console.log(obj);
+          if(obj.success==true){
+            alert("Product Added to the Cart");  
+          } else {
+            alert("Some error occured");
+          }
+        })
+    }
+    e.preventDefault();
+    },
+    startLoader() {
+      console.log("karachi");
+      var target_ContId = document.getElementById("loader-container");
+      target_ContId.style.display = "block";
+    },
+    EndLoader() {
+      console.log("pak");
+      var target_ContId = document.getElementById("loader-container");
+      target_ContId.style.display = "none";
+    }
+  }  
 };
 </script>

@@ -9,64 +9,16 @@
           <div class="side-menu mt-3 hide-mobile-bx">
             <h1>TOP CATEGORIES</h1>
             <ul>
-              <li>
-                <img src="../assets/img/menu-template/components.png" />Components<i
-                  class="fas fa-angle-right"
-                ></i>
+              <li  v-for="item in list" :key="item.id">
+                <img v-bind:src="'../src/assets/img/menu-template/'+ item.img + ''" />
+                <router-link to="allproducts">{{ item.title }}</router-link>
+                <i class="fas fa-angle-right"></i>
                 <ul class="side-submenu">
-                  <li><a href="#">Components</a></li>
-                  <li>
-                    <a href="/allproducts"  >Computer Systems</a>
+                  <li  v-for="subitem in item.children" :key="subitem.id">
+                    <router-link to="allproducts">{{subitem.title}}</router-link>
                   </li>
-                  <li><a href="#">Electronics</a></li>
-                  <li><a href="#">Gaming</a></li>
-                  <li><a href="#">Networking</a></li>
-                  <li><a href="#">Office Solutions</a></li>
                 </ul>
-              </li>
-              <li>
-                <img src="../assets/img/menu-template/computer.png" />Computer Systems<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="../assets/img/menu-template/electronics.png" />Electronics<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="../assets/img/menu-template/game.png" />Gaming<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="../assets/img/menu-template/networking.png" />Networking<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="../assets/img/menu-template/office.png" />Office Solutions<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="../assets/img/menu-template/software-service.png" />Software
-                Services<i class="fas fa-angle-right"></i>
-              </li>
-              <li>
-                <img src="../assets/img/menu-template/automotive.png" />Automotives<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="../assets/img/menu-template/home&tool.png" />Home & Tools<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="../assets/img/menu-template/health.png" />Health & Sports<i
-                  class="fas fa-angle-right"
-                ></i>
+
               </li>
             </ul>
           </div>
@@ -174,8 +126,10 @@
               <div class="for-signup">
                 <h5>For more details and updates</h5>
                 <div class="signup-btn-bx">
-                  <a href="/signup"><button class="primary">Sign up</button></a>
-                  <p>Already Registered?<a href="/login"> SIGN IN </a></p>
+                  <!-- <a href="/signup"><button class="primary">Sign up</button></a> -->
+                  <router-link to="signup"><button class="primary">Sign up</button></router-link>
+                  <p>Already Registered?<router-link to="login">SIGN IN</router-link>
+                  </p>
                 </div>
               </div>
             </div>
@@ -513,11 +467,46 @@ import FooterComp from "./Footer.vue";
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
 
-
+import axios from "axios";
 export default {
   name: "Body",
   components: {
       HeaderComp, FooterComp, Carousel, Slide, Pagination, Navigation,
+  },
+  data() {
+    return {
+      list: []
+    };
+  },
+  async mounted() {
+    
+    this.startLoader();
+    let result = axios.get(axios.defaults.baseURL + "categories", this.params);
+    console.warn("Check Data");
+    console.warn((await result).data);
+    this.list = (await result).data;
+    this.EndLoader();
+  },
+  methods: {
+    startLoader() {
+      console.log("karachi");
+      var target_ContId = document.getElementById("loader-container");
+      target_ContId.style.display = "block";
+    },
+    EndLoader() {
+      console.log("pak");
+      var target_ContId = document.getElementById("loader-container");
+      target_ContId.style.display = "none";
+    },
+    getImgUrl(pet) {
+      return createElement('img', {
+        attrs: {
+          src: require('@assets/img/menu-template/'+pet) // this is now a module request
+        }
+      })
+    },
+
   }
+
 };
 </script>
