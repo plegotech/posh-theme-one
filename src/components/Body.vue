@@ -11,11 +11,15 @@
             <ul>
               <li  v-for="item in list" :key="item.id">
                 <img v-bind:src="'../src/assets/img/menu-template/'+ item.img + ''" />
-                <router-link to="allproducts">{{ item.title }}</router-link>
+                  <router-link
+                    :to="{ path: 'allproducts', query: { id: item.id }, props: true }"
+                  >{{ item.title }}</router-link>
                 <i class="fas fa-angle-right"></i>
                 <ul class="side-submenu">
                   <li  v-for="subitem in item.children" :key="subitem.id">
-                    <router-link to="allproducts">{{subitem.title}}</router-link>
+                    <router-link
+                      :to="{ path: 'allproducts', query: { id: subitem.id }, props: true }"
+                    >{{ subitem.title }}</router-link>
                   </li>
                 </ul>
 
@@ -483,8 +487,15 @@ export default {
     this.startLoader();
     let result = axios.get(axios.defaults.baseURL + "categories", this.params);
     console.warn("Check Data");
-    console.warn((await result).data);
-    this.list = (await result).data;
+    const obj = (await result).data;
+    console.warn(obj);
+    if(obj.success==true){
+      this.list = obj.data;
+    } else {
+      alert("Issue loading categories");
+    }
+    //console.warn((await result).data);
+    //this.list = (await result).data;
     this.EndLoader();
   },
   methods: {
