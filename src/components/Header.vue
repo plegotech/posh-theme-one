@@ -127,7 +127,7 @@
         </div>
         <div class="bask-bx">
           <!-- <a href="/cart"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a> -->
-          <router-link to="cart" class="cartitems"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /><span></span></router-link>
+          <router-link to="cart" class="cartitems"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /><span v-html="itemsincart"></span></router-link>
           <span class="bx-amount">$0.00</span>
         </div>
       </div>
@@ -170,6 +170,7 @@ export default {
   data() {
     return {
       userTitle:"John",
+      itemsincart:0,
       isHidden: false
     };
   },
@@ -182,7 +183,7 @@ export default {
         console.log("Qty: "+items.quantity)
         totalQty+=items.quantity
       })
-      $(".cartitems span").html(totalQty);
+      this.itemsincart=totalQty;
       this.userTitle=logindata.first_name+" "+logindata.last_name;
       console.log(localStorage.getItem("login"))
       this.isHidden=true;

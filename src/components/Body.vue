@@ -10,7 +10,7 @@
             <h1>TOP CATEGORIES</h1>
             <ul>
               <li  v-for="item in list" :key="item.id">
-                <img v-bind:src="'../src/assets/img/menu-template/'+ item.img + ''" />
+                <img src='../assets/img/menu-template/computer.png' />
                   <router-link
                     :to="{ path: 'allproducts', query: { id: item.id }, props: true }"
                   >{{ item.title }}</router-link>

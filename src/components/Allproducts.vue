@@ -376,8 +376,9 @@ export default {
   data() {
     return {
       query: null,
-      subcategory: null,
+      subcategory: this.$route.query.id,
       list: [],
+      filterlist: [],
       brand: [],
       colors: [],
       warranty: [],
@@ -390,32 +391,10 @@ export default {
   },
 
   async mounted() {
-    this.startLoader();
-        $("#back").prop('disabled', true);
-        $("#back").parent().addClass('inactive');
-
-    this.sub_category = this.$route.query.id;
-    let result = axios.get(axios.defaults.baseURL + "products", 
-    {
-          params: {
-              sub_category: this.$route.query.id
-          },
-        },
-        { useCredentails: true });
-    console.warn("Check Data");
-    console.warn((await result).data.data);
-    this.list = (await result).data.data;
-    this.EndLoader();
+    this.getFilterData();
   },
   methods: {
     async getFilterData() {
-
-        $("#back").prop('disabled', true);
-        $("#back").parent().addClass('inactive');
-
-      // alert("\n\nBrand:\n"+this.brand.toString() + "\n\nColors:\n" + this.colors.toString()
-      // +"\n\nWarranty:\n"+this.warranty.toString()+"\n\nProcessor:\n"+this.processor.toString()
-      // +"\n\nRAM:\n"+this.ram.toString());
       this.startLoader();
       let result = axios.get(
         axios.defaults.baseURL + "products",
@@ -485,7 +464,7 @@ export default {
       console.warn("Per Page: "+(t_data.per_page));
       console.warn("remaining: "+remaining);
       console.warn("current_page: "+(t_data.current_page));
-      
+
       console.warn((await result).data.data);
       this.list = (await result).data.data;
       //page: paginate

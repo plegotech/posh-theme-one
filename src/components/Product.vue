@@ -322,7 +322,8 @@ export default {
         product_id: 0,
         user_id:0,
         quantity:0
-      }
+      },
+      
       
     };
   },
@@ -347,6 +348,22 @@ export default {
           console.log(obj);
           if(obj.success==true){
             alert("Product Added to the Cart");  
+
+            var totalQty=0;
+            obj.message.cartitems.forEach(function(items) {
+              console.log("Qty: "+items.quantity)
+              totalQty+=items.quantity
+            })
+            //this.itemsincart=totalQty;
+            $(".cartitems").children("span").html(totalQty);
+            
+		if(localStorage.getItem("login")){
+      console.log("Login Data")
+      const logindata = JSON.parse(localStorage.getItem("login"));
+      logindata.cartitems=obj.message.cartitems
+      localStorage.setItem("login", JSON.stringify(logindata));
+		}
+
           } else {
             alert("Some error occured");
           }
