@@ -5,7 +5,7 @@
 				<div class="cart-itesm-bx">
 					<div class="row mt-4">
 						<div class="col-12">
-							<h4>Cart <span>(2 Items)</span></h4>
+							<h4>Cart <span id="cartcount">({{count_cartitems}} Items)</span></h4>
 						</div>
 					</div>
 					<div class="row">
@@ -25,7 +25,7 @@
 									</div>
 								</div>
 								<div class="cartItems-box" v-for="item in cartitemslist" :key="item.id">
-									{{myMethod(item.products_table.net_price)}}
+									{{myMethod(item.products_table.net_price, item.quantity)}}
 									
 									<div class="cartI-1">
 										<div class="cart-item-img" style="width:100px;"><img src="../assets/img/cart-item-1.png" alt=""
@@ -34,10 +34,10 @@
 									</div>
 									<div class="cartI-2">
 										<div class="ci-push-bx">
-											<input v-bind:value="''+item.quantity+''" class="qty-number" min=1>
+											<input v-bind:value="''+item.quantity+''" v-bind:id="'cart_'+item.id+''" class="qty-number">
 											<div class="cart-add-item">
-												<button class="btnplus-item" onclick="increment()">+</button>
-												<button class="btnminus-item" onclick="decrement()">-</button>
+												<button class="btnplus-item" v-on:click="increment(item.id)" >+</button>
+												<button class="btnminus-item" v-on:click="decrement(item.id)">-</button>
 											</div>
 										</div>
 									</div>
@@ -45,12 +45,11 @@
 										<h5 class="ci-price">${{item.products_table.net_price }}</h5>
 									</div>
 									<div class="cartI-4">
-										<div class="carti-remove"><img src="../assets/img/remove-icon.png" alt=""
-												class="img-fluid"></div>
+										<div class="carti-remove"><button v-on:click="removecartitem(item.id)"><img src="../assets/img/remove-icon.png" alt="" class="img-fluid"></button></div>
 									</div>
 								</div>
 								<div class="cart-item-updates">
-									<button class="primary"><img src="../assets/img/edit-icon.png" alt="">Update cart</button>
+									<button class="primary" v-on:click="updatecart"><img src="../assets/img/edit-icon.png" alt="">Update cart</button>
 									<button class="secndary" v-on:click="removeAll" ><img src="../assets/img/remove-icon.png" alt="">REMOVE ALL</button>
 								</div>
 							</div>
@@ -120,6 +119,8 @@ export default {
 	  },
 	async getCartData() {
 		this.startLoader();
+		this.total_price = 0;
+		this.count = 0
 		let result = axios.post(
 		axios.defaults.baseURL + "usercartdata",
 		{
@@ -132,7 +133,30 @@ export default {
 		console.log("Cart Check Data2");
 		console.log((await result).data);
 		
-		this.cartitemslist = (await result).data;		
+		this.cartitemslist = (await result).data;	
+		
+		var totalQty=0;
+		var tempTotalPrice=0;
+		this.count_cartitems = this.cartitemslist.length;
+		this.cartitemslist.forEach(function(items) {
+			console.log("Qty: "+items.quantity)
+			totalQty+=items.quantity
+			tempTotalPrice+=(items.quantity*items.item_price)
+			
+		})
+		this.total_price = tempTotalPrice
+		//this.itemsincart=totalQty;
+		$(".cartitems").children("span").html(totalQty);
+
+		if(localStorage.getItem("login")){
+			console.log("Login Data")
+			const logindata = JSON.parse(localStorage.getItem("login"));
+			this.user_id = logindata.id;			
+			logindata.cartitems=this.cartitemslist;
+			localStorage.setItem("login", JSON.stringify(logindata));
+		}
+		
+
 		//this.count_cartitems = this.cartitemslist.length
 		this.EndLoader();
 	},
@@ -153,12 +177,13 @@ export default {
 		console.log("Cart Check Data2");
 		console.log((await result).data);
 
-		if(localStorage.getItem("login")){
-		console.log("Login Data")
-		const logindata = JSON.parse(localStorage.getItem("login"));
-		logindata.cartitems=[]
-		localStorage.setItem("login", JSON.stringify(logindata));
-		}
+this.getCartData();	
+		// if(localStorage.getItem("login")){
+		// console.log("Login Data")
+		// const logindata = JSON.parse(localStorage.getItem("login"));
+		// logindata.cartitems=[]
+		// localStorage.setItem("login", JSON.stringify(logindata));
+		// }
 
 
 		this.EndLoader();
@@ -174,14 +199,74 @@ export default {
 		var target_ContId = document.getElementById("loader-container");
 		target_ContId.style.display = "none";
 	},
-	myMethod(val){
+	myMethod(val, qty){
 		//alert(val)
 		this.count++;
-		if(this.count<=this.cartitemslist.length){
-			this.total_price= this.total_price+val;
-		}
+
+		// if(this.count==1){
+		// 	this.total_price=0
+		// }
+		// if(this.count<=this.cartitemslist.length){
+		// 	this.total_price= this.total_price+(val*qty);
+		// }
 		return;
+	},
+	increment(cart_id){
+		var val = $("#cart_"+cart_id).val();
+		//if(val>=1){
+			val++;
+			$("#cart_"+cart_id).val(val);
+		//}
+		//var val = $this.previousElementSibling.value;
+		//alert(cart_id+" - "+val);
+	},
+	decrement(cart_id){
+		var val = $("#cart_"+cart_id).val();
+		if(val>=1){
+			val--;
+		}
+		$("#cart_"+cart_id).val(val);
+	},
+	removecartitem(cart_id){
+		var val = $("#cart_"+cart_id).val();
+		console.log(cart_id);
+		this.startLoader();
+		//this.cartitemslist = null
+		//$(".cartitems").children("span").html(0)
+		
+		let result = axios.post(
+		axios.defaults.baseURL + "removecartdata",
+		{
+
+				user_id: this.user_id,
+				cart_item_id: cart_id
+
+		},
+		{ 
+			useCredentails: true 
+		}
+		);
+		
+		this.getCartData();	
+		// console.log("Cart Check Data2");
+		// console.log((await result).data);
+
+		// if(localStorage.getItem("login")){
+		// console.log("Login Data")
+		// const logindata = JSON.parse(localStorage.getItem("login"));
+		// logindata.cartitems=[]
+		// localStorage.setItem("login", JSON.stringify(logindata));
+		// }
+
+
+		//this.EndLoader();
+
+
+	},
+	updatecart(){
+
 	}
+
   }
 
 

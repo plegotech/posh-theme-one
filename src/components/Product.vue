@@ -73,50 +73,17 @@
             </div>
           <div class="col-lg-7">
             <div class="detial-sect">
-              <h1 class="title-pm-detail">
-                ASUS TUF F15 Gaming Laptop, 15.6" Full HD 144Hz Screen, Intel
-                Core i7-10870H Processor, NVIDIA GeForce GTX 1660 Ti, 32GB DDR4
-                Memory, 512GB SSD + 1TB HDD, RGB Backlit Keyboard, Windows 10
-                Home, Gray
-              </h1>
-              <h1 class="price-pm-detail">$<strong>1,569.99</strong></h1>
-              <div class="short-pm-detail">
-                <ul>
-                  <li>
-                    Memory is 32 GB high-bandwidth RAM to smoothly run multiple
-                    applications and browser tabs all at once.
-                  </li>
-                  <li>
-                    Hard Drive is 512GB PCIe NVMe M.2 Solid State Drive which
-                    allows to fast bootup, data transfer + 1TB Hard Disk Drive
-                    for ample storage space
-                  </li>
-                  <li>
-                    Intel Core i7-10870H 2.20 GHz 8-Core Processor (16MB Cache,
-                    up to 5.0GHz), NVIDIA GeForce GTX 1660 Ti GDDR6 6GB Graphics
-                  </li>
-                  <li>15.6" Full HD (1920 x 1080) 144Hz Display</li>
-                  <li>
-                    Ports and Operating System: 2 x USB 3.2, 1 x USB 2.0, 1 x
-                    HDMI port, 1 x DisplayPort, 1 x LAN: 10/100/1000 Mbps, 1 x
-                    3.5mm combo audio jack, Windows 10 Home 64-bit, Wireless
-                    Wi-Fi 6 (802.11ax) + Bluetooth 5.0
-                  </li>
-                  <li>
-                    Original Seal is opened for upgrade ONLY, 1-years warranty
-                    on Upgraded RAM/SSD from DE Electronics, and original 1-Year
-                    Manufacture warranty on remaining components
-                  </li>
-                </ul>
+              <h1 class="title-pm-detail">{{ product_info.name }}</h1>
+              <h1 class="price-pm-detail">$<strong>{{ product_info.net_price }}</strong></h1>
+              <div class="short-pm-detail">{{product_info.description}}
+                
               </div>
               <div class="addtocart-select-pm">
                 <form method="post" @submit.prevent="addtocart">
                   <div class="qty-push-bx">							
-                    <button class="incrementNum btnplus-item" >+</button>
                     <input type="hidden" v-model="product_id" />
                     <input type="hidden" v-model="user_id" />
-                    <input type="text" v-model="cartform.quantity" placeholder="1" id="txtAcrescimo" class="qty-number" />
-                    <button class="incrementNum btnminus-item" >-</button>
+                    <input type="number" min="1" max="100" v-model="cartform.quantity" placeholder="1" id="txtAcrescimo" class="qty-number" />
                   </div>
                   
                   <button type="submit" class="primary" on>Add to Cart</button>
@@ -321,9 +288,10 @@ export default {
       cartform: {
         product_id: 0,
         user_id:0,
-        quantity:0
+        quantity:0,
+        item_price:0
       },
-      
+      product_info:[]
       
     };
   },
@@ -333,42 +301,57 @@ export default {
       const logindata = JSON.parse(localStorage.getItem("login"));
       this.cartform.user_id = logindata.id
     }
+    this.cartform.product_id = this.$route.query.id;
+    
+    this.getProductInfo();
   },
   methods: {
+    async getProductInfo(){
+      this.startLoader();
+      
+      let result = axios.get(axios.defaults.baseURL+"product/get/"+(this.cartform.product_id));
+      console.log((await result).data);
+      this.product_info = (await result).data
+      this.EndLoader();
+    },
     async addtocart(e) {
-
-    if(this.cartform.quantity==0){
-      alert("Quantity must be atleast 1")
-    } else {
-      this.cartform.product_id = this.$route.query.id;
-      console.log(this.cartform)
-        axios.post(axios.defaults.baseURL +"addtocart",this.cartform).then((result)=>{
-          console.log(result.data);
-          const obj = result.data;
-          console.log(obj);
-          if(obj.success==true){
-            alert("Product Added to the Cart");  
-
-            var totalQty=0;
-            obj.message.cartitems.forEach(function(items) {
-              console.log("Qty: "+items.quantity)
-              totalQty+=items.quantity
-            })
-            //this.itemsincart=totalQty;
-            $(".cartitems").children("span").html(totalQty);
+this.startLoader()
+          if(this.cartform.quantity==0){
+            alert("Quantity must be atleast 1")
+          } else {
             
-		if(localStorage.getItem("login")){
-      console.log("Login Data")
-      const logindata = JSON.parse(localStorage.getItem("login"));
-      logindata.cartitems=obj.message.cartitems
-      localStorage.setItem("login", JSON.stringify(logindata));
-		}
+            this.cartform.item_price = this.product_info.net_price;
+            this.cartform.product_id = this.$route.query.id;
+            console.log(this.cartform)
+              axios.post(axios.defaults.baseURL +"addtocart",this.cartform).then((result)=>{
+                console.log(result.data);
+                const obj = result.data;
+                console.log(obj);
+                if(obj.success==true){
+                  alert("Product Added to the Cart");  
+
+                  var totalQty=0;
+                  obj.message.cartitems.forEach(function(items) {
+                    console.log("Qty: "+items.quantity)
+                    totalQty+=items.quantity
+                  })
+                  //this.itemsincart=totalQty;
+                  $(".cartitems").children("span").html(totalQty);
+                  
+          if(localStorage.getItem("login")){
+            console.log("Login Data")
+            const logindata = JSON.parse(localStorage.getItem("login"));
+            logindata.cartitems=obj.message.cartitems
+            localStorage.setItem("login", JSON.stringify(logindata));
+          }
 
           } else {
             alert("Some error occured");
           }
         })
+        
     }
+    this.EndLoader()
     e.preventDefault();
     },
     startLoader() {
@@ -380,7 +363,23 @@ export default {
       console.log("pak");
       var target_ContId = document.getElementById("loader-container");
       target_ContId.style.display = "none";
-    }
+    },
+    increment(cart_id){
+      var val = $("#cart_"+cart_id).val();
+      //if(val>=1){
+        val++;
+        $("#cart_"+cart_id).val(val);
+      //}
+      //var val = $this.previousElementSibling.value;
+      //alert(cart_id+" - "+val);
+    },
+    decrement(cart_id){
+      var val = $("#cart_"+cart_id).val();
+      if(val>=1){
+        val--;
+      }
+      $("#cart_"+cart_id).val(val);
+    },    
   }  
 };
 </script>
