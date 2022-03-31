@@ -30,7 +30,7 @@
 									<div class="cartI-1">
 										<div class="cart-item-img" style="width:100px;"><img src="../assets/img/cart-item-1.png" alt=""
 												class="img-fluid"></div>
-										<p >{{item.products_table.brand}}</p>
+										<p >{{item.products_table.name}} {{item.products_table.description}}</p>
 									</div>
 									<div class="cartI-2">
 										<div class="ci-push-bx">
@@ -264,7 +264,18 @@ this.getCartData();
 
 	},
 	updatecart(){
+		//updatecart
+		this.startLoader();
+		$(".ci-push-bx").each(function(){
+			console.log($(this).children("input").val())
+			console.log($(this).children("input").attr("id"))
 
+			axios.post(axios.defaults.baseURL+"updatecart",{
+				quantity: $(this).children("input").val(),
+				cart_id: $(this).children("input").attr("id")
+			});
+		});
+		this.getCartData();
 	}
 
   }
