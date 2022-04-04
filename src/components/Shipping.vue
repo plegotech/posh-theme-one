@@ -32,19 +32,19 @@
               <div class="col-sm-6 mb-4">
                 <div class="form-group">
                   <label class="top-position">First Name*</label>
-                  <input type="text" value="William" />
+                  <input type="text" v-bind:value="''+userdetails.first_name+''" />
                 </div>
               </div>
               <div class="col-sm-6 mb-4">
                 <div class="form-group">
                   <label class="top-position">Last Name*</label>
-                  <input type="text" value="Smith" />
+                  <input type="text" v-bind:value="''+userdetails.last_name+''" />
                 </div>
               </div>
               <div class="col-sm-12 mb-4">
                 <div class="form-group">
                   <label class="top-position">Address*</label>
-                  <input type="text" value="1266 Yolanda Plains, Uptonview" />
+                  <input type="text" v-bind:value="''+userdetails.u_address+''" />
                 </div>
               </div>
 
@@ -69,25 +69,25 @@
               <div class="col-sm-6 mb-4">
                 <div class="form-group">
                   <label class="top-position">City*</label>
-                  <input type="text" value="California" />
+                  <input type="text" v-bind:value="''+userdetails.u_city+''" />
                 </div>
               </div>
               <div class="col-sm-6 mb-4">
                 <div class="form-group">
                   <label class="top-position">Postal Zip Code*</label>
-                  <input type="text" value="190001" />
+                  <input type="text" v-bind:value="''+userdetails.u_zip+''" />
                 </div>
               </div>
               <div class="col-sm-6 mb-4">
                 <div class="form-group">
                   <label class="top-position">Email Address*</label>
-                  <input type="text" value="1William.smith@xyz.com" />
+                  <input type="text" v-bind:value="''+userdetails.email+''" />
                 </div>
               </div>
               <div class="col-sm-6 mb-4">
                 <div class="form-group">
                   <label class="top-position">Phone Number*</label>
-                  <input type="text" value="213-555-0143" />
+                  <input type="text" v-bind:value="''+userdetails.phone+''" />
                 </div>
               </div>
             </div>
@@ -146,7 +146,7 @@
             <div class="youorder-opt-bx" v-for="items in cartitemslist" :key="items.id">
               <img src="../assets/img/cart-item-1.png" alt="" />
               <div class="youorder-item">
-                <h5>{{items.products_table.name}}</h5>
+                <h5>{{items.name}}</h5>
                 <div class="yr-disc">
                   <div class="yr-disc-bx">Color <strong>Black</strong></div>
                   <div class="yr-disc-bx2">
@@ -203,7 +203,8 @@ export default {
 		cartitemslist:[],
 		count_cartitems:0,
 		total_price:0,
-		count:0
+		count:0,
+    userdetails:[]
     };
   },
 
@@ -216,7 +217,9 @@ export default {
 		if(localStorage.getItem("login")){
 			console.log("Login Data")
 			const logindata = JSON.parse(localStorage.getItem("login"));
+      this.userdetails = logindata;
 			console.log(logindata.id);
+      console.log(logindata);
 			this.user_id = logindata.id;			
 		}
 	  },

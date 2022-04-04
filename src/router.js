@@ -7,6 +7,7 @@ import Allproducts from './components/Allproducts.vue'
 import Product from './components/Product.vue'
 import Cart from './components/Cart.vue'
 import Payment from './components/Payment.vue'
+import Success from './components/Success.vue'
 import Signup from './components/Signup.vue'
 import Login from './components/Login.vue'
 import Checkout from './components/Checkout.vue'
@@ -64,6 +65,11 @@ const routes = [
         name: 'Cart',
         path: '/cart',
         component: Cart
+    },
+    {
+        name: 'Success',
+        path: '/success',
+        component: Success
     },
     {
         name: 'Payment',
