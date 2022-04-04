@@ -25,12 +25,12 @@
 									</div>
 								</div>
 								<div class="cartItems-box" v-for="item in cartitemslist" :key="item.id">
-									{{myMethod(item.products_table.net_price, item.quantity)}}
+									
 									
 									<div class="cartI-1">
 										<div class="cart-item-img" style="width:100px;"><img src="../assets/img/cart-item-1.png" alt=""
 												class="img-fluid"></div>
-										<p >{{item.products_table.name}} {{item.products_table.description}}</p>
+										<p >{{item.name}} {{item.description}}</p>
 									</div>
 									<div class="cartI-2">
 										<div class="ci-push-bx">
@@ -42,7 +42,7 @@
 										</div>
 									</div>
 									<div class="cartI-3">
-										<h5 class="ci-price">${{item.products_table.net_price }}</h5>
+										<h5 class="ci-price">${{item.net_price }}</h5>
 									</div>
 									<div class="cartI-4">
 										<div class="carti-remove"><button v-on:click="removecartitem(item.id)"><img src="../assets/img/remove-icon.png" alt="" class="img-fluid"></button></div>
@@ -259,7 +259,7 @@ this.getCartData();
 		// }
 
 
-		//this.EndLoader();
+		this.EndLoader();
 
 
 	},
@@ -276,6 +276,7 @@ this.getCartData();
 			});
 		});
 		this.getCartData();
+		this.EndLoader();
 	}
 
   }

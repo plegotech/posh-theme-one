@@ -8,7 +8,7 @@
     <div class="card" style="background: white;
         padding: 60px;
         border-radius: 4px;
-        box-shadow: 0 2px 3px #0862a3;
+        box-shadow: 0 2px 3px #CCCCCC;
         display: inline-block;
         margin: 0 auto;">
         <div style="border-radius:200px; height:200px; width:200px; background: #0862a3; margin:0 auto;">

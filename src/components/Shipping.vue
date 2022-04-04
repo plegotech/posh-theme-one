@@ -146,7 +146,7 @@
             <div class="youorder-opt-bx" v-for="items in cartitemslist" :key="items.id">
               <img src="../assets/img/cart-item-1.png" alt="" />
               <div class="youorder-item">
-                <h5>{{items.products_table.name}}</h5>
+                <h5>{{items.name}}</h5>
                 <div class="yr-disc">
                   <div class="yr-disc-bx">Color <strong>Black</strong></div>
                   <div class="yr-disc-bx2">

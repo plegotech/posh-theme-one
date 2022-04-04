@@ -164,6 +164,7 @@
   </div>
 </template>
 <script>
+
 export default {
   name: "header",
   
@@ -196,7 +197,9 @@ export default {
     logout() {
       localStorage.clear();
       alert("Logout Success");
+      this.itemsincart=0
       this.isHidden=false;
+      this.$router.push({name:"Home"});
     }
   }
 };
