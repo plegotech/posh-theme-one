@@ -77,7 +77,7 @@ export default {
           
           this.$router.push('home')
         } else {
-          //alert("Some error occured");
+          alert("Something went wrong, may be credentials are incorrect");
         }
         //console.log(result);
       })
