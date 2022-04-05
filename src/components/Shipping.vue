@@ -134,7 +134,7 @@
               </div>
               <div class="col-12 mb-5">
                 
-                <router-link class="primary nxtbtn" to="payment">NEXT</router-link>
+                <router-link class="primary nxtbtn" to="payment" v-if="count_cartitems">NEXT</router-link>
               </div>
             </div>
           </div>
@@ -171,7 +171,7 @@
               </div>
               <div class="cartSummary-items justify-sbetw pt-4">
                 <div class="csi-title-t">Total</div>
-                <div class="csi-total-amount">$<strong>{{ total_price+28+10 }}</strong></div>
+                <div class="csi-total-amount">$<strong>{{ total_price+28-10 }}</strong></div>
               </div>
              
             </div>

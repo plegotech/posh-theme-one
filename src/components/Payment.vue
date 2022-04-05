@@ -72,7 +72,7 @@
 											</ul>
 											<img src="../assets/img/paypal-icon.png" class="img-paypal">
 										</div>
-										<div class="col-12"><button class="primary nxtbtn" v-on:click="placeorder">PLACE ORDER</button></div>
+										<div class="col-12"><button class="primary nxtbtn" v-on:click="placeorder" v-if="count_cartitems">PLACE ORDER</button></div>
 										</div>
 									</div>
 								</div>
