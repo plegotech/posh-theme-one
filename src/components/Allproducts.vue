@@ -736,7 +736,7 @@ export default {
       }
       this.startLoader();
       let result = axios.get(
-        axios.defaults.baseURL + "products",
+        axios.defaults.baseURL + "allproducts",
         {
           params: {
               search: this.query,
