@@ -1577,6 +1577,7 @@ ul.side-submenu {
     font-weight: bold;
     text-decoration: none;
     white-space: nowrap;
+    font-size: 15px;
 }
 ul.side-submenu li {
     border-bottom: 1px solid #ccc;
@@ -1728,7 +1729,79 @@ ul.userProfileMenu li:last-child {
   display: inline-block;
   transition: background-color 0.6s ease;
 }
+.cartAdd-item {
+    display: flex;
+    align-items: center;
+}
+span.btnPlus-item:hover, span.btnMinus-item:hover {
+    background: #0862a3;
+    color: #fff;
+}
+i.menu-icon {
+    height: 22px;
+    width: 22px;
+    float: left!important;
+    background-size: cover!important;
+    margin-right: 7px;
+}
+i.menu-icon.computersystem {
+    background: url(/../src/assets/img/menu-template/computer.png);
+}
+img.bask-icon {
+    width: 33px;
+}
+.cartitems {
+    position: relative;
+}
 
+ul.userProfileMenu li {
+    border-bottom: 1px solid #0862a3;
+}
+img.gaming-cat-img {
+    height: 178px;
+}
+i.menu-icon {
+    height: 22px;
+    width: 22px;
+    float: left!important;
+    background-size: cover!important;
+    margin-right: 7px;
+}
+i.menu-icon.computersystem {
+    background: url(/../src/assets/img/menu-template/computer.png);
+}
+img.bask-icon {
+    width: 33px;
+}
+.cartitems {
+    position: relative;
+}
+
+ul.userProfileMenu li {
+    border-bottom: 1px solid #0862a3;
+}
+img.gaming-cat-img {
+    height: 178px;
+}
+.addtoCart-box {
+    display: flex;
+}
+span.btnPlus-item {
+    border-radius: 4px 0 0 4px;
+}
+span.btnMinus-item {
+    border-radius: 0 4px 4px 0;
+}
+span.btnPlus-item, span.btnMinus-item {
+    height: 45px;
+    width: 33px;
+    background: #efefef;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+    font-size: 24px;
+    border: 1px solid #C6C6C6;
+}
 .gallery-pm-thumb .active, .gallery-pm-thumb .dot:hover {
   background-color: #717171;
 }
@@ -1773,12 +1846,12 @@ img.demo.cursor {
     background: white;
     color: #0862a3;
     border-radius: 50%;
-    top: -22px;
-    right: -10px;
+    top: -17px;
+    right: -6px;
     padding: 2px;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     text-align: center;
     font-weight: bold;
-    font-size: 14px;
-}  
+    font-size: 12px;
+}

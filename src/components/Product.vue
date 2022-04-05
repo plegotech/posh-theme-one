@@ -80,13 +80,19 @@
               </div>
               <div class="addtocart-select-pm">
                 <form method="post" @submit.prevent="addtocart">
+                <div class="addtoCart-box">
                   <div class="qty-push-bx">							
                     <input type="hidden" v-model="product_id" />
                     <input type="hidden" v-model="user_id" />
-                    <input type="number" min="1" max="100" v-model="cartform.quantity" placeholder="1" id="txtAcrescimo" class="qty-number" />
+                    <div class="cartAdd-item">
+                      <span class="btnPlus-item">+</span>
+                    <input type="text" min="1" max="100" v-model="cartform.quantity" placeholder="1" id="txtAcrescimo" class="qty-number" />
+                    <span class="btnMinus-item">-</span>
+                    </div>
                   </div>
                   
                   <button type="submit" class="primary" on>Add to Cart</button>
+                  </div>
                 </form>
 							</div>
             </div>
