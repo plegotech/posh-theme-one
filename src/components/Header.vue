@@ -86,13 +86,14 @@
           </div>
       <!-- menu mobile -->
   </div>
-      <form class="form-inline my-2 my-lg-2">
+      <form class="form-inline my-2 my-lg-2" @submit.prevent="getFilterData" method="post">
         <input
+          v-model="query"
           class="form-control mr-sm-2"
           type="Laptops"
           placeholder="Search"
         />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <button  class="btn btn-outline-success my-2 my-sm-0" type="submit">
           Search <img class="search-icon" src="../assets/../assets/img/Search-head.png" />
         </button>
       </form>
@@ -108,6 +109,7 @@
                 <li><a href="#">My Profile</a></li>
                 <li>
                   <a href="#" @click="logout">Logout</a>
+                  <!-- <router-link to="logout">Logout</router-link> -->
                   </li>
             </ul>
         </div>
@@ -164,7 +166,7 @@
   </div>
 </template>
 <script>
-
+import router from '../router'
 export default {
   name: "header",
   
@@ -172,19 +174,15 @@ export default {
     return {
       userTitle:"John",
       itemsincart:0,
-      isHidden: false
+      isHidden: false,
+      query:null
     };
   },
   async mounted(){
     if(localStorage.getItem("login")){
       console.log("Login Data")
       const logindata = JSON.parse(localStorage.getItem("login"));
-      var totalQty=0;
-      logindata.cartitems.forEach(function(items) {
-        console.log("Qty: "+items.quantity)
-        totalQty+=items.quantity
-      })
-      this.itemsincart=totalQty;
+      this.itemsincart = logindata.cartitems.length;
       this.userTitle=logindata.first_name+" "+logindata.last_name;
       console.log(localStorage.getItem("login"))
       this.isHidden=true;
@@ -193,6 +191,7 @@ export default {
       //this.$router.push({name:"Login"})
     }
   },
+  
   methods:{
     logout() {
       localStorage.clear();
@@ -200,6 +199,14 @@ export default {
       this.itemsincart=0
       this.isHidden=false;
       this.$router.push({name:"Home"});
+    },
+    getFilterData(){
+      //alert(this.query);
+      //this.$router.go({name:"Allproducts"});
+      this.$router.push({name:'Allproducts', query: { search: this.query } })
+      //this.$router.go({name:'Allproducts', query: { search: this.query } })
+      // this.$router.push({name:"Allproducts"});
+
     }
   }
 };

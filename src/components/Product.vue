@@ -294,7 +294,7 @@ export default {
       cartform: {
         product_id: 0,
         user_id:0,
-        quantity:0,
+        quantity:1,
         item_price:0
       },
       product_info:[]
@@ -336,11 +336,11 @@ this.startLoader()
                 if(obj.success==true){
                   alert("Product Added to the Cart");  
 
-                  var totalQty=0;
-                  obj.message.cartitems.forEach(function(items) {
-                    console.log("Qty: "+items.quantity)
-                    totalQty+=items.quantity
-                  })
+                  var totalQty=obj.message.cartitems.length;
+                  // obj.message.cartitems.forEach(function(items) {
+                  //   console.log("Qty: "+items.quantity)
+                  //   totalQty+=items.quantity
+                  // })
                   //this.itemsincart=totalQty;
                   $(".cartitems").children("span").html(totalQty);
                   

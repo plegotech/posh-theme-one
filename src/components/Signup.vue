@@ -171,7 +171,7 @@ export default {
           alert(obj.message);
           this.signup="";
         } else {
-          alert("Some error occured");
+          alert("Some error occured in saving data");
         }
         console.log(result);
       })

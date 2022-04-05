@@ -6,7 +6,7 @@
                     
 					<div class="row mt-4">
 						<div class="col-12">
-							<h4><strong>Checkout</strong> <span>(2 Items)</span></h4>
+							<h4><strong>Checkout</strong> <span>({{count_cartitems}} Items)</span></h4>
 						</div>
 					</div>
 					<div class="row">
@@ -111,7 +111,7 @@
               </div>
               <div class="cartSummary-items justify-sbetw pt-4">
                 <div class="csi-title-t">Total</div>
-                <div class="csi-total-amount">$<strong>{{ total_price+28+10 }}</strong></div>
+                <div class="csi-total-amount">$<strong>{{ total_price+28-10 }}</strong></div>
               </div>
              
             </div>					
@@ -199,7 +199,7 @@ loadSession(){
 		})
 		this.total_price = tempTotalPrice
 		//this.itemsincart=totalQty;
-		$(".cartitems").children("span").html(totalQty);
+		$(".cartitems").children("span").html(this.count_cartitems);
 
 		if(localStorage.getItem("login")){
 			console.log("Login Data")

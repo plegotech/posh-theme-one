@@ -134,19 +134,16 @@ export default {
 		console.log((await result).data);
 		
 		this.cartitemslist = (await result).data;	
-		
-		var totalQty=0;
 		var tempTotalPrice=0;
 		this.count_cartitems = this.cartitemslist.length;
 		this.cartitemslist.forEach(function(items) {
 			console.log("Qty: "+items.quantity)
-			totalQty+=items.quantity
 			tempTotalPrice+=(items.quantity*items.item_price)
 			
 		})
 		this.total_price = tempTotalPrice
 		//this.itemsincart=totalQty;
-		$(".cartitems").children("span").html(totalQty);
+		$(".cartitems").children("span").html(this.count_cartitems);
 
 		if(localStorage.getItem("login")){
 			console.log("Login Data")
