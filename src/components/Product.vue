@@ -318,8 +318,8 @@ export default {
       var val = $("#txtAcrescimo").val();
       //if(val>=1){
         val++;
-        
-        $("#txtAcrescimo").val(val);
+        this.cartform.quantity = val;
+        // $("#txtAcrescimo").val(val);
       //}
       //var val = $this.previousElementSibling.value;
       //alert(cart_id+" - "+val);
@@ -329,7 +329,8 @@ export default {
       if(val>1){
         val--;
       }
-      $("#txtAcrescimo").val(val);
+      this.cartform.quantity = val;
+      // $("#txtAcrescimo").val(val);
     },
 
 
