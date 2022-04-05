@@ -27,8 +27,20 @@
             </ul>
           </div>
         </div>
-        <div class="col-xl-7 col-lg-6 col-9 no-pr-pl" id="MainSliderbx">
-          <div
+        <div class="col-xl-7 col-lg-6 col-9 no-pr-pl  mt-3" id="MainSliderbx">
+
+          <Carousel :itemsToShow="1" :wrapAround="true" >
+          <Slide v-for="slide in 3" :key="slide">
+             <div class="bsc-slider-bx">
+              <img src="../assets/img/poshslider-1.png" alt="" class="img-fluid" />
+            </div>
+          </Slide>
+          <template #addons>
+            <Navigation />
+          </template>
+        </Carousel>
+
+          <div style="display: none;"
             id="HomecarouselControls"
             class="carousel slide mt-3"
             data-ride="carousel"
