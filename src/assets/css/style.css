@@ -1744,9 +1744,6 @@ i.menu-icon {
     background-size: cover!important;
     margin-right: 7px;
 }
-i.menu-icon.computersystem {
-    background: url(/../src/assets/img/menu-template/computer.png);
-}
 img.bask-icon {
     width: 33px;
 }
@@ -1769,6 +1766,36 @@ i.menu-icon {
 }
 i.menu-icon.computersystem {
     background: url(/../src/assets/img/menu-template/computer.png);
+}
+i.menu-icon.electronics {
+    background: url(/../src/assets/img/menu-template/electronics.png);
+}
+i.menu-icon.gaming {
+    background: url(/../src/assets/img/menu-template/game.png);
+}
+i.menu-icon.networking {
+    background: url(/../src/assets/img/menu-template/networking.png);
+}
+i.menu-icon.gaming {
+    background: url(/../src/assets/img/menu-template/game.png);
+}
+i.menu-icon.officesolutions {
+    background: url(/../src/assets/img/menu-template/office.png);
+}
+i.menu-icon.softwareservices {
+    background: url(/../src/assets/img/menu-template/software-service.png);
+}
+i.menu-icon.automotives {
+    background: url(/../src/assets/img/menu-template/automotive.png);
+}
+i.menu-icon.home-tools {
+    background: url(/../src/assets/img/menu-template/home&tool.png);
+}
+i.menu-icon.health-sports {
+    background: url(/../src/assets/img/menu-template/health.png);
+}
+i.menu-icon.components {
+    background: url(/../src/assets/img/menu-template/components.png);
 }
 img.bask-icon {
     width: 33px;
