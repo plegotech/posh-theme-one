@@ -85,9 +85,9 @@
                     <input type="hidden" v-model="product_id" />
                     <input type="hidden" v-model="user_id" />
                     <div class="cartAdd-item">
-                      <span class="btnPlus-item">+</span>
+                      <span class="btnPlus-item" @click="increment">+</span>
                     <input type="text" min="1" max="100" v-model="cartform.quantity" placeholder="1" id="txtAcrescimo" class="qty-number" />
-                    <span class="btnMinus-item">-</span>
+                    <span class="btnMinus-item" @click="decrement">-</span>
                     </div>
                   </div>
                   
@@ -312,6 +312,28 @@ export default {
     this.getProductInfo();
   },
   methods: {
+
+    increment(){
+      //alert("Yeah")
+      var val = $("#txtAcrescimo").val();
+      //if(val>=1){
+        val++;
+        
+        $("#txtAcrescimo").val(val);
+      //}
+      //var val = $this.previousElementSibling.value;
+      //alert(cart_id+" - "+val);
+    },
+    decrement(){
+      var val = $("#txtAcrescimo").val();
+      if(val>1){
+        val--;
+      }
+      $("#txtAcrescimo").val(val);
+    },
+
+
+
     async getProductInfo(){
       this.startLoader();
       
@@ -370,22 +392,6 @@ this.startLoader()
       var target_ContId = document.getElementById("loader-container");
       target_ContId.style.display = "none";
     },
-    increment(cart_id){
-      var val = $("#cart_"+cart_id).val();
-      //if(val>=1){
-        val++;
-        $("#cart_"+cart_id).val(val);
-      //}
-      //var val = $this.previousElementSibling.value;
-      //alert(cart_id+" - "+val);
-    },
-    decrement(cart_id){
-      var val = $("#cart_"+cart_id).val();
-      if(val>=1){
-        val--;
-      }
-      $("#cart_"+cart_id).val(val);
-    },    
   }  
 };
 </script>

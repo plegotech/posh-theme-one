@@ -10,7 +10,7 @@
             <h1>TOP CATEGORIES</h1>
             <ul>
               <li  v-for="item in list" :key="item.id">
-                <i class="menu-icon computersystem"></i>
+                <i class="menu-icon " :class="[item.newtitle]"></i>
                   <router-link
                     :to="{ path: 'allproducts', query: { id: item.id }, props: true }"
                   >{{ item.title }}</router-link>
