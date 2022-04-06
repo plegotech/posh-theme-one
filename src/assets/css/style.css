@@ -1765,7 +1765,7 @@ i.menu-icon {
     margin-right: 7px;
 }
 div#MainSliderbx button.carousel__next {
-    right: 20px;
+    right: 30px;
 }
 div#MainSliderbx button.carousel__prev {
     left: 20px;
@@ -1779,7 +1779,7 @@ div#MainSliderbx svg.carousel__icon {
     border-radius: 50%;
     font-size: 35px;
 }
-i.menu-icon.computersystem {
+/* i.menu-icon.computersystem {
     background: url(/../src/assets/img/menu-template/computer.png);
 }
 i.menu-icon.electronics {
@@ -1811,7 +1811,7 @@ i.menu-icon.health-sports {
 }
 i.menu-icon.components {
     background: url(/../src/assets/img/menu-template/components.png);
-}
+} */
 img.bask-icon {
     width: 33px;
 }

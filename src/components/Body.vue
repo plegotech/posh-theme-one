@@ -10,7 +10,7 @@
             <h1>TOP CATEGORIES</h1>
             <ul>
               <li  v-for="item in list" :key="item.id">
-                <i class="menu-icon " :class="[item.newtitle]"></i>
+                <i class="menu-icon " :class="[item.newtitle]"><img :src="'/src/assets/img/menu-template/'+item.newtitle+'.png'"></i>
                   <router-link
                     :to="{ path: 'allproducts', query: { id: item.id }, props: true }"
                   >{{ item.title }}</router-link>
@@ -29,8 +29,8 @@
         </div>
         <div class="col-xl-7 col-lg-6 col-9 no-pr-pl  mt-3" id="MainSliderbx">
 
-          <Carousel :itemsToShow="1" :wrapAround="true" >
-          <Slide v-for="slide in 3" :key="slide">
+          <Carousel :autoplayLoop="true" :itemsToShow="1" :wrapAround="true" >
+          <Slide  v-for="slide in 3" :key="slide">
              <div class="bsc-slider-bx">
               <img src="../assets/img/poshslider-1.png" alt="" class="img-fluid" />
             </div>
