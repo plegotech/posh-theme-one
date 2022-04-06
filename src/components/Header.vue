@@ -188,7 +188,8 @@ export default {
       console.log(localStorage.getItem("login"))
       this.isHidden=true;
     } else {
-      localStorage.clear();
+      localStorage.removeItem("login")
+      // localStorage.clear();
       //this.$router.push({name:"Login"})
     }
   },

@@ -48,6 +48,13 @@ export default {
   name: "Login",
   data() {
     return {
+      cartform: {
+        product_id: 0,
+        user_id:0,
+        quantity:1,
+        item_price:0
+      },
+  
       login: {
         email: null,
         password: null
@@ -73,9 +80,25 @@ export default {
         //console.log(obj);
         if(obj.success==true){
           alert(obj.message);
+
           localStorage.setItem("login", JSON.stringify(obj.userdetail));
+
+          if(localStorage.getItem("guest")){
+            const guestdata = JSON.parse(localStorage.getItem("guest"));
+
+            if(guestdata.length>0){
+              guestdata.forEach(element => {
+                this.addProductToCart(obj.userdetail.id, element)
+              });
+            }
+            //const logindata = JSON.parse(localStorage.getItem("login"));
+            //logindata.cartitems=guestdata
+            //localStorage.setItem("login", JSON.stringify(logindata));
+            localStorage.removeItem("guest")
+          }
           
-          this.$router.push('home')
+          // this.$router.push('home')
+          this.$router.go(-1)
         } else {
           alert("Something went wrong, may be credentials are incorrect");
         }
@@ -83,6 +106,39 @@ export default {
       })
       e.preventDefault();
     },
+    async addProductToCart(user_id, guestData){
+      this.cartform.user_id = user_id;
+      this.cartform.product_id = guestData.product_id;
+      this.cartform.quantity = guestData.quantity;
+      this.cartform.item_price = guestData.item_price;
+          axios.post(axios.defaults.baseURL +"addtocart",this.cartform).then((result)=>{
+            console.log(result.data);
+            const obj = result.data;
+            console.log(obj);
+            if(obj.success==true){
+              alert("Product Added to the Cart");  
+
+              var totalQty=obj.message.cartitems.length;
+              // obj.message.cartitems.forEach(function(items) {
+              //   console.log("Qty: "+items.quantity)
+              //   totalQty+=items.quantity
+              // })
+              //this.itemsincart=totalQty;
+              $(".cartitems").children("span").html(totalQty);
+              
+              if(localStorage.getItem("login")){
+                console.log("Login Data")
+                const logindata = JSON.parse(localStorage.getItem("login"));
+                logindata.cartitems=obj.message.cartitems
+                localStorage.setItem("login", JSON.stringify(logindata));
+              }
+
+            } else {
+              alert("Some error occured");
+            }
+        })
+
+    }
   },
 };
 </script>

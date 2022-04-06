@@ -42,6 +42,85 @@ export default {
   components: {
       HeaderComp, FooterComp
   },
+  data(){
+    return {
+      user_id : null,
+      cartitemslist:[],
+      count_cartitems:0,
+      total_price:0,
+      count:0,
+      img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+    }
+  },
+  async mounted() {
+    this.getCartData()
+  },
+
+  methods : {
+    async getCartData() {
+      this.startLoader();
+
+      if(!localStorage.getItem("login")){
+        if(localStorage.getItem("guest")){
+          const guestdata = JSON.parse(localStorage.getItem("guest"));
+          this.cartitemslist = guestdata;	
+          var tempTotalPrice=0;
+          this.count_cartitems = this.cartitemslist.length;
+          this.cartitemslist.forEach(function(items) {
+            console.log("Qty: "+items.quantity)
+            tempTotalPrice+=(items.quantity*items.item_price)
+            
+          })
+          this.total_price = tempTotalPrice
+          $(".cartitems").children("span").html(this.count_cartitems);				
+        }
+      } else {
+        
+
+
+
+
+      this.total_price = 0;
+      this.count = 0
+      let result = axios.post(
+      axios.defaults.baseURL + "usercartdata",
+      {
+          user_id: this.user_id
+      },
+      { 
+        useCredentails: true 
+      }
+      );
+      console.log("Cart Check Data2");
+      console.log((await result).data);
+      
+      this.cartitemslist = (await result).data;	
+      var tempTotalPrice=0;
+      this.count_cartitems = this.cartitemslist.length;
+      this.cartitemslist.forEach(function(items) {
+        console.log("Qty: "+items.quantity)
+        tempTotalPrice+=(items.quantity*items.item_price)
+        
+      })
+      this.total_price = tempTotalPrice
+      //this.itemsincart=totalQty;
+      $(".cartitems").children("span").html(this.count_cartitems);
+
+      if(localStorage.getItem("login")){
+        console.log("Login Data")
+        const logindata = JSON.parse(localStorage.getItem("login"));
+        this.user_id = logindata.id;			
+        logindata.cartitems=this.cartitemslist;
+        localStorage.setItem("login", JSON.stringify(logindata));
+      }
+      
+
+      }
+      //this.count_cartitems = this.cartitemslist.length
+      this.EndLoader();
+    },
+  }
+
 }
 
 </script>

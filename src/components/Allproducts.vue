@@ -476,7 +476,7 @@
                   <div class="prod-p-icon">
                     <span class="pro-price">${{ item.net_price }}</span>
                     <span class="pro-icons">
-                      <img src="../assets/img/buy.png" @click="addtocart(item.id, item.net_price)" class="img-fluid" />
+                      <img src="../assets/img/buy.png" @click="addtocart(item)" class="img-fluid" />
                       <img src="../assets/img/heart.png" @click="wishlist" />
                     </span>
                   </div>
@@ -656,7 +656,10 @@ export default {
         product_id: 0,
         user_id:0,
         quantity:1,
-        item_price:0
+        item_price:0,
+        net_price:0,
+        name:null,
+        description:null,
       },
 
       userTitle:"John",
@@ -689,7 +692,8 @@ export default {
       console.log(localStorage.getItem("login"))
       this.isHidden=true;
     } else {
-      localStorage.clear();
+      localStorage.removeItem("login")
+      //localStorage.clear();
       //this.$router.push({name:"Login"})
     }    
     this.getFilterData();
@@ -783,15 +787,35 @@ export default {
       this.isHidden=false;
       this.$router.push({name:"Home"});
     },
-    addtocart(product_id, net_price){
+    addtocart(item){
+      this.cartform.item_price = item.net_price;
+      this.cartform.product_id = item.id;
+      this.cartform.quantity=1;
+
       if(!localStorage.getItem("login")){
         alert("Please Login First")
-        this.$router.push({name:"Login"});
+        this.cartform.name = item.name;
+        this.cartform.description = item.description;
+        this.cartform.net_price = item.net_price;
+
+        if(localStorage.getItem("guest")){
+          const guestdata = JSON.parse(localStorage.getItem("guest"));
+          guestdata.push(this.cartform);
+          localStorage.setItem("guest", JSON.stringify(guestdata));
+        } else {
+          const guestdata=[];
+          guestdata.push(this.cartform);
+          localStorage.setItem("guest", JSON.stringify(guestdata));
+        }
+
+        const guestdata = JSON.parse(localStorage.getItem("guest"));
+        this.itemsincart = guestdata.length
+        
+
+
+        //this.$router.push({name:"Login"});
       } else {
       //alert("Added to cart")
-        this.cartform.item_price = net_price;
-        this.cartform.product_id = product_id;
-        this.cartform.quantity=1;
         console.log(this.cartform)
         this.startLoader()
         axios.post(axios.defaults.baseURL +"addtocart",this.cartform).then((result)=>{
