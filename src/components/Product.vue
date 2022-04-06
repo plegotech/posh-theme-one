@@ -344,39 +344,42 @@ export default {
       this.EndLoader();
     },
     async addtocart(e) {
-this.startLoader()
-          if(this.cartform.quantity==0){
-            alert("Quantity must be atleast 1")
-          } else {
-            
-            this.cartform.item_price = this.product_info.net_price;
-            this.cartform.product_id = this.$route.query.id;
-            console.log(this.cartform)
-              axios.post(axios.defaults.baseURL +"addtocart",this.cartform).then((result)=>{
-                console.log(result.data);
-                const obj = result.data;
-                console.log(obj);
-                if(obj.success==true){
-                  alert("Product Added to the Cart");  
+      this.startLoader()
+      if(this.cartform.quantity==0){
+        alert("Quantity must be atleast 1")
+      } else if(!localStorage.getItem("login")){
+        alert("Please Login First")
+        this.$router.push({name:"Login"});
+      } else {
+        
+        this.cartform.item_price = this.product_info.net_price;
+        this.cartform.product_id = this.$route.query.id;
+        console.log(this.cartform)
+          axios.post(axios.defaults.baseURL +"addtocart",this.cartform).then((result)=>{
+            console.log(result.data);
+            const obj = result.data;
+            console.log(obj);
+            if(obj.success==true){
+              alert("Product Added to the Cart");  
 
-                  var totalQty=obj.message.cartitems.length;
-                  // obj.message.cartitems.forEach(function(items) {
-                  //   console.log("Qty: "+items.quantity)
-                  //   totalQty+=items.quantity
-                  // })
-                  //this.itemsincart=totalQty;
-                  $(".cartitems").children("span").html(totalQty);
-                  
-          if(localStorage.getItem("login")){
-            console.log("Login Data")
-            const logindata = JSON.parse(localStorage.getItem("login"));
-            logindata.cartitems=obj.message.cartitems
-            localStorage.setItem("login", JSON.stringify(logindata));
-          }
+              var totalQty=obj.message.cartitems.length;
+              // obj.message.cartitems.forEach(function(items) {
+              //   console.log("Qty: "+items.quantity)
+              //   totalQty+=items.quantity
+              // })
+              //this.itemsincart=totalQty;
+              $(".cartitems").children("span").html(totalQty);
+              
+              if(localStorage.getItem("login")){
+                console.log("Login Data")
+                const logindata = JSON.parse(localStorage.getItem("login"));
+                logindata.cartitems=obj.message.cartitems
+                localStorage.setItem("login", JSON.stringify(logindata));
+              }
 
-          } else {
-            alert("Some error occured");
-          }
+            } else {
+              alert("Some error occured");
+            }
         })
         
     }

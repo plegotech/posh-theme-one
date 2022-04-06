@@ -10,5 +10,6 @@ const url = 'https://posh-marketplace.plego.pro';
 
 axios.defaults.baseURL=url+"/api/";
 
+
 //app.config.globalProperties.$assets = assets+"/src/assets";
 createApp(App).use(router, axios).mount('#app')
