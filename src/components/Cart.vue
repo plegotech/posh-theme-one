@@ -34,7 +34,8 @@
 									</div>
 									<div class="cartI-2">
 										<div class="ci-push-bx">
-											<input v-bind:value="''+item.quantity+''" v-bind:id="'cart_'+item.id+''" class="qty-number">
+											<input v-bind:value="''+item.quantity+''" v-bind:id="'cart_'+item.id+'_'" class="qty-number cart_id">
+											<input v-bind:value="''+item.product_id+''" v-bind:id="''+item.product_id+'_'" class="qty-number prod_id">
 											<div class="cart-add-item">
 												<button class="btnplus-item" v-on:click="increment(item.id)" >+</button>
 												<button class="btnminus-item" v-on:click="decrement(item.id)">-</button>
@@ -45,7 +46,7 @@
 										<h5 class="ci-price">${{item.net_price }}</h5>
 									</div>
 									<div class="cartI-4">
-										<div class="carti-remove"><button v-on:click="removecartitem(item.id)"><img src="../assets/img/remove-icon.png" alt="" class="img-fluid"></button></div>
+										<div class="carti-remove"><button v-on:click="removecartitem(item.id, item.product_id)"><img src="../assets/img/remove-icon.png" alt="" class="img-fluid"></button></div>
 									</div>
 								</div>
 								<div class="cart-item-updates">
@@ -101,7 +102,8 @@ export default {
 		cartitemslist:[],
 		count_cartitems:0,
 		total_price:0,
-		count:0
+		count:0,
+		img_url: "https://posh-marketplace.plego.pro/img/product-images/",
     };
   },
 
@@ -120,6 +122,27 @@ export default {
 	  },
 	async getCartData() {
 		this.startLoader();
+
+		if(!localStorage.getItem("login")){
+			if(localStorage.getItem("guest")){
+				const guestdata = JSON.parse(localStorage.getItem("guest"));
+				this.cartitemslist = guestdata;	
+				var tempTotalPrice=0;
+				this.count_cartitems = this.cartitemslist.length;
+				this.cartitemslist.forEach(function(items) {
+					console.log("Qty: "+items.quantity)
+					tempTotalPrice+=(items.quantity*items.item_price)
+					
+				})
+				this.total_price = tempTotalPrice
+				$(".cartitems").children("span").html(this.count_cartitems);				
+			}
+		} else {
+			
+
+
+
+
 		this.total_price = 0;
 		this.count = 0
 		let result = axios.post(
@@ -155,6 +178,7 @@ export default {
 		}
 		
 
+		}
 		//this.count_cartitems = this.cartitemslist.length
 		this.EndLoader();
 	},
@@ -174,8 +198,11 @@ export default {
 		
 		console.log("Cart Check Data2");
 		console.log((await result).data);
+		if(!localStorage.getItem("login") && localStorage.getItem("guest")){
+			localStorage.clear();
+		}
 
-this.getCartData();	
+		this.getCartData();	
 		// if(localStorage.getItem("login")){
 		// console.log("Login Data")
 		// const logindata = JSON.parse(localStorage.getItem("login"));
@@ -185,6 +212,7 @@ this.getCartData();
 
 
 		this.EndLoader();
+		alert("Products Removed");
 
 	},
 	startLoader() {
@@ -220,12 +248,15 @@ this.getCartData();
 	},
 	decrement(cart_id){
 		var val = $("#cart_"+cart_id).val();
-		if(val>=1){
+		if(val>1){
 			val--;
 		}
 		$("#cart_"+cart_id).val(val);
 	},
-	removecartitem(cart_id){
+	getImgUrl(vendor, pet) {
+      return this.img_url+"/"+vendor+"/" + pet;
+    },
+	removecartitem(cart_id, product_id){
 		var val = $("#cart_"+cart_id).val();
 		console.log(cart_id);
 		this.startLoader();
@@ -244,7 +275,17 @@ this.getCartData();
 			useCredentails: true 
 		}
 		);
-		
+		if(!localStorage.getItem("login")){
+			const guestdata = JSON.parse(localStorage.getItem("guest"));
+			if(guestdata.length>0){
+				guestdata.forEach((element,index) => {
+					if(element.product_id==product_id){
+						guestdata.splice(index)
+					}
+				})
+				localStorage.setItem("guest", JSON.stringify(guestdata));
+			}
+		}
 		this.getCartData();	
 		// console.log("Cart Check Data2");
 		// console.log((await result).data);
@@ -255,7 +296,7 @@ this.getCartData();
 		// logindata.cartitems=[]
 		// localStorage.setItem("login", JSON.stringify(logindata));
 		// }
-
+		alert("Products Removed");
 
 		this.EndLoader();
 
@@ -265,16 +306,37 @@ this.getCartData();
 		//updatecart
 		this.startLoader();
 		$(".ci-push-bx").each(function(){
-			console.log($(this).children("input").val())
-			console.log($(this).children("input").attr("id"))
+			// console.log($(this).children("input").val())
+			// console.log($(this).children("input").attr("id"))
+			var product_id = $(this).children(".prod_id").val()
 
 			axios.post(axios.defaults.baseURL+"updatecart",{
 				quantity: $(this).children("input").val(),
 				cart_id: $(this).children("input").attr("id")
+				
 			});
+
+			if(!localStorage.getItem("login")){
+				const guestdata = JSON.parse(localStorage.getItem("guest"));
+				if(guestdata.length>0){
+					guestdata.forEach((element,index) => {
+						if(element.product_id==product_id){
+							// guestdata.splice(index)
+							element.quantity = $(this).children("input").val()
+							guestdata[index]=element
+						}
+					})
+					localStorage.setItem("guest", JSON.stringify(guestdata));
+				}
+			}
+
+
 		});
+
+
 		this.getCartData();
 		this.EndLoader();
+		alert("Products Quantity Updated");
 	}
 
   }
