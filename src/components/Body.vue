@@ -281,6 +281,7 @@
 
        <div class="row">
       <div class="col-sm-12">
+        <div class="seller-categories-box">
         <Carousel :itemsToShow="8" :wrapAround="true" >
           <Slide v-for="slide in 20" :key="slide">
              <div class="bsc-slider-bx">
@@ -292,6 +293,7 @@
             <Navigation />
           </template>
         </Carousel>
+        </div>
       </div>
     </div>
         <div class="row" style="display:none">

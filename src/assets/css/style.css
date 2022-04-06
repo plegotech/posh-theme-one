@@ -1779,6 +1779,24 @@ div#MainSliderbx svg.carousel__icon {
     border-radius: 50%;
     font-size: 35px;
 }
+button.carousel__prev:before {
+    content: "\f104";
+    font-family: 'Font Awesome 5 Free';
+    color: #ccc;
+    font-size: 44px;
+    font-weight: 900;
+}
+button.carousel__next:before {
+    content: "\f105";
+    font-family: 'Font Awesome 5 Free';
+    color: #ccc;
+    font-size: 44px;
+    font-weight: 900;
+}
+svg.carousel__icon {
+    filter: opacity(0);
+}
+
 /* START GALLERY PRODUCT */
 
 /* i.menu-icon.computersystem {
