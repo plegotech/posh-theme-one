@@ -74,7 +74,8 @@
 										<div class="csi-title-t">Total</div>
 										<div class="csi-total-amount">$<strong>{{ total_price+28 }}</strong></div>
 									</div>
-									<a class="primary" href="/shipping" v-if="count_cartitems">PROCEED TO CHECKOUT <img src="../assets/img/checkout-icon.png"></a>
+									<!-- <a class="primary" href="/shipping" v-if="count_cartitems">PROCEED TO CHECKOUT <img src="../assets/img/checkout-icon.png"></a> -->
+									<router-link to="shipping" class="primary" v-if="count_cartitems">PROCEED TO CHECKOUT <img src="../assets/img/checkout-icon.png"></router-link>
 								</div>
 							</div>
 						</div>
