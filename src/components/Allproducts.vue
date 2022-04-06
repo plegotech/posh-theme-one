@@ -458,7 +458,7 @@
                     :to="{ path: '/product', query: { id: item.id }, props: true }"
                   >
                     <img
-                      :src="getImgUrl(item.featured_image)"
+                      :src="getImgUrl(item.vendor_id, item.featured_image)"
                       @error="
                         $event.target.src =
                           'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
@@ -476,8 +476,8 @@
                   <div class="prod-p-icon">
                     <span class="pro-price">${{ item.net_price }}</span>
                     <span class="pro-icons">
-                      <img src="../assets/img/buy.png" class="img-fluid" />
-                      <img src="../assets/img/heart.png" />
+                      <img src="../assets/img/buy.png" @click="addtocart(item.id, item.net_price)" class="img-fluid" />
+                      <img src="../assets/img/heart.png" @click="wishlist" />
                     </span>
                   </div>
                 </div>
@@ -652,6 +652,13 @@ export default {
 
     
     return {
+      cartform: {
+        product_id: 0,
+        user_id:0,
+        quantity:1,
+        item_price:0
+      },
+
       userTitle:"John",
       itemsincart:0,
       isHidden: false,
@@ -664,7 +671,7 @@ export default {
       warranty: [],
       ram: [],
       processor: [],
-      img_url: "https://posh-marketplace.plego.pro/img/product-images/997/",
+      img_url: "https://posh-marketplace.plego.pro/img/product-images/",
       min_price: 0,
       max_price: 0,
     };
@@ -678,6 +685,7 @@ export default {
       const logindata = JSON.parse(localStorage.getItem("login"));
       this.itemsincart = logindata.cartitems.length;
       this.userTitle=logindata.first_name+" "+logindata.last_name;
+      this.cartform.user_id = logindata.id
       console.log(localStorage.getItem("login"))
       this.isHidden=true;
     } else {
@@ -723,8 +731,8 @@ export default {
       var target_ContId = document.getElementById("loader-container");
       target_ContId.style.display = "none";
     },
-    getImgUrl(pet) {
-      return this.img_url + pet;
+    getImgUrl(vendor, pet) {
+      return this.img_url+"/"+vendor+"/" + pet;
     },
     async pagination(action) {
       if (action == "b") {
@@ -775,6 +783,43 @@ export default {
       this.isHidden=false;
       this.$router.push({name:"Home"});
     },
+    addtocart(product_id, net_price){
+      if(!localStorage.getItem("login")){
+        alert("Please Login First")
+        this.$router.push({name:"Login"});
+      } else {
+      //alert("Added to cart")
+        this.cartform.item_price = net_price;
+        this.cartform.product_id = product_id;
+        this.cartform.quantity=1;
+        console.log(this.cartform)
+        this.startLoader()
+        axios.post(axios.defaults.baseURL +"addtocart",this.cartform).then((result)=>{
+            console.log(result.data);
+            const obj = result.data;
+            console.log(obj);
+            if(obj.success==true){
+              alert("Product Added to the Cart");  
+
+              this.itemsincart =obj.message.cartitems.length;
+              
+              if(localStorage.getItem("login")){
+                console.log("Login Data")
+                const logindata = JSON.parse(localStorage.getItem("login"));
+                logindata.cartitems=obj.message.cartitems
+                localStorage.setItem("login", JSON.stringify(logindata));
+              }
+
+            } else {
+              alert("Some error occured");
+            }
+        })
+        this.EndLoader()
+      }
+    },
+    wishlist(){
+      alert("Added to Wishlist")
+    }
   },
 };
 </script>
