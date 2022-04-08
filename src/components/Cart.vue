@@ -34,8 +34,8 @@
 									</div>
 									<div class="cartI-2">
 										<div class="ci-push-bx">
-											<input v-bind:value="''+item.quantity+''" v-bind:id="'cart_'+item.id+'_'" class="qty-number cart_id">
-											<input v-bind:value="''+item.product_id+''" v-bind:id="''+item.product_id+'_'" class="qty-number prod_id">
+											<input v-bind:value="''+item.quantity+''" v-bind:id="'cart_'+item.id+''" class="qty-number cart_id">
+											<input type="hidden" v-bind:value="''+item.product_id+''" v-bind:id="''+item.product_id+'_'" class="qty-number prod_id">
 											<div class="cart-add-item">
 												<button class="btnplus-item" v-on:click="increment(item.id)" >+</button>
 												<button class="btnminus-item" v-on:click="decrement(item.id)">-</button>

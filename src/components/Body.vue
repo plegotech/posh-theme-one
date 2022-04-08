@@ -10,7 +10,7 @@
             <h1>TOP CATEGORIES</h1>
             <ul>
               <li  v-for="item in list" :key="item.id">
-                <i class="menu-icon " :class="[item.newtitle]"><img :src="'/src/assets/img/menu-template/'+item.newtitle+'.png'"></i>
+                <i class="menu-icon " :class="[item.newtitle]"><img :src="'https://posh-marketplace.plego.pro/img/menu-template/'+item.newtitle+'.png'"></i>
                   <router-link
                     :to="{ path: 'allproducts', query: { id: item.id }, props: true }"
                   >{{ item.title }}</router-link>
@@ -508,6 +508,17 @@ export default {
     } else {
       alert("Issue loading categories");
     }
+    if(localStorage.getItem("login")){
+      console.log("Login Data")
+      const logindata = JSON.parse(localStorage.getItem("login"));
+      $(".cartitems").children("span").html(logindata.cartitems.length);				
+    } else if(!localStorage.getItem("login")){
+			if(localStorage.getItem("guest")){
+				const guestdata = JSON.parse(localStorage.getItem("guest"));
+				$(".cartitems").children("span").html(guestdata.length);				
+			}
+		}
+
     //console.warn((await result).data);
     //this.list = (await result).data;
     this.EndLoader();
