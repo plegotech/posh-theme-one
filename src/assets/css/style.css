@@ -399,7 +399,7 @@ div#HomecarouselControls .carousel-control-next, div#HomecarouselControls .carou
 .pro-img-bx img {
 	transition: all .2s ease-in-out;
     max-height: 264px;
-    min-height: 264px;
+    min-height: 231px;
 }
 .product-item:hover .pro-img-bx img {
     transform: scale(0.9);
