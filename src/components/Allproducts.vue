@@ -27,7 +27,7 @@
             <h1>TOP CATEGORIES</h1>
             <ul>
               <li>
-                <img src="../assets/img/menu-template/components.png" />Components<i
+                <img src="/src/assets/img/menu-template/components.png" />Components<i
                   class="fas fa-angle-right"
                 ></i>
                 <ul class="side-submenu">
@@ -40,46 +40,46 @@
 									</ul>
               </li>
               <li>
-                <img src="../assets/img/menu-template/computer.png" />Computer Systems<i
+                <img src="/src/assets/img/menu-template/computersystem.png" />Computer Systems<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/electronics.png" />Electronics<i
+                <img src="/src/assets/img/menu-template/electronics.png" />Electronics<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/game.png" />Gaming<i
+                <img src="/src/assets/img/menu-template/gaming.png" />Gaming<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/networking.png" />Networking<i
+                <img src="/src/assets/img/menu-template/networking.png" />Networking<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/office.png" />Office Solutions<i
+                <img src="/src/assets/img/menu-template/officesolutions.png" />Office Solutions<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/software-service.png" />Software
+                <img src="/src/assets/img/menu-template/softwareservices.png" />Software
                 Services<i class="fas fa-angle-right"></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/automotive.png" />Automotives<i
+                <img src="/src/assets/img/menu-template/automotives.png" />Automotives<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/home&tool.png" />Home & Tools<i
+                <img src="/src/assets/img/menu-template/home-tools.png" />Home & Tools<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/health.png" />Health & Sports<i
+                <img src="/src/assets/img/menu-template/health-sports.png" />Health & Sports<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
@@ -95,12 +95,12 @@
           placeholder="Search"
         />
         <button  class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search <img class="search-icon" src="../assets/../assets/img/Search-head.png" />
+          Search <img class="search-icon" src="/src/assets/img/Search-head.png" />
         </button>
       </form>
       <div class="head-right-info">
         <div class="userLogined " v-if="isHidden" >
-          <div class="usr-img"><img src="../assets/../assets/img/profile.png" class="proImg"></div>
+          <div class="usr-img"><img src="/src/assets/img/profile.png" class="proImg"></div>
           <div class="usr-title">{{ userTitle }}</div>
           <i class="fas fa-chevron-down"></i>
           <ul class="userProfileMenu">
@@ -115,7 +115,7 @@
             </ul>
         </div>
         <div class="btn-sign-register" v-if="!isHidden" >
-          <img src="../assets/../assets/img/user-icon.png" class="uicon" />
+          <img src="/src/assets/img/user-icon.png" class="uicon" />
           <div class="signin-reg">
             <span class="sign-reg">
               <!-- <a href="/login">Sign In</a> -->
@@ -130,7 +130,7 @@
         </div>
         <div class="bask-bx">
           <!-- <a href="/cart"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a> -->
-          <router-link to="cart" class="cartitems"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /><span v-html="itemsincart"></span></router-link>
+          <router-link to="cart" class="cartitems"><img src="/src/assets/img/bask-icon.png" class="bask-icon" /><span v-html="itemsincart"></span></router-link>
           <span class="bx-amount">$0.00</span>
         </div>
       </div>
@@ -143,7 +143,7 @@
           <div class="col-6">
             <div class="show-all-cat">
               <span
-                ><img src="../assets/img/menu-template/category.png" />Show All Categories
+                ><img src="/src/assets/img/menu-template/category.png" />Show All Categories
                 <i class="fas fa-chevron-down"></i
               ></span>
               <ul>
@@ -476,8 +476,8 @@
                   <div class="prod-p-icon">
                     <span class="pro-price">${{ item.net_price }}</span>
                     <span class="pro-icons">
-                      <img src="../assets/img/buy.png" @click="addtocart(item)" class="img-fluid" />
-                      <img src="../assets/img/heart.png" @click="wishlist" />
+                      <img src="/src/assets/img/buy.png" @click="addtocart(item)" class="img-fluid" />
+                      <img src="/src/assets/img/heart.png" @click="wishlist" />
                     </span>
                   </div>
                 </div>
@@ -572,12 +572,12 @@
             <h5>Download App</h5>
             <div class="download-links">
               <img
-                src="../assets/img/Google-Play.png"
+                src="/src/assets/img/Google-Play.png"
                 class="downloadapp"
                 alt=""
               />
               <img
-                src="../assets/img/App-Store.png"
+                src="/src/assets/img/App-Store.png"
                 class="downloadapp"
                 alt=""
               />
@@ -593,27 +593,27 @@
             <p class="footer-wa">We Accept</p>
             <div class="footer-cards">
               <img
-                src="../assets/img/Rectangle-22.png"
+                src="/src/assets/img/Rectangle-22.png"
                 class="img-fluid"
                 alt=""
               />
               <img
-                src="../assets/img/Rectangle-23.png"
+                src="/src/assets/img/Rectangle-23.png"
                 class="img-fluid"
                 alt=""
               />
               <img
-                src="../assets/img/Rectangle-24.png"
+                src="/src/assets/img/Rectangle-24.png"
                 class="img-fluid"
                 alt=""
               />
               <img
-                src="../assets/img/Rectangle-25.png"
+                src="/src/assets/img/Rectangle-25.png"
                 class="img-fluid"
                 alt=""
               />
               <img
-                src="../assets/img/Rectangle-26.png"
+                src="/src/assets/img/Rectangle-26.png"
                 class="img-fluid"
                 alt=""
               />
@@ -691,11 +691,21 @@ export default {
       this.cartform.user_id = logindata.id
       console.log(localStorage.getItem("login"))
       this.isHidden=true;
-    } else {
-      localStorage.removeItem("login")
-      //localStorage.clear();
-      //this.$router.push({name:"Login"})
-    }    
+    } else if(!localStorage.getItem("login")){
+			if(localStorage.getItem("guest")){
+				const guestdata = JSON.parse(localStorage.getItem("guest"));
+				this.cartitemslist = guestdata;	
+				var tempTotalPrice=0;
+				this.count_cartitems = this.cartitemslist.length;
+				this.cartitemslist.forEach(function(items) {
+					console.log("Qty: "+items.quantity)
+					tempTotalPrice+=(items.quantity*items.item_price)
+					
+				})
+				this.total_price = tempTotalPrice
+				$(".cartitems").children("span").html(this.count_cartitems);				
+			}
+		}
     this.getFilterData();
     //alert(this.$route.query.search)
   },
@@ -791,22 +801,54 @@ export default {
       this.cartform.item_price = item.net_price;
       this.cartform.product_id = item.id;
       this.cartform.quantity=1;
+      this.cartform.id=1;
 
       if(!localStorage.getItem("login")){
-        alert("Please Login First")
+        //alert("Please Login First")
         this.cartform.name = item.name;
         this.cartform.description = item.description;
         this.cartform.net_price = item.net_price;
 
+
+
         if(localStorage.getItem("guest")){
           const guestdata = JSON.parse(localStorage.getItem("guest"));
-          guestdata.push(this.cartform);
-          localStorage.setItem("guest", JSON.stringify(guestdata));
+          if(guestdata.length>0){
+            var match=false;
+            guestdata.forEach((element,index) => {
+              if(element.product_id==this.cartform.product_id){
+                match=true;
+                element.quantity = parseInt(element.quantity)+1
+							  guestdata[index]=element
+              }
+            })
+            if(match==false){
+              this.cartform.id = guestdata.length+1
+              guestdata.push(this.cartform);
+            }
+            localStorage.setItem("guest", JSON.stringify(guestdata));
+          } else {
+            const guestdata=[];
+            guestdata.push(this.cartform);
+            localStorage.setItem("guest", JSON.stringify(guestdata));
+          }
         } else {
           const guestdata=[];
           guestdata.push(this.cartform);
           localStorage.setItem("guest", JSON.stringify(guestdata));
         }
+
+        // const guestdata = JSON.parse(localStorage.getItem("guest"));
+        // if(localStorage.getItem("guest")){
+        //   const guestdata = JSON.parse(localStorage.getItem("guest"));
+        //   this.cartform.id = guestdata.length+1
+        //   guestdata.push(this.cartform);
+        //   localStorage.setItem("guest", JSON.stringify(guestdata));
+        // } else {
+        //   const guestdata=[];
+        //   guestdata.push(this.cartform);
+        //   localStorage.setItem("guest", JSON.stringify(guestdata));
+        // }
 
         const guestdata = JSON.parse(localStorage.getItem("guest"));
         this.itemsincart = guestdata.length

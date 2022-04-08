@@ -26,7 +26,7 @@
             <h1>TOP CATEGORIES</h1>
             <ul>
               <li>
-                <img src="../assets/img/menu-template/components.png" />Components<i
+                <img src="/src/assets/img/menu-template/components.png" />Components<i
                   class="fas fa-angle-right"
                 ></i>
                 <ul class="side-submenu">
@@ -39,49 +39,50 @@
 									</ul>
               </li>
               <li>
-                <img src="../assets/img/menu-template/computer.png" />Computer Systems<i
+                <img src="/src/assets/img/menu-template/computersystem.png" />Computer Systems<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/electronics.png" />Electronics<i
+                <img src="/src/assets/img/menu-template/electronics.png" />Electronics<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/game.png" />Gaming<i
+                <img src="/src/assets/img/menu-template/gaming.png" />Gaming<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/networking.png" />Networking<i
+                <img src="/src/assets/img/menu-template/networking.png" />Networking<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/office.png" />Office Solutions<i
+                <img src="/src/assets/img/menu-template/officesolutions.png" />Office Solutions<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/software-service.png" />Software
+                <img src="/src/assets/img/menu-template/softwareservices.png" />Software
                 Services<i class="fas fa-angle-right"></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/automotive.png" />Automotives<i
+                <img src="/src/assets/img/menu-template/automotives.png" />Automotives<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/home&tool.png" />Home & Tools<i
+                <img src="/src/assets/img/menu-template/home-tools.png" />Home & Tools<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
               <li>
-                <img src="../assets/img/menu-template/health.png" />Health & Sports<i
+                <img src="/src/assets/img/menu-template/health-sports.png" />Health & Sports<i
                   class="fas fa-angle-right"
                 ></i>
               </li>
+
             </ul>
           </div>
       <!-- menu mobile -->

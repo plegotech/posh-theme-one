@@ -24,46 +24,46 @@
               <div class="gallery-pm-main">
                 <!-- START GALLERY HERE -->               
                   <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL1-7.png" style="width:100%">
+                    <img src="../assets/img/810G-B68TYL1-7.png" style="width:100%">
                   </div>
 
                   <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL1-6.png" style="width:100%">
+                    <img src="../assets/img/810G-B68TYL1-6.png" style="width:100%">
                   </div>
 
                   <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL1-5.png" style="width:100%">
+                    <img src="../assets/img/810G-B68TYL1-5.png" style="width:100%">
                   </div>
                     
                   <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL1-4.png" style="width:100%">
+                    <img src="../assets/img/810G-B68TYL1-4.png" style="width:100%">
                   </div>
 
                   <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL1-3.png" style="width:100%">
+                    <img src="../assets/img/810G-B68TYL1-3.png" style="width:100%">
                   </div>
                     
                   <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL-1.png" style="width:100%">
+                    <img src="../assets/img/810G-B68TYL-1.png" style="width:100%">
                   </div>
                   <div class="row gallery-pm-thumb">
                     <div class="column">
-                      <img class="demo cursor active" src="/src/assets/img/pro-thu-1.jpg" style="width:100%" @click="currentSlide(1)" alt="The Woods">
+                      <img class="demo cursor active" src="../assets/img/pro-thu-1.jpg" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
                     </div>
                     <div class="column">
-                      <img class="demo cursor" src="/src/assets/img/pro-thu-2.jpg" style="width:100%" @click="currentSlide(2)" alt="Cinque Terre">
+                      <img class="demo cursor" src="../assets/img/pro-thu-2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Cinque Terre">
                     </div>
                     <div class="column">
-                      <img class="demo cursor" src="/src/assets/img/pro-thu-3.jpg" style="width:100%" @click="currentSlide(3)" alt="Mountains and fjords">
+                      <img class="demo cursor" src="../assets/img/pro-thu-3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
                     </div>
                     <div class="column">
-                      <img class="demo cursor" src="/src/assets/img/pro-thu-4.jpg" style="width:100%" @click="currentSlide(4)" alt="Northern Lights">
+                      <img class="demo cursor" src="../assets/img/pro-thu-4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
                     </div>
                     <div class="column">
-                      <img class="demo cursor" src="/src/assets/img/pro-thu-5.jpg" style="width:100%" @click="currentSlide(5)" alt="Nature and sunrise">
+                      <img class="demo cursor" src="../assets/img/pro-thu-5.jpg" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
                     </div>    
                     <div class="column">
-                      <img class="demo cursor" src="/src/assets/img/pro-thu-6.jpg" style="width:100%" @click="currentSlide(6)" alt="Snowy Mountains">
+                      <img class="demo cursor" src="../assets/img/pro-thu-6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
                     </div>
                   </div>              
                 <!-- END:: GALLERY HERE -->
@@ -114,7 +114,7 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="/src/assets/img/810G-B68TYL1-10.png" alt="" />
+                <img src="../assets/img/810G-B68TYL1-10.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -123,8 +123,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$1,200.50</span
                   ><span class="pro-icons"
-                    ><img src="/src/assets/img/buy.png" class="img-fluid" /><img
-                      src="/src/assets/img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -133,7 +133,7 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="/src/assets/img/810G-B68TYL1-3.png" alt="" />
+                <img src="../assets/img/810G-B68TYL1-3.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -142,8 +142,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$1,000.50</span
                   ><span class="pro-icons"
-                    ><img src="/src/assets/img/buy.png" class="img-fluid" /><img
-                      src="/src/assets/img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -152,15 +152,15 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="/src/assets/img/810G-B68TYL1-2.png" alt="" />
+                <img src="../assets/img/810G-B68TYL1-2.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$700.25</span
                   ><span class="pro-icons"
-                    ><img src="/src/assets/img/buy.png" class="img-fluid" /><img
-                      src="/src/assets/img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -169,15 +169,15 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="/src/assets/img/810G-B68TYL1-5.png" alt="" />
+                <img src="../assets/img/810G-B68TYL1-5.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">DELL Strix G15 (2021) Gaming Laptop</h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$899.99</span
                   ><span class="pro-icons"
-                    ><img src="/src/assets/img/buy.png" class="img-fluid" /><img
-                      src="/src/assets/img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -200,15 +200,15 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="/src/assets/img/ab810G-B68TYL1.png" alt="" />
+                <img src="../assets/img/ab810G-B68TYL1.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">Logitech M310 910-001675</h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$19.49</span
                   ><span class="pro-icons"
-                    ><img src="/src/assets/img/buy.png" class="img-fluid" /><img
-                      src="/src/assets/img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -217,7 +217,7 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="/src/assets/img/ab810G-B68TYL4.png" alt="" />
+                <img src="../assets/img/ab810G-B68TYL4.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">
@@ -226,8 +226,8 @@
                 <div class="prod-p-icon">
                   <span class="pro-price">$34.99</span
                   ><span class="pro-icons"
-                    ><img src="/src/assets/img/buy.png" class="img-fluid" /><img
-                      src="/src/assets/img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -236,15 +236,15 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="/src/assets/img/ab810G-B68TYL3.png" alt="" />
+                <img src="../assets/img/ab810G-B68TYL3.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">Logitech S120 2.0 Stereo Speakers</h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$179.49</span
                   ><span class="pro-icons"
-                    ><img src="/src/assets/img/buy.png" class="img-fluid" /><img
-                      src="/src/assets/img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -253,15 +253,15 @@
           <div class="col-xl-3 col-sm-6 col-12">
             <div class="product-item">
               <div class="pro-img-bx">
-                <img src="/src/assets/img/ab810G-B68TYL2.png" alt="" />
+                <img src="../assets/img/ab810G-B68TYL2.png" alt="" />
               </div>
               <div class="pro-title-bx">
                 <h3 class="prod-title">Logitech 910-002726</h3>
                 <div class="prod-p-icon">
                   <span class="pro-price">$25.04</span
                   ><span class="pro-icons"
-                    ><img src="/src/assets/img/buy.png" class="img-fluid" /><img
-                      src="/src/assets/img/heart.png"
+                    ><img src="../assets/img/buy.png" class="img-fluid" /><img
+                      src="../assets/img/heart.png"
                   /></span>
                 </div>
               </div>
@@ -295,10 +295,9 @@ export default {
         product_id: 0,
         user_id:0,
         quantity:1,
-        item_price:0
+        item_price:0,
       },
-      product_info:[],
-      slideIndex:1
+      product_info:[]
       
     };
   },
@@ -307,13 +306,12 @@ export default {
       console.log("Login Data")
       const logindata = JSON.parse(localStorage.getItem("login"));
       this.cartform.user_id = logindata.id
+    } else if(localStorage.getItem("guest")){
+      const guestdata = JSON.parse(localStorage.getItem("guest"));
+      $(".cartitems").children("span").html(guestdata.length);
     }
     this.cartform.product_id = this.$route.query.id;
     
-// var slideIndex = 1;
-
-this.showSlides(this.slideIndex);
-
     this.getProductInfo();
   },
   methods: {
@@ -350,11 +348,54 @@ this.showSlides(this.slideIndex);
     },
     async addtocart(e) {
       this.startLoader()
+
+        this.cartform.item_price = this.product_info.net_price;
+        this.cartform.product_id = this.$route.query.id;
+
       if(this.cartform.quantity==0){
         alert("Quantity must be atleast 1")
       } else if(!localStorage.getItem("login")){
-        alert("Please Login First")
-        this.$router.push({name:"Login"});
+        //alert("Please Login First")
+        this.cartform.name = this.product_info.name;
+        this.cartform.description = this.product_info.description;
+        this.cartform.net_price = this.product_info.net_price;
+
+        if(localStorage.getItem("guest")){
+          const guestdata = JSON.parse(localStorage.getItem("guest"));
+          if(guestdata.length>0){
+            var match=false;
+            guestdata.forEach((element,index) => {
+              if(element.product_id==this.cartform.product_id){
+                match=true;
+                element.quantity = parseInt(element.quantity)+parseInt(this.cartform.quantity)
+							  guestdata[index]=element
+              }
+            })
+            if(match==false){
+              this.cartform.id = guestdata.length+1
+              guestdata.push(this.cartform);
+            }
+            localStorage.setItem("guest", JSON.stringify(guestdata));
+          } else {
+            const guestdata=[];
+            guestdata.push(this.cartform);
+            localStorage.setItem("guest", JSON.stringify(guestdata));
+          }
+        } else {
+          const guestdata=[];
+          guestdata.push(this.cartform);
+          localStorage.setItem("guest", JSON.stringify(guestdata));
+        }
+
+        const guestdata = JSON.parse(localStorage.getItem("guest"));
+        //this.itemsincart = guestdata.length
+
+        $(".cartitems").children("span").html(guestdata.length);
+
+
+        alert("Updated Cart");
+
+
       } else {
         
         this.cartform.item_price = this.product_info.net_price;
@@ -401,39 +442,6 @@ this.showSlides(this.slideIndex);
       var target_ContId = document.getElementById("loader-container");
       target_ContId.style.display = "none";
     },
-    // START:: Product page Slideshow 
-
-
- plusSlides(n) {
-  this.showSlides(this.slideIndex += n);
-},
-
- currentSlide(n) {
-  this.showSlides(this.slideIndex = n);
-},
- showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  // var captionText = document.getElementById("caption");
-  
-  if (n > slides.length) {this.slideIndex = 1}
-  if (n < 1) {this.slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  console.log("slides");
-  console.log(slides);
-  console.log(this.slideIndex);
-  if (n > slides.length) {this.slideIndex = 1}
-  slides[this.slideIndex-1].style.display = "block";
-  dots[this.slideIndex-1].className += " active";
-  // captionText.innerHTML = dots[this.slideIndex-1].alt;
-}
-// END:: Product page Slideshow 
   }  
 };
 </script>

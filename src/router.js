@@ -92,5 +92,16 @@ const router = createRouter({
     history: createWebHistory(),
     routes
 })
+router.afterEach(to => {
 
+    if(localStorage.getItem("routes")){
+        const routedata = JSON.parse(localStorage.getItem("routes"));
+        routedata.push(to);
+        localStorage.setItem("routes", JSON.stringify(routedata));
+    } else {
+        const routedata=[];
+        routedata.push(to);
+        localStorage.setItem("routes", JSON.stringify(routedata));
+    }
+});
 export default router;

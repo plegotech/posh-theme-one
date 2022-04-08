@@ -71,6 +71,22 @@ export default {
       //alert("Not Logged In");
     }
 
+
+          // if(localStorage.getItem("routes")){
+          //   const routedata = JSON.parse(localStorage.getItem("routes"));
+          //   if(routedata.length>0 && routedata.length>2){
+          //     if(routedata[routedata.length-2].name=="signup"){
+          //       this.$router.push({name:routedata[routedata.length-3]})
+          //     } else if(routedata[routedata.length-2].name=="login"){
+          //       this.$router.push({name:"Home"});  
+          //     }
+          //   } else {
+          //     this.$router.push({name:"Home"});
+          //   }
+          // }
+
+
+
   },
   methods: {
     loginData(e) {
@@ -97,8 +113,23 @@ export default {
             localStorage.removeItem("guest")
           }
           
-          // this.$router.push('home')
-          this.$router.go(-1)
+          this.$router.push('home')
+          //this.$router.go(-1)
+          // if(localStorage.getItem("routes")){
+          //   const routedata = JSON.parse(localStorage.getItem("routes"));
+          //   if(routedata.length>0 && routedata.length>2){
+          //     if(routedata[routedata.length-2].name!="Signup"){
+          //       console.log(routedata[routedata.length-2].fullPath);
+          //       this.$router.push({name:routedata[routedata.length-2].fullPath})
+          //     } else {
+          //       this.$router.push({name:"Home"});  
+          //     }
+          //   } else {
+          //     this.$router.push({name:"Home"});
+          //   }
+          // }          
+
+
         } else {
           alert("Something went wrong, may be credentials are incorrect");
         }
@@ -116,7 +147,7 @@ export default {
             const obj = result.data;
             console.log(obj);
             if(obj.success==true){
-              alert("Product Added to the Cart");  
+              alert("Guest Products Added to the User Cart");  
 
               var totalQty=obj.message.cartitems.length;
               // obj.message.cartitems.forEach(function(items) {

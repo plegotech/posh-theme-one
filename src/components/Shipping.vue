@@ -221,7 +221,9 @@ export default {
 			console.log(logindata.id);
       console.log(logindata);
 			this.user_id = logindata.id;			
-		}
+		} else {
+      this.$router.push({name:"Login"})
+    }
 	  },
 	async getCartData() {
 		this.startLoader();
