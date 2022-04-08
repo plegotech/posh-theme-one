@@ -65,6 +65,7 @@
                     <div class="column">
                       <img class="demo cursor" src="/src/assets/img/pro-thu-6.jpg" style="width:100%" @click="currentSlide(6)" alt="Snowy Mountains">
                     </div>
+
                   </div>              
                 <!-- END:: GALLERY HERE -->
               </div>
@@ -295,7 +296,7 @@ export default {
         product_id: 0,
         user_id:0,
         quantity:1,
-        item_price:0
+        item_price:0,
       },
       product_info:[],
       slideIndex:1
@@ -307,13 +308,12 @@ export default {
       console.log("Login Data")
       const logindata = JSON.parse(localStorage.getItem("login"));
       this.cartform.user_id = logindata.id
+    } else if(localStorage.getItem("guest")){
+      const guestdata = JSON.parse(localStorage.getItem("guest"));
+      $(".cartitems").children("span").html(guestdata.length);
     }
     this.cartform.product_id = this.$route.query.id;
-    
-// var slideIndex = 1;
-
-this.showSlides(this.slideIndex);
-
+    this.showSlides(this.slideIndex);
     this.getProductInfo();
   },
   methods: {
@@ -350,11 +350,54 @@ this.showSlides(this.slideIndex);
     },
     async addtocart(e) {
       this.startLoader()
+
+        this.cartform.item_price = this.product_info.net_price;
+        this.cartform.product_id = this.$route.query.id;
+
       if(this.cartform.quantity==0){
         alert("Quantity must be atleast 1")
       } else if(!localStorage.getItem("login")){
-        alert("Please Login First")
-        this.$router.push({name:"Login"});
+        //alert("Please Login First")
+        this.cartform.name = this.product_info.name;
+        this.cartform.description = this.product_info.description;
+        this.cartform.net_price = this.product_info.net_price;
+
+        if(localStorage.getItem("guest")){
+          const guestdata = JSON.parse(localStorage.getItem("guest"));
+          if(guestdata.length>0){
+            var match=false;
+            guestdata.forEach((element,index) => {
+              if(element.product_id==this.cartform.product_id){
+                match=true;
+                element.quantity = parseInt(element.quantity)+parseInt(this.cartform.quantity)
+							  guestdata[index]=element
+              }
+            })
+            if(match==false){
+              this.cartform.id = guestdata.length+1
+              guestdata.push(this.cartform);
+            }
+            localStorage.setItem("guest", JSON.stringify(guestdata));
+          } else {
+            const guestdata=[];
+            guestdata.push(this.cartform);
+            localStorage.setItem("guest", JSON.stringify(guestdata));
+          }
+        } else {
+          const guestdata=[];
+          guestdata.push(this.cartform);
+          localStorage.setItem("guest", JSON.stringify(guestdata));
+        }
+
+        const guestdata = JSON.parse(localStorage.getItem("guest"));
+        //this.itemsincart = guestdata.length
+
+        $(".cartitems").children("span").html(guestdata.length);
+
+
+        alert("Updated Cart");
+
+
       } else {
         
         this.cartform.item_price = this.product_info.net_price;
@@ -401,39 +444,42 @@ this.showSlides(this.slideIndex);
       var target_ContId = document.getElementById("loader-container");
       target_ContId.style.display = "none";
     },
+
     // START:: Product page Slideshow 
 
 
- plusSlides(n) {
-  this.showSlides(this.slideIndex += n);
-},
+    plusSlides(n) {
+      this.showSlides(this.slideIndex += n);
+    },
 
- currentSlide(n) {
-  this.showSlides(this.slideIndex = n);
-},
- showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  // var captionText = document.getElementById("caption");
-  
-  if (n > slides.length) {this.slideIndex = 1}
-  if (n < 1) {this.slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  console.log("slides");
-  console.log(slides);
-  console.log(this.slideIndex);
-  if (n > slides.length) {this.slideIndex = 1}
-  slides[this.slideIndex-1].style.display = "block";
-  dots[this.slideIndex-1].className += " active";
-  // captionText.innerHTML = dots[this.slideIndex-1].alt;
-}
-// END:: Product page Slideshow 
+    currentSlide(n) {
+      this.showSlides(this.slideIndex = n);
+    },
+    showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("demo");
+      // var captionText = document.getElementById("caption");
+      
+      if (n > slides.length) {this.slideIndex = 1}
+      if (n < 1) {this.slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      console.log("slides");
+      console.log(slides);
+      console.log(this.slideIndex);
+      if (n > slides.length) {this.slideIndex = 1}
+      slides[this.slideIndex-1].style.display = "block";
+      dots[this.slideIndex-1].className += " active";
+      // captionText.innerHTML = dots[this.slideIndex-1].alt;
+    }
+    // END:: Product page Slideshow 
+
+
   }  
 };
 </script>
