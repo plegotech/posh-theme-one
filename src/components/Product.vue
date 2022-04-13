@@ -24,10 +24,13 @@
               <div class="gallery-pm-main">
                 <!-- START GALLERY HERE -->               
                   <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL1-7.png" style="width:100%">
+                    <img :src="getImgUrl(product_info.vendor_id, product_info.featured_image)" style="width:100%">
                   </div>
 
-                  <div class="mySlides">
+                  <div class="mySlides" v-for="(item, index) in gallery" :key="index">
+                    <img  :src="getImgUrl(product_info.vendor_id, item)" style="width:100%">
+                  </div>
+                  <!-- <div class="mySlides">
                     <img src="/src/assets/img/810G-B68TYL1-6.png" style="width:100%">
                   </div>
 
@@ -45,8 +48,16 @@
                     
                   <div class="mySlides">
                     <img src="/src/assets/img/810G-B68TYL-1.png" style="width:100%">
-                  </div>
+                  </div> -->
                   <div class="row gallery-pm-thumb">
+                    <div class="column">
+                      <img class="demo cursor active" :src="getImgUrl(product_info.vendor_id, product_info.featured_image)" width="70" height="70" style="width:100%" @click="currentSlide(1)" alt="The Woods">
+                    </div>
+
+                    <div class="column" v-for="(item, index) in gallery" :key="index">
+                      <img class="demo cursor" :src="getImgUrl(product_info.vendor_id, item)" width="70" height="70" style="width:100%" @click="currentSlide(index+2)">
+                    </div>
+<!-- 
                     <div class="column">
                       <img class="demo cursor active" src="/src/assets/img/pro-thu-1.jpg" style="width:100%" @click="currentSlide(1)" alt="The Woods">
                     </div>
@@ -64,7 +75,7 @@
                     </div>    
                     <div class="column">
                       <img class="demo cursor" src="/src/assets/img/pro-thu-6.jpg" style="width:100%" @click="currentSlide(6)" alt="Snowy Mountains">
-                    </div>
+                    </div> -->
 
                   </div>              
                 <!-- END:: GALLERY HERE -->
@@ -278,8 +289,8 @@
 
 <script>
 
-import HeaderComp from './Header.vue'
-import FooterComp from "./Footer.vue";
+import HeaderComp from './includes/Header.vue'
+import FooterComp from "./includes/Footer.vue";
 import 'vue3-carousel/dist/carousel.css';
 import axios from "axios";
 import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
@@ -299,8 +310,10 @@ export default {
         item_price:0,
       },
       product_info:[],
-      slideIndex:1
-      
+      slideIndex:1,
+      img_url: "https://posh-marketplace.plego.pro/img/product-images",
+      gallery:[]
+
     };
   },
   async mounted(){
@@ -346,6 +359,7 @@ export default {
       let result = axios.get(axios.defaults.baseURL+"product/get/"+(this.cartform.product_id));
       console.log((await result).data);
       this.product_info = (await result).data
+      this.gallery = await JSON.parse(this.product_info.images);
       this.EndLoader();
     },
     async addtocart(e) {
@@ -448,12 +462,23 @@ export default {
     // START:: Product page Slideshow 
 
 
+    Active(index){
+      if(index==0){
+        return "active"
+      } else {
+        return "";
+      }
+
+    },
     plusSlides(n) {
       this.showSlides(this.slideIndex += n);
     },
 
     currentSlide(n) {
       this.showSlides(this.slideIndex = n);
+    },
+    getImgUrl(vendor, pet) {
+      return this.img_url+"/"+vendor+"/" + pet;
     },
     showSlides(n) {
       var i;
