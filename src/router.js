@@ -2,7 +2,7 @@ import { createWebHistory, createRouter } from "vue-router"
 
 
 import Body from './components/Body.vue'
-import Profile from './components/Profile.vue'
+import Profile from './components/user/Profile.vue'
 import Allproducts from './components/Allproducts.vue'
 import Product from './components/Product.vue'
 import Cart from './components/Cart.vue'
@@ -13,6 +13,9 @@ import Login from './components/Login.vue'
 import Checkout from './components/Checkout.vue'
 import Shipping from './components/Shipping.vue'
 import Carousel from './components/Carousel.vue'
+import UserDashboard from './components/user/UserDashboard.vue'
+import Allorders from './components/user/Allorders.vue'
+import Pendingorders from './components/user/Pendingorders.vue'
 
 const routes = [
     {
@@ -85,6 +88,21 @@ const routes = [
         name: 'Carousel',
         path: '/cars',
         component: Carousel
+    },
+    {
+        name: 'dashboard',
+        path: '/dashboard',
+        component: UserDashboard
+    },
+    {
+        name: 'allorders',
+        path: '/allorders',
+        component: Allorders
+    },
+    {
+        name: 'pending',
+        path: '/pending',
+        component: Pendingorders
     },
 ]
 

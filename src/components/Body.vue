@@ -480,8 +480,8 @@
 
 <script>
 
-import HeaderComp from './Header.vue'
-import FooterComp from "./Footer.vue";
+import HeaderComp from './includes/Header.vue'
+import FooterComp from "./includes/Footer.vue";
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
 
@@ -511,7 +511,12 @@ export default {
     if(localStorage.getItem("login")){
       console.log("Login Data")
       const logindata = JSON.parse(localStorage.getItem("login"));
-      $(".cartitems").children("span").html(logindata.cartitems.length);				
+      if(logindata.cartitems){
+        $(".cartitems").children("span").html(logindata.cartitems.length);				
+      } else {
+        $(".cartitems").children("span").html(0);				
+      }
+      
     } else if(!localStorage.getItem("login")){
 			if(localStorage.getItem("guest")){
 				const guestdata = JSON.parse(localStorage.getItem("guest"));

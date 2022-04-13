@@ -1,170 +1,180 @@
 <template>
   <div>
-    
-  <div id="loader-container">
-    <div class="back-load"></div>
-    <div class="loader"></div>
-  </div>
-  <div>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-      <!-- <a class="navbar-brand" href="/home">Posh Market</a> -->
-      <router-link to="home" class="navbar-brand">Posh Market</router-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTogglerSidebar"
-        aria-controls="navbarTogglerSidebar"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerSidebar">
-      <!-- menu mobile -->
-      <div class="side-menu">
-            <h1>TOP CATEGORIES</h1>
-            <ul>
-              <li>
-                <img src="/src/assets/img/menu-template/components.png" />Components<i
-                  class="fas fa-angle-right"
-                ></i>
-                <ul class="side-submenu">
-										<li><a href="#">Components</a></li>
-										<li><a href="/allproducts">Computer Systems</a></li>
-										<li><a href="#">Electronics</a></li>
-										<li><a href="#">Gaming</a></li>
-										<li><a href="#">Networking</a></li>
-										<li><a href="#">Office Solutions</a></li>
-									</ul>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/computersystem.png" />Computer Systems<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/electronics.png" />Electronics<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/gaming.png" />Gaming<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/networking.png" />Networking<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/officesolutions.png" />Office Solutions<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/softwareservices.png" />Software
-                Services<i class="fas fa-angle-right"></i>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/automotives.png" />Automotives<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/home-tools.png" />Home & Tools<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/health-sports.png" />Health & Sports<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-            </ul>
+    <div id="loader-container">
+      <div class="back-load"></div>
+      <div class="loader"></div>
+    </div>
+    <div>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <!-- <a class="navbar-brand" href="/home">Posh Market</a> -->
+          <router-link to="home" class="navbar-brand">Posh Market</router-link>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarTogglerSidebar"
+            aria-controls="navbarTogglerSidebar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerSidebar">
+            <!-- menu mobile -->
+            <div class="side-menu">
+              <h1>TOP CATEGORIES</h1>
+              <ul>
+                <li>
+                  <img
+                    src="/src/assets/img/menu-template/components.png"
+                  />Components<i class="fas fa-angle-right"></i>
+                  <ul class="side-submenu">
+                    <li><a href="#">Components</a></li>
+                    <li><a href="/allproducts">Computer Systems</a></li>
+                    <li><a href="#">Electronics</a></li>
+                    <li><a href="#">Gaming</a></li>
+                    <li><a href="#">Networking</a></li>
+                    <li><a href="#">Office Solutions</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <img
+                    src="/src/assets/img/menu-template/computersystem.png"
+                  />Computer Systems<i class="fas fa-angle-right"></i>
+                </li>
+                <li>
+                  <img
+                    src="/src/assets/img/menu-template/electronics.png"
+                  />Electronics<i class="fas fa-angle-right"></i>
+                </li>
+                <li>
+                  <img src="/src/assets/img/menu-template/gaming.png" />Gaming<i
+                    class="fas fa-angle-right"
+                  ></i>
+                </li>
+                <li>
+                  <img
+                    src="/src/assets/img/menu-template/networking.png"
+                  />Networking<i class="fas fa-angle-right"></i>
+                </li>
+                <li>
+                  <img
+                    src="/src/assets/img/menu-template/officesolutions.png"
+                  />Office Solutions<i class="fas fa-angle-right"></i>
+                </li>
+                <li>
+                  <img
+                    src="/src/assets/img/menu-template/softwareservices.png"
+                  />Software Services<i class="fas fa-angle-right"></i>
+                </li>
+                <li>
+                  <img
+                    src="/src/assets/img/menu-template/automotives.png"
+                  />Automotives<i class="fas fa-angle-right"></i>
+                </li>
+                <li>
+                  <img src="/src/assets/img/menu-template/home-tools.png" />Home
+                  & Tools<i class="fas fa-angle-right"></i>
+                </li>
+                <li>
+                  <img
+                    src="/src/assets/img/menu-template/health-sports.png"
+                  />Health & Sports<i class="fas fa-angle-right"></i>
+                </li>
+              </ul>
+            </div>
+            <!-- menu mobile -->
           </div>
-      <!-- menu mobile -->
-  </div>
-      <form class="form-inline my-2 my-lg-2" @submit.prevent="getFilterData" method="post">
-        <input
-          v-model="query"
-          class="form-control mr-sm-2"
-          type="Laptops"
-          placeholder="Search"
-        />
-        <button  class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search <img class="search-icon" src="/src/assets/img/Search-head.png" />
-        </button>
-      </form>
-      <div class="head-right-info">
-        <div class="userLogined " v-if="isHidden" >
-          <div class="usr-img"><img src="/src/assets/img/profile.png" class="proImg"></div>
-          <div class="usr-title">{{ userTitle }}</div>
-          <i class="fas fa-chevron-down"></i>
-          <ul class="userProfileMenu">
-            <li><a href="#">Dashboard</a></li>
-              <li><a href="#">My Orders</a></li>
-               <li><a href="#">Track My Order</a></li>
-                <li><a href="#">My Profile</a></li>
+          <form
+            class="form-inline my-2 my-lg-2"
+            @submit.prevent="getFilterData"
+            method="post"
+          >
+            <input
+              v-model="query"
+              class="form-control mr-sm-2"
+              type="Laptops"
+              placeholder="Search"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+              <img class="search-icon" src="/src/assets/img/Search-head.png" />
+            </button>
+          </form>
+          <div class="head-right-info">
+            <div class="userLogined" v-if="isHidden">
+              <div class="usr-img">
+                <img src="/src/assets/img/profile.png" class="proImg" />
+              </div>
+              <div class="usr-title">{{ userTitle }}</div>
+              <i class="fas fa-chevron-down"></i>
+              <ul class="userProfileMenu">
+                <li><router-link to="dashboard"> Dashboard</router-link></li>
+                <li><router-link to="dashboard"> Orders</router-link></li>
+                <li><a href="#">Track My Order</a></li>
+                <li><router-link to="profile">My Profile</router-link></li>
                 <li>
                   <a href="#" @click="logout">Logout</a>
                   <!-- <router-link to="logout">Logout</router-link> -->
-                  </li>
-            </ul>
-        </div>
-        <div class="btn-sign-register" v-if="!isHidden" >
-          <img src="/src/assets/img/user-icon.png" class="uicon" />
-          <div class="signin-reg">
-            <span class="sign-reg">
-              <!-- <a href="/login">Sign In</a> -->
-              <router-link to="login">Sign In</router-link>
-            </span>
-            <span class="sign-or-reg">or</span>
-            <span class="sign-reg">
-              <!-- <a href="/signup">Register</a> -->
-              <router-link to="signup">Register</router-link>
-            </span>
-          </div>
-        </div>
-        <div class="bask-bx">
-          <!-- <a href="/cart"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a> -->
-          <router-link to="cart" class="cartitems"><img src="/src/assets/img/bask-icon.png" class="bask-icon" /><span v-html="itemsincart"></span></router-link>
-          <span class="bx-amount">$0.00</span>
-        </div>
-      </div>
-      </div>
-    </nav>
-
-    <div class="sec-nav">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-6">
-            <div class="show-all-cat">
-              <span
-                ><img src="/src/assets/img/menu-template/category.png" />Show All Categories
-                <i class="fas fa-chevron-down"></i
-              ></span>
-              <ul>
-                <li>Cat A</li>
-                <li>Cat B</li>
-                <li>Cat C</li>
+                </li>
               </ul>
             </div>
+            <div class="btn-sign-register" v-if="!isHidden">
+              <img src="/src/assets/img/user-icon.png" class="uicon" />
+              <div class="signin-reg">
+                <span class="sign-reg">
+                  <!-- <a href="/login">Sign In</a> -->
+                  <router-link to="login">Sign In</router-link>
+                </span>
+                <span class="sign-or-reg">or</span>
+                <span class="sign-reg">
+                  <!-- <a href="/signup">Register</a> -->
+                  <router-link to="signup">Register</router-link>
+                </span>
+              </div>
+            </div>
+            <div class="bask-bx">
+              <!-- <a href="/cart"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a> -->
+              <router-link to="cart" class="cartitems"
+                ><img
+                  src="/src/assets/img/bask-icon.png"
+                  class="bask-icon" /><span v-html="itemsincart"></span
+              ></router-link>
+              <span class="bx-amount">$0.00</span>
+            </div>
           </div>
-          <div class="col-6">
-            <div class="order-track">
-              <ul>
-                <li><a href="#">Track Your Order</a></li>
-                <li><a href="#">Help Center</a></li>
-              </ul>
+        </div>
+      </nav>
+
+      <div class="sec-nav">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-6">
+              <div class="show-all-cat">
+                <span
+                  ><img src="/src/assets/img/menu-template/category.png" />Show
+                  All Categories <i class="fas fa-chevron-down"></i
+                ></span>
+                <ul>
+                  <li>Cat A</li>
+                  <li>Cat B</li>
+                  <li>Cat C</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="order-track">
+                <ul>
+                  <li><a href="#">Track Your Order</a></li>
+                  <li><a href="#">Help Center</a></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
     <div class="container-fluid">
       <div class="row mt-5">
         <div class="col-sm-2 hide-xs-bx">
@@ -415,11 +425,9 @@
                 <h4>Gaming Laptops</h4>
                 <div class="cat-option-pg">
                   <form @submit.prevent="getFilterData" method="post">
-                  <div class="price-limit-opt">
-                    
-                    <span>Price: </span>
-                    <div class="form-group min-max-bx">
-                      
+                    <div class="price-limit-opt">
+                      <span>Price: </span>
+                      <div class="form-group min-max-bx">
                         <input
                           type="text"
                           v-model="min_price"
@@ -433,11 +441,15 @@
                           placeholder="Max"
                           class="h-34 form-control max-price"
                         />
-                        <button class="primary h-34" type="submit" name="filter">Go</button>
-                      
+                        <button
+                          class="primary h-34"
+                          type="submit"
+                          name="filter"
+                        >
+                          Go
+                        </button>
+                      </div>
                     </div>
-                    
-                  </div>
                   </form>
                   <div class="sortby-opt">
                     <label class="top-position">Sort By</label>
@@ -455,7 +467,11 @@
               <div class="product-item">
                 <div class="pro-img-bx">
                   <router-link
-                    :to="{ path: '/product', query: { id: item.id }, props: true }"
+                    :to="{
+                      path: '/product',
+                      query: { id: item.id },
+                      props: true,
+                    }"
                   >
                     <img
                       :src="getImgUrl(item.vendor_id, item.featured_image)"
@@ -469,14 +485,22 @@
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
                     <router-link
-                      :to="{ path: '/product', query: { id: item.id }, params: item.id }"
+                      :to="{
+                        path: '/product',
+                        query: { id: item.id },
+                        params: item.id,
+                      }"
                       >{{ item.name }}</router-link
                     >
                   </h3>
                   <div class="prod-p-icon">
                     <span class="pro-price">${{ item.net_price }}</span>
                     <span class="pro-icons">
-                      <img src="/src/assets/img/buy.png" @click="addtocart(item)" class="img-fluid" />
+                      <img
+                        src="/src/assets/img/buy.png"
+                        @click="addtocart(item)"
+                        class="img-fluid"
+                      />
                       <img src="/src/assets/img/heart.png" @click="wishlist" />
                     </span>
                   </div>
@@ -490,7 +514,8 @@
               <div aria-label="Page navigation paginate-bx">
                 <ul class="pagination bottm-pagination">
                   <li class="page-item inactive">
-                    <button id="back"
+                    <button
+                      id="back"
                       class="page-link"
                       aria-label="Previous"
                       @click="pagination('b')"
@@ -501,8 +526,9 @@
                     </button>
                   </li>
 
-                  <li class="page-item ">
-                    <button id="next"
+                  <li class="page-item">
+                    <button
+                      id="next"
                       class="page-link"
                       aria-label="Next"
                       @click="pagination('n')"
@@ -520,120 +546,120 @@
       </div>
     </div>
     <footer>
-    <div class="container-fluid footer-box">
-      <div class="footer-wrap">
-        <div class="row">
-          <div class="col-md-2 col-6">
-            <h3 class="pm-title">Posh Market</h3>
-            <p class="pm-description">
-              4949 Forecast Ave, First FL<br />Downers Grove, IL 60515
-            </p>
-          </div>
-          <div class="col-md-2 col-6">
-            <h5>Main Menu</h5>
-            <ul class="footer-list">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Help</a></li>
-            </ul>
-          </div>
-          <div class="col-md-2 col-6">
-            <h5>Company</h5>
-            <ul class="footer-list">
-              <li><a href="#">The Company</a></li>
-              <li><a href="#">Product</a></li>
-              <li><a href="#">Press</a></li>
-            </ul>
-          </div>
-          <div class="col-md-2 col-6">
-            <h5>Discover</h5>
-            <ul class="footer-list">
-              <li><a href="#">The Team</a></li>
-              <li><a href="#">Our History</a></li>
-              <li><a href="#">Brand Motto</a></li>
-            </ul>
-          </div>
-          <div class="col-md-2 col-6">
-            <h5>Find Us On</h5>
-            <ul class="footer-list">
-              <li>
-                <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-              </li>
-              <li>
-                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-2 col-6">
-            <h5>Download App</h5>
-            <div class="download-links">
-              <img
-                src="/src/assets/img/Google-Play.png"
-                class="downloadapp"
-                alt=""
-              />
-              <img
-                src="/src/assets/img/App-Store.png"
-                class="downloadapp"
-                alt=""
-              />
+      <div class="container-fluid footer-box">
+        <div class="footer-wrap">
+          <div class="row">
+            <div class="col-md-2 col-6">
+              <h3 class="pm-title">Posh Market</h3>
+              <p class="pm-description">
+                4949 Forecast Ave, First FL<br />Downers Grove, IL 60515
+              </p>
+            </div>
+            <div class="col-md-2 col-6">
+              <h5>Main Menu</h5>
+              <ul class="footer-list">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Help</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-6">
+              <h5>Company</h5>
+              <ul class="footer-list">
+                <li><a href="#">The Company</a></li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Press</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-6">
+              <h5>Discover</h5>
+              <ul class="footer-list">
+                <li><a href="#">The Team</a></li>
+                <li><a href="#">Our History</a></li>
+                <li><a href="#">Brand Motto</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-6">
+              <h5>Find Us On</h5>
+              <ul class="footer-list">
+                <li>
+                  <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-2 col-6">
+              <h5>Download App</h5>
+              <div class="download-links">
+                <img
+                  src="/src/assets/img/Google-Play.png"
+                  class="downloadapp"
+                  alt=""
+                />
+                <img
+                  src="/src/assets/img/App-Store.png"
+                  class="downloadapp"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer-weaccept">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <p class="footer-wa">We Accept</p>
-            <div class="footer-cards">
-              <img
-                src="/src/assets/img/Rectangle-22.png"
-                class="img-fluid"
-                alt=""
-              />
-              <img
-                src="/src/assets/img/Rectangle-23.png"
-                class="img-fluid"
-                alt=""
-              />
-              <img
-                src="/src/assets/img/Rectangle-24.png"
-                class="img-fluid"
-                alt=""
-              />
-              <img
-                src="/src/assets/img/Rectangle-25.png"
-                class="img-fluid"
-                alt=""
-              />
-              <img
-                src="/src/assets/img/Rectangle-26.png"
-                class="img-fluid"
-                alt=""
-              />
+      <div class="footer-weaccept">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <p class="footer-wa">We Accept</p>
+              <div class="footer-cards">
+                <img
+                  src="/src/assets/img/Rectangle-22.png"
+                  class="img-fluid"
+                  alt=""
+                />
+                <img
+                  src="/src/assets/img/Rectangle-23.png"
+                  class="img-fluid"
+                  alt=""
+                />
+                <img
+                  src="/src/assets/img/Rectangle-24.png"
+                  class="img-fluid"
+                  alt=""
+                />
+                <img
+                  src="/src/assets/img/Rectangle-25.png"
+                  class="img-fluid"
+                  alt=""
+                />
+                <img
+                  src="/src/assets/img/Rectangle-26.png"
+                  class="img-fluid"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-sm-12">
-            <p class="copyright-text">
-              Copyright © 2021 Posh Market, Inc. All rights reserved.
-            </p>
+      <div class="footer-copyright">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12">
+              <p class="copyright-text">
+                Copyright © 2021 Posh Market, Inc. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
   </div>
 </template>
 
@@ -642,28 +668,24 @@ import axios from "axios";
 var paginate = 1;
 export default {
   name: "Allproducts",
-  props : {
-    product_id:0
+  props: {
+    product_id: 0,
   },
-  components: {
-
-  },
+  components: {},
   data() {
-
-    
     return {
       cartform: {
         product_id: 0,
-        user_id:0,
-        quantity:1,
-        item_price:0,
-        net_price:0,
-        name:null,
-        description:null,
+        user_id: 0,
+        quantity: 1,
+        item_price: 0,
+        net_price: 0,
+        name: null,
+        description: null,
       },
 
-      userTitle:"John",
-      itemsincart:0,
+      userTitle: "John",
+      itemsincart: 0,
       isHidden: false,
       query: null,
       subcategory: this.$route.query.id,
@@ -683,34 +705,32 @@ export default {
   async mounted() {
     this.query = this.$route.query.search;
 
-    if(localStorage.getItem("login")){
-      console.log("Login Data")
+    if (localStorage.getItem("login")) {
+      console.log("Login Data");
       const logindata = JSON.parse(localStorage.getItem("login"));
       this.itemsincart = logindata.cartitems.length;
-      this.userTitle=logindata.first_name+" "+logindata.last_name;
-      this.cartform.user_id = logindata.id
-      console.log(localStorage.getItem("login"))
-      this.isHidden=true;
-    } else if(!localStorage.getItem("login")){
-			if(localStorage.getItem("guest")){
-				const guestdata = JSON.parse(localStorage.getItem("guest"));
-				this.cartitemslist = guestdata;	
-				var tempTotalPrice=0;
-				this.count_cartitems = this.cartitemslist.length;
-				this.cartitemslist.forEach(function(items) {
-					console.log("Qty: "+items.quantity)
-					tempTotalPrice+=(items.quantity*items.item_price)
-					
-				})
-				this.total_price = tempTotalPrice
-				$(".cartitems").children("span").html(this.count_cartitems);				
-			}
-		}
+      this.userTitle = logindata.first_name + " " + logindata.last_name;
+      this.cartform.user_id = logindata.id;
+      console.log(localStorage.getItem("login"));
+      this.isHidden = true;
+    } else if (!localStorage.getItem("login")) {
+      if (localStorage.getItem("guest")) {
+        const guestdata = JSON.parse(localStorage.getItem("guest"));
+        this.cartitemslist = guestdata;
+        var tempTotalPrice = 0;
+        this.count_cartitems = this.cartitemslist.length;
+        this.cartitemslist.forEach(function (items) {
+          console.log("Qty: " + items.quantity);
+          tempTotalPrice += items.quantity * items.item_price;
+        });
+        this.total_price = tempTotalPrice;
+        $(".cartitems").children("span").html(this.count_cartitems);
+      }
+    }
     this.getFilterData();
     //alert(this.$route.query.search)
   },
   methods: {
-
     async getFilterData() {
       this.startLoader();
       let result = axios.get(
@@ -718,14 +738,14 @@ export default {
         {
           params: {
             search: this.query,
-              min_price:this.min_price,
-              max_price:this.max_price,
-              brand:this.brand.toString(), 
-              colors: this.colors.toString(),
-              warranty: this.warranty.toString(), 
-              ram:this.ram.toString(),
-              processor: this.processor.toString(),
-              sub_category: this.sub_category
+            min_price: this.min_price,
+            max_price: this.max_price,
+            brand: this.brand.toString(),
+            colors: this.colors.toString(),
+            warranty: this.warranty.toString(),
+            ram: this.ram.toString(),
+            processor: this.processor.toString(),
+            sub_category: this.sub_category,
           },
         },
         { useCredentails: true }
@@ -746,7 +766,7 @@ export default {
       target_ContId.style.display = "none";
     },
     getImgUrl(vendor, pet) {
-      return this.img_url+"/"+vendor+"/" + pet;
+      return this.img_url + "/" + vendor + "/" + pet;
     },
     async pagination(action) {
       if (action == "b") {
@@ -761,28 +781,28 @@ export default {
         axios.defaults.baseURL + "allproducts",
         {
           params: {
-              search: this.query,
-              min_price:this.min_price,
-              max_price:this.max_price,
-              brand:this.brand.toString(), 
-              colors: this.colors.toString(),
-              warranty: this.warranty.toString(), 
-              ram:this.ram.toString(),
-              processor: this.processor.toString(),
-              sub_category: this.sub_category,
-              page: paginate
+            search: this.query,
+            min_price: this.min_price,
+            max_price: this.max_price,
+            brand: this.brand.toString(),
+            colors: this.colors.toString(),
+            warranty: this.warranty.toString(),
+            ram: this.ram.toString(),
+            processor: this.processor.toString(),
+            sub_category: this.sub_category,
+            page: paginate,
           },
         },
         { useCredentails: true }
       );
       console.warn("Check Data2");
       var t_data = (await result).data;
-      var remaining = t_data.total-t_data.per_page;
+      var remaining = t_data.total - t_data.per_page;
 
-      console.warn("Total: "+(t_data.total));
-      console.warn("Per Page: "+(t_data.per_page));
-      console.warn("remaining: "+remaining);
-      console.warn("current_page: "+(t_data.current_page));
+      console.warn("Total: " + t_data.total);
+      console.warn("Per Page: " + t_data.per_page);
+      console.warn("remaining: " + remaining);
+      console.warn("current_page: " + t_data.current_page);
 
       console.warn((await result).data.data);
       this.list = (await result).data.data;
@@ -793,47 +813,45 @@ export default {
     logout() {
       localStorage.clear();
       alert("Logout Success");
-      this.itemsincart=0
-      this.isHidden=false;
-      this.$router.push({name:"Home"});
+      this.itemsincart = 0;
+      this.isHidden = false;
+      this.$router.push({ name: "Home" });
     },
-    addtocart(item){
+    addtocart(item) {
       this.cartform.item_price = item.net_price;
       this.cartform.product_id = item.id;
-      this.cartform.quantity=1;
-      this.cartform.id=1;
+      this.cartform.quantity = 1;
+      this.cartform.id = 1;
 
-      if(!localStorage.getItem("login")){
+      if (!localStorage.getItem("login")) {
         //alert("Please Login First")
         this.cartform.name = item.name;
         this.cartform.description = item.description;
         this.cartform.net_price = item.net_price;
 
-
-
-        if(localStorage.getItem("guest")){
+        if (localStorage.getItem("guest")) {
           const guestdata = JSON.parse(localStorage.getItem("guest"));
-          if(guestdata.length>0){
-            var match=false;
-            guestdata.forEach((element,index) => {
-              if(element.product_id==this.cartform.product_id){
-                match=true;
-                element.quantity = parseInt(element.quantity)+1
-							  guestdata[index]=element
+          if (guestdata.length > 0) {
+            var match = false;
+            guestdata.forEach((element, index) => {
+              if (element.product_id == this.cartform.product_id) {
+                match = true;
+                element.quantity = parseInt(element.quantity) + 1;
+                guestdata[index] = element;
               }
-            })
-            if(match==false){
-              this.cartform.id = guestdata.length+1
+            });
+            if (match == false) {
+              this.cartform.id = guestdata.length + 1;
               guestdata.push(this.cartform);
             }
             localStorage.setItem("guest", JSON.stringify(guestdata));
           } else {
-            const guestdata=[];
+            const guestdata = [];
             guestdata.push(this.cartform);
             localStorage.setItem("guest", JSON.stringify(guestdata));
           }
         } else {
-          const guestdata=[];
+          const guestdata = [];
           guestdata.push(this.cartform);
           localStorage.setItem("guest", JSON.stringify(guestdata));
         }
@@ -851,41 +869,40 @@ export default {
         // }
 
         const guestdata = JSON.parse(localStorage.getItem("guest"));
-        this.itemsincart = guestdata.length
-        
-
+        this.itemsincart = guestdata.length;
 
         //this.$router.push({name:"Login"});
       } else {
-      //alert("Added to cart")
-        console.log(this.cartform)
-        this.startLoader()
-        axios.post(axios.defaults.baseURL +"addtocart",this.cartform).then((result)=>{
+        //alert("Added to cart")
+        console.log(this.cartform);
+        this.startLoader();
+        axios
+          .post(axios.defaults.baseURL + "addtocart", this.cartform)
+          .then((result) => {
             console.log(result.data);
             const obj = result.data;
             console.log(obj);
-            if(obj.success==true){
-              alert("Product Added to the Cart");  
+            if (obj.success == true) {
+              alert("Product Added to the Cart");
 
-              this.itemsincart =obj.message.cartitems.length;
-              
-              if(localStorage.getItem("login")){
-                console.log("Login Data")
+              this.itemsincart = obj.message.cartitems.length;
+
+              if (localStorage.getItem("login")) {
+                console.log("Login Data");
                 const logindata = JSON.parse(localStorage.getItem("login"));
-                logindata.cartitems=obj.message.cartitems
+                logindata.cartitems = obj.message.cartitems;
                 localStorage.setItem("login", JSON.stringify(logindata));
               }
-
             } else {
               alert("Some error occured");
             }
-        })
-        this.EndLoader()
+          });
+        this.EndLoader();
       }
     },
-    wishlist(){
-      alert("Added to Wishlist")
-    }
+    wishlist() {
+      alert("Added to Wishlist");
+    },
   },
 };
 </script>
