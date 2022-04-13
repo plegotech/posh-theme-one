@@ -2,7 +2,7 @@
   <div id="ajaxLoader" style="display: none">
     <div id="loader"></div>
   </div>
-  <div id="app" class="main">
+  <div id="app" class="main dashboardArea ">
     <div class="wrapper">
       <sidebar></sidebar>
       <div class="body">

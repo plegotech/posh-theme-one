@@ -16,43 +16,13 @@ summary {
     display: block;
 }
 
-ul,
-li {
-    margin: 0;
-    padding: 0;
-}
 
-a {
-    font-family: 'Calibri';
-    font-weight: normal;
-    font-size: 16px;
-    color: #1070e8;
-    font-weight: 400;
-    text-decoration: none;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s ease-out;
-    -ms-transition: all 0.5s ease-out;
-    -o-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
-}
 
-a:hover {
-    text-decoration: underline;
-}
 
-a:focus {
-    outline: none;
-    text-decoration: none;
-}
 
-img {
-    border: 0 none;
-    width: 100%;
-}
 
-p {
-    margin: 0 0 25px 0;
-}
+
+
 select:focus {outline: none;}
 button:focus,
 textarea:focus,
@@ -206,33 +176,31 @@ ul#__BVID__16__BV_tab_controls_ .nav-link.active:before {
 }
 
 
-nav ul {list-style: none;margin-left: auto;}
-nav ul li {
+.dashboardArea nav ul {list-style: none;margin-left: auto;}
+.dashboardArea nav ul li {
     float: left;
     padding:0 30px;
     height: 30px;
 }
-nav ul li a {
-}
-nav ul a img {
+.dashboardArea nav ul a img {
     width: 100%;
 }
-nav ul li.br-listing-t {border-right: 1px solid #8b9fad;}
-nav ul li:first-child {border-right: 1px solid #8b9fad;}
-nav ul li img.notify {
+.dashboardArea nav ul li.br-listing-t {border-right: 1px solid #8b9fad;}
+.dashboardArea nav ul li:first-child {border-right: 1px solid #8b9fad;}
+.dashboardArea nav ul li img.notify {
     width: 20px;
     padding-top: 5px;
 }
-.pending-vend .search-box img.close-icon,
-nav ul li img.profile:hover,
-nav ul li img.notify:hover {transition:.2s;opacity:.7}
-nav ul li img.profile {
+.dashboardArea .pending-vend .search-box img.close-icon,
+.dashboardArea nav ul li img.profile:hover,
+.dashboardArea nav ul li img.notify:hover {transition:.2s;opacity:.7}
+.dashboardArea nav ul li img.profile {
     width: 30px;
     float: left;
     display: inline-block;
     cursor: pointer;
 }
-.main nav ul li select {
+.main.dashboardArea nav ul li select {
     float: left;
     border: 0;
     color: white;
@@ -241,7 +209,7 @@ nav ul li img.profile {
     margin: 0;
     margin-left: 20px;
 }
-nav ul li select option {
+.dashboardArea nav ul li select option {
     color: black;
     cursor: pointer;
     border: 0;
@@ -447,7 +415,7 @@ ul.list-sidebar li a.router-link-active:before {
     align-items: center;
     color: #0862A3;
 }
-.wrapper {
+.dashboardArea .wrapper {
     max-width: 1920px;
     margin: 0 auto;
     display: flex;
@@ -541,13 +509,17 @@ i.sb-menu-icon:before {
 .sidebar li a i {
     padding-right: 5px;
 }
-.main .body {height: 100%;float: right;background:#F8F8F8;overflow: auto;}
-.main .body nav {
+.main.dashboardArea .body {
+    height: 100%;
+    width: calc(100% - 220px);
+    float: right;
+}
+.main.dashboardArea .body nav {
     background:#0862A3;
     border-radius: 31px 0 0 0;
     padding: 13px 20px;
 }
-.main .body .box {
+.main.dashboardArea .body .box {
     display: flex;
     /* flex-wrap: nowrap; */
     background: white;
@@ -558,33 +530,33 @@ i.sb-menu-icon:before {
     box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
-.main .body .box .left {
+.main.dashboardArea .body .box .left {
     /* width: 40%; */
     text-align: center;
     padding: 0 6px;
 }
-.main .body .seller_ord .box .right {text-align:left}
-.main .body .box .left img {
+.main.dashboardArea .body .seller_ord .box .right {text-align:left}
+.main.dashboardArea .body .box .left img {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     width: 80px;
 }
-.main .body .box .right {}
-.main .body .box .right:last-child {border-right:0}
-.main .body .box .right {
+.main.dashboardArea .body .box .right {}
+.main.dashboardArea .body .box .right:last-child {border-right:0}
+.main.dashboardArea .body .box .right {
     text-align: left;
     height: 100%;
     margin-top: 8px;
     width: 100%;
     padding: 0 20px;
 }
-.main .body .box .right span {
+.main.dashboardArea .body .box .right span {
     font-weight: 500;
     font-size: 14px;
     color: #767676;
 }
-.main .body h1 {
+.main.dashboardArea .body h1 {
     float: left;
     width: 100%;
     padding-left: 15px;
@@ -596,11 +568,11 @@ i.sb-menu-icon:before {
     color: #3D3D3D;
     margin: 14px 0;
 }
-.main .datepicker-d {
+.main.dashboardArea .datepicker-d {
     margin-top: 24px;
     position: relative;
 }
-.main .datepicker-d i {
+.main.dashboardArea .datepicker-d i {
     position: absolute;
     right: 14px;
     top: 50%;
@@ -608,15 +580,15 @@ i.sb-menu-icon:before {
     cursor: pointer;
     transform: translateY(-50%);
 }
-.main .datepicker-d .datepicker {
+.main.dashboardArea .datepicker-d .datepicker {
     border: 1px solid #5A5B6A;
     box-sizing: border-box;
     border-radius: 4px;
     width: 100%;
     background: none;
 }
-.main .myorder select {margin-top:0;}
-.main select {
+.main.dashboardArea .myorder select {margin-top:0;}
+.main.dashboardArea select {
     cursor:pointer;
     border: 1px solid #5A5B6A;
     box-sizing: border-box;
@@ -625,8 +597,8 @@ i.sb-menu-icon:before {
     padding: 7px 8px;
     background: none;
 }
-.main select option{cursor:pointer}
-.main button {
+.main.dashboardArea select option{cursor:pointer}
+.main.dashboardArea button {
     margin-top: 20px;
     background: #FFFFFF;
     border: 1px solid #BEBEBE;
@@ -636,8 +608,8 @@ i.sb-menu-icon:before {
     cursor: pointer;
     font-family: Inter;
 }
-.main button:hover {transition:.4s;background:#0862a3;color:white;border:1px solid #0862a3}
-.main .body .row {
+.main.dashboardArea .main button:hover {transition:.4s;background:#0862a3;color:white;border:1px solid #0862a3}
+.main..main.dashboardArea .body .row {
     position: relative;
 }
 
