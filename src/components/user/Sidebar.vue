@@ -67,10 +67,9 @@
                 aria-label="Toggle navigation"
                 class=""
               >
-                <a href="#" class=""
-                  ><i class="sb-menu-icon track-my-icon"></i>
-                  <span class="nav-label">Track My Order</span></a
-                >
+                
+                 <router-link to="tracking"><i class="sb-menu-icon track-my-icon"></i>
+                  <span class="nav-label">Track My Order</span></router-link>
               </li>
               <li
                 data-toggle="collapse"
