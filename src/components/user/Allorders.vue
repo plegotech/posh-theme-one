@@ -12,9 +12,19 @@
         <div class="container-fluid pending-vend comp-seller-myorders">
           <div class="row mt-4">
             <div class="col-sm-12">
-              
+               
               <div class="container-fluid top-newOrder container-sp-box">
-                <h4>Recent Order</h4>
+                 <div class="row">
+                              <div class="col-lg-8 col-12">
+                                
+                              </div>
+                              <div class="col-lg-4 col-12">
+                                 <div class="search-cont">
+                                  <div class="search-box mb-4 "><img src="/src/assets/img/search-icon.png" alt="" class="search-icon"> <input type="text" data-type="pending" class="search_BX" style="float: left;"> <img src="/src/assets/img/close-srch.png" alt="" class="close-icon"></div>
+                               </div>
+                              </div>
+                           </div>
+                <!-- <h4>Recent Order</h4> -->
                 <div class="pendingOrder-bx">
                   <table
                     id="pvs-tab"
