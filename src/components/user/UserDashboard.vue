@@ -43,7 +43,7 @@
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="p-successful-orders">
+                    <div class="p-successful-orders no-border">
                       <div class="icon-container">
                         <img
                           src="/src/assets/img/dashboard-icon-24.jpg"

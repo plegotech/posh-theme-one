@@ -2717,6 +2717,8 @@ body .main .body .graphs .left i img {
     font-family: Inter;
     max-width: 170px;
     float: right;
+    width:100% !important;
+    border: 1px solid #BEBEBE !important;
 }
 .prof-area .edit img {
     width: 16px;
@@ -2835,11 +2837,17 @@ body .main .body .graphs .left i img {
     width: 16px;
     margin-right: 3px;
     top: -2px;
-    position: relative;}
+    position: relative;
+}
 
-
-
-
+.edit-tab {
+    float:right !important;
+    position: relative !important;
+    top: -20px !important;
+}
+.adj-margin {
+    padding: 0 20px;
+}
 
 .cstm-modal {}
 .cstm-modal .form-group {
@@ -3142,6 +3150,7 @@ div#companyEdit, div#userProfile {
     text-align: right;
     min-height: 120px;
     clear: both;
+    position: relative;
 }
 .tabs-group button {
   max-width: 150px;
@@ -3152,11 +3161,34 @@ div#companyEdit, div#userProfile {
 .tabs-group button.submit {
   background-color: #0862A3;
   color: #fff;
+  position: relative;
+  width:100%;
 }
 .tabs-group button.submit:hover {
   background-color:transparent;
   color: #000;
   border: 1px solid #333;
+}
+
+.tabs-group button.reset {
+    margin-top: 20px;
+    background: #FFFFFF;
+    border: 1px solid #BEBEBE;
+    border-radius: 4px;
+    width: 100%;
+    padding: 6px 8px;
+    cursor: pointer;
+    font-family: Inter;
+    position: relative;
+  }
+  .tabs-group button.reset:hover {
+    background-color: #0862A3;
+    color: #fff;
+    border: 1px solid #045a97;
+  }
+.profile-middle-section
+.edit-profile-page  {
+    min-height: 290px;
 }
 .location-rm {
     padding-top: 5px;
@@ -3260,7 +3292,7 @@ track-my-order
 .head-search-box {
     position: absolute;
     top: -8px;
-    margin-left:200px;
+    margin-left:220px;
 }
 .progtrckr-done {
     position: relative;
@@ -3378,6 +3410,88 @@ img.closetag-menu {
     position: absolute;
     right: -254px;
     top: 23px;
+}
+
+.prof-area .add-new {
+    font-weight: bold;
+    background: #0862A3 !important;
+    color: white;
+    margin: 0 0 0 10px;
+    max-width: 160px;
+    position: relative !important;
+    float: right !important;
+    font-size: 16px;
+    font-family: Inter;
+    width: 100% !important;
+    padding: 8px 5px !important;
+    top:auto !important;
+    left:auto !important;
+    margin-left: 22px;
+    margin-top: -1px !important;
+}
+.tabs-grp {
+    float: right;
+    width: 360px;
+    display: flux;
+}
+.prof-area .add-new:hover {
+    padding: 7px 5px !important;
+}
+.main .body {
+    height: 100%;
+    float: right;
+    background: #F8F8F8;
+    overflow: auto;
+    height: 100%;
+    min-height: 100%;
+}
+.body .container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 1920px;
+}
+.tab-update {
+    font-weight: bold;
+    background: #0862A3 !important;
+    color: white;
+    margin: 0 10px 0 0px !important;
+    max-width: 160px;
+    position: relative !important;
+    font-size: 16px !important;
+    font-family: Inter;
+    width: 100% !important;
+    border: 1px solid #065a96 !important;
+    padding: 8px 5px !important;
+    border-radius: 5px;
+}
+.tab-update:hover {
+    font-weight: bold;
+    background: #fff !important;
+    color: #000;
+    margin: 0 10px 0 0px !important;
+    padding: 8px 5px !important;
+    font-size: 16px !important;
+    border: 1px solid #065a96 !important;
+}
+
+.close-tab {
+    font-weight: bold;
+    background: #fff !important;
+    color: #000;
+    margin: 0 10px 0 0px;
+    max-width: 160px;
+    position: relative !important;
+    font-size: 16px;
+    font-family: Inter;
+    width: 100% !important;
+    padding: 8px 5px !important;
+    border: 1px solid #333 !important;
+    border-radius: 5px;
+}
+.close-tab:hover {
+    background: #0862A3 !important;
+    color: white;
+    border: 1px solid #065a96 !important;
 }
 
 @media  (max-width: 991px) {

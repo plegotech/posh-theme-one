@@ -2,15 +2,15 @@
   <div id="ajaxLoader" style="display: none">
     <div id="loader"></div>
   </div>
-  <div id="app" class="main dashboardArea ">
+  <div id="app" class="main dashboardArea">
     <div class="wrapper">
       <sidebar></sidebar>
       <div class="body">
-<navbar></navbar>
+        <navbar></navbar>
         <div class="container-fluid pending-vend orders-all-order">
-          <div class="row mt-4">
-            <div class="col-sm-12">
-              <div class="container-fluid pending-vend">
+          <div class="adj-margin">
+            <div class="row mt-4">
+              <div class="col-sm-12">
                 <div class="row">
                   <div class="prof-area vendor-pro-b1">
                     <div class="row">
@@ -30,7 +30,9 @@
                               alt=""
                             />
                           </div>
-                          <h1>{{summary.first_name+" "+summary.last_name}}</h1>
+                          <h1>
+                            {{ summary.first_name + " " + summary.last_name }}
+                          </h1>
                         </div>
                       </div>
                       <div class="col-md-5">
@@ -38,22 +40,26 @@
                           <tbody>
                             <tr>
                               <td>Name</td>
-                              <td>{{summary.first_name+" "+summary.last_name}}</td>
+                              <td>
+                                {{
+                                  summary.first_name + " " + summary.last_name
+                                }}
+                              </td>
                             </tr>
                             <tr>
                               <td>Email</td>
-                              <td>{{summary.email}}</td>
+                              <td>{{ summary.email }}</td>
                             </tr>
                             <tr>
                               <td>Phone</td>
-                              <td>{{summary.phone}}</td>
+                              <td>{{ summary.phone }}</td>
                             </tr>
                             <!---->
                           </tbody>
                         </table>
                       </div>
-                      <div class="col-sm-3">
-                        <button class="edit">
+                      <div class="col-md-3">
+                        <button class="edit edit-tab edit-top-section">
                           <img src="/src/assets/img/edit.png" alt="" />EDIT
                           PROFILE
                         </button>
@@ -97,8 +103,8 @@
                             /><br />
                           </div>
                           <div class="offset-sm-3 col-sm-6">
-                            <button class="primary">Update</button>
-                            <button>Close</button>
+                            <button class="primary tab-update">Update</button>
+                            <button class="close-tab close-01">Close</button>
                           </div>
                         </div>
                       </div>
@@ -110,14 +116,33 @@
           </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid profile-middle-section">
           <div class="row">
             <div class="col-xl-5">
               <div class="prof-area vendor-pro-b1 edit-profile-page">
-                <button class="edit">
+                <button class="edit edit-tab edit-password-field">
                   <img src="/src/assets/img/edit.png" alt="" />UPDATE
                 </button>
                 <h3>Security</h3>
+                <div id="userPassword"
+                        class="col-sm-12"
+                        style="display: none"
+                      >
+                        <div class="row">
+                          <div class="col-md-12">
+                            <label>Password:</label>
+                            <input
+                              type="password"
+                              placeholder="Password"
+                              class="form-control"
+                            /><br />
+                          </div>
+                          <div class="" style="width:100%;">
+                            <button class="primary tab-update">Update</button>
+                            <button class="close-tab close-02">Close</button>
+                          </div>
+                        </div>
+                      </div>
                 <div class="form-cont">
                   <form>
                     <label>Password</label>
@@ -132,33 +157,96 @@
 
             <div class="col-xl-7">
               <div class="prof-area vendor-pro-b1 edit-profile-page">
-                <button class="add-new btn-width">
-                  <img src="/src/assets/img/plus-icon.png" alt="" />ADD NEW
-                </button>
-                <button class="edit">
-                  <img src="/src/assets/img/edit.png" alt="" />EDIT
-                </button>
+                <div class="tabs-grp">
+                  <button class="add-new btn-width">
+                    <img src="/src/assets/img/plus-icon.png" alt="" />ADD NEW
+                  </button>
+                  <button class="edit edit-tab companyEdit">
+                    <img src="/src/assets/img/edit.png" alt="" />EDIT
+                  </button>
+                </div>
                 <h3>Location</h3>
                 <div class="clearfix"></div>
                 <div class="location-rm">
+                  <div
+                    id="companyEdit"
+                    class="col-sm-12"
+                    style="display: none;"
+                  >
+                    <div class="row">
+                      <div class="col-md-12"></div>
+                      <div class="col-sm-6">
+                        <label>Company Name:</label>
+                        <input
+                          type="text"
+                          placeholder="John77777"
+                          class="form-control"
+                        /><br />
+                      </div>
+                      <div class="col-sm-6">
+                        <label>Phone:</label>
+                        <input
+                          type="text"
+                          placeholder="1234567890"
+                          class="form-control"
+                        /><br />
+                      </div>
+                      <div class="col-sm-6">
+                        <label>Address:</label>
+                        <input
+                          type="text"
+                          placeholder="394 Manchester Blvd77777"
+                          class="form-control"
+                        /><br />
+                      </div>
+                      <div class="col-sm-6">
+                        <label>State:</label>
+                        <input
+                          type="text"
+                          placeholder="IL77"
+                          class="form-control"
+                        /><br />
+                      </div>
+                      <div class="col-sm-6">
+                        <label>City:</label>
+                        <input
+                          type="text"
+                          placeholder="Ashland7777"
+                          class="form-control"
+                        /><br />
+                      </div>
+                      <div class="col-sm-6">
+                        <label>Zip Code:</label>
+                        <input
+                          type="text"
+                          placeholder="BHALU12347777777"
+                          class="form-control"
+                        /><br />
+                      </div>
+                      <div class="offset-sm-3 col-sm-6">
+                        <button class="primary tab-update">Update</button>
+                        <button class="close-tab close-03">Close</button>
+                      </div>
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="col-lg-6">
                       <h6>Address</h6>
-                      <span>{{summary.u_address}}</span>
+                      <span>{{ summary.u_address }}</span>
                     </div>
                     <div class="col-lg-6">
                       <h6>City</h6>
-                      <span>{{summary.u_city}}</span>
+                      <span>{{ summary.u_city }}</span>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-6">
                       <h6>State</h6>
-                      <span>{{summary.u_state}}</span>
+                      <span>{{ summary.u_state }}</span>
                     </div>
                     <div class="col-lg-6">
                       <h6>Zip Code</h6>
-                      <span>{{summary.u_zip}}</span>
+                      <span>{{ summary.u_zip }}</span>
                     </div>
                   </div>
                 </div>
@@ -210,13 +298,14 @@
 
 
 <script>
-import sidebar from "./Sidebar.vue"
-import navbar from "./Navbar.vue"
+import sidebar from "./Sidebar.vue";
+import navbar from "./Navbar.vue";
 import axios from "axios";
 export default {
   name: "Profile",
   components: {
-    sidebar, navbar
+    sidebar,
+    navbar,
   },
   mounted() {
     this.readyJS();
@@ -268,6 +357,24 @@ export default {
       $(document).ready(function () {
         $(".sub-menu a").click(function () {
           $(".sub-menu ul").slideToggle();
+        });
+        $(".edit-top-section").click(function () {
+          $("#userProfile").show();
+        });
+        $(".close-01").click(function () {
+          $("#userProfile").hide();
+        });
+        $(".companyEdit").click(function () {
+          $("#companyEdit").show();
+        });
+        $(".close-03").click(function () {
+          $("#companyEdit").hide();
+        });
+        $(".edit-password-field").click(function () {
+          $("#userPassword").show();
+        });
+        $(".close-02").click(function () {
+          $("#userPassword").hide();
         });
       });
 
