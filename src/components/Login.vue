@@ -1,4 +1,8 @@
 <template>
+  <div id="ajaxLoader" style="display: none">
+    <div id="loader"></div>
+  </div>
+
 <div class="login-area">
   <div class="container top-log">
     <div class="row">
@@ -16,7 +20,7 @@
                 class="fas fa-eye"
               ></i
             ></span>
-            <span class="invalidLogin alert alert-danger"></span>
+            <!-- <span class="invalidLogin alert alert-danger"></span> -->
             <label class="group">
               <input type="checkbox" />
               Stay Signed In
@@ -89,11 +93,21 @@ export default {
 
   },
   methods: {
+    startLoader() {
+      var target_ContId = document.getElementById("ajaxLoader");
+      target_ContId.style.display = "block";
+    },
+    EndLoader() {
+      var target_ContId = document.getElementById("ajaxLoader");
+      target_ContId.style.display = "none";
+    },    
     loginData(e) {
+      this.startLoader();
       axios.post(axios.defaults.baseURL +"login",this.login).then((result)=>{
         console.log(result.data);
         const obj = result.data;
         //console.log(obj);
+        this.EndLoader()
         if(obj.success==true){
           alert(obj.message);
 
@@ -135,7 +149,9 @@ export default {
         }
         //console.log(result);
       })
+      this.EndLoader()
       e.preventDefault();
+      
     },
     async addProductToCart(user_id, guestData){
       this.cartform.user_id = user_id;

@@ -335,8 +335,8 @@ export default {
 
 
 		this.getCartData();
-		this.EndLoader();
-		alert("Products Quantity Updated");
+		// this.EndLoader();
+		// alert("Products Quantity Updated");
 	}
 
   }
