@@ -13,7 +13,32 @@
           <div class="row mt-4">
             <div class="col-sm-12">
               <div class="container-fluid top-newOrder container-sp-box">
-                <h4>Recent Order</h4>
+                <div class="row">
+                  <div class="col-lg-8 col-12">
+                    <div class="search-box mb-4">
+                      <img
+                        src="/src/assets/img/search-icon.png"
+                        alt=""
+                        class="search-icon"
+                      />
+                      <input
+                        type="text"
+                        data-type="pending"
+                        class="search_BX"
+                        style="float: left"
+                      />
+                      <img
+                        src="/src/assets/img/close-srch.png"
+                        alt=""
+                        class="close-icon"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-12">
+                    <div class="row cst-row"></div>
+                  </div>
+                </div>
+                <!-- <h4>Recent Order</h4> -->
                 <div class="pendingOrder-bx">
                   <table
                     id="pvs-tab"
@@ -86,49 +111,45 @@
 
 <script>
 import axios from "axios";
-import sidebar from "./Sidebar.vue"
-import navbar from "./Navbar.vue"
+import sidebar from "./Sidebar.vue";
+import navbar from "./Navbar.vue";
 export default {
   name: "UserDashboard",
-  components : {
-sidebar, navbar
+  components: {
+    sidebar,
+    navbar,
   },
   mounted() {
-    
     if (localStorage.getItem("login")) {
       console.log("Login Data");
       const logindata = JSON.parse(localStorage.getItem("login"));
       this.user_id = logindata.id;
-    }    
-    
+    }
+
     this.readyJS();
     this.getOrders();
-
-    
-
-
   },
   data() {
     return {
       summary: [],
       data: [],
-      user_id:0
+      user_id: 0,
     };
   },
   methods: {
     async getOrders() {
       this.startLoader();
-      
+
       let result = axios.get(
-              axios.defaults.baseURL + "user-order",
-              {
-                params: {
-                  user_id: this.user_id,
-                  order: "pending"
-                },
-              },
-              { useCredentails: true }
-            );
+        axios.defaults.baseURL + "user-order",
+        {
+          params: {
+            user_id: this.user_id,
+            order: "pending",
+          },
+        },
+        { useCredentails: true }
+      );
 
       console.log("Orders");
       this.data = (await result).data;
