@@ -19,16 +19,9 @@
                           <div class="uploadProfile">
                             <div class="profileImage">
                               <input type="file" id="upload-photo" />
-                              <img
-                                src="/src/assets/img/edit.png"
-                                alt=""
-                                class="uploadImgBx"
-                              />
+                              <img src="/src/assets/img/edit.png" alt="" class="uploadImgBx" />
                             </div>
-                            <img
-                              src="/src/assets/img/user_profile.png"
-                              alt=""
-                            />
+                            <img src="/src/assets/img/user_profile.png" alt="" />
                           </div>
                           <h1>
                             {{ summary.first_name + " " + summary.last_name }}
@@ -64,49 +57,34 @@
                           PROFILE
                         </button>
                       </div>
-                      <div
-                        id="userProfile"
-                        class="col-sm-12"
-                        style="display: none"
-                      >
-                        <div class="row">
-                          <div class="col-md-6">
-                            <label>First Name:</label>
-                            <input
-                              type="text"
-                              placeholder="Marg2"
-                              class="form-control"
-                            /><br />
+                      <div id="userProfile" class="col-sm-12" style="display: none">
+                        <form @submit.prevent="setProfile" method="post">
+                          <input type="hidden" :value="profile" name="action" />
+                          <div class="row">
+
+                            <div class="col-md-6">
+                              <label>First Name:</label>
+                              <input type="text" v-model="firstname" class="form-control" /><br />
+                            </div>
+                            <div class="col-md-6">
+                              <label>Last Name:</label>
+                              <input v-model="lastname" type="text" class="form-control" /><br />
+                            </div>
+                            <div class="col-md-6">
+                              <label>Email:</label>
+                              <input v-model="email" type="email" class="form-control" /><br />
+                            </div>
+                            <div class="col-md-6">
+                              <label>Phone:</label>
+                              <input type="text" v-model="phone" class="form-control" /><br />
+                            </div>
+                            <div class="offset-sm-3 col-sm-6">
+                              <button type="submit" class="primary tab-update">Update</button>
+                              <a class="close-tab close-01">Close</a>
+                            </div>
+
                           </div>
-                          <div class="col-md-6">
-                            <label>Last Name:</label>
-                            <input
-                              type="text"
-                              placeholder="Hasl2"
-                              class="form-control"
-                            /><br />
-                          </div>
-                          <div class="col-md-6">
-                            <label>Email:</label>
-                            <input
-                              type="text"
-                              placeholder="vendor@yopmail.com"
-                              class="form-control"
-                            /><br />
-                          </div>
-                          <div class="col-md-6">
-                            <label>Phone:</label>
-                            <input
-                              type="text"
-                              placeholder="+92 33 2203 805"
-                              class="form-control"
-                            /><br />
-                          </div>
-                          <div class="offset-sm-3 col-sm-6">
-                            <button class="primary tab-update">Update</button>
-                            <button class="close-tab close-01">Close</button>
-                          </div>
-                        </div>
+                        </form>
                       </div>
                     </div>
                   </div>
@@ -124,30 +102,24 @@
                   <img src="/src/assets/img/edit.png" alt="" />UPDATE
                 </button>
                 <h3>Security</h3>
-                <div id="userPassword"
-                        class="col-sm-12"
-                        style="display: none"
-                      >
-                        <div class="row">
-                          <div class="col-md-12">
-                            <label>Password:</label>
-                            <input
-                              type="password"
-                              placeholder="Password"
-                              class="form-control"
-                            /><br />
-                          </div>
-                          <div class="" style="width:100%;">
-                            <button class="primary tab-update">Update</button>
-                            <button class="close-tab close-02">Close</button>
-                          </div>
-                        </div>
+                <div id="userPassword" class="col-sm-12" style="display: none">
+                  <form @submit.prevent="setPassword" method="post">
+                    <div class="row">
+
+                      <div class="col-md-12">
+                        <label>Password:</label>
+                        <input type="password" v-model="password" class="form-control" /><br />
                       </div>
-                <div class="form-cont">
-                  <form>
-                    <label>Password</label>
-                    <input type="password" name="" value="........" />
+                      <div class="" style="width:100%;">
+                        <button type="submit" class="primary tab-update">Update</button>
+                        <a class="close-tab close-02">Close</a>
+                      </div>
+                    </div>
                   </form>
+                </div>
+                <div class="form-cont">
+                  <label>Password</label>
+                  <input type="password" value="********" />
                   <div class="message-rf">
                     <p>Last Changed: Sep 23, 2020</p>
                   </div>
@@ -168,66 +140,32 @@
                 <h3>Location</h3>
                 <div class="clearfix"></div>
                 <div class="location-rm">
-                  <div
-                    id="companyEdit"
-                    class="col-sm-12"
-                    style="display: none;"
-                  >
-                    <div class="row">
-                      <div class="col-md-12"></div>
-                      <div class="col-sm-6">
-                        <label>Company Name:</label>
-                        <input
-                          type="text"
-                          placeholder="John77777"
-                          class="form-control"
-                        /><br />
+                  <div id="companyEdit" class="col-sm-12" style="display: none;">
+                    <form @submit.prevent="setLocation" method="post">
+                      <div class="row">
+                        <div class="col-md-12"></div>
+                        <div class="col-sm-6">
+                          <label>Address:</label>
+                          <input type="text" v-model="address" class="form-control" /><br />
+                        </div>
+                        <div class="col-sm-6">
+                          <label>City:</label>
+                          <input type="text" v-model="city" class="form-control" /><br />
+                        </div>
+                        <div class="col-sm-6">
+                          <label>State:</label>
+                          <input type="text" v-model="state" class="form-control" /><br />
+                        </div>
+                        <div class="col-sm-6">
+                          <label>Zip Code:</label>
+                          <input type="text" v-model="zip" class="form-control" /><br />
+                        </div>
+                        <div class="offset-sm-3 col-sm-6">
+                          <button type="submit" class="primary tab-update">Update</button>
+                          <a class="close-tab close-03">Close</a>
+                        </div>
                       </div>
-                      <div class="col-sm-6">
-                        <label>Phone:</label>
-                        <input
-                          type="text"
-                          placeholder="1234567890"
-                          class="form-control"
-                        /><br />
-                      </div>
-                      <div class="col-sm-6">
-                        <label>Address:</label>
-                        <input
-                          type="text"
-                          placeholder="394 Manchester Blvd77777"
-                          class="form-control"
-                        /><br />
-                      </div>
-                      <div class="col-sm-6">
-                        <label>State:</label>
-                        <input
-                          type="text"
-                          placeholder="IL77"
-                          class="form-control"
-                        /><br />
-                      </div>
-                      <div class="col-sm-6">
-                        <label>City:</label>
-                        <input
-                          type="text"
-                          placeholder="Ashland7777"
-                          class="form-control"
-                        /><br />
-                      </div>
-                      <div class="col-sm-6">
-                        <label>Zip Code:</label>
-                        <input
-                          type="text"
-                          placeholder="BHALU12347777777"
-                          class="form-control"
-                        /><br />
-                      </div>
-                      <div class="offset-sm-3 col-sm-6">
-                        <button class="primary tab-update">Update</button>
-                        <button class="close-tab close-03">Close</button>
-                      </div>
-                    </div>
+                    </form>
                   </div>
                   <div class="row">
                     <div class="col-lg-6">
@@ -308,24 +246,189 @@ export default {
     navbar,
   },
   mounted() {
+    if (localStorage.getItem("login")) {
+      console.log("Login Data");
+      const logindata = JSON.parse(localStorage.getItem("login"));
+      this.user_id = logindata.id;
+    }
+
     this.readyJS();
     this.getPrfile();
   },
+  computed: {
+
+    firstname: {
+      get() {
+        return this.info.fname
+      },
+      set(val) {
+        this.info.fname = val
+      }
+    },
+    lastname: {
+      get() {
+        return this.info.lname
+      },
+      set(val) {
+        this.info.lname = val
+      }
+    },
+    phone: {
+      get() {
+        return this.info.phone
+      },
+      set(val) {
+        this.info.phone = val
+      }
+    },
+    email: {
+      get() {
+        return this.info.email
+      },
+      set(val) {
+        this.info.email = val
+      }
+    },
+    password: {
+      get() {
+        return this.info.password
+      },
+      set(val) {
+        this.info.password = val
+      }
+    },
+    city: {
+      get() {
+        return this.info.u_city
+      },
+      set(val) {
+        this.info.u_city = val
+      }
+    },
+    address: {
+      get() {
+        return this.info.u_address
+      },
+      set(val) {
+        this.info.u_address = val
+      }
+    },
+    zip: {
+      get() {
+        return this.info.u_zip
+      },
+      set(val) {
+        this.info.u_zip = val
+      }
+    },
+    state: {
+      get() {
+        return this.info.u_state
+      },
+      set(val) {
+        this.info.u_state = val
+      }
+    },
+
+
+  },
   data() {
     return {
+      action: null,
       summary: [],
       data: [],
+      user_id: 0,
+      info: {
+        fname: null,
+        lname: null,
+        phone: null,
+        email: null,
+        password: null,
+        u_city: null,
+        u_address: null,
+        u_zip: null,
+        u_state: null
+      }
     };
   },
   methods: {
     async getPrfile() {
       this.startLoader();
       let resultsummary = await axios.get(
-        axios.defaults.baseURL + "user-profile/1020"
+        axios.defaults.baseURL + "user-profile/" + this.user_id
       );
       this.summary = (await resultsummary).data;
+      this.info.fname = this.summary.first_name;
+      this.info.lname = this.summary.last_name;
+      this.info.phone = this.summary.phone;
+      this.info.email = this.summary.email;
+      this.info.password = this.summary.password;
+      this.info.u_city = this.summary.u_city;
+      this.info.u_address = this.summary.u_address;
+      this.info.u_zip = this.summary.u_zip;
+      this.info.u_state = this.summary.u_state;
       console.log(resultsummary);
       this.EndLoader();
+    },
+    async setProfile() {
+
+      this.startLoader();
+      let resultsummary = await axios.post(
+        axios.defaults.baseURL + "user-profile-update/",
+        {
+          params: {
+            user_id: this.user_id,
+            first_name: this.info.fname,
+            last_name: this.info.lname,
+            phone: this.info.phone,
+            email: this.info.email
+          },
+        },
+        { useCredentails: true }
+      );
+      // this.summary = (await resultsummary).data;
+      // console.log(resultsummary);
+      // this.EndLoader();
+      this.getPrfile()
+    },
+    async setPassword() {
+
+      this.startLoader();
+      let resultsummary = await axios.post(
+        axios.defaults.baseURL + "user-profile-password/",
+        {
+          params: {
+            user_id: this.user_id,
+            password: this.info.password
+          },
+        },
+        { useCredentails: true }
+      );
+      // this.summary = (await resultsummary).data;
+      // console.log(resultsummary);
+      // this.EndLoader();
+      this.getPrfile()
+    },
+    async setLocation() {
+
+      this.startLoader();
+      let resultsummary = await axios.post(
+        axios.defaults.baseURL + "user-profile-location/",
+        {
+          params: {
+            user_id: this.user_id,
+            u_address: this.info.u_address,
+            u_city: this.info.u_city,
+            u_zip: this.info.u_zip,
+            u_state: this.info.u_state,
+          },
+        },
+        { useCredentails: true }
+      );
+      // this.summary = (await resultsummary).data;
+      // console.log(resultsummary);
+      // this.EndLoader();
+      this.getPrfile()
     },
     startLoader() {
       var target_ContId = document.getElementById("ajaxLoader");

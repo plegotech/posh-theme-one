@@ -52,12 +52,12 @@
             <h5>Download App</h5>
             <div class="download-links">
               <img
-                src="../assets/img/Google-Play.png"
+                src="/src/assets/img/Google-Play.png"
                 class="downloadapp"
                 alt=""
               />
               <img
-                src="../assets/img/App-Store.png"
+                src="/src/assets/img/App-Store.png"
                 class="downloadapp"
                 alt=""
               />
@@ -73,27 +73,27 @@
             <p class="footer-wa">We Accept</p>
             <div class="footer-cards">
               <img
-                src="../assets/img/Rectangle-22.png"
+                src="/src/assets/img/Rectangle-22.png"
                 class="img-fluid"
                 alt=""
               />
               <img
-                src="../assets/img/Rectangle-23.png"
+                src="/src/assets/img/Rectangle-23.png"
                 class="img-fluid"
                 alt=""
               />
               <img
-                src="../assets/img/Rectangle-24.png"
+                src="/src/assets/img/Rectangle-24.png"
                 class="img-fluid"
                 alt=""
               />
               <img
-                src="../assets/img/Rectangle-25.png"
+                src="/src/assets/img/Rectangle-25.png"
                 class="img-fluid"
                 alt=""
               />
               <img
-                src="../assets/img/Rectangle-26.png"
+                src="/src/assets/img/Rectangle-26.png"
                 class="img-fluid"
                 alt=""
               />

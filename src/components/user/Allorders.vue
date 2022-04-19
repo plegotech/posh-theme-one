@@ -125,7 +125,7 @@ sidebar, navbar
     async getOrders() {
       this.startLoader();
       let resultsummary = await axios.get(
-        axios.defaults.baseURL + "user-order-summary/1020"
+        axios.defaults.baseURL + "user-order-summary/"+this.user_id
       );
       this.summary = (await resultsummary).data;
       let result = axios.get(
