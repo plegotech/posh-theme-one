@@ -1519,7 +1519,7 @@ section#registration-dvs .container-fluid {
     color: #666666;
 }
 .bg-primary-posh-m:before {
-    background: url(../img/Shopping.png);
+    background: url(/src/assets/img/Shopping.png);
     content: "";
     height: 207px;
     width: 285px;
@@ -1529,7 +1529,7 @@ section#registration-dvs .container-fluid {
     background-size: contain;
 }
 .bg-primary-posh-m:after {
-    background: url(../img/E-payment.png);
+    background: url(/src/assets/img/E-payment.png);
     content: "";
     height: 250px;
     width: 170px;
