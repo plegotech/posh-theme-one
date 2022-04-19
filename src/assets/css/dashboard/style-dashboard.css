@@ -1268,31 +1268,17 @@ button.primary.rsv-bx {
     font-size: 14px;
     text-align: center;
 }
-.bg-primary-posh-m:after {
-    background: url(/img/E-payment.png);
-    content: "";
-    height: 250px;
-    width: 170px;
-    position: absolute;
-    bottom: 139px;
-    left: 0;
-    background-size: contain;
-}
-.bg-primary-posh-m:before {
-    background: url(/img/Shopping.png);
-    content: "";
-    height: 207px;
-    width: 285px;
-    position: absolute;
-    top: 0px;
-    right: 0;
-    background-size: contain;
-}
+
 .bgp-card-bx {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     height: 93vh;
+}
+.login-box 
+.alert-danger {
+    border-color: #fff;
+    background-color: #fff;
 }
 .bg-primary-posh-m {
     background-color: #0862A3;
