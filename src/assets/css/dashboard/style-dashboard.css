@@ -3473,10 +3473,15 @@ img.closetag-menu {
     padding: 8px 5px !important;
     border: 1px solid #333 !important;
     border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 20px;
+    top: -7px;
 }
 .close-tab:hover {
     background: #0862A3 !important;
-    color: white;
+    color: white !important;
     border: 1px solid #065a96 !important;
 }
 
