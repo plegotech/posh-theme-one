@@ -374,7 +374,7 @@ export default {
 
       this.startLoader();
       let resultsummary = await axios.post(
-        axios.defaults.baseURL + "user-profile-update/",
+        axios.defaults.baseURL + "user-profile-update",
         {
           params: {
             user_id: this.user_id,
@@ -395,7 +395,7 @@ export default {
 
       this.startLoader();
       let resultsummary = await axios.post(
-        axios.defaults.baseURL + "user-profile-password/",
+        axios.defaults.baseURL + "user-profile-password",
         {
           params: {
             user_id: this.user_id,
@@ -413,7 +413,7 @@ export default {
 
       this.startLoader();
       let resultsummary = await axios.post(
-        axios.defaults.baseURL + "user-profile-location/",
+        axios.defaults.baseURL + "user-profile-location",
         {
           params: {
             user_id: this.user_id,
