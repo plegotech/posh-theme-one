@@ -1923,3 +1923,9 @@ img.demo.cursor {
     font-weight: bold;
     font-size: 12px;
 }
+.navbar-brand img {
+    max-width: 150px;
+}
+h3.pm-title img {
+    max-width: 150px;
+}

@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-2 col-6">
             
-            <h3 class="pm-title">{{ list.h_shop_name }}</h3>
+            <h3 class="pm-title"><img src="/src/assets/img/Google-Play.png">{{ list.h_shop_name }}</h3>
             <p class="pm-description">
               {{ list.h_shop_address }}
             </p>
