@@ -29,39 +29,27 @@
           </div>
           <div class="col-xl-7 col-lg-6 col-9 no-pr-pl  mt-3" id="MainSliderbx">
 
-            <Carousel :autoplay="4000" :itemsToShow="1" :wrapAround="true">
+            <!-- <Carousel :autoplay="4000" :itemsToShow="1" :wrapAround="true">
               <Slide v-for="(images, index) in 3" :key="index">
                 <div class="bsc-slider-bx">
                   <img src="../assets/img/poshslider-1.png" alt="" class="img-fluid" />
-                  <!-- <img :src="getImgUrll(images)" alt="" class="img-fluid" /> -->
+                  <img :src="getImgUrll(images)" alt="" class="img-fluid" />
+                </div>
+              </Slide>
+              <template #addons>
+                <Navigation />
+              </template>
+            </Carousel> -->
+            <Carousel :autoplay="4000" :itemsToShow="1" :wrapAround="true">
+              <Slide v-for="(slide,index) in this.sliderslen" :key="index">
+                <div class="bsc-slider-bx">
+                  <img :src="getImgUrll(this.sliders[index])" alt="" class="img-fluid" />
                 </div>
               </Slide>
               <template #addons>
                 <Navigation />
               </template>
             </Carousel>
-
-            <div style="display: none;" id="HomecarouselControls" class="carousel slide mt-3" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img class="d-block w-100" src="../assets/img/poshslider-1.png" alt="First slide" />
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block w-100" src="../assets/img/poshslider-1.png" alt="Second slide" />
-                </div>
-                <div class="carousel-item">
-                  <img class="d-block w-100" src="../assets/img/poshslider-1.png" alt="Third slide" />
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#HomecarouselControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#HomecarouselControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
           </div>
           <div class="col-xl-3 col-lg-3 col-3 mt-3" id="MainSideBanner">
             <div class="mb-3" v-for="(images, index) in this.promotion" :key="index">
@@ -190,65 +178,19 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="seller-categories-box">
-                <Carousel :itemsToShow="8" :wrapAround="true">
-                  <Slide v-for="slide in 20" :key="slide">
+                <Carousel :itemsToShow="1" :wrapAround="true">
+                  <Slide v-for="(slide,index) in this.BestSellerProductsLength" :key="index">
                     <div class="bsc-slider-bx">
                       <img src="../assets/img/Group-59.png" alt="" class="img-fluid" />
-                      <h5>Watches</h5>
+
+                      <!-- <img :src="getImgUrll(this.BestSellerProducts[index])" alt="" class="img-fluid" /> -->
+                      <h5>{{this.BestSellerProducts[index]}}</h5>
                     </div>
                   </Slide>
                   <template #addons>
                     <Navigation />
                   </template>
                 </Carousel>
-              </div>
-            </div>
-          </div>
-          <div class="row" style="display:none">
-            <div class="owl-carousel owl-theme" id="sellerCAtegories">
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-59.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
-              </div>
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-60.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
-              </div>
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-61.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
-              </div>
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-62.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
-              </div>
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-63.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
-              </div>
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-64.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
-              </div>
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-65.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
-              </div>
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-66.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
-              </div>
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-64.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
-              </div>
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-65.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
-              </div>
-              <div class="bsc-slider-bx">
-                <img src="../assets/img/Group-66.png" alt="" class="img-fluid" />
-                <h5>Watches</h5>
               </div>
             </div>
           </div>
@@ -346,13 +288,15 @@ export default {
   data() {
     return {
       BestSellerProducts: [],
-      BestSellerProductsLength: 0,
+      BestSellerProductsLength: 1,
       featuredProducts: [],
       justForYouProducts: [],
       list: [],
       list_homepage: [],
       sliders: [],
+      sliderslen: 1,
       catimages: [],
+      catimageslen: 1,
       promotion: [],
       img_url: "https://posh-marketplace.plego.pro/img/product-images",
 
@@ -366,6 +310,7 @@ export default {
 
     this.getCategories()
     this.getSlidersPromotionsCategoryImages()
+    this.getBestSellerCategories()
     this.getFeaturedProducts()
     this.getJustForYouProducts()
 
@@ -396,7 +341,9 @@ export default {
       console.log((await result).data);
       this.list_homepage = (await result).data
       this.catimages = (await result).data.CatImages;
+      this.catimageslen = (await result).data.CatImages.length;
       this.sliders = (await result).data.Sliders.sliders;
+      this.sliderslen = (await result).data.Sliders.sliders.length;
       this.promotion = (await result).data.Sliders.promotion;
       console.log(this.list_homepage);
     },
@@ -416,12 +363,15 @@ export default {
       let result = axios.get(axios.defaults.baseURL + "product/featured");
       console.log((await result).data);
       this.featuredProducts = (await result).data
-      let result2 = axios.get(axios.defaults.baseURL + "seller/bestcategories/977");
-      console.log((await result2).data);
-      this.BestSellerProducts = (await result2).data
 
-      this.BestSellerProductsLength = (await result2).data.length
 
+    },
+    async getBestSellerCategories(){
+      let result = axios.get(axios.defaults.baseURL + "seller/bestcategories/977");
+      console.log((await result).data);
+      this.BestSellerProducts = (await result).data
+      console.log((await result).data.length)
+      this.BestSellerProductsLength = (await result).data.length
     },
     async getJustForYouProducts() {
       let result = axios.get(axios.defaults.baseURL + "product/justforyou/" + this.user_id);
