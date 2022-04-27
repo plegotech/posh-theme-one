@@ -43,7 +43,7 @@
             <Carousel :autoplay="4000" :itemsToShow="1" :wrapAround="true">
               <Slide v-for="(slide,index) in this.sliderslen" :key="index">
                 <div class="bsc-slider-bx">
-                  <img :src="getImgUrll(this.sliders[index])" alt="" class="img-fluid" />
+                  <img :src="getImgUrll(this.sliders[index])" alt="" class="img-fluid" height="479" />
                 </div>
               </Slide>
               <template #addons>
@@ -69,14 +69,14 @@
               <picture>
                 <!-- <source media="(min-width:991px)" :srcset="getImgUrll(this.catimages.images_new)" /> -->
 
-                <img :src="getImgUrll(this.catimages.images_new)" alt="" class="img-fluid" />
+                <img :src="getImgUrll(this.catimages.images_new)" alt="" class="img-fluid" height="323" />
               </picture>
             </div>
             <div class="mb-4">
               <picture>
                 <!-- <source media="(min-width:991px)" srcset="../assets/img/hot-items-in-gaming-img.jpg" /> -->
                 <!-- <img src="../assets/img/hot-items-in-gaming-img-2.jpg" alt="" class="img-fluid" /> -->
-                <img :src="getImgUrll(this.catimages.images_hot)" alt="" class="img-fluid" />
+                <img :src="getImgUrll(this.catimages.images_hot)" alt="" class="img-fluid" height="210" />
               </picture>
             </div>
           </div>
@@ -84,7 +84,7 @@
             <div class="row">
               <div class="col-lg-7 mb-4">
                 <!-- <img src="../assets/img/hot_categories.png" width="100%" alt="" /> -->
-                <img :src="getImgUrll(this.catimages.images_cat)" width="100%" alt="" />
+                <img :src="getImgUrll(this.catimages.images_cat)" width="100%" alt="" height="152"/>
               </div>
               <div class="col-lg-5 mb-4">
                 <div class="for-signup">
@@ -101,11 +101,11 @@
             <div class="row">
               <div class="col-sm-5 mb-sm-0 mb-4">
                 <!-- <img src="../assets/img/electronic-deals-img.jpg" alt="" /> -->
-                <img :src="getImgUrll(this.catimages.images_elec)" alt="" />
+                <img :src="getImgUrll(this.catimages.images_elec)" alt="" height="385" />
               </div>
               <div class="col-sm-7">
                 <!-- <img src="../assets/img/home_and_kitchens.png" width="100%" alt="" style="height: 100%" /> -->
-                <img :src="getImgUrll(this.catimages.images_home)" width="100%" alt="" style="height: 100%" />
+                <img :src="getImgUrll(this.catimages.images_home)" width="100%" alt="" height="385" />
               </div>
             </div>
           </div>
@@ -157,9 +157,9 @@
           </div>
           <div class="row">
             <div class="col-sm-6 mb-4">
-              <img src="../assets/img/mobile-phones-img.png" />
+              <img src="../assets/img/mobile-phones-img.png" height="240" />
             </div>
-            <div class="col-sm-6"><img src="../assets/img/new-jackets-img.png" /></div>
+            <div class="col-sm-6"><img src="../assets/img/new-jackets-img.png" height="240" /></div>
           </div>
         </div>
       </div>
