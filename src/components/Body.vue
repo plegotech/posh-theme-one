@@ -178,7 +178,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="seller-categories-box">
-                <Carousel :itemsToShow="1" :wrapAround="true">
+                <Carousel :itemsToShow="8" :wrapAround="true">
                   <Slide v-for="(slide,index) in this.BestSellerProductsLength" :key="index">
                     <div class="bsc-slider-bx">
                       <img src="../assets/img/Group-59.png" alt="" class="img-fluid" />
