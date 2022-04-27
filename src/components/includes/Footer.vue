@@ -4,46 +4,68 @@
       <div class="footer-wrap">
         <div class="row">
           <div class="col-md-2 col-6">
+            
             <h3 class="pm-title">{{ list.h_shop_name }}</h3>
             <p class="pm-description">
               {{ list.h_shop_address }}
             </p>
           </div>
           <div class="col-md-2 col-6">
-            <h5>{{ list.f_main_menu_title }}</h5>
+            <h5>Main Menu</h5>
             <ul class="footer-list">
-              <li v-for="(item, index) in list.f_main_menu_links" :key="index">
-                <a href="#"> {{ item }}</a>
+              <li>
+                <a :href="list.f_main_menu_link ? list.f_main_menu_link[0] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[0] : ""}}</a>
+              </li>
+              <li>
+                <a :href="list.f_main_menu_link ? list.f_main_menu_link[1] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[1] : ""}}</a>
+              </li>
+              <li>
+                <a :href="list.f_main_menu_link ? list.f_main_menu_link[2] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[2] : ""}}</a>
+              </li>
+              <li>
+                <a :href="list.f_main_menu_link ? list.f_main_menu_link[3] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[3] : ""}}</a>
               </li>
             </ul>
           </div>
           <div class="col-md-2 col-6">
-            <h5>{{ list.f_company_title }}</h5>
+            <h5>Company</h5>
             <ul class="footer-list">
-              <li v-for="(item, index) in list.f_company_links" :key="index">
-                <a href="#"> {{ item }}</a>
+              <li>
+                <a :href="list.f_company_link ? list.f_company_link[0] : ''">{{list.f_company_title ? list.f_company_title[0] : ""}}</a>
+              </li>
+              <li>
+                <a :href="list.f_company_link ? list.f_company_link[1] : ''">{{list.f_company_title ? list.f_company_title[1] : ""}}</a>
+              </li>
+              <li>
+                <a :href="list.f_company_link ? list.f_company_link[2] : ''">{{list.f_company_title ? list.f_company_title[2] : ""}}</a>
               </li>
             </ul>
           </div>
           <div class="col-md-2 col-6">
-            <h5>{{ list.f_discover_title }}</h5>
+            <h5>Discover</h5>
             <ul class="footer-list">
-              <li v-for="(item, index) in list.f_discover_links" :key="index">
-                <a href="#"> {{ item }}</a>
+              <li>
+                <a :href="list.f_discover_link ? list.f_discover_link[0] : ''">{{list.f_discover_title ? list.f_discover_title[0] : ""}}</a>
+              </li>
+              <li>
+                <a :href="list.f_discover_link ? list.f_discover_link[1] : ''">{{list.f_discover_title ? list.f_discover_title[1] : ""}}</a>
+              </li>
+              <li>
+                <a :href="list.f_discover_link ? list.f_discover_link[2] : ''">{{list.f_discover_title ? list.f_discover_title[2] : ""}}</a>
               </li>
             </ul>
           </div>
           <div class="col-md-2 col-6">
-            <h5>{{ list.f_findus_title }}</h5>
+            <h5>Find Us</h5>
             <ul class="footer-list">
               <li>
-                <a href="#"><i class="fab fa-facebook-f"></i> {{list.f_findus_links[0]}}</a>
+                <a :href="list.f_findus_links ? list.f_findus_links[0] : '#'"><i class="fab fa-facebook-f"></i>Facebook</a>
               </li>
               <li>
-                <a href="#"><i class="fab fa-twitter"></i> {{list.f_findus_links[1]}}</a>
+                <a :href="list.f_findus_links ? list.f_findus_links[1] : '#'"><i class="fab fa-twitter"></i>Twitter</a>
               </li>
               <li>
-                <a href="#"><i class="fab fa-instagram"></i> {{list.f_findus_links[2]}}</a>
+                <a :href="list.f_findus_links ? list.f_findus_links[2] : '#'"><i class="fab fa-instagram"></i>Instagram</a>
               </li>
 
             </ul>
@@ -55,6 +77,7 @@
               <img src="/src/assets/img/App-Store.png" class="downloadapp" alt="" />
             </div>
           </div>
+          
         </div>
       </div>
     </div>
@@ -110,6 +133,7 @@ export default {
       // this.list = result;
       this.list = (await result).data
       $('.navbar-brand').html(this.list.h_shop_name)
+      $('.about-foot p').html(this.list.about_us)
     }
 
   }

@@ -127,61 +127,33 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xl-3 col-sm-6 col-12">
+            <div class="col-xl-3 col-sm-6 col-12" v-for="(product, index) in recommended" :key="index">
               <div class="product-item">
                 <div class="pro-img-bx">
-                  <img src="/src/assets/img/810G-B68TYL1-10.png" alt="" />
+                  <router-link
+                    :to="{
+                      path: '/product',
+                      query: { id: product.id },
+                      props: true,
+                    }"
+                  >
+                  <img :src="getImgUrl(product.vendor_id, product.featured_image)" alt="" />
+                  </router-link>
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-                    DELL E13 Flip EVO Professional Laptop
+                  <router-link
+                    :to="{
+                      path: '/product',
+                      query: { id: product.id },
+                      props: true,
+                    }"
+                  >
+                    {{product.name}}
+                    </router-link>
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">$1,200.50</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
-                        class="img-fluid" /><img src="/src/assets/img/heart.png" /></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-              <div class="product-item">
-                <div class="pro-img-bx">
-                  <img src="/src/assets/img/810G-B68TYL1-3.png" alt="" />
-                </div>
-                <div class="pro-title-bx">
-                  <h3 class="prod-title">
-                    Acer Predator Helios 300 PH315-54-760S Gaming Laptop
-                  </h3>
-                  <div class="prod-p-icon">
-                    <span class="pro-price">$1,000.50</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
-                        class="img-fluid" /><img src="/src/assets/img/heart.png" /></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-              <div class="product-item">
-                <div class="pro-img-bx">
-                  <img src="/src/assets/img/810G-B68TYL1-2.png" alt="" />
-                </div>
-                <div class="pro-title-bx">
-                  <h3 class="prod-title">Acer Nitro 5 Gaming Laptop</h3>
-                  <div class="prod-p-icon">
-                    <span class="pro-price">$700.25</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
-                        class="img-fluid" /><img src="/src/assets/img/heart.png" /></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-              <div class="product-item">
-                <div class="pro-img-bx">
-                  <img src="/src/assets/img/810G-B68TYL1-5.png" alt="" />
-                </div>
-                <div class="pro-title-bx">
-                  <h3 class="prod-title">DELL Strix G15 (2021) Gaming Laptop</h3>
-                  <div class="prod-p-icon">
-                    <span class="pro-price">$899.99</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
+                    <span class="pro-price">${{ product.net_price }}</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
                         class="img-fluid" /><img src="/src/assets/img/heart.png" /></span>
                   </div>
                 </div>
@@ -201,64 +173,40 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xl-3 col-sm-6 col-12">
+            
+            <div class="col-xl-3 col-sm-6 col-12" v-for="(product, index) in justForYouProducts" :key="index">
               <div class="product-item">
                 <div class="pro-img-bx">
-                  <img src="/src/assets/img/ab810G-B68TYL1.png" alt="" />
-                </div>
-                <div class="pro-title-bx">
-                  <h3 class="prod-title">Logitech M310 910-001675</h3>
-                  <div class="prod-p-icon">
-                    <span class="pro-price">$19.49</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
-                        class="img-fluid" /><img src="/src/assets/img/heart.png" /></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-              <div class="product-item">
-                <div class="pro-img-bx">
-                  <img src="/src/assets/img/ab810G-B68TYL4.png" alt="" />
+                  <router-link
+                    :to="{
+                      path: '/product',
+                      query: { id: product.id },
+                      props: true,
+                    }"
+                  >
+                  <img :src="getImgUrl(product.vendor_id, product.featured_image)" alt="" />
+                  </router-link>
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-                    Rosewill 4 Buttons x 1 Wheel USB Wired Optical Mouse
+                  <router-link
+                    :to="{
+                      path: '/product',
+                      query: { id: product.id },
+                      props: true,
+                    }"
+                  >
+                    {{product.name}}
+                    </router-link>
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">$34.99</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
+                    <span class="pro-price">${{ product.net_price }}</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
                         class="img-fluid" /><img src="/src/assets/img/heart.png" /></span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-              <div class="product-item">
-                <div class="pro-img-bx">
-                  <img src="/src/assets/img/ab810G-B68TYL3.png" alt="" />
-                </div>
-                <div class="pro-title-bx">
-                  <h3 class="prod-title">Logitech S120 2.0 Stereo Speakers</h3>
-                  <div class="prod-p-icon">
-                    <span class="pro-price">$179.49</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
-                        class="img-fluid" /><img src="/src/assets/img/heart.png" /></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 col-12">
-              <div class="product-item">
-                <div class="pro-img-bx">
-                  <img src="/src/assets/img/ab810G-B68TYL2.png" alt="" />
-                </div>
-                <div class="pro-title-bx">
-                  <h3 class="prod-title">Logitech 910-002726</h3>
-                  <div class="prod-p-icon">
-                    <span class="pro-price">$25.04</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
-                        class="img-fluid" /><img src="/src/assets/img/heart.png" /></span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -283,6 +231,8 @@ export default {
   },
   data() {
     return {
+      recommended:[],
+      justForYouProducts:[],
       cartform: {
         product_id: 0,
         user_id: 0,
@@ -308,9 +258,16 @@ export default {
     this.cartform.product_id = this.$route.query.id;
     this.showSlides(this.slideIndex);
     this.getProductInfo();
+    this.getJustForYouProducts()
+    
   },
   methods: {
+    async getJustForYouProducts(){
+      let result = axios.get(axios.defaults.baseURL + "product/justforyou/0");
+      console.log((await result).data);
+      this.justForYouProducts = (await result).data
 
+    },
     increment() {
       //alert("Yeah")
       var val = $("#txtAcrescimo").val();
@@ -348,7 +305,13 @@ export default {
       console.log((await result).data);
       this.product_info = (await result).data
       this.gallery = await JSON.parse(this.product_info.images);
+      this.getRecommendedProducts();
       this.EndLoader();
+    },
+    async getRecommendedProducts(){
+      let result = axios.get(axios.defaults.baseURL + "product/recommended/" + (this.cartform.product_id));
+      console.log((await result).data);
+      this.recommended = (await result).data
     },
     async addtocart(e) {
       this.startLoader()
