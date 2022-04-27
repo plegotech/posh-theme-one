@@ -7,7 +7,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <!-- <a class="navbar-brand" href="/home">Posh Market</a> -->
-        <router-link to="home" class="navbar-brand">Posh Market</router-link>
+        <router-link to="home" class="navbar-brand"><img src="/src/assets/img/Google-Play.png"> Posh Market</router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerSidebar"
           aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
