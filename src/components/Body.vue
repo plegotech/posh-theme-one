@@ -12,12 +12,12 @@
                 <li v-for="item in list" :key="item.id">
                   <i class="menu-icon " :class="[item.newtitle]"><img
                       :src="'https://posh-marketplace.plego.pro/img/menu-template/' + item.newtitle + '.png'"></i>
-                  <router-link :to="{ path: 'allproducts', query: { id: item.id }, props: true }">{{ item.title }}
+                  <router-link :to="{ path: 'allproducts', query: { p_id:item.id, id: 0 }, props: true }">{{ item.title }}
                   </router-link>
                   <i class="fas fa-angle-right"></i>
                   <ul class="side-submenu">
                     <li v-for="subitem in item.children" :key="subitem.id">
-                      <router-link :to="{ path: 'allproducts', query: { id: subitem.id }, props: true }">{{
+                      <router-link :to="{ path: 'allproducts', query: { p_id:item.id, id: subitem.id }, props: true }">{{
                         subitem.title
                       }}</router-link>
                     </li>

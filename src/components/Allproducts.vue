@@ -576,17 +576,20 @@ export default {
       itemsincart: 0,
       isHidden: false,
       query: null,
-      subcategory: this.$route.query.id,
+      sub_category: this.$route.query.id,
+      parent_category:this.$route.query.p_id,
       list: [],
       filterlist: [],
+      
       brand: [],
       colors: [],
       warranty: [],
       ram: [],
       processor: [],
-      img_url: "https://posh-marketplace.plego.pro/img/product-images/",
       min_price: 0,
       max_price: 0,
+
+      img_url: "https://posh-marketplace.plego.pro/img/product-images/",
     };
   },
 
@@ -640,6 +643,7 @@ export default {
             ram: this.ram.toString(),
             processor: this.processor.toString(),
             sub_category: this.sub_category,
+            parent_category: this.parent_category,
           },
         },
         { useCredentails: true }
@@ -684,6 +688,7 @@ export default {
             ram: this.ram.toString(),
             processor: this.processor.toString(),
             sub_category: this.sub_category,
+            parent_category: this.parent_category,
             page: paginate,
           },
         },
