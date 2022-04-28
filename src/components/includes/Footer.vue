@@ -5,7 +5,10 @@
         <div class="row">
           <div class="col-md-2 col-6">
             
-            <h3 class="pm-title"><img src="/src/assets/img/Google-Play.png">{{ list.h_shop_name }}</h3>
+            <h3 class="pm-title">
+              <!-- <img src="/src/assets/img/Google-Play.png"> -->
+              <img v-if="!showTitle" :src="getImgUrll(this.list.logo)" />
+              <span v-if="showTitle">{{ list.h_shop_name }}</span></h3>
             <p class="pm-description">
               {{ list.h_shop_address }}
             </p>
@@ -59,13 +62,13 @@
             <h5>Find Us</h5>
             <ul class="footer-list">
               <li>
-                <a :href="list.f_findus_links ? list.f_findus_links[0] : '#'"><i class="fab fa-facebook-f"></i>Facebook</a>
+                <a :href="list.f_findus_links ? list.f_findus_links[0] : '#'" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
               </li>
               <li>
-                <a :href="list.f_findus_links ? list.f_findus_links[1] : '#'"><i class="fab fa-twitter"></i>Twitter</a>
+                <a :href="list.f_findus_links ? list.f_findus_links[1] : '#'" target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
               </li>
               <li>
-                <a :href="list.f_findus_links ? list.f_findus_links[2] : '#'"><i class="fab fa-instagram"></i>Instagram</a>
+                <a :href="list.f_findus_links ? list.f_findus_links[2] : '#'" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
               </li>
 
             </ul>
@@ -119,7 +122,9 @@ export default {
   name: "Footer",
   data() {
     return {
-      list:[]
+      list:[],
+      showTitle:true,
+      img_url: "https://posh-marketplace.plego.pro/img/product-images",
     }
   },
   mounted() {
@@ -133,8 +138,13 @@ export default {
       // this.list = result;
       this.list = (await result).data
       $('.navbar-brand').html(this.list.h_shop_name)
+      // if(this.list.logo)
+      // this.showTitle = false
       $('.about-foot p').html(this.list.about_us)
-    }
+    },
+    getImgUrll(pet) {
+      return this.img_url + "/977/" + pet;
+    },
 
   }
 };
