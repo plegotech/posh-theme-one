@@ -89,7 +89,7 @@
         </div>
       </div>
 
-      <div class="container-fluid">
+      <div class="container-fluid" id="hotDeals-bx">
 
         <div class="row">
 

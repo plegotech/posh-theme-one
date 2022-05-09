@@ -39,6 +39,12 @@ span.navbar-toggler-icon:before {
         font-size: 12px;
     }
 }
+@media (min-width: 1280px){
+div#hotDeals-bx {
+    max-height: 585px;
+    overflow: hidden;
+}
+}
 @media (max-width: 1024px){
     .checkout-itesm-bx {
         padding-right: 0;
