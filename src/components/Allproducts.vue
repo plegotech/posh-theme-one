@@ -422,7 +422,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="cat-title-pg">
-                <h4>Gaming Laptops</h4>
+                <h4>{{ this.MainCategory.title }}</h4>
                 <div class="cat-option-pg">
                   <form @submit.prevent="getFilterData" method="post">
                     <div class="price-limit-opt">
@@ -572,6 +572,7 @@ export default {
         description: null,
       },
 
+      MainCategory:[],
       userTitle: "John",
       itemsincart: 0,
       isHidden: false,
@@ -630,6 +631,10 @@ export default {
   methods: {
     async getFilterData() {
       this.startLoader();
+      let cat_result = axios.get(axios.defaults.baseURL+"seller/getcategorytitle/"+this.parent_category);
+      this.MainCategory = (await cat_result).data;
+
+
       let result = axios.get(
         axios.defaults.baseURL + "allproducts",
         {

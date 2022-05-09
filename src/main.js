@@ -9,6 +9,7 @@ import 'vue3-carousel/dist/carousel.css';
  const url = 'https://posh-marketplace.plego.pro';
 
 axios.defaults.baseURL=url+"/api/";
+axios.defaults.url = url;
 
 
 //app.config.globalProperties.$assets = assets+"/src/assets";
