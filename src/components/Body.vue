@@ -12,14 +12,16 @@
                 <li v-for="item in list" :key="item.id">
                   <i class="menu-icon " :class="[item.newtitle]"><img
                       :src="'https://posh-marketplace.plego.pro/img/menu-template/' + item.newtitle + '.png'"></i>
-                  <router-link :to="{ path: 'allproducts', query: { p_id:item.id, id: 0 }, props: true }">{{ item.title }}
+                  <router-link :to="{ path: 'allproducts', query: { p_id: item.id, id: 0 }, props: true }">{{ item.title
+                  }}
                   </router-link>
                   <i class="fas fa-angle-right"></i>
                   <ul class="side-submenu">
                     <li v-for="subitem in item.children" :key="subitem.id">
-                      <router-link :to="{ path: 'allproducts', query: { p_id:item.id, id: subitem.id }, props: true }">{{
-                        subitem.title
-                      }}</router-link>
+                      <router-link :to="{ path: 'allproducts', query: { p_id: item.id, id: subitem.id }, props: true }">
+                        {{
+                            subitem.title
+                        }}</router-link>
                     </li>
                   </ul>
 
@@ -29,32 +31,59 @@
           </div>
           <div class="col-xl-7 col-lg-6 col-9 no-pr-pl  mt-3" id="MainSliderbx">
 
-            <!-- <Carousel :autoplay="4000" :itemsToShow="1" :wrapAround="true">
-              <Slide v-for="(images, index) in 3" :key="index">
-                <div class="bsc-slider-bx">
-                  <img src="../assets/img/poshslider-1.png" alt="" class="img-fluid" />
-                  <img :src="getImgUrll(images)" alt="" class="img-fluid" />
-                </div>
-              </Slide>
-              <template #addons>
-                <Navigation />
-              </template>
-            </Carousel> -->
             <Carousel :autoplay="4000" :itemsToShow="1" :wrapAround="true">
-              <Slide v-for="(slide,index) in this.sliderslen" :key="index">
+              <Slide v-for="(images, index) in this.sliders" :key="index">
                 <div class="bsc-slider-bx">
-                  <img :src="getImgUrll(this.sliders[index])" alt="" class="img-fluid" height="479" />
+                  <!-- <img src="../assets/img/poshslider-1.png" alt="" class="img-fluid" /> -->
+                  <a :href="images.link ? images.link : '#'" target="_blank">
+                    <img :src="getImgUrll(images.image)" alt="" class="img-fluid" />
+                  </a>
                 </div>
               </Slide>
               <template #addons>
                 <Navigation />
               </template>
             </Carousel>
+            <!--
+            <Carousel :autoplay="4000" :itemsToShow="1" :wrapAround="true">
+              <Slide>
+                <div class="bsc-slider-bx">
+                  <a :href="this.sliders.link1 ? this.sliders.link1 : '#'" target="_blank">
+                    <img :src="getImgUrll(this.sliders.image1)" alt="" class="img-fluid" height="479" />
+                  </a>
+                </div>
+              </Slide>
+              <Slide>
+                <div class="bsc-slider-bx">
+                  <a :href="this.sliders.link2 ? this.sliders.link2 : '#'" target="_blank">
+                    <img :src="getImgUrll(this.sliders.image2)" alt="" class="img-fluid" height="479" />
+                  </a>
+                </div>
+              </Slide>
+              <Slide>
+                <div class="bsc-slider-bx">
+                  <a :href="this.sliders.link3 ? this.sliders.link3 : '#'" target="_blank">
+                    <img :src="getImgUrll(this.sliders.image3)" alt="" class="img-fluid" height="479" />
+                  </a>
+                </div>
+              </Slide>
+              <template #addons>
+                <Navigation />
+              </template>
+            </Carousel>-->
           </div>
           <div class="col-xl-3 col-lg-3 col-3 mt-3" id="MainSideBanner">
-            <div class="mb-3" v-for="(images, index) in this.promotion" :key="index">
-              <!-- <img src="../assets/img/rectangle_1.png" class="banner" alt="" /> -->
-              <img :src="getImgUrll(images)" alt="" />
+            <div class="mb-3">
+              <!-- <img src="../assets/img/mobile-phones-img.png" height="240" /> -->
+              <a :href="this.promotion.link1 ? this.promotion.link1 : '#'" target="_blank">
+                <img :src="getImgUrll(this.promotion.image1)" alt="" />
+              </a>
+            </div>
+            <div class="mb-3">
+              <!-- <img src="../assets/img/mobile-phones-img.png" height="240" /> -->
+              <a :href="this.promotion.link2 ? this.promotion.link2 : '#'" target="_blank">
+                <img :src="getImgUrll(this.promotion.image2)" alt="" />
+              </a>
             </div>
           </div>
         </div>
@@ -84,7 +113,7 @@
             <div class="row">
               <div class="col-lg-7 mb-4">
                 <!-- <img src="../assets/img/hot_categories.png" width="100%" alt="" /> -->
-                <img :src="getImgUrll(this.catimages.images_cat)" width="100%" alt="" height="152"/>
+                <img :src="getImgUrll(this.catimages.images_cat)" width="100%" alt="" height="152" />
               </div>
               <div class="col-lg-5 mb-4">
                 <div class="for-signup">
@@ -157,9 +186,15 @@
           </div>
           <div class="row">
             <div class="col-sm-6 mb-4">
-              <img src="../assets/img/mobile-phones-img.png" height="240" />
+              <a :href="this.promotion.link3 ? this.promotion.link3 : '#'" target="_blank">
+                <img :src="getImgUrll(this.promotion.image3)" height="240" alt="" />
+              </a>
             </div>
-            <div class="col-sm-6"><img src="../assets/img/new-jackets-img.png" height="240" /></div>
+            <div class="col-sm-6">
+              <a :href="this.promotion.link4 ? this.promotion.link4 : '#'" target="_blank">
+                <img :src="getImgUrll(this.promotion.image4)" height="240" alt="" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -179,12 +214,14 @@
             <div class="col-sm-12">
               <div class="seller-categories-box">
                 <Carousel :itemsToShow="8" :wrapAround="true">
-                  <Slide v-for="(slide,index) in this.BestSellerProductsLength" :key="index">
+                  <Slide v-for="(slide, index) in this.BestSellerProductsLength" :key="index">
                     <div class="bsc-slider-bx">
-                      <img src="../assets/img/Group-59.png" alt="" class="img-fluid" />
+                      <!-- <img src="../assets/img/Group-59.png" alt="" class="img-fluid" /> -->
 
-                      <!-- <img :src="getImgUrll(this.BestSellerProducts[index])" alt="" class="img-fluid" /> -->
-                      <h5>{{this.BestSellerProducts[index]}}</h5>
+                      <img
+                        :src="getImgUrl(this.BestSellerProducts[index].vendor_id, this.BestSellerProducts[index].featured_image)"
+                        alt="" class="img-fluid" />
+                      <h5>{{ this.BestSellerProducts[index].title }}</h5>
                     </div>
                   </Slide>
                   <template #addons>
@@ -287,18 +324,37 @@ export default {
   },
   data() {
     return {
-      BestSellerProducts: [],
+      BestSellerProducts: {
+        0: {
+          featured_image: null,
+          vendor_id: null
+        }
+      },
       BestSellerProductsLength: 1,
       featuredProducts: [],
       justForYouProducts: [],
       list: [],
       list_homepage: [],
-      sliders: [],
+      sliders: {
+        0: {
+          link: null,
+          image: null
+        },
+        1: {
+          link: null,
+          image: null
+
+        },
+        2: {
+          link: null,
+          image: null
+        }
+      },
       sliderslen: 1,
       catimages: [],
       catimageslen: 1,
       promotion: [],
-      img_url: "https://posh-marketplace.plego.pro/img/product-images",
+      img_url: axios.defaults.url + "/img/product-images",
 
       user_id: 0
     };
@@ -341,14 +397,13 @@ export default {
       console.log((await result).data);
       this.list_homepage = (await result).data
       this.catimages = (await result).data.CatImages;
-      this.catimageslen = (await result).data.CatImages.length;
-      this.sliders = (await result).data.Sliders.sliders;
-      this.sliderslen = (await result).data.Sliders.sliders.length;
-      this.promotion = (await result).data.Sliders.promotion;
+      this.sliders = (await result).data.Sliders;
+      this.sliderslen = 3;
+      this.promotion = (await result).data.Promotions;
       console.log(this.list_homepage);
     },
     async getCategories() {
-      let result = axios.get(axios.defaults.baseURL + "categories", this.params);
+      let result = axios.get(axios.defaults.baseURL + "categorieslimited", this.params);
       console.warn("Check Data");
       const obj = (await result).data;
       console.warn(obj);
@@ -366,7 +421,7 @@ export default {
 
 
     },
-    async getBestSellerCategories(){
+    async getBestSellerCategories() {
       let result = axios.get(axios.defaults.baseURL + "seller/bestcategories/977");
       console.log((await result).data);
       this.BestSellerProducts = (await result).data
