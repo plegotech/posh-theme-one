@@ -1790,6 +1790,9 @@ div#MainSliderbx button.carousel__next {
 div#MainSliderbx button.carousel__prev {
     left: 20px;
 }
+div#MainSliderbx li.carousel__slide {
+    padding: initial;
+}
 div#MainSliderbx button.carousel__next path, div#MainSliderbx button.carousel__prev path {
     -ms-transform: scale(2.0);
     -webkit-transform: scale(1.4);
