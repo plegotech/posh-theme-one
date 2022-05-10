@@ -218,9 +218,9 @@
                     <div class="bsc-slider-bx">
                       <!-- <img src="../assets/img/Group-59.png" alt="" class="img-fluid" /> -->
 
-                      <img
+                      <div class="bs-pro-bx"><img
                         :src="getImgUrl(this.BestSellerProducts[index].vendor_id, this.BestSellerProducts[index].featured_image)"
-                        alt="" class="img-fluid" />
+                        alt="" class="img-fluid" /></div>
                       <h5>{{ this.BestSellerProducts[index].title }}</h5>
                     </div>
                   </Slide>
