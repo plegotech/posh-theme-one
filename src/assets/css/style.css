@@ -379,6 +379,9 @@ h2.cat-title {
 .bsc-slider-bx {
     text-align: center;
 }
+div#MainSideBanner>div {
+    flex-grow: 1;
+}
 div#MainSideBanner {
     max-height: 478px;
     display: flex;
@@ -1058,10 +1061,10 @@ button.btnplus-item:hover, button.btnminus-item:hover {
     position: relative;
 }
 .form-group input {
-    border: 1px solid #5F5F5F;
+    border:1px solid #5F5F5F!Important;
 }
 .youorder-opt-bx {
-    display: flex;
+    display: -webkit-inline-box;
     border-bottom: 1px solid #C4C4C4;
     padding-bottom: 25px;
     margin-bottom: 30px;
@@ -1073,6 +1076,7 @@ button.btnplus-item:hover, button.btnminus-item:hover {
 .yr-disc {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 5px;
 }
 .checkout-itesm-bx {
     padding-right: 89px;
