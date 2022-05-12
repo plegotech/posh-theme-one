@@ -185,12 +185,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6 mb-4">
+            <div class="col-sm-6 mb-4 promotion-mid-bx">
               <a :href="this.promotion.link3 ? this.promotion.link3 : '#'" target="_blank">
                 <img :src="getImgUrll(this.promotion.image3)" height="240" alt="" />
               </a>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 promotion-mid-bx">
               <a :href="this.promotion.link4 ? this.promotion.link4 : '#'" target="_blank">
                 <img :src="getImgUrll(this.promotion.image4)" height="240" alt="" />
               </a>
@@ -213,7 +213,7 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="seller-categories-box">
-                <Carousel :itemsToShow="8" :wrapAround="true">
+                <Carousel :settings="settings" :breakpoints="breakpoints">
                   <Slide v-for="(slide, index) in this.BestSellerProductsLength" :key="index">
                     <div class="bsc-slider-bx">
                       <!-- <img src="../assets/img/Group-59.png" alt="" class="img-fluid" /> -->
@@ -324,6 +324,32 @@ export default {
   },
   data() {
     return {
+      //
+      settings: {
+      itemsToShow: 2,
+      snapAlign: 'center',
+    },
+    // breakpoints are mobile first
+    // any settings not specified will fallback to the carousel settings
+    breakpoints: {
+      // 700px and up
+       700: {
+        itemsToShow: 3,
+        snapAlign: 'center',
+      },
+       // 1024 and up
+      1024: {
+        itemsToShow: 5,
+        snapAlign: 'start',
+      },
+       1400: {
+        itemsToShow: 8,
+        snapAlign: 'start',
+      },
+     
+     
+       },
+      //
       BestSellerProducts: {
         0: {
           featured_image: null,

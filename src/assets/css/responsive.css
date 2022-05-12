@@ -256,6 +256,17 @@ div#hotDeals-bx {
     }
 }
 @media (max-width: 767px){
+    .cartI-1 {
+        display: table-row-group;
+        padding-right: inherit;
+        text-align: center;
+    }
+    .cart-item-img {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        padding-bottom: 15px;
+    }
     .userLogined {
         padding-left: 12px;
     }
@@ -297,13 +308,16 @@ div#hotDeals-bx {
     .cartI-3 {
         display: inline-block;
         flex: 0 0 44%;
+        width: 30%;
+        text-align: center;
     }
     .cartItems-box {
         display: block;
     }
     .cartI-2 {
         display: inline-block;
-        flex: 0 0 44%;
+        flex: inherit;
+        width: 30%;
     }
     .ci-push-bx {
         position: relative;
