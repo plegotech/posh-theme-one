@@ -379,6 +379,9 @@ h2.cat-title {
 .bsc-slider-bx {
     text-align: center;
 }
+div#MainSideBanner>div {
+    flex-grow: 1;
+}
 div#MainSideBanner {
     max-height: 478px;
     display: flex;
@@ -1058,13 +1061,16 @@ button.btnplus-item:hover, button.btnminus-item:hover {
     position: relative;
 }
 .form-group input {
-    border: 1px solid #5F5F5F;
+    border:1px solid #5F5F5F!Important;
 }
 .youorder-opt-bx {
-    display: flex;
+    display: -webkit-inline-box;
     border-bottom: 1px solid #C4C4C4;
     padding-bottom: 25px;
     margin-bottom: 30px;
+}
+.promotion-mid-bx img {
+    height: auto;
 }
 .youorder-item {
     flex: 0 0 70%;
@@ -1073,6 +1079,7 @@ button.btnplus-item:hover, button.btnminus-item:hover {
 .yr-disc {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 5px;
 }
 .checkout-itesm-bx {
     padding-right: 89px;
@@ -1789,6 +1796,9 @@ div#MainSliderbx button.carousel__next {
 }
 div#MainSliderbx button.carousel__prev {
     left: 20px;
+}
+div#MainSliderbx li.carousel__slide {
+    padding: initial;
 }
 div#MainSliderbx button.carousel__next path, div#MainSliderbx button.carousel__prev path {
     -ms-transform: scale(2.0);
