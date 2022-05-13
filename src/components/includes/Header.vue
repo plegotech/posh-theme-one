@@ -7,7 +7,10 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <!-- <a class="navbar-brand" href="/home">Posh Market</a> -->
-        <router-link to="home" class="navbar-brand"><img src="/src/assets/img/Google-Play.png"> <span>Posh Market</span></router-link>
+        <router-link to="home" class="navbar-brand">
+          <img v-if="this.list.logo" :src="getImgUrll(this.list.logo)" />
+          <span v-if="!this.list.logo">{{ list.h_shop_name }}</span>
+        </router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerSidebar"
           aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -158,6 +161,9 @@ export default {
       amountincart: "0.00",
       isHidden: false,
       query: null,
+      list: [],
+      showTitle: true,
+      img_url: "https://posh-marketplace.plego.pro/img/product-images",
     };
   },
   async mounted() {
@@ -167,8 +173,8 @@ export default {
       var amount = 0;
       if (logindata.cartitems) {
         this.itemsincart = logindata.cartitems.length;
-        for(var i=0; i<logindata.cartitems.length; i++){
-          amount+=parseInt(logindata.cartitems[i].item_price)*  parseInt(logindata.cartitems[i].quantity);
+        for (var i = 0; i < logindata.cartitems.length; i++) {
+          amount += parseInt(logindata.cartitems[i].item_price) * parseInt(logindata.cartitems[i].quantity);
         }
         this.amountincart = amount;
       }
@@ -190,6 +196,7 @@ export default {
       this.amountincart = "0.00";
       this.isHidden = false;
       this.$router.push({ name: "Home" });
+
     },
     getFilterData() {
       //alert(this.query);
@@ -198,6 +205,15 @@ export default {
       //this.$router.go({name:'Allproducts', query: { search: this.query } })
       // this.$router.push({name:"Allproducts"});
     },
+    async getHeadFoot() {
+      let result = axios.get(axios.defaults.baseURL + "headerfooter/977");
+      console.log("header footer");
+      this.list = (await result).data
+    },
+    getImgUrll(pet) {
+      return this.img_url + "/977/" + pet;
+    },
+
   },
 };
 </script>

@@ -177,28 +177,22 @@
     </div>
     <div class="container-fluid">
       <div class="row mt-5">
-        <div class="col-sm-2 hide-xs-bx">{{ this.filtersdata }}
+        <div class="col-sm-2 hide-xs-bx">
           <form @submit.prevent="getFilterData" method="post">
             <div class="sidebar-options mt-3">
-              <div
-                class="brand-options"
-                v-for="(value, index) in this.filterlist"
-                :key="index"
-              >
-                <h5>{{ index }} </h5>
+              <div class="brand-options" v-for="(value, index) in this.filterlist" :key="index">
+                <h5>{{index}}</h5>
                 <ul class="products-cat-opt">
                   <li v-for="(subvalue, subindex) in value" :key="subindex">
                     <label class="form-check-label"
                       ><input
                         type="checkbox"
-                        v-model="filtersdata[index]"
+                        v-model="brand"
                         class="form-check-input"
-                        :value="subvalue" />{{ subvalue
-                      }}<span class="checkmark"></span
+                        value="hp" />HP <span class="checkmark"></span
                     ></label>
                   </li>
-                </ul>
-                <!-- <li>
+                  <li>
                     <label class="form-check-label"
                       ><input
                         type="checkbox"
@@ -260,7 +254,7 @@
                         class="form-check-input"
                         value="Razor" />Razor <span class="checkmark"></span
                     ></label>
-                  </li> 
+                  </li>
                 </ul>
               </div>
               <div class="brand-options">
@@ -416,7 +410,7 @@
                         value="16" />16 GB RAM <span class="checkmark"></span
                     ></label>
                   </li>
-                </ul>-->
+                </ul>
               </div>
             </div>
             <button type="submit" name="filter" class="col-sm-12 primary h-34">
@@ -567,7 +561,7 @@ export default {
   components: { FooterComp },
   data() {
     return {
-      total_price: 0,
+      total_price:0,
       cartform: {
         product_id: 0,
         user_id: 0,
@@ -578,18 +572,16 @@ export default {
         description: null,
       },
 
-      MainCategory: [],
+      MainCategory:[],
       userTitle: "John",
       itemsincart: 0,
       isHidden: false,
       query: null,
       sub_category: this.$route.query.id,
-      parent_category: this.$route.query.p_id,
+      parent_category:this.$route.query.p_id,
       list: [],
       filterlist: [],
-      filtersdata: [],
-      filtersd: {},
-
+      
       brand: [],
       colors: [],
       warranty: [],
@@ -598,7 +590,7 @@ export default {
       min_price: 0,
       max_price: 0,
 
-      img_url: axios.defaults.baseURL + "/img/product-images/",
+      img_url: axios.defaults.baseURL+"/img/product-images/",
     };
   },
 
@@ -609,12 +601,10 @@ export default {
       console.log("Login Data");
       const logindata = JSON.parse(localStorage.getItem("login"));
 
-      if (logindata.cartitems) {
+      if(logindata.cartitems){
         this.itemsincart = logindata.cartitems.length;
-        for (var i = 0; i < logindata.cartitems.length; i++) {
-          this.total_price +=
-            parseInt(logindata.cartitems[i].item_price) *
-            parseInt(logindata.cartitems[i].quantity);
+        for(var i=0; i<logindata.cartitems.length; i++){
+          this.total_price+=parseInt(logindata.cartitems[i].item_price)*  parseInt(logindata.cartitems[i].quantity);
         }
       }
       this.userTitle = logindata.first_name + " " + logindata.last_name;
@@ -635,39 +625,33 @@ export default {
         $(".cartitems").children("span").html(this.count_cartitems);
       }
     }
-    this.getCategoryFilters();
+    this.getCategoryFilters()
     //
     this.getFilterData();
     //alert(this.$route.query.search)
   },
   methods: {
-    async getCategoryFilters() {
+    async getCategoryFilters(){
       this.startLoader();
-      let cat_result = axios.get(
-        axios.defaults.baseURL + "category/pfilters/" + this.sub_category
-      );
-      if ((await cat_result).data != null) {
-        this.filterlist = (await cat_result).data.data;
-        this.filtersdata = (await cat_result).data.labels;
+      let cat_result = axios.get(axios.defaults.baseURL+"category/filters/"+this.parent_category);
+      if((await cat_result).data!=null){
+      this.filterlist = (await cat_result).data.data;
+
       }
       //this.filterlist = (await cat_result).data;
-      console.log(this.filterlist);
+      console.log(this.filterlist)
       this.EndLoader();
     },
     async getFilterData() {
       this.startLoader();
-      let cat_result = axios.get(
-        axios.defaults.baseURL +
-          "seller/getcategorytitle/" +
-          this.parent_category
-      );
+      let cat_result = axios.get(axios.defaults.baseURL+"seller/getcategorytitle/"+this.parent_category);
       this.MainCategory = (await cat_result).data;
-      
+
+
       let result = axios.get(
         axios.defaults.baseURL + "allproducts",
         {
           params: {
-            filter:JSON.stringify(this.filtersdata),
             search: this.query,
             min_price: this.min_price,
             max_price: this.max_price,

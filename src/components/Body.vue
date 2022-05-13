@@ -12,9 +12,9 @@
                 <li v-for="item in list" :key="item.id">
                   <i class="menu-icon " :class="[item.newtitle]"><img
                       :src="'https://posh-marketplace.plego.pro/img/menu-template/' + item.newtitle + '.png'"></i>
-                  <router-link :to="{ path: 'allproducts', query: { p_id: item.id, id: 0 }, props: true }">{{ item.title
+                  {{ item.title
                   }}
-                  </router-link>
+                  
                   <i class="fas fa-angle-right"></i>
                   <ul class="side-submenu">
                     <li v-for="subitem in item.children" :key="subitem.id">
