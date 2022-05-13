@@ -12,9 +12,9 @@
                 <li v-for="item in list" :key="item.id">
                   <i class="menu-icon " :class="[item.newtitle]"><img
                       :src="'https://posh-marketplace.plego.pro/img/menu-template/' + item.newtitle + '.png'"></i>
-                  <router-link :to="{ path: 'allproducts', query: { p_id: item.id, id: 0 }, props: true }">{{ item.title
+                  {{ item.title
                   }}
-                  </router-link>
+                  
                   <i class="fas fa-angle-right"></i>
                   <ul class="side-submenu">
                     <li v-for="subitem in item.children" :key="subitem.id">
@@ -97,15 +97,17 @@
             <div class="mb-4">
               <picture>
                 <!-- <source media="(min-width:991px)" :srcset="getImgUrll(this.catimages.images_new)" /> -->
-
-                <img :src="getImgUrll(this.catimages.images_new)" alt="" class="img-fluid" height="323" />
+                <a :href="this.catimages.link_new ? this.catimages.link_new : '#'" target="_blank">
+                  <img :src="getImgUrll(this.catimages.images_new)" alt="" class="img-fluid" height="323" /></a>
               </picture>
             </div>
             <div class="mb-4">
               <picture>
                 <!-- <source media="(min-width:991px)" srcset="../assets/img/hot-items-in-gaming-img.jpg" /> -->
                 <!-- <img src="../assets/img/hot-items-in-gaming-img-2.jpg" alt="" class="img-fluid" /> -->
-                <img :src="getImgUrll(this.catimages.images_hot)" alt="" class="img-fluid" height="210" />
+                <a :href="this.catimages.link_hot ? this.catimages.link_hot : '#'" target="_blank">
+                  <img :src="getImgUrll(this.catimages.images_hot)" alt="" class="img-fluid" height="210" />
+                </a>
               </picture>
             </div>
           </div>
@@ -113,7 +115,8 @@
             <div class="row">
               <div class="col-lg-7 mb-4">
                 <!-- <img src="../assets/img/hot_categories.png" width="100%" alt="" /> -->
-                <img :src="getImgUrll(this.catimages.images_cat)" width="100%" alt="" height="152" />
+                <a :href="this.catimages.link_cat ? this.catimages.link_cat : '#'" target="_blank">
+                  <img :src="getImgUrll(this.catimages.images_cat)" width="100%" alt="" height="152" /></a>
               </div>
               <div class="col-lg-5 mb-4">
                 <div class="for-signup">
@@ -130,11 +133,13 @@
             <div class="row">
               <div class="col-sm-5 mb-sm-0 mb-4">
                 <!-- <img src="../assets/img/electronic-deals-img.jpg" alt="" /> -->
-                <img :src="getImgUrll(this.catimages.images_elec)" alt="" height="385" />
+                <a :href="this.catimages.link_elec ? this.catimages.link_elec : '#'" target="_blank">
+                  <img :src="getImgUrll(this.catimages.images_elec)" alt="" height="385" /></a>
               </div>
               <div class="col-sm-7">
                 <!-- <img src="../assets/img/home_and_kitchens.png" width="100%" alt="" style="height: 100%" /> -->
-                <img :src="getImgUrll(this.catimages.images_home)" width="100%" alt="" height="385" />
+                <a :href="this.catimages.link_home ? this.catimages.link_home : '#'" target="_blank">
+                  <img :src="getImgUrll(this.catimages.images_home)" width="100%" alt="" height="385" /></a>
               </div>
             </div>
           </div>
