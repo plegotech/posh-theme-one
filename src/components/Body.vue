@@ -386,6 +386,7 @@ export default {
       catimageslen: 1,
       promotion: [],
       img_url: axios.defaults.url + "/img/product-images",
+      
 
       user_id: 0
     };
