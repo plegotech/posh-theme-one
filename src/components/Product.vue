@@ -241,7 +241,8 @@ export default {
       },
       product_info: [],
       slideIndex: 1,
-      img_url: "https://posh-marketplace.plego.pro/img/product-images",
+      //img_url: "https://posh-marketplace.plego.pro/img/product-images",
+      img_url: axios.defaults.url + "/img/product-images",
       gallery: []
 
     };
