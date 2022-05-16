@@ -10,9 +10,17 @@
         <router-link to="home" class="navbar-brand">
           <img v-if="this.list.logo" :src="getImgUrll(this.list.logo)" />
           <span v-if="!this.list.logo">{{ list.h_shop_name }}</span>
+          
         </router-link>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerSidebar"
-          aria-controls="navbarTogglerSidebar" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerSidebar"
+          aria-controls="navbarTogglerSidebar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerSidebar">
@@ -21,7 +29,9 @@
             <h1>TOP CATEGORIES</h1>
             <ul>
               <li>
-                <img src="/src/assets/img/menu-template/components.png" />Components<i class="fas fa-angle-right"></i>
+                <img
+                  src="/src/assets/img/menu-template/components.png"
+                />Components<i class="fas fa-angle-right"></i>
                 <ul class="side-submenu">
                   <li><a href="#">Components</a></li>
                   <li><a href="/allproducts">Computer Systems</a></li>
@@ -32,43 +42,64 @@
                 </ul>
               </li>
               <li>
-                <img src="/src/assets/img/menu-template/computersystem.png" />Computer Systems<i
-                  class="fas fa-angle-right"></i>
+                <img
+                  src="/src/assets/img/menu-template/computersystem.png"
+                />Computer Systems<i class="fas fa-angle-right"></i>
               </li>
               <li>
-                <img src="/src/assets/img/menu-template/electronics.png" />Electronics<i class="fas fa-angle-right"></i>
+                <img
+                  src="/src/assets/img/menu-template/electronics.png"
+                />Electronics<i class="fas fa-angle-right"></i>
               </li>
               <li>
-                <img src="/src/assets/img/menu-template/gaming.png" />Gaming<i class="fas fa-angle-right"></i>
+                <img src="/src/assets/img/menu-template/gaming.png" />Gaming<i
+                  class="fas fa-angle-right"
+                ></i>
               </li>
               <li>
-                <img src="/src/assets/img/menu-template/networking.png" />Networking<i class="fas fa-angle-right"></i>
+                <img
+                  src="/src/assets/img/menu-template/networking.png"
+                />Networking<i class="fas fa-angle-right"></i>
               </li>
               <li>
-                <img src="/src/assets/img/menu-template/officesolutions.png" />Office Solutions<i
-                  class="fas fa-angle-right"></i>
+                <img
+                  src="/src/assets/img/menu-template/officesolutions.png"
+                />Office Solutions<i class="fas fa-angle-right"></i>
               </li>
               <li>
-                <img src="/src/assets/img/menu-template/softwareservices.png" />Software Services<i
-                  class="fas fa-angle-right"></i>
+                <img
+                  src="/src/assets/img/menu-template/softwareservices.png"
+                />Software Services<i class="fas fa-angle-right"></i>
               </li>
               <li>
-                <img src="/src/assets/img/menu-template/automotives.png" />Automotives<i class="fas fa-angle-right"></i>
+                <img
+                  src="/src/assets/img/menu-template/automotives.png"
+                />Automotives<i class="fas fa-angle-right"></i>
               </li>
               <li>
                 <img src="/src/assets/img/menu-template/home-tools.png" />Home &
                 Tools<i class="fas fa-angle-right"></i>
               </li>
               <li>
-                <img src="/src/assets/img/menu-template/health-sports.png" />Health & Sports<i
-                  class="fas fa-angle-right"></i>
+                <img
+                  src="/src/assets/img/menu-template/health-sports.png"
+                />Health & Sports<i class="fas fa-angle-right"></i>
               </li>
             </ul>
           </div>
           <!-- menu mobile -->
         </div>
-        <form class="form-inline my-2 my-lg-2" @submit.prevent="getFilterData" method="post">
-          <input v-model="query" class="form-control mr-sm-2" type="Laptops" placeholder="Search" />
+        <form
+          class="form-inline my-2 my-lg-2"
+          @submit.prevent="getFilterData"
+          method="post"
+        >
+          <input
+            v-model="query"
+            class="form-control mr-sm-2"
+            type="Laptops"
+            placeholder="Search"
+          />
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
             Search
             <img class="search-icon" src="/src/assets/img/Search-head.png" />
@@ -114,8 +145,11 @@
           </div>
           <div class="bask-bx">
             <!-- <a href="/cart"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a> -->
-            <router-link to="cart" class="cartitems"><img src="/src/assets/img/bask-icon.png" class="bask-icon" /><span
-                v-html="itemsincart"></span></router-link>
+            <router-link to="cart" class="cartitems"
+              ><img
+                src="/src/assets/img/bask-icon.png"
+                class="bask-icon" /><span v-html="itemsincart"></span
+            ></router-link>
             <span class="bx-amount">$<span v-html="amountincart"></span></span>
           </div>
         </div>
@@ -127,8 +161,10 @@
         <div class="row">
           <div class="col-6">
             <div class="show-all-cat">
-              <span><img src="/src/assets/img/menu-template/category.png" />Show All
-                Categories <i class="fas fa-chevron-down"></i></span>
+              <span
+                ><img src="/src/assets/img/menu-template/category.png" />Show
+                All Categories <i class="fas fa-chevron-down"></i
+              ></span>
               <ul>
                 <li>Cat A</li>
                 <li>Cat B</li>
@@ -150,7 +186,6 @@
   </div>
 </template>
 <script>
-
 export default {
   name: "header",
 
@@ -174,7 +209,9 @@ export default {
       if (logindata.cartitems) {
         this.itemsincart = logindata.cartitems.length;
         for (var i = 0; i < logindata.cartitems.length; i++) {
-          amount += parseInt(logindata.cartitems[i].item_price) * parseInt(logindata.cartitems[i].quantity);
+          amount +=
+            parseInt(logindata.cartitems[i].item_price) *
+            parseInt(logindata.cartitems[i].quantity);
         }
         this.amountincart = amount;
       }
@@ -196,7 +233,6 @@ export default {
       this.amountincart = "0.00";
       this.isHidden = false;
       this.$router.push({ name: "Home" });
-
     },
     getFilterData() {
       //alert(this.query);
@@ -208,12 +244,12 @@ export default {
     async getHeadFoot() {
       let result = axios.get(axios.defaults.baseURL + "headerfooter/977");
       console.log("header footer");
-      this.list = (await result).data
+      this.list = (await result).data;
+      if (this.list.logo) this.showTitle = false;
     },
     getImgUrll(pet) {
       return this.img_url + "/977/" + pet;
     },
-
   },
 };
 </script>

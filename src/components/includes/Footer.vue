@@ -17,16 +17,16 @@
             <h5>Main Menu</h5>
             <ul class="footer-list">
               <li>
-                <a :href="list.f_main_menu_link ? list.f_main_menu_link[0] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[0] : ""}}</a>
+                <a :href="list.f_main_menu_links ? list.f_main_menu_links[0] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[0] : ""}}</a>
               </li>
               <li>
-                <a :href="list.f_main_menu_link ? list.f_main_menu_link[1] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[1] : ""}}</a>
+                <a :href="list.f_main_menu_links ? list.f_main_menu_links[1] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[1] : ""}}</a>
               </li>
               <li>
-                <a :href="list.f_main_menu_link ? list.f_main_menu_link[2] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[2] : ""}}</a>
+                <a :href="list.f_main_menu_links ? list.f_main_menu_links[2] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[2] : ""}}</a>
               </li>
               <li>
-                <a :href="list.f_main_menu_link ? list.f_main_menu_link[3] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[3] : ""}}</a>
+                <a :href="list.f_main_menu_links ? list.f_main_menu_links[3] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[3] : ""}}</a>
               </li>
             </ul>
           </div>
@@ -34,13 +34,13 @@
             <h5>Company</h5>
             <ul class="footer-list">
               <li>
-                <a :href="list.f_company_link ? list.f_company_link[0] : ''">{{list.f_company_title ? list.f_company_title[0] : ""}}</a>
+                <a :href="list.f_company_links ? list.f_company_links[0] : ''">{{list.f_company_title ? list.f_company_title[0] : ""}}</a>
               </li>
               <li>
-                <a :href="list.f_company_link ? list.f_company_link[1] : ''">{{list.f_company_title ? list.f_company_title[1] : ""}}</a>
+                <a :href="list.f_company_links ? list.f_company_links[1] : ''">{{list.f_company_title ? list.f_company_title[1] : ""}}</a>
               </li>
               <li>
-                <a :href="list.f_company_link ? list.f_company_link[2] : ''">{{list.f_company_title ? list.f_company_title[2] : ""}}</a>
+                <a :href="list.f_company_links ? list.f_company_links[2] : ''">{{list.f_company_title ? list.f_company_title[2] : ""}}</a>
               </li>
             </ul>
           </div>
@@ -48,13 +48,13 @@
             <h5>Discover</h5>
             <ul class="footer-list">
               <li>
-                <a :href="list.f_discover_link ? list.f_discover_link[0] : ''">{{list.f_discover_title ? list.f_discover_title[0] : ""}}</a>
+                <a :href="list.f_discover_links ? list.f_discover_links[0] : ''">{{list.f_discover_title ? list.f_discover_title[0] : ""}}</a>
               </li>
               <li>
-                <a :href="list.f_discover_link ? list.f_discover_link[1] : ''">{{list.f_discover_title ? list.f_discover_title[1] : ""}}</a>
+                <a :href="list.f_discover_links ? list.f_discover_links[1] : ''">{{list.f_discover_title ? list.f_discover_title[1] : ""}}</a>
               </li>
               <li>
-                <a :href="list.f_discover_link ? list.f_discover_link[2] : ''">{{list.f_discover_title ? list.f_discover_title[2] : ""}}</a>
+                <a :href="list.f_discover_links ? list.f_discover_links[2] : ''">{{list.f_discover_title ? list.f_discover_title[2] : ""}}</a>
               </li>
             </ul>
           </div>
@@ -124,7 +124,8 @@ export default {
     return {
       list:[],
       showTitle:true,
-      img_url: "https://posh-marketplace.plego.pro/img/product-images",
+      // img_url: "https://posh-marketplace.plego.pro/img/product-images",
+      img_url: axios.defaults.url + "/img/product-images",
     }
   },
   mounted() {
@@ -138,8 +139,8 @@ export default {
       // this.list = result;
       this.list = (await result).data
       $('.navbar-brand').html(this.list.h_shop_name)
-      // if(this.list.logo)
-      // this.showTitle = false
+      if(this.list.logo)
+      this.showTitle = false
       $('.about-foot p').html(this.list.about_us)
     },
     getImgUrll(pet) {

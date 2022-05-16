@@ -10,8 +10,8 @@
               <h1>TOP CATEGORIES</h1>
               <ul>
                 <li v-for="item in list" :key="item.id">
-                  <i class="menu-icon " :class="[item.newtitle]"><img
-                      :src="'https://posh-marketplace.plego.pro/img/menu-template/' + item.newtitle + '.png'"></i>
+                  <i class="menu-icon " ><img
+                      :src="'https://posh-marketplace.plego.pro/img/menu-template/' + item.img + ''"></i>
                   {{ item.title
                   }}
                   
