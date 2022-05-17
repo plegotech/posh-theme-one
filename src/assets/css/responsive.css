@@ -113,9 +113,7 @@ div#hotDeals-bx {
         max-width: 16.666667%;
         margin-right: 0;
     }
-    .userLogined:hover ul.userProfileMenu {
-        display: block;
-    }
+    
     .no-pr-pl{padding-right:0;padding-left:0}
     .side-menu ul li:hover ul.side-submenu {
         display: block;

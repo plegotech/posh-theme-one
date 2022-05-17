@@ -1071,6 +1071,11 @@ button.btnplus-item:hover, button.btnminus-item:hover {
     border-bottom: 1px solid #C4C4C4;
     padding-bottom: 25px;
     margin-bottom: 30px;
+    width: 100%;
+}
+.side-menu ul li:hover ul.side-submenu{display: block;}
+.userLogined:hover ul.userProfileMenu {
+    display: block;
 }
 .promotion-mid-bx img {
     height: auto;
