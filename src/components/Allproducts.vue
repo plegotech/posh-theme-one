@@ -180,6 +180,26 @@
         <div class="col-sm-2 hide-xs-bx">
           <form @submit.prevent="getFilterData" method="post">
             <div class="sidebar-options mt-3">
+
+              <div
+                class="brand-options"
+              >
+                <h5>Brands</h5>
+                <ul class="products-cat-opt">
+                  <li v-for="(value, index) in this.brandlist" :key="index">
+                    <label class="form-check-label"
+                      ><input
+                        type="checkbox"
+                        v-model="brand"
+                        class="form-check-input"
+                        :value="value" />{{ value
+                      }}<span class="checkmark"></span
+                    ></label>
+                  </li>
+                </ul>
+              </div>
+
+
               <div
                 class="brand-options"
                 v-for="(value, index) in this.filterlist"
@@ -368,6 +388,7 @@ export default {
       sub_category: this.$route.query.id,
       parent_category: this.$route.query.p_id,
       list: [],
+      brandlist:[],
       filterlist: [],
       filtersdata: [],
       filtersd: {},
@@ -432,6 +453,9 @@ export default {
       if ((await cat_result).data != null) {
         this.filterlist = (await cat_result).data.data;
         this.filtersdata = (await cat_result).data.labels;
+
+        this.brandlist = (await cat_result).data.brandlist;
+        //this.brand = (await cat_result).data.brandlist;
       }
       //this.filterlist = (await cat_result).data;
       console.log(this.filterlist);

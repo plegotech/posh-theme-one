@@ -7,8 +7,9 @@
             
             <h3 class="pm-title">
               <!-- <img src="/src/assets/img/Google-Play.png"> -->
-              <img v-if="!showTitle" :src="getImgUrll(this.list.logo)" />
-              <span v-if="showTitle">{{ list.h_shop_name }}</span></h3>
+              <img :src="getImgUrll(this.list.logo)" />
+              <span >{{ list.h_shop_name }}</span>
+              </h3>
             <p class="pm-description">
               {{ list.h_shop_address }}
             </p>

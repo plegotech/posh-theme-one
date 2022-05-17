@@ -8,8 +8,8 @@
       <div class="container-fluid">
         <!-- <a class="navbar-brand" href="/home">Posh Market</a> -->
         <router-link to="home" class="navbar-brand">
-          <img v-if="this.list.logo" :src="getImgUrll(this.list.logo)" />
-          <span v-if="!this.list.logo">{{ list.h_shop_name }}</span>          
+          <img  :src="getImgUrll(this.list.logo)" />
+          <span >{{ list.h_shop_name }}</span>          
         </router-link>
         <button
           class="navbar-toggler"
