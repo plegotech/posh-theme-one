@@ -71,6 +71,9 @@
               <li>
                 <a :href="list.f_findus_links ? list.f_findus_links[2] : '#'" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
               </li>
+              <li>
+                <router-link to="contact">Contact US</router-link>
+              </li>
 
             </ul>
           </div>

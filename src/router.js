@@ -17,6 +17,7 @@ import UserDashboard from './components/user/UserDashboard.vue'
 import Allorders from './components/user/Allorders.vue'
 import Pendingorders from './components/user/Pendingorders.vue'
 import Trackorder from './components/user/Trackorder.vue'
+import Contactus from './components/Contactus.vue'
 
 
 const routes = [
@@ -75,6 +76,11 @@ const routes = [
         name: 'Success',
         path: '/success',
         component: Success
+    },
+    {
+        name: 'Contact',
+        path: '/contact',
+        component: Contactus
     },
     {
         name: 'Payment',
