@@ -1999,9 +1999,17 @@ p.titleNamep {
 a.navbar-brand {
     display: flex;
     flex-direction: column;
-    font-size: 12px;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-
+a.navbar-brand span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 140px;
+}
 .seller-categories-box ol.carousel__track {
     padding-top: 30px;
 }

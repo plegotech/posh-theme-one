@@ -2011,7 +2011,7 @@ select.select-custom-point {
     -webkit-appearance: none;
     -moz-appearance: none;
     background: transparent;
-    background-image: url(/img/down-arrow-Vector.png);
+    background-image: url(../../img/down-arrow-Vector.png);
     background-repeat: no-repeat;
     background-position-x: 100%;
     background-position-y: 50%;
