@@ -411,7 +411,7 @@ div#HomecarouselControls .carousel-control-next, div#HomecarouselControls .carou
 }
 .pro-img-bx img {
     transition: all .2s ease-in-out;
-    max-height: 250px;
+    max-height: 235px;
 }
 .product-item:hover .pro-img-bx img {
     transform: scale(0.9);
@@ -922,7 +922,10 @@ button.btnplus-item {
 }
 .cart-item-img {
     margin-right: 15px;
-    width: 320px;
+    width: 120px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 120px;
 }
 .carti-remove img {
     background: #F5F5F5;
@@ -1606,14 +1609,20 @@ ul.side-submenu li {
     border-bottom: 1px solid #ccc;
     padding: 11px 15px;
 }
+.cat-option-pg form {
+    padding-top: 0px;
+    margin-bottom: 0;
+}
 ul.side-submenu li a:hover {
     color: #0862a3;
 }
-.form-group.min-max-bx input {
+input.h-34.form-control.max-price, input.h-34.form-control.min-price {
     height: 34px!important;
 }
 .price-limit-opt span {
     padding-right: 15px;
+    color: #0862A3;
+    font-size: 18px;
 }
 section.carousel .carousel__prev, section.carousel .carousel__next {
     background: transparent;
@@ -1791,6 +1800,11 @@ i.menu-icon {
     background-size: cover!important;
     margin-right: 7px;
 }
+.pro-img-bx img{width: 100%;height: 220px;}
+div#MainSliderbx {
+    max-height: 463px;
+    overflow: hidden;
+}
 div#MainSliderbx button.carousel__next {
     right: 20px;
 }
@@ -1959,7 +1973,7 @@ div#MainSliderbx section.carousel,div#MainSliderbx .carousel__viewport {
 div#MainSliderbx  ol.carousel__track {
     height: 100%;
 }
-.seller-categories-box li.carousel__slide:before {
+/* .seller-categories-box li.carousel__slide:before {
     content: "";
     background: linear-gradient(180deg, #2d92d4, #66c6f3);
     position: absolute;
@@ -1968,7 +1982,26 @@ div#MainSliderbx  ol.carousel__track {
     border-radius: 32%;
     z-index: -1;
     bottom: 52px;
+} */
+.navbar-brand img {
+    max-height: 33px;
+    max-width: 140px;
+    margin-bottom: 1px;
 }
+input#txtAcrescimo {
+    border: 1px solid #ccc;
+    border-radius: 0;
+}
+p.titleNamep {
+    margin-bottom: 10px;
+}
+
+a.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+
 .seller-categories-box ol.carousel__track {
     padding-top: 30px;
 }

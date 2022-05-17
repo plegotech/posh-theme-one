@@ -28,9 +28,12 @@
 									
 									
 									<div class="cartI-1">
-										<div class="cart-item-img" style="width:100px;"><img src="../assets/img/cart-item-1.png" alt=""
+										<div class="cart-item-img"><img src="../assets/img/cart-item-1.png" alt=""
 												class="img-fluid"></div>
-										<p >{{item.name}} {{item.description}}</p>
+										<div class="cartProduct-bx">
+											<p class="titleNamep">{{item.name}}</p>
+											<p class="descNamep">{{item.description}}</p>
+										</div>
 									</div>
 									<div class="cartI-2">
 										<div class="ci-push-bx">
