@@ -72,6 +72,11 @@ input:focus {
 .product-item:hover .pro-title-bx a {
     color: #0862A3;
 }
+.form-group textarea {
+    width: 100%;
+    padding: 6px 8px;
+    border-radius:4px;
+}
 input[type="text"] {
     width: 100%;
     padding: 6px 8px;
@@ -638,8 +643,15 @@ input.form-control.min-price, input.form-control.max-price {
 .min-max-bx span {
     line-height: 38px;
 }
+.selection-re-opt {
+    position: relative;
+}
 .sortby-opt {
     position: relative;
+}
+h3.pm-title span {
+    display: block;
+    font-size: 17px;
 }
 .sortby-opt select {
     width: 209px;

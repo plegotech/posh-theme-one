@@ -29,6 +29,9 @@
               <li>
                 <a :href="list.f_main_menu_links ? list.f_main_menu_links[3] : ''">{{list.f_main_menu_title ? list.f_main_menu_title[3] : ""}}</a>
               </li>
+              <li>
+                <router-link to="contact">Contact US</router-link>
+              </li>
             </ul>
           </div>
           <div class="col-md-2 col-6">
@@ -71,10 +74,6 @@
               <li>
                 <a :href="list.f_findus_links ? list.f_findus_links[2] : '#'" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
               </li>
-              <li>
-                <router-link to="contact">Contact US</router-link>
-              </li>
-
             </ul>
           </div>
           <div class="col-md-2 col-6">
