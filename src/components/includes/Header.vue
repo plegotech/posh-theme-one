@@ -147,7 +147,7 @@
             <router-link to="cart" class="cartitems"
               ><img
                 src="/src/assets/img/bask-icon.png"
-                class="bask-icon" /><span v-html="itemsincart"></span
+                class="bask-icon" /><span v-if="itemsincart" v-html="itemsincart"></span
             ></router-link>
             <span class="bx-amount">$<span v-html="amountincart"></span></span>
           </div>
