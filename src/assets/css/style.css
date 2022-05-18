@@ -58,6 +58,7 @@ a:focus {
 img {
     border: 0 none;
     width: 100%;
+    height: auto;
 }
 
 p {
@@ -1614,6 +1615,7 @@ ul.side-submenu {
     top: 0;
     border: 1px solid #ccc;
 	display: none;
+    box-shadow: 0 0 4px 0 rgb(0 0 0 / 25%);
 }
 .side-menu ul li a {
     color: #6a6a6a;
