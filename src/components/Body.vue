@@ -139,7 +139,7 @@
               <div class="col-sm-7">
                 <!-- <img src="../assets/img/home_and_kitchens.png" width="100%" alt="" style="height: 100%" /> -->
                 <a :href="this.catimages.link_home ? this.catimages.link_home : '#'" target="_blank">
-                  <img :src="getImgUrll(this.catimages.images_home)" width="100%" alt="" height="385" /></a>
+                  <img :src="getImgUrll(this.catimages.images_home)" width="100%" alt="" height="385" style="height:100%" /></a>
               </div>
             </div>
           </div>
