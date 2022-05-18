@@ -141,7 +141,7 @@ export default {
       // console.log(result);
       // this.list = result;
       this.list = (await result).data
-      $('.navbar-brand').html(this.list.h_shop_name)
+      $('.navbar-brand span').html(this.list.h_shop_name)
       if(this.list.logo)
       this.showTitle = false
       $('.about-foot p').html(this.list.about_us)
