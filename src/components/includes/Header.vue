@@ -8,7 +8,7 @@
       <div class="container-fluid">
         <!-- <a class="navbar-brand" href="/home">Posh Market</a> -->
         <router-link to="home" class="navbar-brand">
-          <img  :src="getImgUrll(this.list.logo)" />
+          <img  :src="getImgUrll(list.logo)" />
           <span >{{ list.h_shop_name }}</span>          
         </router-link>
         <button
@@ -185,6 +185,7 @@
   </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
   name: "header",
 
@@ -197,7 +198,7 @@ export default {
       query: null,
       list: [],
       showTitle: true,
-      img_url: "https://posh-marketplace.plego.pro/img/product-images",
+      img_url: axios.defaults.url + "/img/product-images",
     };
   },
   async mounted() {
@@ -222,6 +223,7 @@ export default {
       // localStorage.clear();
       //this.$router.push({name:"Login"})
     }
+    this.getHeadFoot();
   },
 
   methods: {
