@@ -261,6 +261,17 @@ div#hotDeals-bx {
     }
 }
 @media (max-width: 768px){
+    .mySlides {
+        height: 260px;
+    }
+    .mySlides img {
+        vertical-align: middle;
+        max-height: 250px;
+        display: block;
+        margin: 0 auto;
+        width: initial!important;
+    }
+
     .pro-img-bx img{height: auto;max-height: 150px;}
     .cartI-1 {
         display: table-row-group;
