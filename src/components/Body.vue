@@ -17,7 +17,7 @@
                   
                   <i class="fas fa-angle-right"></i>
                   <ul class="side-submenu">
-                    <li v-for="subitem in item.children" :key="subitem.id">
+                    <li v-for="subitem in item.active_children" :key="subitem.id" >
                       <router-link :to="{ path: 'allproducts', query: { p_id: item.id, id: subitem.id }, props: true }">
                         {{
                             subitem.title

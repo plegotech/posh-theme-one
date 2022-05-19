@@ -136,10 +136,14 @@
             </div>
             <div class="bask-bx">
               <!-- <a href="/cart"><img src="../assets/../assets/img/bask-icon.png" class="bask-icon" /></a> -->
+
               <router-link to="cart" class="cartitems"
                 ><img
                   src="/src/assets/img/bask-icon.png"
-                  class="bask-icon" /><span v-html="itemsincart"></span
+                  class="bask-icon" /><span
+                  v-if="itemsincart!=0"
+                  v-html="itemsincart"
+                ></span
               ></router-link>
               <span class="bx-amount">$<span v-html="total_price"></span></span>
             </div>
@@ -180,10 +184,7 @@
         <div class="col-sm-2 hide-xs-bx">
           <form @submit.prevent="getFilterData" method="post">
             <div class="sidebar-options mt-3">
-
-              <div
-                class="brand-options"
-              >
+              <div class="brand-options">
                 <h5>Brands</h5>
                 <ul class="products-cat-opt">
                   <li v-for="(value, index) in this.brandlist" :key="index">
@@ -199,13 +200,12 @@
                 </ul>
               </div>
 
-
               <div
                 class="brand-options"
                 v-for="(value, index) in this.filterlist"
                 :key="index"
               >
-                <h5>{{ index }} </h5>
+                <h5>{{ index }}</h5>
                 <ul class="products-cat-opt">
                   <li v-for="(subvalue, subindex) in value" :key="subindex">
                     <label class="form-check-label"
@@ -270,7 +270,6 @@
             </div>
           </div>
           <div class="row my-4">
-            
             <div class="col-sm-4 item" v-for="item in list" :key="item.id">
               <div class="product-item">
                 <div class="pro-img-bx">
@@ -388,7 +387,7 @@ export default {
       sub_category: this.$route.query.id,
       parent_category: this.$route.query.p_id,
       list: [],
-      brandlist:[],
+      brandlist: [],
       filterlist: [],
       filtersdata: [],
       filtersd: {},
@@ -469,12 +468,12 @@ export default {
           this.parent_category
       );
       this.MainCategory = (await cat_result).data;
-      
+
       let result = axios.get(
         axios.defaults.baseURL + "allproducts",
         {
           params: {
-            filter:JSON.stringify(this.filtersdata),
+            filter: JSON.stringify(this.filtersdata),
             search: this.query,
             min_price: this.min_price,
             max_price: this.max_price,
