@@ -261,6 +261,9 @@ div#hotDeals-bx {
     }
 }
 @media (max-width: 768px){
+    .row.gallery-pm-thumb {
+        max-width: 100%;
+    }
     .mySlides {
         height: 260px;
     }
