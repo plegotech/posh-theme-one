@@ -1,6 +1,6 @@
 <template>
 <div>
-    <header-comp></header-comp>
+    <header-comp :key="HeaderKey"></header-comp>
   <div class="container-fluid">
     <div class="checkout-itesm-bx">
       <div class="row mt-4">

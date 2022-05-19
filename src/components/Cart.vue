@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-comp></header-comp>
+    <header-comp :key="HeaderKey"></header-comp>
     <div class="container-fluid">
       <div class="cart-itesm-bx">
         <div class="row mt-4">
@@ -157,12 +157,13 @@ export default {
   },
   data() {
     return {
+      HeaderKey : 0,
       user_id: null,
       cartitemslist: [],
       count_cartitems: 0,
       total_price: 0,
       count: 0,
-      img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+      img_url: axios.defaults.url+ "/img/product-images/",
     };
   },
 
@@ -194,6 +195,9 @@ export default {
           });
           this.total_price = tempTotalPrice;
           $(".cartitems").children("span").html(this.count_cartitems);
+          if(this.count_cartitems==0){
+            this.HeaderKey++;
+          }
         }
       } else {
         this.total_price = 0;
@@ -213,6 +217,9 @@ export default {
         this.cartitemslist = (await result).data;
         var tempTotalPrice = 0;
         this.count_cartitems = this.cartitemslist.length;
+        if(this.count_cartitems==0){
+            this.HeaderKey++;
+          }
         this.cartitemslist.forEach(function (items) {
           console.log("Qty: " + items.quantity);
           tempTotalPrice += items.quantity * items.item_price;
@@ -302,6 +309,7 @@ export default {
       $("#cart_" + cart_id).val(val);
     },
     getImgUrl(vendor, pet) {
+      console.log(this.img_url + "/" + vendor + "/" + pet)
       return this.img_url + "/" + vendor + "/" + pet;
     },
     removecartitem(cart_id, product_id) {
@@ -377,9 +385,6 @@ export default {
       this.getCartData();
       // this.EndLoader();
       // alert("Products Quantity Updated");
-    },
-    getImgUrl(vendor, pet) {
-      return this.img_url + "/" + vendor + "/" + pet;
     },
   },
 };

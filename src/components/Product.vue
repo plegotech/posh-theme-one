@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-comp></header-comp>
+    <header-comp :key="HeaderKey"></header-comp>
     <div class="breadcrumbs">
       <div class="container-fluid">
         <div class="row">
@@ -24,11 +24,26 @@
                 <div class="gallery-pm-main">
                   <!-- START GALLERY HERE -->
                   <div class="mySlides">
-                    <img :src="getImgUrl(product_info.vendor_id, product_info.featured_image)" style="width:100%">
+                    <img
+                      :src="
+                        getImgUrl(
+                          product_info.vendor_id,
+                          product_info.featured_image
+                        )
+                      "
+                      style="width: 100%"
+                    />
                   </div>
 
-                  <div class="mySlides" v-for="(item, index) in gallery" :key="index">
-                    <img :src="getImgUrl(product_info.vendor_id, item)" style="width:100%">
+                  <div
+                    class="mySlides"
+                    v-for="(item, index) in gallery"
+                    :key="index"
+                  >
+                    <img
+                      :src="getImgUrl(product_info.vendor_id, item)"
+                      style="width: 100%"
+                    />
                   </div>
                   <!-- <div class="mySlides">
                     <img src="/src/assets/img/810G-B68TYL1-6.png" style="width:100%">
@@ -51,14 +66,35 @@
                   </div> -->
                   <div class="row gallery-pm-thumb">
                     <div class="column">
-                      <img class="demo cursor active"
-                        :src="getImgUrl(product_info.vendor_id, product_info.featured_image)" width="70" height="70"
-                        style="width:100%" @click="currentSlide(1)" alt="The Woods">
+                      <img
+                        class="demo cursor active"
+                        :src="
+                          getImgUrl(
+                            product_info.vendor_id,
+                            product_info.featured_image
+                          )
+                        "
+                        width="70"
+                        height="70"
+                        style="width: 100%"
+                        @click="currentSlide(1)"
+                        alt="The Woods"
+                      />
                     </div>
 
-                    <div class="column" v-for="(item, index) in gallery" :key="index">
-                      <img class="demo cursor" :src="getImgUrl(product_info.vendor_id, item)" width="70" height="70"
-                        style="width:100%" @click="currentSlide(index + 2)">
+                    <div
+                      class="column"
+                      v-for="(item, index) in gallery"
+                      :key="index"
+                    >
+                      <img
+                        class="demo cursor"
+                        :src="getImgUrl(product_info.vendor_id, item)"
+                        width="70"
+                        height="70"
+                        style="width: 100%"
+                        @click="currentSlide(index + 2)"
+                      />
                     </div>
                     <!-- 
                     <div class="column">
@@ -79,19 +115,19 @@
                     <div class="column">
                       <img class="demo cursor" src="/src/assets/img/pro-thu-6.jpg" style="width:100%" @click="currentSlide(6)" alt="Snowy Mountains">
                     </div> -->
-
                   </div>
                   <!-- END:: GALLERY HERE -->
                 </div>
-
               </div>
             </div>
             <div class="col-lg-7">
               <div class="detial-sect">
                 <h1 class="title-pm-detail">{{ product_info.name }}</h1>
-                <h1 class="price-pm-detail">$<strong>{{ product_info.net_price }}</strong></h1>
-                <div class="short-pm-detail">{{ product_info.description }}
-
+                <h1 class="price-pm-detail">
+                  $<strong>{{ product_info.seller_price }}</strong>
+                </h1>
+                <div class="short-pm-detail">
+                  {{ product_info.description }}
                 </div>
                 <div class="addtocart-select-pm">
                   <form method="post" @submit.prevent="addtocart">
@@ -101,13 +137,24 @@
                         <input type="hidden" v-model="user_id" />
                         <div class="cartAdd-item">
                           <span class="btnPlus-item" @click="increment">+</span>
-                          <input type="text" min="1" max="100" v-model="cartform.quantity" placeholder="1"
-                            id="txtAcrescimo" class="qty-number" />
-                          <span class="btnMinus-item" @click="decrement">-</span>
+                          <input
+                            type="text"
+                            min="1"
+                            max="100"
+                            v-model="cartform.quantity"
+                            placeholder="1"
+                            id="txtAcrescimo"
+                            class="qty-number"
+                          />
+                          <span class="btnMinus-item" @click="decrement"
+                            >-</span
+                          >
                         </div>
                       </div>
 
-                      <button type="submit" class="primary" on>Add to Cart</button>
+                      <button type="submit" class="primary" on>
+                        Add to Cart
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -127,7 +174,11 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xl-3 col-sm-6 col-12" v-for="(product, index) in recommended" :key="index">
+            <div
+              class="col-xl-3 col-sm-6 col-12"
+              v-for="(product, index) in recommended"
+              :key="index"
+            >
               <div class="product-item">
                 <div class="pro-img-bx">
                   <router-link
@@ -137,24 +188,35 @@
                       props: true,
                     }"
                   >
-                  <img :src="getImgUrl(product.vendor_id, product.featured_image)" alt="" />
+                    <img
+                      :src="
+                        getImgUrl(product.vendor_id, product.featured_image)
+                      "
+                      alt=""
+                    />
                   </router-link>
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-                  <router-link
-                    :to="{
-                      path: '/product',
-                      query: { id: product.id },
-                      props: true,
-                    }"
-                  >
-                    {{product.name}}
+                    <router-link
+                      :to="{
+                        path: '/product',
+                        query: { id: product.id },
+                        props: true,
+                      }"
+                    >
+                      {{ product.name }}
                     </router-link>
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">${{ product.net_price }}</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
-                        class="img-fluid" /><img src="/src/assets/img/heart.png" /></span>
+                    <span class="pro-price">${{ product.seller_price }}</span
+                    ><span class="pro-icons">
+                      <img
+                        @click="addtocart2(product)"
+                        src="/src/assets/img/buy.png"
+                        class="img-fluid" />
+                      <img src="/src/assets/img/heart.png"
+                    /></span>
                   </div>
                 </div>
               </div>
@@ -173,8 +235,11 @@
             </div>
           </div>
           <div class="row">
-            
-            <div class="col-xl-3 col-sm-6 col-12" v-for="(product, index) in justForYouProducts" :key="index">
+            <div
+              class="col-xl-3 col-sm-6 col-12"
+              v-for="(product, index) in justForYouProducts"
+              :key="index"
+            >
               <div class="product-item">
                 <div class="pro-img-bx">
                   <router-link
@@ -184,29 +249,38 @@
                       props: true,
                     }"
                   >
-                  <img :src="getImgUrl(product.vendor_id, product.featured_image)" alt="" />
+                    <img
+                      :src="
+                        getImgUrl(product.vendor_id, product.featured_image)
+                      "
+                      alt=""
+                    />
                   </router-link>
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-                  <router-link
-                    :to="{
-                      path: '/product',
-                      query: { id: product.id },
-                      props: true,
-                    }"
-                  >
-                    {{product.name}}
+                    <router-link
+                      :to="{
+                        path: '/product',
+                        query: { id: product.id },
+                        props: true,
+                      }"
+                    >
+                      {{ product.name }}
                     </router-link>
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">${{ product.net_price }}</span><span class="pro-icons"><img src="/src/assets/img/buy.png"
-                        class="img-fluid" /><img src="/src/assets/img/heart.png" /></span>
+                    <span class="pro-price">${{ product.seller_price }}</span
+                    ><span class="pro-icons" 
+                      ><img @click="addtocart2(product)"
+                        src="/src/assets/img/buy.png"
+                        class="img-fluid" /><img
+                        src="/src/assets/img/heart.png"
+                    /></span>
                   </div>
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
@@ -216,23 +290,27 @@
 </template>
 
 <script>
-
-import HeaderComp from './includes/Header.vue'
+import HeaderComp from "./includes/Header.vue";
 import FooterComp from "./includes/Footer.vue";
-import 'vue3-carousel/dist/carousel.css';
+import "vue3-carousel/dist/carousel.css";
 import axios from "axios";
-import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
-
+import { Carousel, Pagination, Slide, Navigation } from "vue3-carousel";
 
 export default {
   name: "Product",
   components: {
-    HeaderComp, FooterComp, Carousel, Slide, Pagination, Navigation,
+    HeaderComp,
+    FooterComp,
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
   },
   data() {
     return {
-      recommended:[],
-      justForYouProducts:[],
+      HeaderKey: 0,
+      recommended: [],
+      justForYouProducts: [],
       cartform: {
         product_id: 0,
         user_id: 0,
@@ -243,15 +321,14 @@ export default {
       slideIndex: 1,
       //img_url: "https://posh-marketplace.plego.pro/img/product-images",
       img_url: axios.defaults.url + "/img/product-images",
-      gallery: []
-
+      gallery: [],
     };
   },
   async mounted() {
     if (localStorage.getItem("login")) {
-      console.log("Login Data")
+      console.log("Login Data");
       const logindata = JSON.parse(localStorage.getItem("login"));
-      this.cartform.user_id = logindata.id
+      this.cartform.user_id = logindata.id;
     } else if (localStorage.getItem("guest")) {
       const guestdata = JSON.parse(localStorage.getItem("guest"));
       $(".cartitems").children("span").html(guestdata.length);
@@ -259,15 +336,13 @@ export default {
     this.cartform.product_id = this.$route.query.id;
     this.showSlides(this.slideIndex);
     this.getProductInfo();
-    this.getJustForYouProducts()
-    
+    this.getJustForYouProducts();
   },
   methods: {
-    async getJustForYouProducts(){
+    async getJustForYouProducts() {
       let result = axios.get(axios.defaults.baseURL + "product/justforyou/0");
       console.log((await result).data);
-      this.justForYouProducts = (await result).data
-
+      this.justForYouProducts = (await result).data;
     },
     increment() {
       //alert("Yeah")
@@ -290,38 +365,47 @@ export default {
     },
     async productHistory() {
       if (this.cartform.user_id != 0) {
-        axios.post(axios.defaults.baseURL + "product-history",
+        axios.post(
+          axios.defaults.baseURL + "product-history",
           {
             user_id: this.cartform.user_id,
-            product_id: this.cartform.product_id
-          }, { useCredentails: true })
+            product_id: this.cartform.product_id,
+          },
+          { useCredentails: true }
+        );
       }
     },
     async getProductInfo() {
       this.startLoader();
 
-      this.productHistory()
+      this.productHistory();
 
-      let result = axios.get(axios.defaults.baseURL + "product/get/" + (this.cartform.product_id));
+      let result = axios.get(
+        axios.defaults.baseURL + "product/get/" + this.cartform.product_id
+      );
       console.log((await result).data);
-      this.product_info = (await result).data
+      this.product_info = (await result).data;
       this.gallery = await JSON.parse(this.product_info.images);
       this.getRecommendedProducts();
       this.EndLoader();
     },
-    async getRecommendedProducts(){
-      let result = axios.get(axios.defaults.baseURL + "product/recommended/" + (this.cartform.product_id));
+    async getRecommendedProducts() {
+      let result = axios.get(
+        axios.defaults.baseURL +
+          "product/recommended/" +
+          this.cartform.product_id
+      );
       console.log((await result).data);
-      this.recommended = (await result).data
+      this.recommended = (await result).data;
     },
     async addtocart(e) {
-      this.startLoader()
+      this.startLoader();
 
       this.cartform.item_price = this.product_info.net_price;
       this.cartform.product_id = this.$route.query.id;
 
       if (this.cartform.quantity == 0) {
-        alert("Quantity must be atleast 1")
+        alert("Quantity must be atleast 1");
       } else if (!localStorage.getItem("login")) {
         //alert("Please Login First")
         this.cartform.name = this.product_info.name;
@@ -335,12 +419,13 @@ export default {
             guestdata.forEach((element, index) => {
               if (element.product_id == this.cartform.product_id) {
                 match = true;
-                element.quantity = parseInt(element.quantity) + parseInt(this.cartform.quantity)
-                guestdata[index] = element
+                element.quantity =
+                  parseInt(element.quantity) + parseInt(this.cartform.quantity);
+                guestdata[index] = element;
               }
-            })
+            });
             if (match == false) {
-              this.cartform.id = guestdata.length + 1
+              this.cartform.id = guestdata.length + 1;
               guestdata.push(this.cartform);
             }
             localStorage.setItem("guest", JSON.stringify(guestdata));
@@ -360,44 +445,42 @@ export default {
 
         $(".cartitems").children("span").html(guestdata.length);
 
-
         alert("Updated Cart");
-
-
+        this.HeaderKey ++;
       } else {
-
         this.cartform.item_price = this.product_info.net_price;
         this.cartform.product_id = this.$route.query.id;
-        console.log(this.cartform)
-        axios.post(axios.defaults.baseURL + "addtocart", this.cartform).then((result) => {
-          console.log(result.data);
-          const obj = result.data;
-          console.log(obj);
-          if (obj.success == true) {
-            alert("Product Added to the Cart");
+        console.log(this.cartform);
+        axios
+          .post(axios.defaults.baseURL + "addtocart", this.cartform)
+          .then((result) => {
+            console.log(result.data);
+            const obj = result.data;
+            console.log(obj);
+            if (obj.success == true) {
+              alert("Product Added to the Cart");
 
-            var totalQty = obj.message.cartitems.length;
-            // obj.message.cartitems.forEach(function(items) {
-            //   console.log("Qty: "+items.quantity)
-            //   totalQty+=items.quantity
-            // })
-            //this.itemsincart=totalQty;
-            $(".cartitems").children("span").html(totalQty);
+              var totalQty = obj.message.cartitems.length;
+              // obj.message.cartitems.forEach(function(items) {
+              //   console.log("Qty: "+items.quantity)
+              //   totalQty+=items.quantity
+              // })
+              //this.itemsincart=totalQty;
+              $(".cartitems").children("span").html(totalQty);
 
-            if (localStorage.getItem("login")) {
-              console.log("Login Data")
-              const logindata = JSON.parse(localStorage.getItem("login"));
-              logindata.cartitems = obj.message.cartitems
-              localStorage.setItem("login", JSON.stringify(logindata));
+              if (localStorage.getItem("login")) {
+                console.log("Login Data");
+                const logindata = JSON.parse(localStorage.getItem("login"));
+                logindata.cartitems = obj.message.cartitems;
+                localStorage.setItem("login", JSON.stringify(logindata));
+              }
+              this.HeaderKey ++;
+            } else {
+              alert("Some error occured");
             }
-
-          } else {
-            alert("Some error occured");
-          }
-        })
-
+          });
       }
-      this.EndLoader()
+      this.EndLoader();
       e.preventDefault();
     },
     startLoader() {
@@ -411,23 +494,112 @@ export default {
       target_ContId.style.display = "none";
     },
 
-    // START:: Product page Slideshow 
+    addtocart2(item) {
+      this.cartform.item_price = item.net_price;
+      this.cartform.product_id = item.id;
+      this.cartform.quantity = 1;
+      
 
+      if (!localStorage.getItem("login")) {
+        //alert("Please Login First")
+        this.cartform.name = item.name;
+        this.cartform.description = item.description;
+        this.cartform.net_price = item.net_price;
+
+        if (localStorage.getItem("guest")) {
+          const guestdata = JSON.parse(localStorage.getItem("guest"));
+          if (guestdata.length > 0) {
+            var match = false;
+            guestdata.forEach((element, index) => {
+              if (element.product_id == this.cartform.product_id) {
+                match = true;
+                element.quantity = parseInt(element.quantity) + 1;
+                guestdata[index] = element;
+              }
+            });
+            if (match == false) {
+              this.cartform.id = guestdata.length + 1;
+              guestdata.push(this.cartform);
+            }
+            localStorage.setItem("guest", JSON.stringify(guestdata));
+          } else {
+            const guestdata = [];
+            guestdata.push(this.cartform);
+            localStorage.setItem("guest", JSON.stringify(guestdata));
+          }
+          
+        } else {
+          const guestdata = [];
+          guestdata.push(this.cartform);
+          localStorage.setItem("guest", JSON.stringify(guestdata));
+        }
+
+        // const guestdata = JSON.parse(localStorage.getItem("guest"));
+        // if(localStorage.getItem("guest")){
+        //   const guestdata = JSON.parse(localStorage.getItem("guest"));
+        //   this.cartform.id = guestdata.length+1
+        //   guestdata.push(this.cartform);
+        //   localStorage.setItem("guest", JSON.stringify(guestdata));
+        // } else {
+        //   const guestdata=[];
+        //   guestdata.push(this.cartform);
+        //   localStorage.setItem("guest", JSON.stringify(guestdata));
+        // }
+
+        const guestdata = JSON.parse(localStorage.getItem("guest"));
+        this.itemsincart = guestdata.length;
+        $(".cartitems").children("span").html(this.itemsincart);
+        this.HeaderKey++
+
+        //this.$router.push({name:"Login"});
+      } else {
+        //alert("Added to cart")
+        console.log(this.cartform);
+        this.startLoader();
+        axios
+          .post(axios.defaults.baseURL + "addtocart", this.cartform)
+          .then((result) => {
+            console.log(result.data);
+            const obj = result.data;
+            console.log(obj);
+            if (obj.success == true) {
+              alert("Product Added to the Cart");
+
+              this.itemsincart = obj.message.cartitems.length;
+$(".cartitems").children("span").html(this.itemsincart);
+              if (localStorage.getItem("login")) {
+                console.log("Login Data");
+                const logindata = JSON.parse(localStorage.getItem("login"));
+                logindata.cartitems = obj.message.cartitems;
+                localStorage.setItem("login", JSON.stringify(logindata));
+              }
+            } else {
+              alert("Some error occured");
+            }
+          });
+        this.EndLoader();
+        this.HeaderKey++
+      }
+    },
+    wishlist() {
+      alert("Added to Wishlist");
+    },
+
+    // START:: Product page Slideshow
 
     Active(index) {
       if (index == 0) {
-        return "active"
+        return "active";
       } else {
         return "";
       }
-
     },
     plusSlides(n) {
-      this.showSlides(this.slideIndex += n);
+      this.showSlides((this.slideIndex += n));
     },
 
     currentSlide(n) {
-      this.showSlides(this.slideIndex = n);
+      this.showSlides((this.slideIndex = n));
     },
     getImgUrl(vendor, pet) {
       return this.img_url + "/" + vendor + "/" + pet;
@@ -438,8 +610,12 @@ export default {
       var dots = document.getElementsByClassName("demo");
       // var captionText = document.getElementById("caption");
 
-      if (n > slides.length) { this.slideIndex = 1 }
-      if (n < 1) { this.slideIndex = slides.length }
+      if (n > slides.length) {
+        this.slideIndex = 1;
+      }
+      if (n < 1) {
+        this.slideIndex = slides.length;
+      }
       for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
@@ -449,14 +625,14 @@ export default {
       console.log("slides");
       console.log(slides);
       console.log(this.slideIndex);
-      if (n > slides.length) { this.slideIndex = 1 }
+      if (n > slides.length) {
+        this.slideIndex = 1;
+      }
       slides[this.slideIndex - 1].style.display = "block";
       dots[this.slideIndex - 1].className += " active";
       // captionText.innerHTML = dots[this.slideIndex-1].alt;
-    }
-    // END:: Product page Slideshow 
-
-
-  }
+    },
+    // END:: Product page Slideshow
+  },
 };
 </script>

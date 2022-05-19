@@ -8,25 +8,25 @@
           <div class="col-sm-6 mb-4">
             <div class="form-group">
               <label class="top-position">Full Name*</label>
-              <input type="text" v-model="contact.name" />
+              <input type="text" required v-model="contact.name" />
             </div>
           </div>
           <div class="col-sm-6 mb-4">
             <div class="form-group">
               <label class="top-position">Phone Number*</label>
-              <input type="text" v-model="contact.phone" />
+              <input type="text" required v-model="contact.phone" />
             </div>
           </div>
           <div class="col-sm-6 mb-4">
             <div class="form-group">
               <label class="top-position">Email Address*</label>
-              <input type="text" v-model="contact.email" />
+              <input type="text" required v-model="contact.email" />
             </div>
           </div>
           <div class="col-sm-6 mb-4">
             <div class="selection-re-opt">
               <label class="top-position">Select Option </label>
-              <select class="select-custom-point" v-model="contact.purpose">
+              <select class="select-custom-point" required v-model="contact.purpose">
                 <option>Shipping</option>
                 <option>Order</option>
               </select>
@@ -36,7 +36,7 @@
             <div class="form-group">
               <label class="top-position">Message</label>
               <textarea
-                rows="6"
+                rows="6" required 
                 style="width: 100%"
                 v-model="contact.message"
               ></textarea>
