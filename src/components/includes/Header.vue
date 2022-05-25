@@ -8,8 +8,8 @@
       <div class="container-fluid">
         <!-- <a class="navbar-brand" href="/home">Posh Market</a> -->
         <router-link to="home" class="navbar-brand">
-          <img  :src="getImgUrll(list.logo)" />
-          <span >{{ list.h_shop_name }}</span>          
+          <img v-if="list.logo!=''" :src="getImgUrll(list.logo)" />
+          <span>{{ list.h_shop_name }}</span>
         </router-link>
         <button
           class="navbar-toggler"
@@ -147,7 +147,7 @@
             <router-link to="cart" class="cartitems"
               ><img
                 src="/src/assets/img/bask-icon.png"
-                class="bask-icon" /><span v-if="itemsincart!=0" v-html="itemsincart"></span
+                class="bask-icon" /><span v-html="itemsincart"></span
             ></router-link>
             <span class="bx-amount">$<span v-html="amountincart"></span></span>
           </div>
@@ -185,7 +185,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "header",
 
@@ -201,7 +201,7 @@ export default {
       img_url: axios.defaults.url + "/img/product-images",
     };
   },
-  async mounted() {
+  async callOutMethod() {
     if (localStorage.getItem("login")) {
       console.log("Login Data");
       const logindata = JSON.parse(localStorage.getItem("login"));
@@ -222,6 +222,51 @@ export default {
       localStorage.removeItem("login");
       // localStorage.clear();
       //this.$router.push({name:"Login"})
+    }
+    this.getHeadFoot();
+  },
+  async mounted() {
+    if (localStorage.getItem("login")) {
+      console.log("Login Data");
+      const logindata = JSON.parse(localStorage.getItem("login"));
+      var amount = 0;
+      if (logindata.cartitems) {
+        this.itemsincart = logindata.cartitems.length;
+        for (var i = 0; i < logindata.cartitems.length; i++) {
+          amount +=
+            parseInt(logindata.cartitems[i].item_price) *
+            parseInt(logindata.cartitems[i].quantity);
+        }
+        this.amountincart = amount;
+      }
+      this.userTitle = logindata.first_name + " " + logindata.last_name;
+      console.log(localStorage.getItem("login"));
+      this.isHidden = true;
+    } else if (localStorage.getItem("guest")) {
+      const guestdata = JSON.parse(localStorage.getItem("guest"));
+      this.itemsincart = guestdata.length;
+      var tempTotalPrice=0;
+      guestdata.forEach(function (items) {
+        console.log("Qty: " + items.quantity);
+        tempTotalPrice += items.quantity * items.item_price;
+      });
+      this.amountincart = tempTotalPrice;
+      $(".cartitems").children("span").show();
+      $(".cartitems").children("span").html(this.itemsincart);
+      if (this.count_cartitems == 0) {
+        $(".cartitems").children("span").hide();
+      } else {
+        $(".cartitems").children("span").show();
+      }
+    } else {
+      localStorage.removeItem("login");
+      // localStorage.clear();
+      //this.$router.push({name:"Login"})
+    }
+    if (this.itemsincart == 0) {
+      $(".cartitems").children("span").hide();
+    } else {
+      $(".cartitems").children("span").show();
     }
     this.getHeadFoot();
   },

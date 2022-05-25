@@ -8,7 +8,12 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
           <!-- <a class="navbar-brand" href="/home">Posh Market</a> -->
-          <router-link to="home" class="navbar-brand">Posh Market</router-link>
+          <router-link to="home" class="navbar-brand">
+            <img v-if="list_head.logo != ''" :src="getImgUrll(list_head.logo)" id="logo" />
+            <span>{{ list_head.h_shop_name }}</span>
+          </router-link>
+
+          
           <button
             class="navbar-toggler"
             type="button"
@@ -141,7 +146,7 @@
                 ><img
                   src="/src/assets/img/bask-icon.png"
                   class="bask-icon" /><span
-                  v-if="itemsincart!=0"
+                  v-if="itemsincart != 0"
                   v-html="itemsincart"
                 ></span
               ></router-link>
@@ -301,7 +306,7 @@
                     >
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">${{ item.net_price }}</span>
+                    <span class="pro-price">${{ item.seller_price }}</span>
                     <span class="pro-icons">
                       <img
                         src="/src/assets/img/buy.png"
@@ -387,6 +392,9 @@ export default {
       sub_category: this.$route.query.id,
       parent_category: this.$route.query.p_id,
       list: [],
+      list_head: [],
+      showTitle: true,
+
       brandlist: [],
       filterlist: [],
       filtersdata: [],
@@ -435,9 +443,16 @@ export default {
           tempTotalPrice += items.quantity * items.item_price;
         });
         this.total_price = tempTotalPrice;
+
         $(".cartitems").children("span").html(this.count_cartitems);
+        if (this.count_cartitems == 0) {
+          $(".cartitems").children("span").hide();
+        } else {
+          $(".cartitems").children("span").show();
+        }
       }
     }
+    this.getHeadFoot();
     this.getCategoryFilters();
     //
     this.getFilterData();
@@ -548,7 +563,7 @@ export default {
       this.$router.push({ name: "Home" });
     },
     addtocart(item) {
-      this.cartform.item_price = item.net_price;
+      this.cartform.item_price = item.seller_price;
       this.cartform.product_id = item.id;
       this.cartform.quantity = 1;
       this.cartform.id = 1;
@@ -557,7 +572,7 @@ export default {
         //alert("Please Login First")
         this.cartform.name = item.name;
         this.cartform.description = item.description;
-        this.cartform.net_price = item.net_price;
+        this.cartform.net_price = item.seller_price;
 
         if (localStorage.getItem("guest")) {
           const guestdata = JSON.parse(localStorage.getItem("guest"));
@@ -630,8 +645,19 @@ export default {
         this.EndLoader();
       }
     },
+    async getHeadFoot() {
+      let result = axios.get(axios.defaults.baseURL + "headerfooter/977");
+      console.log("header footer");
+      this.list_head = (await result).data;
+      if (this.list_head.logo) this.showTitle = false;
+      
+    },
+
     wishlist() {
       alert("Added to Wishlist");
+    },
+    getImgUrll(pet) {
+      return this.img_url + "/977/" + pet;
     },
   },
 };

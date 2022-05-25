@@ -25,7 +25,7 @@
           </div>
           <div class="col-sm-6 mb-4">
             <div class="selection-re-opt">
-              <label class="top-position">Select Option </label>
+              <label class="top-position">Select Option*</label>
               <select class="select-custom-point" required v-model="contact.purpose">
                 <option>Shipping</option>
                 <option>Order</option>
@@ -34,7 +34,7 @@
           </div>
           <div class="col-sm-12 mb-4">
             <div class="form-group">
-              <label class="top-position">Message</label>
+              <label class="top-position">Message*</label>
               <textarea
                 rows="6" required 
                 style="width: 100%"
@@ -94,6 +94,7 @@ export default {
           }
           console.log(result);
         });
+        e.preventDefault();
     },
   },
 };

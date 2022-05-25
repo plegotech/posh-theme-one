@@ -494,7 +494,7 @@
                     >
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">${{ item.net_price }}</span>
+                    <span class="pro-price">${{ item.seller_price }}</span>
                     <span class="pro-icons">
                       <img
                         src="/src/assets/img/buy.png"
@@ -622,7 +622,13 @@ export default {
           tempTotalPrice += items.quantity * items.item_price;
         });
         this.total_price = tempTotalPrice;
+        
         $(".cartitems").children("span").html(this.count_cartitems);
+        if(this.count_cartitems==0){
+          $(".cartitems").children("span").hide()
+        } else {
+          $(".cartitems").children("span").show()
+        }
       }
     }
     this.getCategoryFilters()
@@ -744,7 +750,7 @@ export default {
         //alert("Please Login First")
         this.cartform.name = item.name;
         this.cartform.description = item.description;
-        this.cartform.net_price = item.net_price;
+        this.cartform.net_price = item.seller_price;
 
         if (localStorage.getItem("guest")) {
           const guestdata = JSON.parse(localStorage.getItem("guest"));

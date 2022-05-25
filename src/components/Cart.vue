@@ -78,7 +78,7 @@
                   </div>
                 </div>
                 <div class="cartI-3">
-                  <h5 class="ci-price">${{ item.net_price }}</h5>
+                  <h5 class="ci-price">${{ item.item_price }}</h5>
                 </div>
                 <div class="cartI-4">
                   <div class="carti-remove">
@@ -157,13 +157,13 @@ export default {
   },
   data() {
     return {
-      HeaderKey : 0,
+      HeaderKey: 0,
       user_id: null,
       cartitemslist: [],
       count_cartitems: 0,
       total_price: 0,
       count: 0,
-      img_url: axios.defaults.url+ "/img/product-images/",
+      img_url: axios.defaults.url + "/img/product-images/",
     };
   },
 
@@ -194,10 +194,17 @@ export default {
             tempTotalPrice += items.quantity * items.item_price;
           });
           this.total_price = tempTotalPrice;
+          $(".cartitems").children("span").show()
           $(".cartitems").children("span").html(this.count_cartitems);
-          if(this.count_cartitems==0){
+          if (this.count_cartitems == 0) {
             this.HeaderKey++;
-          }
+            $(".cartitems").children("span").hide();
+          } else {
+          $(".cartitems").children("span").show()
+        }
+          //alert("No Logged");
+        } else {
+          //alert("No Guest");
         }
       } else {
         this.total_price = 0;
@@ -217,9 +224,9 @@ export default {
         this.cartitemslist = (await result).data;
         var tempTotalPrice = 0;
         this.count_cartitems = this.cartitemslist.length;
-        if(this.count_cartitems==0){
-            this.HeaderKey++;
-          }
+        if (this.count_cartitems == 0) {
+          //this.HeaderKey++;
+        }
         this.cartitemslist.forEach(function (items) {
           console.log("Qty: " + items.quantity);
           tempTotalPrice += items.quantity * items.item_price;
@@ -227,6 +234,11 @@ export default {
         this.total_price = tempTotalPrice;
         //this.itemsincart=totalQty;
         $(".cartitems").children("span").html(this.count_cartitems);
+        if (this.count_cartitems == 0) {
+          $(".cartitems").children("span").hide();
+        } else {
+          $(".cartitems").children("span").show()
+        }
 
         if (localStorage.getItem("login")) {
           console.log("Login Data");
@@ -243,6 +255,9 @@ export default {
       this.startLoader();
       this.cartitemslist = null;
       $(".cartitems").children("span").html(0);
+
+      $(".cartitems").children("span").hide();
+
       let result = axios.post(
         axios.defaults.baseURL + "removecartdata",
         {
@@ -309,7 +324,7 @@ export default {
       $("#cart_" + cart_id).val(val);
     },
     getImgUrl(vendor, pet) {
-      console.log(this.img_url + "/" + vendor + "/" + pet)
+      console.log(this.img_url + "/" + vendor + "/" + pet);
       return this.img_url + "/" + vendor + "/" + pet;
     },
     removecartitem(cart_id, product_id) {
