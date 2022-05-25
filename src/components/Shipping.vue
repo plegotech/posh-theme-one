@@ -257,7 +257,7 @@ export default {
     this.getCartData();
   },
   methods: {
-    async postShippingData() {
+    async postShippingData(e) {
       axios
         .post(axios.defaults.baseURL + "update-shipping", this.shippingdetails)
         .then((result) => {
@@ -266,12 +266,13 @@ export default {
           console.log(obj);
           if (obj.success == true) {
             alert("Shipping Form submitted successfully");
-            this.shippingdetails = null
+            //this.shippingdetails = null
           } else {
             alert("Some error occured in saving data");
           }
           console.log(result);
         });
+        e.preventDefault();
     },
     loadSession() {
       if (localStorage.getItem("login")) {
@@ -324,6 +325,11 @@ export default {
       this.total_price = tempTotalPrice;
       //this.itemsincart=totalQty;
       $(".cartitems").children("span").html(this.count_cartitems);
+      if(this.count_cartitems==0){
+          $(".cartitems").children("span").hide()
+          } else {
+          $(".cartitems").children("span").show()
+        }
 
       if (localStorage.getItem("login")) {
         console.log("Login Data");
@@ -341,6 +347,8 @@ export default {
       this.startLoader();
       this.cartitemslist = null;
       $(".cartitems").children("span").html(0);
+          $(".cartitems").children("span").hide()
+
       let result = axios.post(
         axios.defaults.baseURL + "removecartdata",
         {

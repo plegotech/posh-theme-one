@@ -182,6 +182,7 @@
               <div class="product-item">
                 <div class="pro-img-bx">
                   <router-link
+                    @click="forceclick(product.id)"
                     :to="{
                       path: '/product',
                       query: { id: product.id },
@@ -198,7 +199,7 @@
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-                    <router-link
+                    <router-link @click="forceclick(product.id)"
                       :to="{
                         path: '/product',
                         query: { id: product.id },
@@ -242,7 +243,7 @@
             >
               <div class="product-item">
                 <div class="pro-img-bx">
-                  <router-link
+                  <router-link @click="forceclick(product.id)"
                     :to="{
                       path: '/product',
                       query: { id: product.id },
@@ -259,7 +260,8 @@
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-                    <router-link
+                    <router-link @click="forceclick(product.id)"
+                      :key="product.id"
                       :to="{
                         path: '/product',
                         query: { id: product.id },
@@ -271,8 +273,9 @@
                   </h3>
                   <div class="prod-p-icon">
                     <span class="pro-price">${{ product.seller_price }}</span
-                    ><span class="pro-icons" 
-                      ><img @click="addtocart2(product)"
+                    ><span class="pro-icons"
+                      ><img
+                        @click="addtocart2(product)"
                         src="/src/assets/img/buy.png"
                         class="img-fluid" /><img
                         src="/src/assets/img/heart.png"
@@ -332,6 +335,11 @@ export default {
     } else if (localStorage.getItem("guest")) {
       const guestdata = JSON.parse(localStorage.getItem("guest"));
       $(".cartitems").children("span").html(guestdata.length);
+      if (guestdata.length == 0) {
+        $(".cartitems").children("span").hide();
+      } else {
+        $(".cartitems").children("span").show();
+      }
     }
     this.cartform.product_id = this.$route.query.id;
     this.showSlides(this.slideIndex);
@@ -339,6 +347,11 @@ export default {
     this.getJustForYouProducts();
   },
   methods: {
+    forceclick(id) {
+      //this.product_id = id;
+      this.$route.query.id = id;
+      this.getProductInfo();
+    },
     async getJustForYouProducts() {
       let result = axios.get(axios.defaults.baseURL + "product/justforyou/0");
       console.log((await result).data);
@@ -377,11 +390,11 @@ export default {
     },
     async getProductInfo() {
       this.startLoader();
-
+      this.cartform.product_id = this.$route.query.id;
       this.productHistory();
 
       let result = axios.get(
-        axios.defaults.baseURL + "product/get/" + this.cartform.product_id
+        axios.defaults.baseURL + "product/get/" + this.$route.query.id
       );
       console.log((await result).data);
       this.product_info = (await result).data;
@@ -401,7 +414,7 @@ export default {
     async addtocart(e) {
       this.startLoader();
 
-      this.cartform.item_price = this.product_info.net_price;
+      this.cartform.item_price = this.product_info.seller_price;
       this.cartform.product_id = this.$route.query.id;
 
       if (this.cartform.quantity == 0) {
@@ -410,7 +423,7 @@ export default {
         //alert("Please Login First")
         this.cartform.name = this.product_info.name;
         this.cartform.description = this.product_info.description;
-        this.cartform.net_price = this.product_info.net_price;
+        this.cartform.net_price = this.product_info.seller_price;
 
         if (localStorage.getItem("guest")) {
           const guestdata = JSON.parse(localStorage.getItem("guest"));
@@ -441,14 +454,20 @@ export default {
         }
 
         const guestdata = JSON.parse(localStorage.getItem("guest"));
+        //alert(guestdata);
         //this.itemsincart = guestdata.length
 
         $(".cartitems").children("span").html(guestdata.length);
+        if (guestdata.length == 0) {
+          $(".cartitems").children("span").hide();
+        } else {
+          $(".cartitems").children("span").show();
+        }
 
         alert("Updated Cart");
-        this.HeaderKey ++;
+        this.HeaderKey++;
       } else {
-        this.cartform.item_price = this.product_info.net_price;
+        this.cartform.item_price = this.product_info.seller_price;
         this.cartform.product_id = this.$route.query.id;
         console.log(this.cartform);
         axios
@@ -468,13 +487,19 @@ export default {
               //this.itemsincart=totalQty;
               $(".cartitems").children("span").html(totalQty);
 
+              if (totalQty == 0) {
+                $(".cartitems").children("span").hide();
+              } else {
+                $(".cartitems").children("span").show();
+              }
+
               if (localStorage.getItem("login")) {
                 console.log("Login Data");
                 const logindata = JSON.parse(localStorage.getItem("login"));
                 logindata.cartitems = obj.message.cartitems;
                 localStorage.setItem("login", JSON.stringify(logindata));
               }
-              this.HeaderKey ++;
+              this.HeaderKey++;
             } else {
               alert("Some error occured");
             }
@@ -495,16 +520,15 @@ export default {
     },
 
     addtocart2(item) {
-      this.cartform.item_price = item.net_price;
+      this.cartform.item_price = item.seller_price;
       this.cartform.product_id = item.id;
       this.cartform.quantity = 1;
-      
 
       if (!localStorage.getItem("login")) {
         //alert("Please Login First")
         this.cartform.name = item.name;
         this.cartform.description = item.description;
-        this.cartform.net_price = item.net_price;
+        this.cartform.net_price = item.seller_price;
 
         if (localStorage.getItem("guest")) {
           const guestdata = JSON.parse(localStorage.getItem("guest"));
@@ -527,7 +551,6 @@ export default {
             guestdata.push(this.cartform);
             localStorage.setItem("guest", JSON.stringify(guestdata));
           }
-          
         } else {
           const guestdata = [];
           guestdata.push(this.cartform);
@@ -549,7 +572,13 @@ export default {
         const guestdata = JSON.parse(localStorage.getItem("guest"));
         this.itemsincart = guestdata.length;
         $(".cartitems").children("span").html(this.itemsincart);
-        this.HeaderKey++
+        if (this.itemsincart == 0) {
+          $(".cartitems").children("span").hide();
+        } else {
+          $(".cartitems").children("span").show();
+        }
+
+        this.HeaderKey++;
 
         //this.$router.push({name:"Login"});
       } else {
@@ -566,7 +595,12 @@ export default {
               alert("Product Added to the Cart");
 
               this.itemsincart = obj.message.cartitems.length;
-$(".cartitems").children("span").html(this.itemsincart);
+              $(".cartitems").children("span").html(this.itemsincart);
+              if (this.itemsincart == 0) {
+                $(".cartitems").children("span").hide();
+              } else {
+                $(".cartitems").children("span").show();
+              }
               if (localStorage.getItem("login")) {
                 console.log("Login Data");
                 const logindata = JSON.parse(localStorage.getItem("login"));
@@ -578,7 +612,7 @@ $(".cartitems").children("span").html(this.itemsincart);
             }
           });
         this.EndLoader();
-        this.HeaderKey++
+        this.HeaderKey++;
       }
     },
     wishlist() {

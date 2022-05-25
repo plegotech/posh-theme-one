@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <header-comp></header-comp>
+    <header-comp ref="headercomp"></header-comp>
     <div>
       <div class="container-fluid">
         <div class="row">
@@ -10,33 +10,48 @@
               <h1>TOP CATEGORIES</h1>
               <ul>
                 <li v-for="item in list" :key="item.id">
-                  <i class="menu-icon " ><img
-                      :src="'https://posh-marketplace.plego.pro/img/menu-template/' + item.img + ''"></i>
-                  {{ item.title
-                  }}
-                  
+                  <i class="menu-icon"
+                    ><img
+                      :src="
+                        'https://posh-marketplace.plego.pro/img/menu-template/' +
+                        item.img +
+                        ''
+                      "
+                  /></i>
+                  {{ item.title }}
+
                   <i class="fas fa-angle-right"></i>
                   <ul class="side-submenu">
-                    <li v-for="subitem in item.active_children" :key="subitem.id" >
-                      <router-link :to="{ path: 'allproducts', query: { p_id: item.id, id: subitem.id }, props: true }">
-                        {{
-                            subitem.title
-                        }}</router-link>
+                    <li
+                      v-for="subitem in item.active_children"
+                      :key="subitem.id"
+                    >
+                      <router-link
+                        :to="{
+                          path: 'allproducts',
+                          query: { p_id: item.id, id: subitem.id },
+                          props: true,
+                        }"
+                      >
+                        {{ subitem.title }}</router-link
+                      >
                     </li>
                   </ul>
-
                 </li>
               </ul>
             </div>
           </div>
-          <div class="col-xl-7 col-lg-6 col-9 no-pr-pl  mt-3" id="MainSliderbx">
-
+          <div class="col-xl-7 col-lg-6 col-9 no-pr-pl mt-3" id="MainSliderbx">
             <Carousel :autoplay="4000" :itemsToShow="1" :wrapAround="true">
               <Slide v-for="(images, index) in this.sliders" :key="index">
                 <div class="bsc-slider-bx">
                   <!-- <img src="../assets/img/poshslider-1.png" alt="" class="img-fluid" /> -->
                   <a :href="images.link ? images.link : '#'" target="_blank">
-                    <img :src="getImgUrll(images.image)" alt="" class="img-fluid" />
+                    <img
+                      :src="getImgUrll(images.image)"
+                      alt=""
+                      class="img-fluid"
+                    />
                   </a>
                 </div>
               </Slide>
@@ -75,13 +90,19 @@
           <div class="col-xl-3 col-lg-3 col-3 mt-3" id="MainSideBanner">
             <div class="mb-3">
               <!-- <img src="../assets/img/mobile-phones-img.png" height="240" /> -->
-              <a :href="this.promotion.link1 ? this.promotion.link1 : '#'" target="_blank">
+              <a
+                :href="this.promotion.link1 ? this.promotion.link1 : '#'"
+                target="_blank"
+              >
                 <img :src="getImgUrll(this.promotion.image1)" alt="" />
               </a>
             </div>
             <div class="mb-3">
               <!-- <img src="../assets/img/mobile-phones-img.png" height="240" /> -->
-              <a :href="this.promotion.link2 ? this.promotion.link2 : '#'" target="_blank">
+              <a
+                :href="this.promotion.link2 ? this.promotion.link2 : '#'"
+                target="_blank"
+              >
                 <img :src="getImgUrll(this.promotion.image2)" alt="" />
               </a>
             </div>
@@ -90,23 +111,41 @@
       </div>
 
       <div class="container-fluid" id="hotDeals-bx">
-
         <div class="row">
-
           <div class="col-md-4 col-12 mt-4 flex-sm">
             <div class="mb-4">
               <picture>
                 <!-- <source media="(min-width:991px)" :srcset="getImgUrll(this.catimages.images_new)" /> -->
-                <a :href="this.catimages.link_new ? this.catimages.link_new : '#'" target="_blank">
-                  <img :src="getImgUrll(this.catimages.images_new)" alt="" class="img-fluid" height="323" /></a>
+                <a
+                  :href="
+                    this.catimages.link_new ? this.catimages.link_new : '#'
+                  "
+                  target="_blank"
+                >
+                  <img
+                    :src="getImgUrll(this.catimages.images_new)"
+                    alt=""
+                    class="img-fluid"
+                    height="323"
+                /></a>
               </picture>
             </div>
             <div class="mb-4">
               <picture>
                 <!-- <source media="(min-width:991px)" srcset="../assets/img/hot-items-in-gaming-img.jpg" /> -->
                 <!-- <img src="../assets/img/hot-items-in-gaming-img-2.jpg" alt="" class="img-fluid" /> -->
-                <a :href="this.catimages.link_hot ? this.catimages.link_hot : '#'" target="_blank">
-                  <img :src="getImgUrll(this.catimages.images_hot)" alt="" class="img-fluid" height="210" />
+                <a
+                  :href="
+                    this.catimages.link_hot ? this.catimages.link_hot : '#'
+                  "
+                  target="_blank"
+                >
+                  <img
+                    :src="getImgUrll(this.catimages.images_hot)"
+                    alt=""
+                    class="img-fluid"
+                    height="210"
+                  />
                 </a>
               </picture>
             </div>
@@ -115,16 +154,31 @@
             <div class="row">
               <div class="col-lg-7 mb-4">
                 <!-- <img src="../assets/img/hot_categories.png" width="100%" alt="" /> -->
-                <a :href="this.catimages.link_cat ? this.catimages.link_cat : '#'" target="_blank">
-                  <img :src="getImgUrll(this.catimages.images_cat)" width="100%" alt="" height="152" /></a>
+                <a
+                  :href="
+                    this.catimages.link_cat ? this.catimages.link_cat : '#'
+                  "
+                  target="_blank"
+                >
+                  <img
+                    :src="getImgUrll(this.catimages.images_cat)"
+                    width="100%"
+                    alt=""
+                    height="152"
+                /></a>
               </div>
               <div class="col-lg-5 mb-4">
                 <div class="for-signup">
                   <h5>For more details and updates</h5>
                   <div class="signup-btn-bx">
                     <!-- <a href="/signup"><button class="primary">Sign up</button></a> -->
-                    <router-link to="signup"><button class="primary">Sign up</button></router-link>
-                    <p>Already Registered?<router-link to="login">SIGN IN</router-link>
+                    <router-link to="signup"
+                      ><button class="primary">Sign up</button></router-link
+                    >
+                    <p>
+                      Already Registered?<router-link to="login"
+                        >SIGN IN</router-link
+                      >
                     </p>
                   </div>
                 </div>
@@ -133,20 +187,38 @@
             <div class="row">
               <div class="col-sm-5 mb-sm-0 mb-4">
                 <!-- <img src="../assets/img/electronic-deals-img.jpg" alt="" /> -->
-                <a :href="this.catimages.link_elec ? this.catimages.link_elec : '#'" target="_blank">
-                  <img :src="getImgUrll(this.catimages.images_elec)" alt="" height="385" /></a>
+                <a
+                  :href="
+                    this.catimages.link_elec ? this.catimages.link_elec : '#'
+                  "
+                  target="_blank"
+                >
+                  <img
+                    :src="getImgUrll(this.catimages.images_elec)"
+                    alt=""
+                    height="385"
+                /></a>
               </div>
               <div class="col-sm-7">
                 <!-- <img src="../assets/img/home_and_kitchens.png" width="100%" alt="" style="height: 100%" /> -->
-                <a :href="this.catimages.link_home ? this.catimages.link_home : '#'" target="_blank">
-                  <img :src="getImgUrll(this.catimages.images_home)" width="100%" alt="" height="385" style="height:100%" /></a>
+                <a
+                  :href="
+                    this.catimages.link_home ? this.catimages.link_home : '#'
+                  "
+                  target="_blank"
+                >
+                  <img
+                    :src="getImgUrll(this.catimages.images_home)"
+                    width="100%"
+                    alt=""
+                    height="385"
+                    style="height: 100%"
+                /></a>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-
 
       <div class="container-fluid bgcolor-gl">
         <div class="produ-listing-bx mt-4">
@@ -159,31 +231,46 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-3" v-for="(product, index) in featuredProducts" :key="index">
+            <div
+              class="col-sm-3"
+              v-for="(product, index) in featuredProducts"
+              :key="index"
+            >
               <div class="product-item">
                 <div class="pro-img-bx">
-                  <router-link :to="{
-                    path: '/product',
-                    query: { id: product.id },
-                    props: true,
-                  }">
-                    <img :src="getImgUrl(product.vendor_id, product.featured_image)" alt="" />
-                  </router-link>
-
-                </div>
-                <div class="pro-title-bx">
-                  <h3 class="prod-title">
-                    <router-link :to="{
+                  <router-link
+                    :to="{
                       path: '/product',
                       query: { id: product.id },
                       props: true,
-                    }">
+                    }"
+                  >
+                    <img
+                      :src="
+                        getImgUrl(product.vendor_id, product.featured_image)
+                      "
+                      alt=""
+                    />
+                  </router-link>
+                </div>
+                <div class="pro-title-bx">
+                  <h3 class="prod-title">
+                    <router-link
+                      :to="{
+                        path: '/product',
+                        query: { id: product.id },
+                        props: true,
+                      }"
+                    >
                       {{ product.name }}
                     </router-link>
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">${{ product.net_price }}</span><span class="pro-icons"><img
-                        src="../assets/img/buy.png" class="img-fluid" /><img src="../assets/img/heart.png" /></span>
+                    <span class="pro-price">${{ product.seller_price }}</span
+                    ><span class="pro-icons"
+                      ><img @click="addtocart2(product)" src="../assets/img/buy.png" class="img-fluid" /><img
+                        src="../assets/img/heart.png"
+                    /></span>
                   </div>
                 </div>
               </div>
@@ -191,13 +278,27 @@
           </div>
           <div class="row">
             <div class="col-sm-6 mb-4 promotion-mid-bx">
-              <a :href="this.promotion.link3 ? this.promotion.link3 : '#'" target="_blank">
-                <img :src="getImgUrll(this.promotion.image3)" height="240" alt="" />
+              <a
+                :href="this.promotion.link3 ? this.promotion.link3 : '#'"
+                target="_blank"
+              >
+                <img
+                  :src="getImgUrll(this.promotion.image3)"
+                  height="240"
+                  alt=""
+                />
               </a>
             </div>
             <div class="col-sm-6 promotion-mid-bx">
-              <a :href="this.promotion.link4 ? this.promotion.link4 : '#'" target="_blank">
-                <img :src="getImgUrll(this.promotion.image4)" height="240" alt="" />
+              <a
+                :href="this.promotion.link4 ? this.promotion.link4 : '#'"
+                target="_blank"
+              >
+                <img
+                  :src="getImgUrll(this.promotion.image4)"
+                  height="240"
+                  alt=""
+                />
               </a>
             </div>
           </div>
@@ -219,13 +320,25 @@
             <div class="col-sm-12">
               <div class="seller-categories-box">
                 <Carousel :settings="settings" :breakpoints="breakpoints">
-                  <Slide v-for="(slide, index) in this.BestSellerProductsLength" :key="index">
+                  <Slide
+                    v-for="(slide, index) in this.BestSellerProductsLength"
+                    :key="index"
+                  >
                     <div class="bsc-slider-bx">
                       <!-- <img src="../assets/img/Group-59.png" alt="" class="img-fluid" /> -->
 
-                      <div class="bs-pro-bx"><img
-                        :src="getImgUrl(this.BestSellerProducts[index].vendor_id, this.BestSellerProducts[index].featured_image)"
-                        alt="" class="img-fluid" /></div>
+                      <div class="bs-pro-bx">
+                        <img
+                          :src="
+                            getImgUrl(
+                              this.BestSellerProducts[index].vendor_id,
+                              this.BestSellerProducts[index].featured_image
+                            )
+                          "
+                          alt=""
+                          class="img-fluid"
+                        />
+                      </div>
                       <h5>{{ this.BestSellerProducts[index].title }}</h5>
                     </div>
                   </Slide>
@@ -249,31 +362,47 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-3" v-for="(product, index) in justForYouProducts" :key="index">
+            <div
+              class="col-sm-3"
+              v-for="(product, index) in justForYouProducts"
+              :key="index"
+            >
               <div class="product-item">
                 <div class="pro-img-bx">
-                  <router-link :to="{
-                    path: '/product',
-                    query: { id: product.id },
-                    props: true,
-                  }">
-                    <img :src="getImgUrl(product.vendor_id, product.featured_image)" alt="" />
+                  <router-link
+                    :to="{
+                      path: '/product',
+                      query: { id: product.id },
+                      props: true,
+                    }"
+                  >
+                    <img
+                      :src="
+                        getImgUrl(product.vendor_id, product.featured_image)
+                      "
+                      alt=""
+                    />
                   </router-link>
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-                    <router-link :to="{
-                      path: '/product',
-                      query: { id: product.id },
-                      props: true,
-                    }">
+                    <router-link
+                      :to="{
+                        path: '/product',
+                        query: { id: product.id },
+                        props: true,
+                      }"
+                    >
                       {{ product.name }}
                     </router-link>
-
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">${{ product.net_price }}</span><span class="pro-icons"><img
-                        src="../assets/img/buy.png" class="img-fluid" /><img src="../assets/img/heart.png" /></span>
+                    <span class="pro-price">${{ product.seller_price }}</span
+                    ><span class="pro-icons">
+                      
+                      <img @click="addtocart2(product)" src="../assets/img/buy.png" class="img-fluid" />
+                      <img src="../assets/img/heart.png" />
+                    </span>
                   </div>
                 </div>
               </div>
@@ -290,13 +419,13 @@
               euktiga. Intraliga geoligt valigen kontrakåd. Pomeliga smygflyga.
               Speskade vument tahet tefåskap. Lörem ipsum jess mån rugbyförälder
               berade. Odyrade spenyda femissa euktiga. Intraliga geoligt valigen
-              kontrakåd. Pomeliga smygflyga. Speskade vument tahet tefåskap. Lörem
-              ipsum jess mån rugbyförälder berade. Odyrade spenyda femissa
+              kontrakåd. Pomeliga smygflyga. Speskade vument tahet tefåskap.
+              Lörem ipsum jess mån rugbyförälder berade. Odyrade spenyda femissa
               euktiga. Intraliga geoligt valigen kontrakåd. Pomeliga smygflyga.
               Speskade vument tahet tefåskap. Lörem ipsum jess mån rugbyförälder
               berade. Odyrade spenyda femissa euktiga. Intraliga geoligt valigen
-              kontrakåd. Pomeliga smygflyga. Speskade vument tahet tefåskap. Lörem
-              ipsum jess mån rugbyförälder berade. Odyrade spenyda femissa
+              kontrakåd. Pomeliga smygflyga. Speskade vument tahet tefåskap.
+              Lörem ipsum jess mån rugbyförälder berade. Odyrade spenyda femissa
               euktiga. Intraliga geoligt valigen kontrakåd. Pomeliga smygflyga.
               Speskade vument tahet tefåskap. Lörem ipsum jess mån rugbyförälder
               berade. Odyrade spenyda femissa euktiga. Intraliga geoligt valigen
@@ -304,7 +433,13 @@
             </p>
           </div>
           <div class="col-sm-2">
-            <img src="../assets/img/Online-Shopping.png" width="229" height="335" class="img-fluid onlineShp" alt="" />
+            <img
+              src="../assets/img/Online-Shopping.png"
+              width="229"
+              height="335"
+              class="img-fluid onlineShp"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -315,107 +450,122 @@
 
 
 <script>
-
-import HeaderComp from './includes/Header.vue'
+import HeaderComp from "./includes/Header.vue";
 import FooterComp from "./includes/Footer.vue";
-import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Pagination, Slide, Navigation } from "vue3-carousel";
 
 import axios from "axios";
 export default {
   name: "Body",
   components: {
-    HeaderComp, FooterComp, Carousel, Slide, Pagination, Navigation,
+    HeaderComp,
+    FooterComp,
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
   },
   data() {
     return {
       //
       settings: {
-      itemsToShow: 2,
-      snapAlign: 'center',
-    },
-    // breakpoints are mobile first
-    // any settings not specified will fallback to the carousel settings
-    breakpoints: {
-      // 700px and up
-       700: {
-        itemsToShow: 3,
-        snapAlign: 'center',
+        itemsToShow: 2,
+        snapAlign: "center",
       },
-       // 1024 and up
-      1024: {
-        itemsToShow: 5,
-        snapAlign: 'start',
+      // breakpoints are mobile first
+      // any settings not specified will fallback to the carousel settings
+      breakpoints: {
+        // 700px and up
+        700: {
+          itemsToShow: 3,
+          snapAlign: "center",
+        },
+        // 1024 and up
+        1024: {
+          itemsToShow: 5,
+          snapAlign: "start",
+        },
+        1400: {
+          itemsToShow: 8,
+          snapAlign: "start",
+        },
       },
-       1400: {
-        itemsToShow: 8,
-        snapAlign: 'start',
-      },
-     
-     
-       },
       //
       BestSellerProducts: {
         0: {
           featured_image: null,
-          vendor_id: null
-        }
+          vendor_id: null,
+        },
       },
       BestSellerProductsLength: 1,
       featuredProducts: [],
       justForYouProducts: [],
       list: [],
       list_homepage: [],
+      cartform: {
+        product_id: 0,
+        user_id: 0,
+        quantity: 1,
+        item_price: 0,
+      },
+
       sliders: {
         0: {
           link: null,
-          image: null
+          image: null,
         },
         1: {
           link: null,
-          image: null
-
+          image: null,
         },
         2: {
           link: null,
-          image: null
-        }
+          image: null,
+        },
       },
       sliderslen: 1,
       catimages: [],
       catimageslen: 1,
       promotion: [],
       img_url: axios.defaults.url + "/img/product-images",
-      
 
-      user_id: 0
+      user_id: 0,
     };
   },
   async mounted() {
-
     this.startLoader();
 
-
-    this.getCategories()
-    this.getSlidersPromotionsCategoryImages()
-    this.getBestSellerCategories()
-    this.getFeaturedProducts()
-    this.getJustForYouProducts()
+    this.getCategories();
+    this.getSlidersPromotionsCategoryImages();
+    this.getBestSellerCategories();
+    this.getFeaturedProducts();
+    this.getJustForYouProducts();
 
     if (localStorage.getItem("login")) {
-      console.log("Login Data")
+      console.log("Login Data");
       const logindata = JSON.parse(localStorage.getItem("login"));
-      this.user_id = logindata.id
+      this.user_id = logindata.id;
+      this.cartform.user_id = logindata.id;
       if (logindata.cartitems) {
         $(".cartitems").children("span").html(logindata.cartitems.length);
       } else {
         $(".cartitems").children("span").html(0);
       }
-
+      if (logindata.cartitems.length == 0) {
+        $(".cartitems").children("span").hide();
+      } else {
+        $(".cartitems").children("span").show();
+      }
     } else if (!localStorage.getItem("login")) {
       if (localStorage.getItem("guest")) {
         const guestdata = JSON.parse(localStorage.getItem("guest"));
         $(".cartitems").children("span").html(guestdata.length);
+        if (guestdata.length == 0) {
+          $(".cartitems").children("span").hide();
+        } else {
+          $(".cartitems").children("span").show();
+        }
       }
     }
 
@@ -424,10 +574,107 @@ export default {
     this.EndLoader();
   },
   methods: {
+    addtocart2(item) {
+      this.cartform.item_price = item.seller_price;
+      this.cartform.product_id = item.id;
+      this.cartform.quantity = 1;
+
+      if (!localStorage.getItem("login")) {
+        //alert("Please Login First")
+        this.cartform.name = item.name;
+        this.cartform.description = item.description;
+        this.cartform.net_price = item.seller_price;
+
+        if (localStorage.getItem("guest")) {
+          const guestdata = JSON.parse(localStorage.getItem("guest"));
+          if (guestdata.length > 0) {
+            var match = false;
+            guestdata.forEach((element, index) => {
+              if (element.product_id == this.cartform.product_id) {
+                match = true;
+                element.quantity = parseInt(element.quantity) + 1;
+                guestdata[index] = element;
+              }
+            });
+            if (match == false) {
+              this.cartform.id = guestdata.length + 1;
+              guestdata.push(this.cartform);
+            }
+            localStorage.setItem("guest", JSON.stringify(guestdata));
+          } else {
+            const guestdata = [];
+            guestdata.push(this.cartform);
+            localStorage.setItem("guest", JSON.stringify(guestdata));
+          }
+        } else {
+          const guestdata = [];
+          guestdata.push(this.cartform);
+          localStorage.setItem("guest", JSON.stringify(guestdata));
+        }
+
+        // const guestdata = JSON.parse(localStorage.getItem("guest"));
+        // if(localStorage.getItem("guest")){
+        //   const guestdata = JSON.parse(localStorage.getItem("guest"));
+        //   this.cartform.id = guestdata.length+1
+        //   guestdata.push(this.cartform);
+        //   localStorage.setItem("guest", JSON.stringify(guestdata));
+        // } else {
+        //   const guestdata=[];
+        //   guestdata.push(this.cartform);
+        //   localStorage.setItem("guest", JSON.stringify(guestdata));
+        // }
+
+        const guestdata = JSON.parse(localStorage.getItem("guest"));
+        this.itemsincart = guestdata.length;
+        $(".cartitems").children("span").html(this.itemsincart);
+        if (this.itemsincart == 0) {
+          $(".cartitems").children("span").hide();
+        } else {
+          $(".cartitems").children("span").show();
+        }
+
+        this.HeaderKey++;
+
+        //this.$router.push({name:"Login"});
+      } else {
+        //alert("Added to cart")
+        console.log(this.cartform);
+        this.startLoader();
+        axios
+          .post(axios.defaults.baseURL + "addtocart", this.cartform)
+          .then((result) => {
+            console.log(result.data);
+            const obj = result.data;
+            console.log(obj);
+            if (obj.success == true) {
+              alert("Product Added to the Cart");
+
+              this.itemsincart = obj.message.cartitems.length;
+              $(".cartitems").children("span").html(this.itemsincart);
+              if (this.itemsincart == 0) {
+                $(".cartitems").children("span").hide();
+              } else {
+                $(".cartitems").children("span").show();
+              }
+              if (localStorage.getItem("login")) {
+                console.log("Login Data");
+                const logindata = JSON.parse(localStorage.getItem("login"));
+                logindata.cartitems = obj.message.cartitems;
+                localStorage.setItem("login", JSON.stringify(logindata));
+              }
+            } else {
+              alert("Some error occured");
+            }
+          });
+        this.EndLoader();
+        this.HeaderKey++;
+      }
+    },
+
     async getSlidersPromotionsCategoryImages() {
       let result = axios.get(axios.defaults.baseURL + "seller/homepage/977");
       console.log((await result).data);
-      this.list_homepage = (await result).data
+      this.list_homepage = (await result).data;
       this.catimages = (await result).data.CatImages;
       this.sliders = (await result).data.Sliders;
       this.sliderslen = 3;
@@ -435,7 +682,10 @@ export default {
       console.log(this.list_homepage);
     },
     async getCategories() {
-      let result = axios.get(axios.defaults.baseURL + "categorieslimited", this.params);
+      let result = axios.get(
+        axios.defaults.baseURL + "categorieslimited",
+        this.params
+      );
       console.warn("Check Data");
       const obj = (await result).data;
       console.warn(obj);
@@ -444,27 +694,27 @@ export default {
       } else {
         alert("Issue loading categories");
       }
-
     },
     async getFeaturedProducts() {
       let result = axios.get(axios.defaults.baseURL + "product/featured");
       console.log((await result).data);
-      this.featuredProducts = (await result).data
-
-
+      this.featuredProducts = (await result).data;
     },
     async getBestSellerCategories() {
-      let result = axios.get(axios.defaults.baseURL + "seller/bestcategories/977");
+      let result = axios.get(
+        axios.defaults.baseURL + "seller/bestcategories/977"
+      );
       console.log((await result).data);
-      this.BestSellerProducts = (await result).data
-      console.log((await result).data.length)
-      this.BestSellerProductsLength = (await result).data.length
+      this.BestSellerProducts = (await result).data;
+      console.log((await result).data.length);
+      this.BestSellerProductsLength = (await result).data.length;
     },
     async getJustForYouProducts() {
-      let result = axios.get(axios.defaults.baseURL + "product/justforyou/" + this.user_id);
+      let result = axios.get(
+        axios.defaults.baseURL + "product/justforyou/" + this.user_id
+      );
       console.log((await result).data);
-      this.justForYouProducts = (await result).data
-
+      this.justForYouProducts = (await result).data;
     },
 
     startLoader() {
@@ -484,9 +734,6 @@ export default {
     getImgUrll(pet) {
       return this.img_url + "/" + this.catimages.seller_id + "/" + pet;
     },
-
-
-  }
-
+  },
 };
 </script>

@@ -41,7 +41,7 @@
                             ><input
                               type="radio"
                               class="form-check-input"
-                              name=""
+                              name="paymentgateway"
                               checked />Credit Card<span
                               class="checkmark_radio"
                             ></span
@@ -52,6 +52,7 @@
                         <div class="form-group mb-4 creditcardNo">
                           <input
                             type="text"
+                            v-model="paymentdetails.card"
                             placeholder="0000 0000 0000 0000*"
                           />
                           <img
@@ -60,28 +61,54 @@
                           />
                         </div>
                         <div class="form-group select-month">
-                          <select class="select-custom-point">
+                          <select
+                            class="select-custom-point"
+                            v-model="paymentdetails.expirymonth"
+                          >
                             <option>MM</option>
-                            <option>Jan</option>
-                            <option>Feb</option>
-                            <option>Mar</option>
-                            <option>Apr</option>
+                            <option value="01">Jan</option>
+                            <option value="02">Feb</option>
+                            <option value="03">Mar</option>
+                            <option value="04">Apr</option>
+                            <option value="05">May</option>
+                            <option value="06">Jun</option>
+                            <option value="07">Jul</option>
+                            <option value="08">Aug</option>
+                            <option value="09">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
                           </select>
                         </div>
                         <div class="form-group select-year">
-                          <select class="select-custom-point">
+                          <select
+                            class="select-custom-point"
+                            v-model="paymentdetails.expiryyear"
+                          >
                             <option>YYYY</option>
-                            <option>2020</option>
-                            <option>2021</option>
-                            <option>2022</option>
+                            <option value="20">2020</option>
+                            <option value="21">2021</option>
+                            <option value="22">2022</option>
+                            <option value="23">2023</option>
+                            <option value="24">2024</option>
+                            <option value="25">2025</option>
+                            <option value="26">2026</option>
                           </select>
                         </div>
                         <div class="form-group mb-4 select-cvv">
-                          <input type="text" placeholder="CVV" />
+                          <input
+                            type="text"
+                            placeholder="CVV"
+                            v-model="paymentdetails.cvv"
+                          />
                           <i class="credit-card-icon"></i>
                         </div>
                         <div class="form-group mb-4">
-                          <input type="text" placeholder="Card Holder Name" />
+                          <input
+                            type="text"
+                            placeholder="Card Holder Name"
+                            v-model="paymentdetails.name"
+                          />
                           <i class="credit-card-icon"></i>
                         </div>
                       </div>
@@ -96,6 +123,7 @@
                           <label class="form-check-label"
                             ><input
                               type="radio"
+                              name="paymentgateway"
                               class="form-check-input" />PayPal<span
                               class="checkmark_radio"
                             ></span
@@ -115,6 +143,12 @@
                       >
                         PLACE ORDER
                       </button>
+                      <!-- <div class="modal">Hello Habib Mr India
+                        <iframe
+                          src=""
+                          title="W3Schools Free Online Web Tutorials"
+                        ></iframe>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -197,10 +231,25 @@ export default {
   async mounted() {
     this.loadSession();
     this.getCartData();
+
+    let recaptchaScript = document.createElement("script");
+    recaptchaScript.setAttribute(
+      "src",
+      "https://www.paypal.com/sdk/js?client-id=AbFTmNl7-uK6DwkZWgjd1UbT-hEISlYGNKlbe_DeiioKq7GCTwL786VNO_9B-fSljY4s85MLdPu_gyq8"
+    );
+    document.head.appendChild(recaptchaScript);
   },
 
   data() {
     return {
+      paymentdetails: {
+        card: "4032034591556389",
+        name: "TEERATH KUMAR",
+        cvv: 954,
+        expirymonth: 11,
+        expiryyear: 24,
+        user_id: null,
+      },
       user_id: null,
       cartitemslist: [],
       count_cartitems: 0,
@@ -212,17 +261,31 @@ export default {
   },
   methods: {
     async placeorder() {
+      console.log(this.paymentdetails);
       this.startLoader();
-      axios.post(axios.defaults.baseURL + "placeorder", {
-        user_id: this.user_id,
-      });
+      let result = axios.get(axios.defaults.baseURL + "processPaypal");
+      var resultset = (await result).data;
+      console.log(resultset);
+      if ((await result).data.status == 1) {
+        window.open((await result).data.message);
+        // $("iframe").prop("src",(await result).data.message);
+        // $(".modal").show();
+      }
+      // axios.post(axios.defaults.baseURL + "placeorder", {
+      //   user_id: this.user_id,
+      //   card: this.paymentdetails.card,
+      //   name: this.paymentdetails.name,
+      //   cvv: this.paymentdetails.cvv,
+      //   expirymonth: this.paymentdetails.expirymonth,
+      //   expiryyear: this.paymentdetails.expiryyear,
+      // });
 
-      this.cartitemslist = null;
-      const logindata = JSON.parse(localStorage.getItem("login"));
-      logindata.cartitems = null;
-      localStorage.setItem("login", JSON.stringify(logindata));
+      // this.cartitemslist = null;
+      // const logindata = JSON.parse(localStorage.getItem("login"));
+      // logindata.cartitems = null;
+      // localStorage.setItem("login", JSON.stringify(logindata));
 
-      this.$router.push("success");
+      //this.$router.push("success");
       this.HeaderKey += 1;
       this.EndLoader();
     },
@@ -264,6 +327,11 @@ export default {
       this.total_price = tempTotalPrice;
       //this.itemsincart=totalQty;
       $(".cartitems").children("span").html(this.count_cartitems);
+      if (this.count_cartitems == 0) {
+        $(".cartitems").children("span").hide();
+      } else {
+        $(".cartitems").children("span").show();
+      }
 
       if (localStorage.getItem("login")) {
         console.log("Login Data");

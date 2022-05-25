@@ -101,6 +101,11 @@ export default {
           });
           this.total_price = tempTotalPrice;
           $(".cartitems").children("span").html(this.count_cartitems);
+          if (this.count_cartitems == 0) {
+            $(".cartitems").children("span").hide();
+          } else {
+          $(".cartitems").children("span").show()
+        }
         }
       } else {
         this.total_price = 0;
@@ -127,6 +132,11 @@ export default {
         this.total_price = tempTotalPrice;
         //this.itemsincart=totalQty;
         $(".cartitems").children("span").html(this.count_cartitems);
+        if (this.count_cartitems == 0) {
+          $(".cartitems").children("span").hide();
+        } else {
+          $(".cartitems").children("span").show()
+        }
 
         if (localStorage.getItem("login")) {
           console.log("Login Data");

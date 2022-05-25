@@ -93,7 +93,7 @@
                     >
                   </h3>
                   <div class="prod-p-icon">
-                    <span class="pro-price">${{ item.net_price }}</span>
+                    <span class="pro-price">${{ item.seller_price }}</span>
                     <span class="pro-icons">
                       <img src="../assets/img/buy.png" class="img-fluid" />
                       <img src="../assets/img/heart.png" />
