@@ -12,11 +12,7 @@
                 <li v-for="item in list" :key="item.id">
                   <i class="menu-icon"
                     ><img
-                      :src="
-                        'https://posh-marketplace.plego.pro/img/menu-template/' +
-                        item.img +
-                        ''
-                      "
+                      :src="getImgUrlCat(item.img)"
                   /></i>
                   {{ item.title }}
 
@@ -529,6 +525,7 @@ export default {
       catimageslen: 1,
       promotion: [],
       img_url: axios.defaults.url + "/img/product-images",
+      img_url_cat: axios.defaults.url + "/img/menu-template",
 
       user_id: 0,
     };
@@ -733,6 +730,9 @@ export default {
     },
     getImgUrll(pet) {
       return this.img_url + "/" + this.catimages.seller_id + "/" + pet;
+    },
+    getImgUrlCat(pet) {
+      return this.img_url_cat + "/" + pet;
     },
   },
 };
