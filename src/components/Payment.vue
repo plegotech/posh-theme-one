@@ -261,9 +261,14 @@ export default {
   },
   methods: {
     async placeorder() {
-      console.log(this.paymentdetails);
-      this.startLoader();
-      let result = axios.get(axios.defaults.baseURL + "processPaypal");
+      // alert($(".csi-total-amount").children("strong").html());
+      var totalamount = $(".csi-total-amount").children("strong").html();
+
+      // console.log(this.paymentdetails);
+      // this.startLoader();
+      let result = axios.get(axios.defaults.baseURL + "processPaypal", {
+        params: { user_id: this.user_id, price: totalamount },
+      });
       var resultset = (await result).data;
       console.log(resultset);
       if ((await result).data.status == 1) {
@@ -285,7 +290,7 @@ export default {
       // logindata.cartitems = null;
       // localStorage.setItem("login", JSON.stringify(logindata));
 
-      //this.$router.push("success");
+      // this.$router.push("success");
       this.HeaderKey += 1;
       this.EndLoader();
     },
