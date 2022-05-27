@@ -1730,6 +1730,7 @@ ul.userProfileMenu li:last-child {
     display: block;
     margin: 0 auto;
     width: initial!important;
+    max-width: 100%;
 }
 
 /* Slideshow container */
