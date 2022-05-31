@@ -1719,6 +1719,20 @@ ul.userProfileMenu li:last-child {
   .carousel__slide--active > .carousel__item {
     transform: scale(1.1);
   }
+  button.close.closebtnPym {
+    margin: 0 auto;
+    z-index: 99999;
+    text-align: right;
+    max-width: 600px;
+    width: 100%;
+    left: 50%;
+    position: fixed;
+    transform: translateX(-50%);
+    align-content: flex-end;
+    display: flex;
+    justify-content: end;
+    padding: 20px;
+}
   /* START STYLES */
   .mySlides {display: none}
   .mySlides {

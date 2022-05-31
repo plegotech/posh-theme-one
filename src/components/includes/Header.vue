@@ -175,7 +175,7 @@
             <div class="order-track">
               <ul>
                 <li><a href="#">Track Your Order</a></li>
-                <li><a href="#">Help Center</a></li>
+                <li><a href="/contact">Help Center</a></li>
               </ul>
             </div>
           </div>

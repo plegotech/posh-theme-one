@@ -144,8 +144,8 @@
                         PLACE ORDER
                       </button>
                       <div class="modal paypaloverlay">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
+                        <button type="button" class="close closebtnPym" v-on:click="isHidden = !isHidden">
+                          <span class="closeXbtn" aria-hidden="true">&times;</span>
                          </button>
                         <iframe id="modalPaypalBx"
                           src=""
@@ -275,9 +275,11 @@ export default {
       var resultset = (await result).data;
       console.log(resultset);
       if ((await result).data.status == 1) {
-        window.open((await result).data.message);
+        // window.open((await result).data.message);
        $("iframe").prop("src",(await result).data.message);
        $(".modal").show();
+       $(".span.closeXbtn").show();
+       
       }
       // axios.post(axios.defaults.baseURL + "placeorder", {
       //   user_id: this.user_id,

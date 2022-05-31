@@ -140,7 +140,8 @@
                     </ul>
                   </div>
 
-                  <div class="col-12 mb-5">
+                  <div class="col-12 mt-4 mb-5">
+                    <button class="primary" type="submit">Update</button>  
                     <router-link
                       class="primary nxtbtn"
                       to="payment"
@@ -149,7 +150,7 @@
                     >
                   </div>
                 </div>
-                <button type="submit">Update</button>
+                
               </form>
             </div>
           </div>
