@@ -1732,7 +1732,18 @@ ul.userProfileMenu li:last-child {
     width: initial!important;
     max-width: 100%;
 }
-
+.modal.paypaloverlay {
+    background: #000000bd;
+}
+#modalPaypalBx {
+    max-width: 600px;
+    width: 100%;
+    height: 700px;
+    left: 50%;
+    top: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+}
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;

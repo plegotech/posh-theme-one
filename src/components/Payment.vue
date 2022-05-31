@@ -143,12 +143,15 @@
                       >
                         PLACE ORDER
                       </button>
-                      <!-- <div class="modal">Hello Habib Mr India
-                        <iframe
+                      <div class="modal paypaloverlay">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                         </button>
+                        <iframe id="modalPaypalBx"
                           src=""
-                          title="W3Schools Free Online Web Tutorials"
+                          title=""
                         ></iframe>
-                      </div> -->
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -273,8 +276,8 @@ export default {
       console.log(resultset);
       if ((await result).data.status == 1) {
         window.open((await result).data.message);
-        // $("iframe").prop("src",(await result).data.message);
-        // $(".modal").show();
+       $("iframe").prop("src",(await result).data.message);
+       $(".modal").show();
       }
       // axios.post(axios.defaults.baseURL + "placeorder", {
       //   user_id: this.user_id,
