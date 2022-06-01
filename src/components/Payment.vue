@@ -144,13 +144,16 @@
                         PLACE ORDER
                       </button>
                       <div class="modal paypaloverlay">
-                        <button type="button" class="close closebtnPym" v-on:click="isHidden = !isHidden">
-                          <span class="closeXbtn" aria-hidden="true">&times;</span>
-                         </button>
-                        <iframe id="modalPaypalBx"
-                          src=""
-                          title=""
-                        ></iframe>
+                        <button
+                          type="button"
+                          class="close closebtnPym"
+                          v-on:click="isHidden = !isHidden"
+                        >
+                          <span class="closeXbtn" aria-hidden="true"
+                            >&times;</span
+                          >
+                        </button>
+                        <iframe id="modalPaypalBx" src="" title=""></iframe>
                       </div>
                     </div>
                   </div>
@@ -269,33 +272,64 @@ export default {
 
       // console.log(this.paymentdetails);
       // this.startLoader();
-      let result = axios.get(axios.defaults.baseURL + "processPaypal", {
-        params: { user_id: this.user_id, price: totalamount },
-      });
-      var resultset = (await result).data;
-      console.log(resultset);
-      if ((await result).data.status == 1) {
-        // window.open((await result).data.message);
-       $("iframe").prop("src",(await result).data.message);
-       $(".modal").show();
-       $(".span.closeXbtn").show();
-       
-      }
-      // axios.post(axios.defaults.baseURL + "placeorder", {
-      //   user_id: this.user_id,
-      //   card: this.paymentdetails.card,
-      //   name: this.paymentdetails.name,
-      //   cvv: this.paymentdetails.cvv,
-      //   expirymonth: this.paymentdetails.expirymonth,
-      //   expiryyear: this.paymentdetails.expiryyear,
-      // });
 
-      // this.cartitemslist = null;
-      // const logindata = JSON.parse(localStorage.getItem("login"));
-      // logindata.cartitems = null;
-      // localStorage.setItem("login", JSON.stringify(logindata));
+      axios
+        .post(axios.defaults.baseURL + "placeorder", {
+          user_id: this.user_id,
+          card: this.paymentdetails.card,
+          name: this.paymentdetails.name,
+          cvv: this.paymentdetails.cvv,
+          expirymonth: this.paymentdetails.expirymonth,
+          expiryyear: this.paymentdetails.expiryyear,
+        })
+        .then(
+          (response) => {
+            console.log(response);
+            var resp = response.data;
+            console.log(resp);
+            if (resp.success == "true") {
+              alert("Order Successful");
+              var order_id = response.data;
 
-      // this.$router.push("success");
+              this.cartitemslist = null;
+              const logindata = JSON.parse(localStorage.getItem("login"));
+              logindata.cartitems = null;
+              localStorage.setItem("login", JSON.stringify(logindata));
+
+              $(".cartitems").children("span").html(0);
+              $(".cartitems").children("span").hide();
+
+              console.log(response);
+              let result = axios.get(axios.defaults.baseURL + "processPaypal", {
+                params: {
+                  user_id: this.user_id,
+                  price: totalamount,
+                  orderid: order_id,
+                },
+              }).then((response)=>{
+              var resultset = response.data;
+              console.log(resultset);
+              if (resultset.status == 1) {
+                window.open(resultset.message);
+                // $("iframe").prop("src", resultset.message);
+                // $(".modal").show();
+                
+                // $(".span.closeXbtn").show();
+              }
+
+              },(error)=>{
+                console.log(error);    
+              });
+            } else {
+              alert("Order Not Successful");
+            }
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+
+      this.$router.push("success");
       this.HeaderKey += 1;
       this.EndLoader();
     },

@@ -324,6 +324,7 @@
                       <!-- <img src="../assets/img/Group-59.png" alt="" class="img-fluid" /> -->
 
                       <div class="bs-pro-bx">
+                       
                         <img
                           :src="
                             getImgUrl(
@@ -333,9 +334,12 @@
                           "
                           alt=""
                           class="img-fluid"
-                        />
+                        />  
+                    
                       </div>
-                      <h5>{{ this.BestSellerProducts[index].title }}</h5>
+                      <h5>
+                    
+                        {{ this.BestSellerProducts[index].title }}</h5>
                     </div>
                   </Slide>
                   <template #addons>
@@ -491,7 +495,7 @@ export default {
       BestSellerProducts: {
         0: {
           featured_image: null,
-          vendor_id: null,
+          vendor_id: null
         },
       },
       BestSellerProductsLength: 1,
@@ -549,7 +553,7 @@ export default {
       } else {
         $(".cartitems").children("span").html(0);
       }
-      if (logindata.cartitems.length == 0) {
+      if (logindata.cartitems && logindata.cartitems.length == 0) {
         $(".cartitems").children("span").hide();
       } else {
         $(".cartitems").children("span").show();

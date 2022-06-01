@@ -344,6 +344,7 @@ export default {
     this.cartform.product_id = this.$route.query.id;
     this.showSlides(this.slideIndex);
     this.getProductInfo();
+    this.getRecommendedProducts();
     this.getJustForYouProducts();
   },
   methods: {
@@ -398,15 +399,15 @@ export default {
       );
       console.log((await result).data);
       this.product_info = (await result).data;
-      this.gallery = await JSON.parse(this.product_info.images);
-      this.getRecommendedProducts();
+      this.gallery = await this.product_info.images;
+      
       this.EndLoader();
     },
     async getRecommendedProducts() {
       let result = axios.get(
         axios.defaults.baseURL +
           "product/recommended/" +
-          this.cartform.product_id
+          this.$route.query.id
       );
       console.log((await result).data);
       this.recommended = (await result).data;

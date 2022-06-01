@@ -235,18 +235,17 @@ export default {
       count_cartitems: 0,
       total_price: 0,
       count: 0,
-      shippingdetails:{
+      shippingdetails: {
         user_id: null,
-        first_name:null,
-        last_name:null,
-        email:null,
-        phone:null,
-        address:null,
-        zip:null,
-        city:null,
-        state:null,
-        country:null
-
+        first_name: null,
+        last_name: null,
+        email: null,
+        phone: null,
+        address: null,
+        zip: null,
+        city: null,
+        state: null,
+        country: null,
       },
       userdetails: [],
       img_url: "https://posh-marketplace.plego.pro/img/product-images/",
@@ -256,8 +255,66 @@ export default {
   async mounted() {
     this.loadSession();
     this.getCartData();
+    this.getLocationFinder();
   },
   methods: {
+    async getShippingRate() {
+      const options = {
+        method: "GET",
+        url: "https://api-mock.dhl.com/mydhlapi/rates",
+        params: {
+          accountNumber: "SOME_STRING_VALUE",
+          originCountryCode: "SOME_STRING_VALUE",
+          originCityName: "SOME_STRING_VALUE",
+          destinationCountryCode: "SOME_STRING_VALUE",
+          destinationCityName: "SOME_STRING_VALUE",
+          weight: "5",
+          length: "1",
+          width: "1",
+          height: "1",
+          plannedShippingDate: "31-05-2022",
+          isCustomsDeclarable: "SOME_BOOLEAN_VALUE",
+          unitOfMeasurement: "SOME_STRING_VALUE",
+        },
+        headers: {
+          "Message-Reference": "SOME_STRING_VALUE",
+          "Message-Reference-Date": "SOME_STRING_VALUE",
+          "Plugin-Name": "SOME_STRING_VALUE",
+          "Plugin-Version": "SOME_STRING_VALUE",
+          "Shipping-System-Platform-Name": "SOME_STRING_VALUE",
+          "Shipping-System-Platform-Version": "SOME_STRING_VALUE",
+          "Webstore-Platform-Name": "SOME_STRING_VALUE",
+          "Webstore-Platform-Version": "SOME_STRING_VALUE",
+          Authorization: "Basic REPLACE_BASIC_AUTH",
+        },
+      };
+
+      axios
+        .request(options)
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    },
+    async getLocationFinder() {
+      const options = {
+        method: "GET",
+        url: "https://api-sandbox.dhl.com/location-finder/v1/find-by-address",
+        params: { countryCode: "US", streetAddress: "chicago" },
+        headers: { "DHL-API-Key": "2LxOXjvUAXsBQi4FzYYc2pYGHnGcne3b" },
+      };
+
+      axios
+        .request(options)
+        .then(function (response) {
+          console.log(response.data);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    },
     async postShippingData(e) {
       axios
         .post(axios.defaults.baseURL + "update-shipping", this.shippingdetails)
@@ -273,7 +330,7 @@ export default {
           }
           console.log(result);
         });
-        e.preventDefault();
+      e.preventDefault();
     },
     loadSession() {
       if (localStorage.getItem("login")) {
@@ -281,20 +338,20 @@ export default {
         const logindata = JSON.parse(localStorage.getItem("login"));
         this.userdetails = logindata;
 
-        this.shippingdetails.first_name = logindata.first_name
-        this.shippingdetails.last_name = logindata.last_name
-        this.shippingdetails.email = logindata.email
-        this.shippingdetails.phone = logindata.phone
-        this.shippingdetails.address = logindata.u_address
-        this.shippingdetails.city = logindata.u_city
-        this.shippingdetails.city = logindata.u_city
-        this.shippingdetails.state = logindata.u_state
-        this.shippingdetails.zip = logindata.u_zip
+        this.shippingdetails.first_name = logindata.first_name;
+        this.shippingdetails.last_name = logindata.last_name;
+        this.shippingdetails.email = logindata.email;
+        this.shippingdetails.phone = logindata.phone;
+        this.shippingdetails.address = logindata.u_address;
+        this.shippingdetails.city = logindata.u_city;
+        this.shippingdetails.city = logindata.u_city;
+        this.shippingdetails.state = logindata.u_state;
+        this.shippingdetails.zip = logindata.u_zip;
 
         console.log(logindata.id);
         console.log(logindata);
         this.user_id = logindata.id;
-        this.shippingdetails.user_id = logindata.id
+        this.shippingdetails.user_id = logindata.id;
       } else {
         this.$router.push({ name: "Login" });
       }
@@ -326,11 +383,11 @@ export default {
       this.total_price = tempTotalPrice;
       //this.itemsincart=totalQty;
       $(".cartitems").children("span").html(this.count_cartitems);
-      if(this.count_cartitems==0){
-          $(".cartitems").children("span").hide()
-          } else {
-          $(".cartitems").children("span").show()
-        }
+      if (this.count_cartitems == 0) {
+        $(".cartitems").children("span").hide();
+      } else {
+        $(".cartitems").children("span").show();
+      }
 
       if (localStorage.getItem("login")) {
         console.log("Login Data");
@@ -348,7 +405,7 @@ export default {
       this.startLoader();
       this.cartitemslist = null;
       $(".cartitems").children("span").html(0);
-          $(".cartitems").children("span").hide()
+      $(".cartitems").children("span").hide();
 
       let result = axios.post(
         axios.defaults.baseURL + "removecartdata",
