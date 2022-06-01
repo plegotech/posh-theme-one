@@ -288,7 +288,7 @@ export default {
             var resp = response.data;
             console.log(resp);
             if (resp.success == "true") {
-              alert("Order Successful");
+              // alert("Order Successful");
               var order_id = response.data;
 
               this.cartitemslist = null;
@@ -310,7 +310,7 @@ export default {
               var resultset = response.data;
               console.log(resultset);
               if (resultset.status == 1) {
-                window.open(resultset.message);
+                window.open(resultset.message,"_self");
                 // $("iframe").prop("src", resultset.message);
                 // $(".modal").show();
                 
@@ -329,7 +329,7 @@ export default {
           }
         );
 
-      this.$router.push("success");
+      // this.$router.push("success");
       this.HeaderKey += 1;
       this.EndLoader();
     },
