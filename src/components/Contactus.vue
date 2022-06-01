@@ -2,7 +2,7 @@
   <div>
     <header-comp></header-comp>
     <div class="container">
-      <h1 class="my-5">Contact US</h1>
+      <h1 class="my-5">Contact Us</h1>
       <form @submit.prevent="postContactData" method="post">
         <div class="row">
           <div class="col-sm-6 mb-4">
