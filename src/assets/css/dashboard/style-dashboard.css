@@ -2494,12 +2494,10 @@ hr { float: left; }
 
   /* Create a custom checkbox */
   label.chk-td-cont .checkmark {
-    position: absolute;
     top: 0;
     left: 50%;
     height: 25px;
     width: 25px;
-    background-color: #eee;
     transform: translateX(-50%);
   }
   .chk-td-cont input:checked ~ .checkmark {
@@ -2897,12 +2895,10 @@ body .cstm-modal select.form-control {background: #FFFFFF;border-radius: 10px;he
 
   /* Create a custom checkbox */
   .checkmark {
-    position: absolute;
     top: 0;
     left: 0;
     height: 20px;
     width: 20px;
-    background-color: #eee;
     border-radius: 3px;
   }
   
