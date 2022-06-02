@@ -59,11 +59,7 @@
                         class="select-custom-point"
                         v-model="shippingdetails.country"
                       >
-                        <option>United States</option>
-                        <option>Chile</option>
-                        <option>Czechia</option>
-                        <option>Denmark</option>
-                        <option>Fiji</option>
+                        <option value="US">United States</option>
                       </select>
                     </div>
                   </div>
@@ -117,8 +113,8 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-12">
-                    <h5 class="mt-4 mb-4">Shipping Method</h5>
-                    <ul class="products-cat-opt shipping-meth">
+                    <h5 class="mt-4 mb-4">Shipping Method : FEDEX</h5>
+                    <!-- <ul class="products-cat-opt shipping-meth">
                       <li>
                         <label class="form-check-label"
                           ><input
@@ -137,20 +133,26 @@
                           <span class="checkmark_radio"></span
                         ></label>
                       </li>
-                    </ul>
+                    </ul> -->
                   </div>
 
                   <div class="col-12 mt-4 mb-5">
-                    <button class="primary" type="submit">Update</button>  
-                    <router-link
+                    <button class="primary" type="submit">Update</button>
+                    <button
+                      class="primary nxtbtn"
+                      type="button"
+                      @click="getShippingRate"
+                    >
+                      NEXT
+                    </button>
+                    <!-- <router-link
                       class="primary nxtbtn"
                       to="payment"
                       v-if="count_cartitems"
                       >NEXT</router-link
-                    >
+                    > -->
                   </div>
                 </div>
-                
               </form>
             </div>
           </div>
@@ -195,7 +197,7 @@
                 </div>
                 <div class="cartSummary-items">
                   <div class="csi-title">Est. Delivery</div>
-                  <div class="csi-title-amount">$<strong>28</strong></div>
+                  <div class="csi-title-amount">$<strong>{{ shippingamount }}</strong></div>
                 </div>
                 <div class="cartSummary-items bt-0">
                   <div class="csi-title">Discount</div>
@@ -204,7 +206,7 @@
                 <div class="cartSummary-items justify-sbetw pt-4">
                   <div class="csi-title-t">Total</div>
                   <div class="csi-total-amount">
-                    $<strong>{{ total_price + 28 - 10 }}</strong>
+                    $<strong>{{ total_price + shippingamount - 10 }}</strong>
                   </div>
                 </div>
               </div>
@@ -234,6 +236,7 @@ export default {
       cartitemslist: [],
       count_cartitems: 0,
       total_price: 0,
+      shippingamount:0,
       count: 0,
       shippingdetails: {
         user_id: null,
@@ -259,44 +262,73 @@ export default {
   },
   methods: {
     async getShippingRate() {
-      const options = {
-        method: "GET",
-        url: "https://api-mock.dhl.com/mydhlapi/rates",
-        params: {
-          accountNumber: "SOME_STRING_VALUE",
-          originCountryCode: "SOME_STRING_VALUE",
-          originCityName: "SOME_STRING_VALUE",
-          destinationCountryCode: "SOME_STRING_VALUE",
-          destinationCityName: "SOME_STRING_VALUE",
-          weight: "5",
-          length: "1",
-          width: "1",
-          height: "1",
-          plannedShippingDate: "31-05-2022",
-          isCustomsDeclarable: "SOME_BOOLEAN_VALUE",
-          unitOfMeasurement: "SOME_STRING_VALUE",
-        },
-        headers: {
-          "Message-Reference": "SOME_STRING_VALUE",
-          "Message-Reference-Date": "SOME_STRING_VALUE",
-          "Plugin-Name": "SOME_STRING_VALUE",
-          "Plugin-Version": "SOME_STRING_VALUE",
-          "Shipping-System-Platform-Name": "SOME_STRING_VALUE",
-          "Shipping-System-Platform-Version": "SOME_STRING_VALUE",
-          "Webstore-Platform-Name": "SOME_STRING_VALUE",
-          "Webstore-Platform-Version": "SOME_STRING_VALUE",
-          Authorization: "Basic REPLACE_BASIC_AUTH",
-        },
-      };
+      //       $shipperContact
+      //         ->setCompanyName('Company Name')
+      //         ->setEMailAddress('test@example.com')
+      //         ->setPersonName('Person Name')
+      //         ->setPhoneNumber(('123-123-1234'));
 
+      // $shipper = new ComplexType\Party();
+      // $shipper
+      //         ->setAccountNumber(FEDEX_ACCOUNT_NUMBER)
+      //         ->setAddress($shipperAddress)
+      //         ->setContact($shipperContact);
+
+      // $recipientAddress = new ComplexType\Address();
+      // $recipientAddress
+      //         ->setStreetLines(['Address Line 1'])
+      //         ->setCity('Herndon')
+      //         ->setStateOrProvinceCode('VA')
+      //         ->setPostalCode('20171')
+      //         ->setCountryCode('US');
+
+      
+      $("#loader-container").show()
       axios
-        .request(options)
-        .then(function (response) {
-          console.log(response.data);
+        .get(axios.defaults.baseURL + "shipping", {
+          params: {
+            user_id: this.shippingdetails.user_id,
+            first_name: this.shippingdetails.first_name,
+            last_name: this.shippingdetails.last_name,
+            email: this.shippingdetails.email,
+            phone: this.shippingdetails.phone,
+            address: this.shippingdetails.address,
+            zip: this.shippingdetails.zip,
+            city: this.shippingdetails.city,
+            state: this.shippingdetails.state,
+            country: this.shippingdetails.country,
+          }
         })
-        .catch(function (error) {
-          console.error(error);
+        .then((result) => {
+          console.log(result.data);
+          const obj = result.data;
+          console.log(obj);
+          if (obj.success == true) {
+            alert("Shipping Form submitted successfully");
+            //this.shippingdetails = null
+            var tracking = obj.data.tracking
+            var Currency = obj.data.Currency
+            var Amount = obj.data.Amount
+            this.shippingamount =  parseInt(Amount);
+            var shipping = {
+              tracking: tracking,
+              Currency: Currency,
+              Amount: Amount,
+            };
+
+            localStorage.setItem("shipping", JSON.stringify(shipping));
+            $("#loader-container").hide()
+            this.$router.push('payment')
+
+            
+
+            //: "794638767837", Currency: "USD", Amount: "26.1"
+          } else {
+            alert("Some error occured in saving data");
+          }
+          console.log(result);
         });
+        $("#loader-container").hide()
     },
     async getLocationFinder() {
       const options = {

@@ -202,7 +202,7 @@
                 </div>
                 <div class="cartSummary-items">
                   <div class="csi-title">Est. Delivery</div>
-                  <div class="csi-title-amount">$<strong>28</strong></div>
+                  <div class="csi-title-amount">$<strong>{{shippingamount}}</strong></div>
                 </div>
                 <div class="cartSummary-items bt-0">
                   <div class="csi-title">Discount</div>
@@ -211,7 +211,7 @@
                 <div class="cartSummary-items justify-sbetw pt-4">
                   <div class="csi-title-t">Total</div>
                   <div class="csi-total-amount">
-                    $<strong>{{ total_price + 28 - 10 }}</strong>
+                    $<strong>{{ total_price + shippingamount - 10 }}</strong>
                   </div>
                 </div>
               </div>
@@ -257,6 +257,7 @@ export default {
         user_id: null,
       },
       user_id: null,
+      shippingamount:0,
       cartitemslist: [],
       count_cartitems: 0,
       total_price: 0,
@@ -270,12 +271,16 @@ export default {
       // alert($(".csi-total-amount").children("strong").html());
       var totalamount = $(".csi-total-amount").children("strong").html();
 
+      const shipping = JSON.parse(localStorage.getItem("shipping"));
       // console.log(this.paymentdetails);
       // this.startLoader();
 
       axios
         .post(axios.defaults.baseURL + "placeorder", {
           user_id: this.user_id,
+          currency: shipping.Currency,
+          amount: shipping.Amount,
+          tracking: shipping.tracking,
           card: this.paymentdetails.card,
           name: this.paymentdetails.name,
           cvv: this.paymentdetails.cvv,
@@ -294,32 +299,36 @@ export default {
               this.cartitemslist = null;
               const logindata = JSON.parse(localStorage.getItem("login"));
               logindata.cartitems = null;
-              localStorage.setItem("login", JSON.stringify(logindata));
+              // localStorage.setItem("login", JSON.stringify(logindata));
 
               $(".cartitems").children("span").html(0);
               $(".cartitems").children("span").hide();
 
               console.log(response);
-              let result = axios.get(axios.defaults.baseURL + "processPaypal", {
-                params: {
-                  user_id: this.user_id,
-                  price: totalamount,
-                  orderid: order_id,
-                },
-              }).then((response)=>{
-              var resultset = response.data;
-              console.log(resultset);
-              if (resultset.status == 1) {
-                window.open(resultset.message,"_self");
-                // $("iframe").prop("src", resultset.message);
-                // $(".modal").show();
-                
-                // $(".span.closeXbtn").show();
-              }
+              let result = axios
+                .get(axios.defaults.baseURL + "processPaypal", {
+                  params: {
+                    user_id: this.user_id,
+                    price: totalamount,
+                    orderid: order_id,
+                  },
+                })
+                .then(
+                  (response) => {
+                    var resultset = response.data;
+                    console.log(resultset);
+                    if (resultset.status == 1) {
+                      window.open(resultset.message, "_self");
+                      // $("iframe").prop("src", resultset.message);
+                      // $(".modal").show();
 
-              },(error)=>{
-                console.log(error);    
-              });
+                      // $(".span.closeXbtn").show();
+                    }
+                  },
+                  (error) => {
+                    console.log(error);
+                  }
+                );
             } else {
               alert("Order Not Successful");
             }
@@ -340,6 +349,9 @@ export default {
         const logindata = JSON.parse(localStorage.getItem("login"));
         console.log(logindata.id);
         this.user_id = logindata.id;
+
+        const shipping = JSON.parse(localStorage.getItem("shipping"))
+        this.shippingamount = parseInt(shipping.Amount) 
       }
     },
     async getCartData() {
