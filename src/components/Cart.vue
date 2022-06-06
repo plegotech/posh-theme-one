@@ -116,7 +116,7 @@
                 </div>
                 <div class="cartSummary-items">
                   <div class="csi-title">Est. Delivery</div>
-                  <div class="csi-title-amount">$<strong>28</strong></div>
+                  <div class="csi-title-amount">$<strong>0</strong></div>
                 </div>
                 <div class="cartSummary-items">
                   <div class="csi-title">Discount Code:</div>
@@ -125,7 +125,7 @@
                 <div class="cartSummary-items">
                   <div class="csi-title-t">Total</div>
                   <div class="csi-total-amount">
-                    $<strong>{{ total_price + 28 }}</strong>
+                    $<strong>{{ total_price }}</strong>
                   </div>
                 </div>
                 <!-- <a class="primary" href="/shipping" v-if="count_cartitems">PROCEED TO CHECKOUT <img src="../assets/img/checkout-icon.png"></a> -->

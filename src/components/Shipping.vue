@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div id="ajaxLoader" style="display: none">
+      <div id="loader"></div>
+    </div>
     <header-comp :key="HeaderKey"></header-comp>
     <div class="container-fluid">
       <div class="checkout-itesm-bx">
@@ -66,7 +69,62 @@
                   <div class="col-sm-6 mb-4">
                     <div class="form-group">
                       <label class="top-position">State/Province*</label>
-                      <input type="text" v-model="shippingdetails.state" />
+
+                      <select
+                        class="select-custom-point"
+                        v-model="shippingdetails.state"
+                      >
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                      </select>
                     </div>
                   </div>
                   <div class="col-sm-6 mb-4">
@@ -197,7 +255,9 @@
                 </div>
                 <div class="cartSummary-items">
                   <div class="csi-title">Est. Delivery</div>
-                  <div class="csi-title-amount">$<strong>{{ shippingamount }}</strong></div>
+                  <div class="csi-title-amount">
+                    $<strong>{{ shippingamount }}</strong>
+                  </div>
                 </div>
                 <div class="cartSummary-items bt-0">
                   <div class="csi-title">Discount</div>
@@ -236,7 +296,7 @@ export default {
       cartitemslist: [],
       count_cartitems: 0,
       total_price: 0,
-      shippingamount:0,
+      shippingamount: 0,
       count: 0,
       shippingdetails: {
         user_id: null,
@@ -282,8 +342,7 @@ export default {
       //         ->setPostalCode('20171')
       //         ->setCountryCode('US');
 
-      
-      $("#loader-container").show()
+      $("#loader-container").css("display", "block");
       axios
         .get(axios.defaults.baseURL + "shipping", {
           params: {
@@ -297,7 +356,7 @@ export default {
             city: this.shippingdetails.city,
             state: this.shippingdetails.state,
             country: this.shippingdetails.country,
-          }
+          },
         })
         .then((result) => {
           console.log(result.data);
@@ -306,10 +365,10 @@ export default {
           if (obj.success == true) {
             alert("Shipping Form submitted successfully");
             //this.shippingdetails = null
-            var tracking = obj.data.tracking
-            var Currency = obj.data.Currency
-            var Amount = obj.data.Amount
-            this.shippingamount =  parseInt(Amount);
+            var tracking = obj.data.tracking;
+            var Currency = obj.data.Currency;
+            var Amount = obj.data.Amount;
+            this.shippingamount = parseInt(Amount);
             var shipping = {
               tracking: tracking,
               Currency: Currency,
@@ -317,10 +376,8 @@ export default {
             };
 
             localStorage.setItem("shipping", JSON.stringify(shipping));
-            $("#loader-container").hide()
-            this.$router.push('payment')
-
-            
+            $("#loader-container").css("display", "none");
+            this.$router.push("payment");
 
             //: "794638767837", Currency: "USD", Amount: "26.1"
           } else {
@@ -328,7 +385,7 @@ export default {
           }
           console.log(result);
         });
-        $("#loader-container").hide()
+      $("#loader-container").css("display", "none");
     },
     async getLocationFinder() {
       const options = {
@@ -464,12 +521,12 @@ export default {
     },
     startLoader() {
       console.log("karachi");
-      var target_ContId = document.getElementById("loader-container");
+      var target_ContId = document.getElementById("ajaxLoader");
       target_ContId.style.display = "block";
     },
     EndLoader() {
       console.log("pak");
-      var target_ContId = document.getElementById("loader-container");
+      var target_ContId = document.getElementById("ajaxLoader");
       target_ContId.style.display = "none";
     },
     myMethod(val, qty) {

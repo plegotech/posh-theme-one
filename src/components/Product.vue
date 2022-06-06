@@ -93,7 +93,7 @@
                         width="70"
                         height="70"
                         style="width: 100%"
-                        @click="currentSlide(index + 2)"
+                        @click="currentSlide(index+2)"
                       />
                     </div>
                     <!-- 
@@ -395,7 +395,7 @@ export default {
       this.productHistory();
 
       let result = axios.get(
-        axios.defaults.baseURL + "product/get/" + this.$route.query.id
+        axios.defaults.baseURL + "product/getForTemplate/" + this.$route.query.id
       );
       console.log((await result).data);
       this.product_info = (await result).data;
@@ -634,7 +634,8 @@ export default {
     },
 
     currentSlide(n) {
-      this.showSlides((this.slideIndex = n));
+      
+      this.showSlides((this.slideIndex = parseInt(n)));
     },
     getImgUrl(vendor, pet) {
       return this.img_url + "/" + vendor + "/" + pet;
