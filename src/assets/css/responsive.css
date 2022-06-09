@@ -110,6 +110,9 @@ div#hotDeals-bx {
     }
 }
 @media (min-width: 992px){
+    ul.side-submenu{
+        min-width: 200px;
+    }
     img.banner {
         height: 48%;
     }
