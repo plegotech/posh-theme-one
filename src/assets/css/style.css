@@ -3,6 +3,14 @@ body {
     font-family: 'Inter', sans-serif;;
 }
 
+
+.LoaderShow{
+    display: block !important; 
+}
+.LoaderHide{
+    display: none !important; 
+}
+
 html,
 body {
     margin: 0;
