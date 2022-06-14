@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div id="ajaxLoader" style="display: none">
+    <div id="ajaxLoader">
       <div id="loader"></div>
     </div>
+
     <header-comp :key="HeaderKey"></header-comp>
     <div class="container-fluid">
       <div class="checkout-itesm-bx">
@@ -51,7 +52,16 @@
                   <div class="col-sm-12 mb-4">
                     <div class="form-group">
                       <label class="top-position">Address*</label>
-                      <input type="text" v-model="shippingdetails.address" />
+                      <vue-google-autocomplete id="map" classname="form-control" 
+                      v-model="shippingdetails.address" placeholder="Enter Address" 
+                      v-on:placechanged="getAddressData"></vue-google-autocomplete>
+                      <!-- <input
+                        type="text"
+                        id="ship-address"
+                        name="ship-address"
+                        autocomplete="off"
+                        v-model="shippingdetails.address"
+                      /> -->
                     </div>
                   </div>
 
@@ -136,7 +146,7 @@
                   <div class="col-sm-6 mb-4">
                     <div class="form-group">
                       <label class="top-position">Postal Zip Code*</label>
-                      <input type="text" v-model="shippingdetails.zip" />
+                      <input type="text" id="postcode" name="postcode" v-model="shippingdetails.zip" />
                     </div>
                   </div>
                   <div class="col-sm-6 mb-4">
@@ -283,11 +293,13 @@
 import HeaderComp from "./includes/Header.vue";
 import FooterComp from "./includes/Footer.vue";
 import axios from "axios";
+import VueGoogleAutocomplete from "vue-google-autocomplete";
 export default {
   name: "Shipping",
   components: {
     HeaderComp,
     FooterComp,
+    VueGoogleAutocomplete
   },
 
   data() {
@@ -319,6 +331,8 @@ export default {
     this.loadSession();
     this.getCartData();
     this.getLocationFinder();
+
+    
   },
   methods: {
     async getShippingRate() {
@@ -342,7 +356,8 @@ export default {
       //         ->setPostalCode('20171')
       //         ->setCountryCode('US');
 
-      $("#loader-container").css("display", "block");
+      this.shippingdetails.address = $("#map").val()
+      this.startLoader()
       axios
         .get(axios.defaults.baseURL + "shipping", {
           params: {
@@ -376,16 +391,17 @@ export default {
             };
 
             localStorage.setItem("shipping", JSON.stringify(shipping));
-            $("#loader-container").css("display", "none");
+            this.EndLoader()
             this.$router.push("payment");
 
             //: "794638767837", Currency: "USD", Amount: "26.1"
           } else {
+            this.EndLoader()
             alert("Some error occured in saving data");
           }
           console.log(result);
         });
-      $("#loader-container").css("display", "none");
+      // this.EndLoader()
     },
     async getLocationFinder() {
       const options = {
@@ -405,6 +421,8 @@ export default {
         });
     },
     async postShippingData(e) {
+      document.getElementById('ajaxLoader').style.display = 'block';
+      this.shippingdetails.address = $("#map").val()
       axios
         .post(axios.defaults.baseURL + "update-shipping", this.shippingdetails)
         .then((result) => {
@@ -419,6 +437,7 @@ export default {
           }
           console.log(result);
         });
+        document.getElementById('ajaxLoader').style.display = 'none';
       e.preventDefault();
     },
     loadSession() {
@@ -521,13 +540,15 @@ export default {
     },
     startLoader() {
       console.log("karachi");
-      var target_ContId = document.getElementById("ajaxLoader");
-      target_ContId.style.display = "block";
+      $("#ajaxLoader").attr( "class", "LoaderShow" )
+      // var target_ContId = document.getElementById("ajaxLoader");
+      // target_ContId.style.display = "block";
     },
     EndLoader() {
       console.log("pak");
-      var target_ContId = document.getElementById("ajaxLoader");
-      target_ContId.style.display = "none";
+      $("#ajaxLoader").attr( "class", "LoaderHide" )
+      // var target_ContId = document.getElementById("ajaxLoader");
+      // target_ContId.style.display = "none";
     },
     myMethod(val, qty) {
       //alert(val)

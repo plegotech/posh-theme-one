@@ -68,7 +68,7 @@
                     <thead>
                       <tr>
                         <th>Order ID</th>
-                        <th>Recipient</th>
+                        
                         <th>Delivery Date</th>
                         <th>Shipping Details</th>
                         <th>Status</th>
@@ -76,9 +76,6 @@
                     </thead>
                     <tbody>
                       <tr v-for="(item, index) in data" :key="index">
-                        <td>
-                          <span>{{ item.id }}</span>
-                        </td>
                         <td>
                           <span>{{ item.id }}</span>
                         </td>

@@ -324,6 +324,7 @@
           <div class="row my-5">
             <div class="col-sm-12 d-flex align-items-end">
               <div aria-label="Page navigation paginate-bx">
+                <Pagination :data="list" @pagination-change-page="getFilterData" />
                 <ul class="pagination bottm-pagination">
                   <li class="page-item inactive">
                     <button
@@ -364,13 +365,14 @@
 <script>
 import axios from "axios";
 import FooterComp from "./includes/Footer.vue";
+import LaravelVuePagination from 'laravel-vue-pagination';
 var paginate = 1;
 export default {
   name: "Allproducts",
   props: {
     product_id: 0,
   },
-  components: { FooterComp },
+  components: { FooterComp, 'Pagination': LaravelVuePagination },
   data() {
     return {
       total_price: 0,
@@ -475,7 +477,7 @@ export default {
       console.log(this.filterlist);
       this.EndLoader();
     },
-    async getFilterData() {
+    async getFilterData(page = 1) {
       this.startLoader();
       let cat_result = axios.get(
         axios.defaults.baseURL +
@@ -499,6 +501,7 @@ export default {
             processor: this.processor.toString(),
             sub_category: this.sub_category,
             parent_category: this.parent_category,
+            page: page,
           },
         },
         { useCredentails: true }
