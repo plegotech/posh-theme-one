@@ -84,6 +84,7 @@ input[type="text"] {
     border: 0px;
     border-radius: 4px;
 }
+
 body.home{background:#fff}
 .seller-temp nav .navbar-brand {color:white;}
 .seller-temp nav {
@@ -2092,4 +2093,44 @@ li.carousel__slide {
     vertical-align: bottom;
     position: relative;
     align-items: center;
+}
+.dropdown-menu.notificationBx {
+    left: initial;
+    right: 0;
+    width: 450px;
+}
+ul.noti-list-bx li {
+    border-left: 0px!important;
+    border-bottom: 1px solid #d4d4d4;
+    padding: 8px 10px!important;
+    display: block;
+    height: auto!important;
+    width: 100%;
+}
+ul.noti-list-bx li a {
+    color: #333;
+}
+span.time-boxx {
+    color: #0862a3;
+}
+ul.noti-list-bx li:last-child {
+    border-bottom: 0px;
+    margin-left: 0;
+}
+span.noti-ful-des {
+    display: block;
+    width: 100%;
+}
+ul.noti-list-bx li a:hover {
+    text-decoration: none;
+}
+ul.noti-list-bx li:hover {
+    background: #f3f3f3;
+}
+ul.noti-list-bx li:last-child {
+    margin-left: 0px;
+}
+span.right-rem-bx {
+    font-size: 12px;
+    font-style: italic;
 }
