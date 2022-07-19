@@ -14,21 +14,17 @@
           </router-link>
 
           
-          <button
+          <button @click="showmenu"
             class="navbar-toggler"
             type="button"
-            data-toggle="collapse"
-            data-target="#navbarTogglerSidebar"
-            aria-controls="navbarTogglerSidebar"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            
           >
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerSidebar">
             <!-- menu mobile -->
             <div class="side-menu">
-              <h1>TOP CATEGORIES</h1>
+              <h1>TOP CATEGORIES <span class="sidemenuArrow" @click="hidesidemenu"><i class="fas fa-arrow-alt-circle-left"></i></span></h1>
               <ul>
                 <li>
                   <img
@@ -160,7 +156,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-6">
-              <div class="show-all-cat">
+              <div class="show-all-cat" @click="showcatlist">
                 <span
                   ><img src="/src/assets/img/menu-template/category.png" />Show
                   All Categories <i class="fas fa-chevron-down"></i
@@ -186,7 +182,7 @@
     </div>
     <div class="container-fluid">
       <div class="row mt-5">
-        <div class="col-sm-2 hide-xs-bx">
+        <div class="col-sm-2 hide-xs-bx" id="showsideAttri">
           <form @submit.prevent="getFilterData" method="post">
             <div class="sidebar-options mt-3">
               <div class="brand-options">
@@ -662,6 +658,15 @@ export default {
     getImgUrll(pet) {
       return this.img_url + "/977/" + pet;
     },
+    showmenu(){
+      $("#navbarTogglerSidebar2").toggle()
+    },
+    hidesidemenu(){
+      $("#navbarTogglerSidebar").removeClass("active")
+    },
+    showcatlist(){
+      $("#navbarTogglerSidebar").addClass("active")
+    }
   },
 };
 </script>

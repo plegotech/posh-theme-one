@@ -110,6 +110,9 @@ div#hotDeals-bx {
     }
 }
 @media (min-width: 992px){
+    .collapse.navbar-collapse {
+        display: none!important;
+    }
     ul.side-submenu{
         min-width: 200px;
     }
@@ -128,12 +131,18 @@ div#hotDeals-bx {
     .side-menu ul li:hover ul.side-submenu {
         display: block;
     }
-    div#navbarTogglerSidebar {
-        display: none!important;
-    }
 }
 @media (max-width: 991px){
-    
+    .col-sm-2.hide-xs-bx.active {
+        display: block;
+        position: fixed;
+        z-index: 99;
+        background: #fff;
+        left: 0;
+    }
+    .detial-sect {
+        padding-left: 0px;
+    }
     .form-group input.form-control, .form-group select.form-control, .form-group select.form-control {
         height: 40px!important;
     }
@@ -240,7 +249,7 @@ div#hotDeals-bx {
     }
     div#navbarTogglerSidebar {
         position: absolute;
-        top:50px;
+        top:153px;
         z-index: 9;
         display: block;
         left: -100%;
@@ -264,9 +273,13 @@ div#hotDeals-bx {
     }
 }
 @media (max-width: 768px){
-    .row.gallery-pm-thumb {
-        max-width: 100%;
+    .footer-wrap h5 {
+        font-size: 13px;
+        margin-bottom: 10px;
     }
+    ul.footer-list li a {
+        font-size: 14px;
+    }   
     .mySlides {
         height: 260px;
     }
@@ -303,8 +316,8 @@ div#hotDeals-bx {
         flex-direction: column;
     }
     .registration-dvs-form {
-        padding-right: 25px;
-        padding-left: 25px;
+        padding-right:25px!important;
+        padding-left: 25px!important;
     }
     .bg-primary-posh-m {
         background-color: #0862A3;
