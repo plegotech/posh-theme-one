@@ -124,6 +124,22 @@ body.home{background:#fff}
     border-color: #0862a3;
     color: #0862a3;
 }
+button.navbar-toggler {
+    display: none;
+}
+.collapse.navbar-collapse.active {
+    display: block;
+    left: 0!important;
+}
+.collapse.navbar-collapse {
+    display:none;
+}
+span.sidemenuArrow {
+    float: right;
+}
+span.sidemenuArrow i.fas {
+    font-size: 20px;
+}
 img.uicon {
     width: 29px;
     height: 34px;

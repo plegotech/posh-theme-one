@@ -5,9 +5,9 @@
     <div>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-xl-2 col-sm-3 hideOnMobile">
+          <div class="col-xl-2 col-sm-3 hideOnMobile" id="navbarTogglerSidebar">
             <div class="side-menu mt-3 hide-mobile-bx">
-              <h1>TOP CATEGORIES</h1>
+              <h1>TOP CATEGORIES </h1>
               <ul>
                 <li v-for="item in list" :key="item.id">
                   <i class="menu-icon"
