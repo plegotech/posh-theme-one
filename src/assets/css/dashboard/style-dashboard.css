@@ -522,6 +522,7 @@ i.sb-menu-icon:before {
     width: calc(100% - 220px);
     float: right;
 }
+
 .main.dashboardArea .body nav {
     background:#0862A3;
     border-radius: 31px 0 0 0;
@@ -3475,7 +3476,11 @@ img.closetag-menu {
     color: white;
     border: 1px solid #065a96 !important;
 }
-
+@media (min-width: 992px){
+    .temp-1-Dash .collapse.navbar-collapse{
+    display: block!important;
+}
+}
 @media  (max-width: 991px) {
 
 .navbar-dark .navbar-brand {

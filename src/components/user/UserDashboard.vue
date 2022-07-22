@@ -4,7 +4,7 @@
   </div>
   <div id="app" class="main dashboardArea">
     <div class="wrapper">
-      <div class="navbar-expand-lg">
+      <div class="navbar-expand-lg temp-1-Dash">
         <sidebar></sidebar>
       </div>
       <div class="body">
