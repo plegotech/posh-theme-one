@@ -110,7 +110,7 @@ div#hotDeals-bx {
     }
 }
 @media (min-width: 992px){
-    .collapse.navbar-collapse {
+    .collapse.navbar-collapse.naviForHeader {
         display: none!important;
     }
     ul.side-submenu{
