@@ -56,6 +56,7 @@
                 >
               </li>
             </ul>
+            <div class="btn-delete-all-noti">Delete All</div>
           </div>
         </li>
         <li>

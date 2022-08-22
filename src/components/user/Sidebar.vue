@@ -60,24 +60,14 @@
                 </ul>
               </li>
               <li
-                data-toggle="collapse"
-                data-target="#navbarTogglerSidebar"
-                aria-controls="navbarTogglerSidebar"
-                aria-expanded="true"
-                aria-label="Toggle navigation"
-                class=""
+                
               >
                 
                  <router-link to="tracking"><i class="sb-menu-icon track-my-icon"></i>
                   <span class="nav-label">Track My Order</span></router-link>
               </li>
               <li
-                data-toggle="collapse"
-                data-target="#navbarTogglerSidebar"
-                aria-controls="navbarTogglerSidebar"
-                aria-expanded="true"
-                aria-label="Toggle navigation"
-                class=""
+                
               >
                 <router-link to="profile" ><i class="sb-menu-icon my-profile"></i>
                   <span class="nav-label">My Profile</span></router-link>

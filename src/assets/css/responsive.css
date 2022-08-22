@@ -27,6 +27,14 @@ span.navbar-toggler-icon:before {
     color: #0862a3;
     transition: 0.5s
 }
+.btn-delete-all-noti{
+    text-align: center;
+    color: red;
+    padding: 8px 0px 8px 5px;
+    display: flow-root;
+    margin: 0 auto;
+    width: 100%;
+}
 /* START HERE:: RESPONSIVE STYLES */
 @media (min-width: 2000px){
     .side-menu>ul>li {
@@ -119,13 +127,13 @@ div#hotDeals-bx {
     img.banner {
         height: 48%;
     }
-    .seller-temp nav .navbar-brand {
+    /* .seller-temp nav .navbar-brand {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 16.666667%;
         flex: 0 0 16.666667%;
         max-width: 16.666667%;
         margin-right: 0;
-    }
+    } */
     
     .no-pr-pl{padding-right:0;padding-left:0}
     .side-menu ul li:hover ul.side-submenu {
@@ -133,6 +141,34 @@ div#hotDeals-bx {
     }
 }
 @media (max-width: 991px){
+    img.closetag-menu {
+        width: 29px;
+        position: absolute;
+        right: -233px;
+        top: 23px;
+        font-size: 33px;
+        background: whitesmoke;
+        border-radius: 6px;
+    }
+    .main.dashboardArea button.navbar-toggler {
+        display: block;
+    }
+    .navbar-collapse.collapse {
+        left: -440px;
+        transition: 0.5s;
+    }
+    .navbar-collapse.collapse.show {
+        left: 0;
+        display: block;
+    }
+    aside#navbarTogglerSidebar {
+        position: absolute;
+        transition: 0.5s;
+        width: auto;
+    }
+    button.navbar-toggler {
+        display: block;
+    }
     a.router-link-active.router-link-exact-active.navbar-brand {
         text-align: center;
         margin: 0 auto;
@@ -254,7 +290,7 @@ div#hotDeals-bx {
     }
     div#navbarTogglerSidebar {
         position: absolute;
-        top:153px;
+        top:177px;
         z-index: 9;
         display: block;
         left: -100%;
@@ -414,7 +450,7 @@ div#hotDeals-bx {
     padding-left: 0;
 }
     .sec-nav .show-all-cat span {
-        font-size: 14px;
+        font-size: 15px;
     }
     .show-all-cat span {
         font-size: 11px;

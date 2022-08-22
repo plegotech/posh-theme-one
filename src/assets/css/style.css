@@ -127,12 +127,21 @@ body.home{background:#fff}
 button.navbar-toggler {
     display: none;
 }
+li.sub-menu.active_>ul {
+    display: block;
+}
 .collapse.navbar-collapse.active {
     display: block;
     left: 0!important;
 }
+.search-box.mb-4 {
+    display: none;
+}
 .collapse.navbar-collapse {
     display:none;
+}
+.wrapper.seller-temp button.navbar-toggler {
+    display: none;
 }
 span.sidemenuArrow {
     float: right;
