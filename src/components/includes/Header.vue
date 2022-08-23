@@ -22,7 +22,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerSidebar" >
+        <div class="collapse navbar-collapse naviForHeader" id="navbarTogglerSidebar" >
           <!-- menu mobile -->
           <div class="side-menu">
             <h1>TOP CATEGORIES <span class="sidemenuArrow" @click="hidesidemenu"><i class="fas fa-arrow-alt-circle-left"></i></span></h1>
