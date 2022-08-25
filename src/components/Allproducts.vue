@@ -11,17 +11,14 @@
           <router-link to="home" class="navbar-brand">
             <img v-if="list_head.logo != ''" :src="getImgUrll(list_head.logo)" id="logo" />
             <span>{{ list_head.h_shop_name }}</span>
-          </router-link>
-
-          
-          <button @click="showmenu"
-            class="navbar-toggler"
-            type="button"
-            
-          >
+          </router-link>          
+          <button @click="showcatlist"
+          class="navbar-toggler btnnavtopBx"
+          type="button"          
+        >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarTogglerSidebar">
+          <div class="collapse navbar-collapse naviForHeader" id="navbarTogglerSidebar">
             <!-- menu mobile -->
             <div class="side-menu">
               <h1>TOP CATEGORIES <span class="sidemenuArrow" @click="hidesidemenu"><i class="fas fa-arrow-alt-circle-left"></i></span></h1>
@@ -661,12 +658,18 @@ export default {
     showmenu(){
       $("#navbarTogglerSidebar2").toggle()
     },
-    hidesidemenu(){
-      $("#navbarTogglerSidebar").removeClass("active")
-    },
     showcatlist(){
       $("#navbarTogglerSidebar").addClass("active")
-    }
+    },
+        hidesidemenu(){
+      $("#navbarTogglerSidebar").removeClass("active")
+    },
+    // hidesidemenu(){
+    //   $("#navbarTogglerSidebar").removeClass("show")
+    // },
+    // showcatlist(){
+    //   $("#navbarTogglerSidebar").addClass("show")
+    // }
   },
 };
 </script>

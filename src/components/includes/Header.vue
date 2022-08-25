@@ -11,14 +11,9 @@
           <img v-if="list.logo!=''" :src="getImgUrll(list.logo)" />
           <span>{{ list.h_shop_name }}</span>
         </router-link>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarTogglerSidebar"
-          aria-controls="navbarTogglerSidebar"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+        <button @click="showcatlist"
+          class="navbar-toggler btnnavtopBx"
+          type="button"          
         >
           <span class="navbar-toggler-icon"></span>
         </button>

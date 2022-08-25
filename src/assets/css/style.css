@@ -140,9 +140,9 @@ li.sub-menu.active_>ul {
 .collapse.navbar-collapse {
     display:none;
 }
-.wrapper.seller-temp button.navbar-toggler {
+/* .wrapper.seller-temp button.navbar-toggler {
     display: none;
-}
+} */
 span.sidemenuArrow {
     float: right;
 }
@@ -1131,8 +1131,12 @@ button.btnplus-item:hover, button.btnminus-item:hover {
 .promotion-mid-bx img {
     height: auto;
 }
+.track-my-order .track-top p a {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
 .youorder-item {
-    flex: 0 0 70%;
+    flex: 0 0 67%;
     padding-left: 25px;
 }
 .yr-disc {
