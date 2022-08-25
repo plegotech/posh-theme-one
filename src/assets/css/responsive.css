@@ -54,6 +54,9 @@ div#hotDeals-bx {
 }
 }
 @media (max-width: 1024px){
+    .prof-area .user-prof:after {
+        right:0!important;
+    }
     .for-signup h5 {
         font-size: 0.9rem;
     }
@@ -152,6 +155,7 @@ div#hotDeals-bx {
     }
     .main.dashboardArea button.navbar-toggler {
         display: block;
+        margin-top: 0px!important;
     }
     .navbar-collapse.collapse {
         left: -440px;
@@ -170,8 +174,8 @@ div#hotDeals-bx {
         display: block;
     }
     a.router-link-active.router-link-exact-active.navbar-brand {
-        text-align: center;
-        margin: 0 auto;
+        /* text-align: center;
+        margin: 0 auto; */
         padding-left: 0;
     }
     .col-sm-2.hide-xs-bx.active {
@@ -314,6 +318,37 @@ div#hotDeals-bx {
     }
 }
 @media (max-width: 768px){
+    .tabs-grp {
+        float: right;
+        display: flex;
+        width: 100%;
+        column-gap: 10px;
+        margin-bottom: 20px;
+    }
+    .prof-area .user-prof:after {
+        border-right: 0px!important;
+    }
+    .container-fluid.track-my-order .prof-area {
+        padding: 12px;
+    }
+    .main .dashboardArea nav .navbar-brand {
+        display: none;
+    }
+    .qty-push-bx {
+        min-width: 128px;
+    }
+    .addtocart-select-pm button.primary {
+        flex: 100%;
+    }
+    .addtocart-select-pm {
+        display: initial;
+    }
+    .pro-title-bx {
+        min-height: auto;
+    }
+    h3.prod-title a, h3.prod-title {
+        height: auto;
+    }
     .footer-wrap h5 {
         font-size: 13px;
         margin-bottom: 10px;
@@ -382,10 +417,19 @@ div#hotDeals-bx {
         text-align: right;
         width: 25%;
     }
+    .cartSum-list .primary img {
+        float: right;
+    }
+    .cartSum-list .primary {
+        display: block;
+    }
+    .youorder-opt-bx img {
+        width: 50%;
+    }
     .cartI-3 {
         display: inline-block;
         flex: 0 0 44%;
-        width: 30%;
+        width: 45%;
         text-align: center;
     }
     .cartItems-box {
@@ -444,11 +488,10 @@ div#hotDeals-bx {
     .order-track ul li a {
         font-size: 11px;
     }
-    a.router-link-active.router-link-exact-active.navbar-brand {
-    text-align: center;
-    margin: 0 auto;
-    padding-left: 0;
-}
+    .dashboardArea a.router-link-active.router-link-exact-active.navbar-brand {
+        display: none;
+        padding-left: 0;
+        }
     .sec-nav .show-all-cat span {
         font-size: 15px;
     }
@@ -476,7 +519,32 @@ div#hotDeals-bx {
         padding-right: 15px;
     padding-left: 15px;
     }
-
+    ol.progtrckr li:before,ol.progtrckr li.progtrckr-todo:before{left: 24%;bottom: -3em;}
+    ol.progtrckr li.progtrckr-done:before,ol.progtrckr li.progtrckr-todo:before {
+        height: 1.5em!important;
+    width: 1.5em!important;
+    left: 24%;
+    bottom: -3em;
+    }
+    .track-my-order .track-bottom h3 {
+        font-size: 1.4rem;
+    }
+    ol.progtrckr[data-progtrckr-steps="5"] li {
+        width: 20%!important;
+    }
+    ol.progtrckr .progress-message{padding-left: 0px!important;font-size: 9px;}
+}
+@media (max-width: 450px){
+    .cartProduct-bx p.titleNamep {
+        font-weight: bold;
+    }
+    .cart-item-img{width: 100%;}
+.cartI-1 {
+    display: block;
+    padding-right: inherit;
+    text-align: center;
+    width: 100%;
+}
 }
 @media (max-width: 380px){
     .sec-nav .show-all-cat span {

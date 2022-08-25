@@ -617,9 +617,6 @@ i.sb-menu-icon:before {
     cursor: pointer;
     font-family: Inter;
     width: 30px;
-    position: absolute;
-    top: -7px;
-    left: 15px;
 }
 .main.dashboardArea .main button:hover {transition:.4s;background:#0862a3;color:white;border:1px solid #0862a3}
 .main..main.dashboardArea .body .row {
@@ -2696,6 +2693,7 @@ body .main .body .graphs .left i img {
 .prof-area .edit:hover {background:initial;color:initial;opacity:.6;border:1px solid #c6c6c6}
 .prof-area .add-new:hover {opacity:.8;border:1px solid #0862a3}
 .prof-area .edit {
+    margin-top: 0px!important;
     font-weight: bold;
     padding: 6px;
     margin: 0;
@@ -2826,9 +2824,10 @@ body .main .body .graphs .left i img {
 }
 
 .edit-tab {
-    float:right !important;
+    float: right !important;
     position: relative !important;
-    top: -20px !important;
+    top: 0px !important;
+    margin-top: 0px!important;
 }
 .adj-margin {
     padding: 0 20px;
@@ -3113,9 +3112,8 @@ div#companyEdit, div#userProfile {
     width: 150px;
     max-width: none;
 }
-.edit-profile-page
-.location-rmr  {
-    width: 700px;
+.edit-profile-page .location-rmr  {
+    max-width: 700px;
     padding-top: 40px;
 }
 .edit-profile-page
