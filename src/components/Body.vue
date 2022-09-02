@@ -7,15 +7,15 @@
         <div class="row">
           <div class="col-xl-2 col-sm-3 hideOnMobile" id="navbarTogglerSidebar">
             <div class="side-menu mt-3 hide-mobile-bx">
-              <h1>TOP CATEGORIES </h1>
+              <h1>TOP CATEGORIES</h1>
               <ul>
                 <li v-for="item in list" :key="item.id">
-                  <i class="menu-icon"
-                    ><img
-                      :src="getImgUrlCat(item.img)"
-                  /></i>
+                  <i class="menu-icon">
+                    <i class="fa" :class="item.icon" style="color:#000;"></i>
+                    <!-- <i class="menu-icon">
+                    <img :src="getImgUrlCat(item.img)" /> -->
+                  </i>
                   {{ item.title }}
-
                   <i class="fas fa-angle-right"></i>
                   <ul class="side-submenu">
                     <li
@@ -264,8 +264,10 @@
                   <div class="prod-p-icon">
                     <span class="pro-price">${{ product.seller_price }}</span
                     ><span class="pro-icons"
-                      ><img @click="addtocart2(product)" src="../assets/img/buy.png" class="img-fluid" /><img
-                        src="../assets/img/heart.png"
+                      ><img
+                        @click="addtocart2(product)"
+                        src="../assets/img/buy.png"
+                        class="img-fluid" /><img src="../assets/img/heart.png"
                     /></span>
                   </div>
                 </div>
@@ -324,7 +326,6 @@
                       <!-- <img src="../assets/img/Group-59.png" alt="" class="img-fluid" /> -->
 
                       <div class="bs-pro-bx">
-                       
                         <img
                           :src="
                             getImgUrl(
@@ -334,12 +335,11 @@
                           "
                           alt=""
                           class="img-fluid"
-                        />  
-                    
+                        />
                       </div>
                       <h5>
-                    
-                        {{ this.BestSellerProducts[index].title }}</h5>
+                        {{ this.BestSellerProducts[index].title }}
+                      </h5>
                     </div>
                   </Slide>
                   <template #addons>
@@ -399,8 +399,11 @@
                   <div class="prod-p-icon">
                     <span class="pro-price">${{ product.seller_price }}</span
                     ><span class="pro-icons">
-                      
-                      <img @click="addtocart2(product)" src="../assets/img/buy.png" class="img-fluid" />
+                      <img
+                        @click="addtocart2(product)"
+                        src="../assets/img/buy.png"
+                        class="img-fluid"
+                      />
                       <img src="../assets/img/heart.png" />
                     </span>
                   </div>
@@ -495,7 +498,7 @@ export default {
       BestSellerProducts: {
         0: {
           featured_image: null,
-          vendor_id: null
+          vendor_id: null,
         },
       },
       BestSellerProductsLength: 1,
