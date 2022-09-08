@@ -1680,10 +1680,20 @@ ul.side-submenu li a:hover {
 input.h-34.form-control.max-price, input.h-34.form-control.min-price {
     height: 34px!important;
 }
+.temp-1-Pagination a.page-link{color:#0862a3}
+.temp-1-Pagination .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #0862a3;
+    border-color: #0862a3;
+}
 .price-limit-opt span {
     padding-right: 15px;
     color: #0862A3;
     font-size: 18px;
+}
+nav.temp-1-Pagination {
+    background: transparent;
 }
 section.carousel .carousel__prev, section.carousel .carousel__next {
     background: transparent;

@@ -89,9 +89,23 @@
           </div>
         </nav>
         <div class="container-fluid pending-vend orders-all-order">
+          
           <div class="row mt-4">
             <div class="container-fluid track-my-order">
+              
               <div class="prof-area">
+                <div class="row">
+          <div class="col-sm-8 col-12">
+                                
+                              </div>
+                              <div class="col-sm-4 col-12">                     
+                    <div class="search-box-top mb-4" style="max-width:100%">
+                        <img src="/src/assets/img/search-icon.png" class="search-icon" alt="">
+                        <input type="text" class="search_BX fetchCompaniesSearch" >
+                        <img src="/src/assets/img/close-srch.png" class="close-icon" alt="">
+                    </div>                
+                    </div>
+                           </div>
                 <section class="track-top">
                   <div class="row">
                     <div class="col-xl-4">

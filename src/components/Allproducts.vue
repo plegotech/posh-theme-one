@@ -315,7 +315,18 @@
           </div>
 
           <div class="row my-5">
-            <div class="col-sm-12 d-flex align-items-end">
+            <div class="col-sm-12 d-flex justify-content-center align-items-end">
+              <!-- START PAGINATION -->
+              <nav aria-label="Page navigation" class="temp-1-Pagination">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
+              <!-- END:: PAGINATION --
               <div aria-label="Page navigation paginate-bx">
                 <Pagination :data="list" @pagination-change-page="getFilterData" />
                 <ul class="pagination bottm-pagination">
@@ -345,7 +356,7 @@
                     </button>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

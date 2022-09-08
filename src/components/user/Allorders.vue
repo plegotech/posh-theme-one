@@ -15,14 +15,16 @@
                
               <div class="container-fluid top-newOrder container-sp-box">
                  <div class="row">
-                              <div class="col-lg-8 col-12">
+                              <div class="col-sm-8 col-12">
                                 
                               </div>
-                              <div class="col-lg-4 col-12">
-                                 <div class="search-cont">
-                                  <div class="search-box mb-4 "><img src="/src/assets/img/search-icon.png" alt="" class="search-icon"> <input type="text" data-type="pending" class="search_BX" style="float: left;"> <img src="/src/assets/img/close-srch.png" alt="" class="close-icon"></div>
-                               </div>
-                              </div>
+                              <div class="col-sm-4 col-12">                     
+                    <div class="search-box-top mb-4" style="max-width:100%">
+                        <img src="/src/assets/img/search-icon.png" class="search-icon" alt="">
+                        <input type="text" class="search_BX fetchCompaniesSearch" >
+                        <img src="/src/assets/img/close-srch.png" class="close-icon" alt="">
+                    </div>                
+                    </div>
                            </div>
                 <!-- <h4>Recent Order</h4> -->
                 <div class="pendingOrder-bx">

@@ -133,7 +133,18 @@
                 </div>
               </div>
               <div class="container-fluid top-newOrder container-sp-box">
-                <h4>Recent Order</h4>
+                <div class="row">
+                  <div class="col-sm-4 col-12">
+                    <h4>Recent Order</h4>
+                    </div>
+                    <div class="col-sm-8 col-12">                     
+                    <div class="search-box-top mb-4" style="max-width:100%">
+                        <img src="/src/assets/img/search-icon.png" class="search-icon" alt="">
+                        <input type="text" class="search_BX fetchCompaniesSearch" >
+                        <img src="/src/assets/img/close-srch.png" class="close-icon" alt="">
+                    </div>                
+                    </div>
+                    </div>
                 <div class="pendingOrder-bx">
                   <table
                     id="pvs-tab"
