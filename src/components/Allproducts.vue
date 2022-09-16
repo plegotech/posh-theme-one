@@ -23,63 +23,28 @@
             <div class="side-menu">
               <h1>TOP CATEGORIES <span class="sidemenuArrow" @click="hidesidemenu"><i class="fas fa-arrow-alt-circle-left"></i></span></h1>
               <ul>
-                <li>
-                  <img
-                    src="/src/assets/img/menu-template/components.png"
-                  />Components<i class="fas fa-angle-right"></i>
-                  <ul class="side-submenu">
-                    <li><a href="#">Components</a></li>
-                    <li><a href="/allproducts">Computer Systems</a></li>
-                    <li><a href="#">Electronics</a></li>
-                    <li><a href="#">Gaming</a></li>
-                    <li><a href="#">Networking</a></li>
-                    <li><a href="#">Office Solutions</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <img
-                    src="/src/assets/img/menu-template/computersystem.png"
-                  />Computer Systems<i class="fas fa-angle-right"></i>
-                </li>
-                <li>
-                  <img
-                    src="/src/assets/img/menu-template/electronics.png"
-                  />Electronics<i class="fas fa-angle-right"></i>
-                </li>
-                <li>
-                  <img src="/src/assets/img/menu-template/gaming.png" />Gaming<i
-                    class="fas fa-angle-right"
-                  ></i>
-                </li>
-                <li>
-                  <img
-                    src="/src/assets/img/menu-template/networking.png"
-                  />Networking<i class="fas fa-angle-right"></i>
-                </li>
-                <li>
-                  <img
-                    src="/src/assets/img/menu-template/officesolutions.png"
-                  />Office Solutions<i class="fas fa-angle-right"></i>
-                </li>
-                <li>
-                  <img
-                    src="/src/assets/img/menu-template/softwareservices.png"
-                  />Software Services<i class="fas fa-angle-right"></i>
-                </li>
-                <li>
-                  <img
-                    src="/src/assets/img/menu-template/automotives.png"
-                  />Automotives<i class="fas fa-angle-right"></i>
-                </li>
-                <li>
-                  <img src="/src/assets/img/menu-template/home-tools.png" />Home
-                  & Tools<i class="fas fa-angle-right"></i>
-                </li>
-                <li>
-                  <img
-                    src="/src/assets/img/menu-template/health-sports.png"
-                  />Health & Sports<i class="fas fa-angle-right"></i>
-                </li>
+                <li v-for="item in catlist" :key="item.id">
+                <i class="fa" :class="item.icon" style="color:#000;"></i>
+                <!-- <img
+                  src="/src/assets/img/menu-template/components.png"
+                /> -->
+                {{ item.title }}<i class="fas fa-angle-right"></i>
+                <ul class="side-submenu">
+                  <li
+                      v-for="subitem in item.active_children"
+                      :key="subitem.id"
+                    ><router-link
+                        :to="{
+                          path: 'allproducts',
+                          query: { p_id: item.id, id: subitem.id },
+                          props: true,
+                        }"
+                      >
+                        {{ subitem.title }}</router-link
+                      >
+                    </li>
+                </ul>
+              </li>
               </ul>
             </div>
             <!-- menu mobile -->
@@ -90,12 +55,13 @@
             method="post"
           >
             <input
-              v-model="query"
+              v-model="search"
+              v-on:keypress="searchObjects"
               class="form-control mr-sm-2"
               type="Laptops"
               placeholder="Search"
             />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" v-on:click="getFilterData">
               Search
               <img class="search-icon" src="/src/assets/img/Search-head.png" />
             </button>
@@ -306,7 +272,7 @@
                         @click="addtocart(item)"
                         class="img-fluid"
                       />
-                      <img src="/src/assets/img/heart.png" @click="wishlist" />
+                      <!-- <img src="/src/assets/img/heart.png" @click="wishlist" /> -->
                     </span>
                   </div>
                 </div>
@@ -315,7 +281,33 @@
           </div>
 
           <div class="row my-5">
-            <div class="col-sm-12 d-flex align-items-end">
+            <div class="col-sm-12 d-flex justify-content-center align-items-end">
+              <!-- START PAGINATION -->
+              <span v-if="total==0">No Product Found</span>
+
+
+
+              <nav v-if="total>0 && total>per_page" aria-label="Page navigation" class="pagiBox-bx">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" v-if="from > 1" @click="getFilterData(current_page - 1)"
+                      >Previous</a
+                    >
+                  </li>
+                  <li class="page-item"  v-for="(num, index) in total" :key="index">
+                    <a class="page-link" @click="getFilterData((index+1))"
+                      >{{ (index+1) }}</a
+                    >
+                  </li>
+
+                  <li class="page-item">
+                    <a class="page-link" v-if="to < total" @click="getFilterData(current_page + 1)"
+                      >Next</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+              <!-- END:: PAGINATION --
               <div aria-label="Page navigation paginate-bx">
                 <Pagination :data="list" @pagination-change-page="getFilterData" />
                 <ul class="pagination bottm-pagination">
@@ -345,7 +337,7 @@
                     </button>
                   </li>
                 </ul>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -403,6 +395,16 @@ export default {
       min_price: 0,
       max_price: 0,
 
+
+      order_by: 0,
+      to: null,
+      from: null,
+      total: null,
+      current_page: null,
+      search: "",
+      catlist:[],
+
+      seller_id:import.meta.env.VITE_SELLER_ID,
       img_url: axios.defaults.url + "/img/product-images",
       //img_url: "https://posh-marketplace.plego.pro/img/product-images",
     };
@@ -451,9 +453,31 @@ export default {
     this.getCategoryFilters();
     //
     this.getFilterData();
+    this.getCategories();
     //alert(this.$route.query.search)
   },
   methods: {
+    searchObjects: function (e) {
+      if (e.keyCode === 13) {
+        this.getFilterData();
+      }
+    },
+    async getCategories() {
+      let result = axios.get(
+        axios.defaults.baseURL + "categorieslimited",
+        this.params
+      );
+      console.warn("Check Data");
+      const obj = (await result).data;
+      console.warn(obj);
+      if (obj.success == true) {
+        this.catlist = obj.data;
+      } else {
+        alert("Issue loading categories");
+      }
+    },
+
+
     async getCategoryFilters() {
       this.startLoader();
       let cat_result = axios.get(
@@ -470,7 +494,12 @@ export default {
       console.log(this.filterlist);
       this.EndLoader();
     },
-    async getFilterData(page = 1) {
+    async getFilterData(page = 0) {
+      var url = "";
+      if (page > 0) {
+        url += "?page=" + page;
+      }
+
       this.startLoader();
       let cat_result = axios.get(
         axios.defaults.baseURL +
@@ -480,7 +509,7 @@ export default {
       this.MainCategory = (await cat_result).data;
 
       let result = axios.get(
-        axios.defaults.baseURL + "allproducts",
+        axios.defaults.baseURL + "allproducts"+url,
         {
           params: {
             filter: JSON.stringify(this.filtersdata),
@@ -495,13 +524,27 @@ export default {
             sub_category: this.sub_category,
             parent_category: this.parent_category,
             page: page,
+            user: this.seller_id
+
           },
         },
         { useCredentails: true }
-      );
-      console.warn("Check Data2");
-      console.warn((await result).data.data);
-      this.list = (await result).data.data;
+      )
+      .then((response) => {
+          let res = response.data;
+          this.list = res.data;
+
+          this.to = res.to;
+          this.from = res.from;
+          this.total = res.total;
+          if (res.total < res.per_page) {
+            this.from = 0;
+          }
+          this.current_page = res.current_page;
+        });
+      // console.warn("Check Data2");
+      // console.warn((await result).data.data);
+      // this.list = (await result).data.data;
       this.EndLoader();
     },
     startLoader() {
@@ -642,7 +685,7 @@ export default {
       }
     },
     async getHeadFoot() {
-      let result = axios.get(axios.defaults.baseURL + "headerfooter/977");
+      let result = axios.get(axios.defaults.baseURL + "headerfooter/"+this.seller_id);
       console.log("header footer");
       this.list_head = (await result).data;
       if (this.list_head.logo) this.showTitle = false;

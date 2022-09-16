@@ -192,44 +192,6 @@
             </div>
           </div>
         </div>
-        <div class="container-fluid">
-          <div class="prof-area vendor-pro-b1 edit-profile-page">
-            <div class="tabs-grp">
-            <button class="add-new btn-width">
-              <img src="/src/assets/img/plus-icon.png" alt="" />ADD NEW
-            </button>
-            <button class="edit">
-              <img src="/src/assets/img/edit.png" alt="" />EDIT
-            </button>
-            </div>
-            <h3>Add Bank Details</h3>
-            <div class="clearfix"></div>
-            <div class="location-rmr">
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" name="" value="Account Holder Name*" />
-                </div>
-                <div class="col-md-6">
-                  <input type="text" name="" value="Bank Name*" />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" name="" value="Account Number*" />
-                </div>
-                <div class="col-md-6">
-                  <input type="text" name="" value="Credit Card Number*" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container-fluid">
-          <div class="tabs-group">
-            <button type="submit" class="submit">SUBMIT</button>
-            <button type="reset" class="reset">CANCEL</button>
-          </div>
-        </div>
       </div>
     </div>
   </div>

@@ -1,78 +1,99 @@
 <template>
-<!-- START PRODUCT DETIAL POPUP -->
-<div class="modal fade" id="productViewMore" tabindex="-1" role="dialog" aria-labelledby="productViewMoreLabel" aria-hidden="true">
+  <!-- START PRODUCT DETIAL POPUP -->
+  <div
+    class="modal fade"
+    id="productViewMore"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="productViewMoreLabel"
+    aria-hidden="true"
+  >
     <div class="modal-dialog" role="document">
-          <div class="modal-content">
-<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div class="modal-content">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
 
-<div class="col-12">
-  <div class="details-bx-area">
-    <div class="row">
-      <div class="col-sm-8">
-        <div class="vendorBox-left">
-          <div class="vendor-rod-imag">
-            <img src="https://nypost.com/wp-content/uploads/sites/2/2021/10/anti-aging-skincare-products.jpg" class="img-x-v-view">
-          </div>
-        <div class="vendor-detail-bx">
-          <h5>Organic Balloon Garland</h5>
-          <div class="ven-q-bx">Quantity Needed: 1</div>
-          <div class="ven-q-bx">Order Date: May 09, 2022 | 10:20 PM</div>
-          </div>
-          </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="vendor-rod-detail">
-              <div class="topaid-bx">Total Paid:</div>
-              <div class="topaid-amout">$355.06</div>
+        <div class="col-12">
+          <div class="details-bx-area">
+            <div class="row">
+              <div class="col-sm-8">
+                <div class="vendorBox-left">
+                  <div class="vendor-rod-imag">
+                    <img
+                      src="https://nypost.com/wp-content/uploads/sites/2/2021/10/anti-aging-skincare-products.jpg"
+                      class="img-x-v-view"
+                    />
+                  </div>
+                  <div class="vendor-detail-bx">
+                    <h5>Organic Balloon Garland</h5>
+                    <div class="ven-q-bx">Quantity Needed: 1</div>
+                    <div class="ven-q-bx">
+                      Order Date: May 09, 2022 | 10:20 PM
+                    </div>
+                  </div>
+                </div>
               </div>
+              <div class="col-sm-4">
+                <div class="vendor-rod-detail">
+                  <div class="topaid-bx">Total Paid:</div>
+                  <div class="topaid-amout">$355.06</div>
+                </div>
               </div>
+            </div>
+          </div>
+          <div class="details-bx-area">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="box-vender-view">
+                  <h5>Seller Name</h5>
+                  <p>Lauren Graduation Party</p>
+                </div>
               </div>
+              <div class="col-sm-3">
+                <div class="box-vender-view">
+                  <h5>Seller Email</h5>
+                  <p>Lauren Graduation Party</p>
+                </div>
               </div>
-              <div class="details-bx-area">
-                <div class="row">
-                  <div class="col-sm-3">
-                    <div class="box-vender-view">
-                      <h5>Seller Name</h5>
-                      <p>Lauren Graduation Party</p>
-                      </div>
-                      </div>
-                       <div class="col-sm-3">
-                        <div class="box-vender-view">
-                          <h5>Seller Email</h5>
-                          <p>Lauren Graduation Party</p>
-                          </div>
-                          </div>
-                          <div class="col-sm-3">
-                            <div class="box-vender-view">
-                              <h5>Seller Phone Number</h5>
-                              <p>Lauren Graduation Party</p>
-                              </div>
-                              </div>
-                              <div class="col-sm-3">
-                                <div class="box-vender-view">
-                                  <h5>Shipping Details</h5>
-                                  <p>Lauren Graduation Party</p>
-                                  </div>
-                              </div>
-                          </div>
-                          </div>
-                          <div class="details-bx-area">
-                            <div class="row">
-                              <div class="col-sm-9">
-                                <div class="box-vender-view">
-                                  <h5>Description of Product</h5>
-                                  <p>Description of Product Description of Product Description of Product Description of Product Description of Product Description of Product </p>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  </div>
-                                  </div>
-<!-- END PRODUCT DETAILS POPUP -->
+              <div class="col-sm-3">
+                <div class="box-vender-view">
+                  <h5>Seller Phone Number</h5>
+                  <p>Lauren Graduation Party</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="box-vender-view">
+                  <h5>Shipping Details</h5>
+                  <p>Lauren Graduation Party</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="details-bx-area">
+            <div class="row">
+              <div class="col-sm-9">
+                <div class="box-vender-view">
+                  <h5>Description of Product</h5>
+                  <p>
+                    Description of Product Description of Product Description of
+                    Product Description of Product Description of Product
+                    Description of Product
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END PRODUCT DETAILS POPUP -->
   <div id="ajaxLoader" style="display: none">
     <div id="loader"></div>
   </div>
@@ -88,28 +109,26 @@
             <div class="col-sm-12">
               <div class="container-fluid top-newOrder container-sp-box">
                 <div class="row">
-                  <div class="col-lg-8 col-12">
-                    <div class="search-box mb-4">
+                  <div class="col-sm-8 col-12"></div>
+                  <div class="col-sm-4 col-12">
+                    <div class="search-box-top mb-4" style="max-width: 100%">
                       <img
                         src="/src/assets/img/search-icon.png"
-                        alt=""
                         class="search-icon"
+                        alt=""
                       />
                       <input
                         type="text"
-                        data-type="pending"
-                        class="search_BX"
-                        style="float: left"
+                        class="search_BX fetchCompaniesSearch"
+                        v-on:keypress="searchObjects"
                       />
                       <img
                         src="/src/assets/img/close-srch.png"
-                        alt=""
+                        @click="removeSearch"
                         class="close-icon"
+                        alt=""
                       />
                     </div>
-                  </div>
-                  <div class="col-lg-4 col-12">
-                    <div class="row cst-row"></div>
                   </div>
                 </div>
                 <!-- <h4>Recent Order</h4> -->
@@ -128,7 +147,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(item, index) in data" :key="index">
+                      <tr v-for="(item, index) in orders" :key="index">
                         <td>
                           <span>{{ item.id }}</span>
                         </td>
@@ -148,32 +167,33 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="foot-table">
-                  <div class="left">
-                    <span>
-                      Rows Per Page:
-                      <select>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="75">75</option>
-                        <option value="100">100</option>
-                      </select>
-                    </span>
-                  </div>
-                  <div class="right">
-                    <span>1-25 of 31 Items</span>
-                    <img
-                      src="/src/assets/img/prev-arrow.png"
-                      alt=""
-                      class="prev-itm"
-                    />
-                    <img
-                      src="/src/assets/img/next-arrow.png"
-                      alt=""
-                      class="next-itm"
-                    />
-                  </div>
-                </div>
+
+
+                <div class="foot-table" v-if="total < 1">
+                            <p>No results found.</p>
+                        </div>
+                        <div class="foot-table" v-if="total > 0">
+                            <div class="left"><span>Rows Per Page:
+                                            <select
+                                                @change="getOrders(current_page, $event.target.value)">
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="75">75</option>
+                                                <option value="100">100</option>
+                                            </select>
+                                            </span></div>
+                            <div class="right">
+                                <span>{{ from }}-{{ to }} of {{ total }} Items</span>
+                                <img
+                                src="/src/assets/img/prev-arrow.png" @click="getOrders(current_page-1)"
+                                    alt="" class="prev-itm">
+                                <img
+                                src="/src/assets/img/next-arrow.png" @click="getOrders(current_page+1)"
+                                    alt="" class="next-itm"></div>
+                        </div>
+
+
+                
               </div>
             </div>
           </div>
@@ -199,6 +219,7 @@ export default {
       const logindata = JSON.parse(localStorage.getItem("login"));
       this.user_id = logindata.id;
     }
+    0;
 
     this.readyJS();
     this.getOrders();
@@ -208,26 +229,94 @@ export default {
       summary: [],
       data: [],
       user_id: 0,
+
+      orders:[],
+      search: 0,
+      per_page: 0,
+      order: "asc",
+      order_by: 0,
+      to: null,
+      from: null,
+      total: null,
+      current_page: null,
     };
   },
   methods: {
-    async getOrders() {
+    searchObjects: function (e) {
+      if (e.keyCode === 13) {
+        var element = e.target;
+        var type = element.getAttribute("data-type");
+        this.getOrders(0, 0, 0, element.value);
+      }
+    },
+
+    removeSearch: function () {
+      document.getElementsByClassName("search_BX")[0].value = "";
+      this.search = 0;
+      this.getOrders();
+    },
+
+    async getOrders(page = 0, per_page = 0, order_by = 0, search = 0) {
       this.startLoader();
 
-      let result = axios.get(
-        axios.defaults.baseURL + "user-order",
-        {
-          params: {
-            user_id: this.user_id,
-            order: "pending",
-          },
-        },
-        { useCredentails: true }
-      );
+      var url = axios.defaults.baseURL + "orders/user/" + this.user_id;
 
-      console.log("Orders");
-      this.data = (await result).data;
-      console.log(result);
+      if (per_page > 0 || this.per_page > 0) {
+        if (per_page > 0) {
+          this.per_page = per_page;
+        }
+        url += "/" + this.per_page;
+      } else {
+        url += "/25";
+      }
+
+      if (order_by != 0 || this.order_by > 0) {
+        if (order_by != 0) {
+          this.order_by = order_by;
+          if (this.order == "asc") {
+            this.order = "desc";
+          } else {
+            this.order = "asc";
+          }
+        }
+        url += "/" + this.order_by;
+        url += "/" + this.order;
+      } else {
+        url += "/id";
+        url += "/desc";
+      }
+
+      var search = search;
+
+      if (search != 0 || this.search != 0) {
+        if (search != 0) {
+          this.search = search;
+        }
+        url += "/" + this.search;
+      } else {
+        url += "/0";
+      }
+
+      url += "/pending";
+      if (page > 0) {
+        url += "?page=" + page;
+      }
+
+      let result = axios.get(url).then((response) => {
+        let res = response.data;
+        this.orders = res.data;
+        this.to = res.to;
+        this.from = res.from;
+        this.total = res.total;
+        if (res.total < res.per_page) {
+          this.from = 0;
+        }
+        this.current_page = res.to / res.per_page;
+      });
+
+      // console.log("Orders");
+      // this.data = (await result).data;
+      // console.log(result);
       this.EndLoader();
     },
     startLoader() {

@@ -92,6 +92,9 @@
                       placeholder="Zip Code*"
                       class="form-control"
                       type="text"
+                      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        
+        maxlength = "5"
                       v-model="signup.u_zip"
                     />
                   </div>
@@ -100,6 +103,9 @@
                       placeholder="Phone Number*"
                       class="form-control"
                       type="tel"
+                      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        
+        maxlength = "10"
                       v-model="signup.phone"
                     />
                   </div>

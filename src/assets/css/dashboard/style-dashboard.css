@@ -59,10 +59,11 @@ span.pending-number-bx {
     z-index: 12;
     height: 100%;*/
 }
+
 .navbar-dark .navbar-brand{
 	color: #fff;
-    font-weight: 600;
-    font-size: 24px;
+    font-weight: 700;
+    font-size: 15px;
 	}
 /* menu starts */
 a:hover{ text-decoration: none; }

@@ -267,8 +267,7 @@
                       ><img
                         @click="addtocart2(product)"
                         src="../assets/img/buy.png"
-                        class="img-fluid" /><img src="../assets/img/heart.png"
-                    /></span>
+                        class="img-fluid" /></span>
                   </div>
                 </div>
               </div>
@@ -404,7 +403,7 @@
                         src="../assets/img/buy.png"
                         class="img-fluid"
                       />
-                      <img src="../assets/img/heart.png" />
+                      <!-- <img src="../assets/img/heart.png" /> -->
                     </span>
                   </div>
                 </div>
@@ -535,6 +534,7 @@ export default {
       img_url_cat: axios.defaults.url + "/img/menu-template",
 
       user_id: 0,
+      seller_id:import.meta.env.VITE_SELLER_ID,
     };
   },
   async mounted() {
@@ -676,7 +676,7 @@ export default {
     },
 
     async getSlidersPromotionsCategoryImages() {
-      let result = axios.get(axios.defaults.baseURL + "seller/homepage/977");
+      let result = axios.get(axios.defaults.baseURL + "seller/homepage/"+this.seller_id);
       console.log((await result).data);
       this.list_homepage = (await result).data;
       this.catimages = (await result).data.CatImages;
@@ -706,7 +706,7 @@ export default {
     },
     async getBestSellerCategories() {
       let result = axios.get(
-        axios.defaults.baseURL + "seller/bestcategories/977"
+        axios.defaults.baseURL + "seller/bestcategories/"+this.seller_id
       );
       console.log((await result).data);
       this.BestSellerProducts = (await result).data;

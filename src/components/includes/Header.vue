@@ -22,62 +22,27 @@
           <div class="side-menu">
             <h1>TOP CATEGORIES <span class="sidemenuArrow" @click="hidesidemenu"><i class="fas fa-arrow-alt-circle-left"></i></span></h1>
             <ul>
-              <li>
-                <img
+              <li v-for="item in catlist" :key="item.id">
+                <i class="fa" :class="item.icon" style="color:#000;"></i>
+                <!-- <img
                   src="/src/assets/img/menu-template/components.png"
-                />Components<i class="fas fa-angle-right"></i>
+                /> -->
+                {{ item.title }}<i class="fas fa-angle-right"></i>
                 <ul class="side-submenu">
-                  <li><a href="#">Components</a></li>
-                  <li><a href="/allproducts">Computer Systems</a></li>
-                  <li><a href="#">Electronics</a></li>
-                  <li><a href="#">Gaming</a></li>
-                  <li><a href="#">Networking</a></li>
-                  <li><a href="#">Office Solutions</a></li>
+                  <li
+                      v-for="subitem in item.active_children"
+                      :key="subitem.id"
+                    ><router-link
+                        :to="{
+                          path: 'allproducts',
+                          query: { p_id: item.id, id: subitem.id },
+                          props: true,
+                        }"
+                      >
+                        {{ subitem.title }}</router-link
+                      >
+                    </li>
                 </ul>
-              </li>
-              <li>
-                <img
-                  src="/src/assets/img/menu-template/computersystem.png"
-                />Computer Systems<i class="fas fa-angle-right"></i>
-              </li>
-              <li>
-                <img
-                  src="/src/assets/img/menu-template/electronics.png"
-                />Electronics<i class="fas fa-angle-right"></i>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/gaming.png" />Gaming<i
-                  class="fas fa-angle-right"
-                ></i>
-              </li>
-              <li>
-                <img
-                  src="/src/assets/img/menu-template/networking.png"
-                />Networking<i class="fas fa-angle-right"></i>
-              </li>
-              <li>
-                <img
-                  src="/src/assets/img/menu-template/officesolutions.png"
-                />Office Solutions<i class="fas fa-angle-right"></i>
-              </li>
-              <li>
-                <img
-                  src="/src/assets/img/menu-template/softwareservices.png"
-                />Software Services<i class="fas fa-angle-right"></i>
-              </li>
-              <li>
-                <img
-                  src="/src/assets/img/menu-template/automotives.png"
-                />Automotives<i class="fas fa-angle-right"></i>
-              </li>
-              <li>
-                <img src="/src/assets/img/menu-template/home-tools.png" />Home &
-                Tools<i class="fas fa-angle-right"></i>
-              </li>
-              <li>
-                <img
-                  src="/src/assets/img/menu-template/health-sports.png"
-                />Health & Sports<i class="fas fa-angle-right"></i>
               </li>
             </ul>
           </div>
@@ -113,7 +78,7 @@
               <li>
                 <router-link to="dashboard"> Orders</router-link>
               </li>
-              <li><a href="#">Track My Order</a></li>
+              <li><router-link to="tracking"> Track</router-link></li>
               <li>
                 <router-link to="profile">My Profile</router-link>
               </li>
@@ -142,9 +107,9 @@
             <router-link to="cart" class="cartitems"
               ><img
                 src="/src/assets/img/bask-icon.png"
-                class="bask-icon" /><span v-html="itemsincart"></span
+                class="bask-icon" /><span v-if="itemsincart>0" v-html="itemsincart"></span
             ></router-link>
-            <span class="bx-amount">$<span v-html="amountincart"></span></span>
+            <span class="bx-amount">$<span v-if="amountincart>0" v-html="amountincart"></span></span>
           </div>
         </div>
       </div>
@@ -169,7 +134,7 @@
           <div class="col-6">
             <div class="order-track">
               <ul>
-                <li><a href="#">Track Your Order</a></li>
+                <li v-if="isHidden"><router-link to="tracking"> Track Your Order</router-link></li>
                 <li><a href="/contact">Help Center</a></li>
               </ul>
             </div>
@@ -192,6 +157,7 @@ export default {
       isHidden: false,
       query: null,
       list: [],
+      catlist:[],
       showTitle: true,
       img_url: axios.defaults.url + "/img/product-images",
     };
@@ -263,10 +229,26 @@ export default {
     } else {
       $(".cartitems").children("span").show();
     }
+    this.getCategories();
     this.getHeadFoot();
   },
 
   methods: {
+    async getCategories() {
+      let result = axios.get(
+        axios.defaults.baseURL + "categorieslimited",
+        this.params
+      );
+      console.warn("Check Data");
+      const obj = (await result).data;
+      console.warn(obj);
+      if (obj.success == true) {
+        this.catlist = obj.data;
+      } else {
+        alert("Issue loading categories");
+      }
+    },
+
     logout() {
       localStorage.clear();
       alert("Logout Success");
