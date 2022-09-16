@@ -294,11 +294,12 @@ div#hotDeals-bx {
     }
     div#navbarTogglerSidebar {
         position: absolute;
-        top:177px;
+        top:0;
         z-index: 9;
         display: block;
         left: -100%;
         transition: 0.5s;
+        height: 100%;
     }
     h3.prod-title {
         font-size: 16px;
