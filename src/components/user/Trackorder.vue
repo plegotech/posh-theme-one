@@ -22,7 +22,7 @@
             </button>
             <a href="" class="navbar-brand">Track My Order</a>
 
-            <div class="head-search-box">
+            <!-- <div class="head-search-box">
               <div class="pending-vend">
                 <div class="search-box mb-4">
                   <img
@@ -43,7 +43,7 @@
                   />
                 </div>
               </div>
-            </div>
+            </div> -->
             <ul class="topnav-user">
               <li>
                 <a href="#" class="cart-p"
@@ -98,13 +98,13 @@
           <div class="col-sm-8 col-12">
                                 
                               </div>
-                              <div class="col-sm-4 col-12">                     
+                              <!-- <div class="col-sm-4 col-12">                     
                     <div class="search-box-top mb-4" style="max-width:100%">
                         <img src="/src/assets/img/search-icon.png" class="search-icon" alt="">
                         <input type="text" class="search_BX fetchCompaniesSearch" >
                         <img src="/src/assets/img/close-srch.png" class="close-icon" alt="">
                     </div>                
-                    </div>
+                    </div> -->
                            </div>
                 <section class="track-top">
                   <div class="row">

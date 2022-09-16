@@ -194,14 +194,14 @@ export default {
             tempTotalPrice += items.quantity * items.item_price;
           });
           this.total_price = tempTotalPrice;
-          $(".cartitems").children("span").show()
+          $(".cartitems").children("span").show();
           $(".cartitems").children("span").html(this.count_cartitems);
           if (this.count_cartitems == 0) {
             this.HeaderKey++;
             $(".cartitems").children("span").hide();
           } else {
-          $(".cartitems").children("span").show()
-        }
+            $(".cartitems").children("span").show();
+          }
           //alert("No Logged");
         } else {
           //alert("No Guest");
@@ -237,7 +237,12 @@ export default {
         if (this.count_cartitems == 0) {
           $(".cartitems").children("span").hide();
         } else {
-          $(".cartitems").children("span").show()
+          $(".cartitems").children("span").show();
+        }
+        if (this.total_price <= 0) {
+          $(".bx-amount").children("span").hide();
+        } else {
+          $(".bx-amount").children("span").show();
         }
 
         if (localStorage.getItem("login")) {

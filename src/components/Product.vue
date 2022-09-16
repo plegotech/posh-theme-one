@@ -45,25 +45,6 @@
                       style="width: 100%"
                     />
                   </div>
-                  <!-- <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL1-6.png" style="width:100%">
-                  </div>
-
-                  <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL1-5.png" style="width:100%">
-                  </div>
-                    
-                  <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL1-4.png" style="width:100%">
-                  </div>
-
-                  <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL1-3.png" style="width:100%">
-                  </div>
-                    
-                  <div class="mySlides">
-                    <img src="/src/assets/img/810G-B68TYL-1.png" style="width:100%">
-                  </div> -->
                   <div class="row gallery-pm-thumb">
                     <div class="column">
                       <img
@@ -93,28 +74,9 @@
                         width="70"
                         height="70"
                         style="width: 100%"
-                        @click="currentSlide(index+2)"
+                        @click="currentSlide(index + 2)"
                       />
                     </div>
-                    <!-- 
-                    <div class="column">
-                      <img class="demo cursor active" src="/src/assets/img/pro-thu-1.jpg" style="width:100%" @click="currentSlide(1)" alt="The Woods">
-                    </div>
-                    <div class="column">
-                      <img class="demo cursor" src="/src/assets/img/pro-thu-2.jpg" style="width:100%" @click="currentSlide(2)" alt="Cinque Terre">
-                    </div>
-                    <div class="column">
-                      <img class="demo cursor" src="/src/assets/img/pro-thu-3.jpg" style="width:100%" @click="currentSlide(3)" alt="Mountains and fjords">
-                    </div>
-                    <div class="column">
-                      <img class="demo cursor" src="/src/assets/img/pro-thu-4.jpg" style="width:100%" @click="currentSlide(4)" alt="Northern Lights">
-                    </div>
-                    <div class="column">
-                      <img class="demo cursor" src="/src/assets/img/pro-thu-5.jpg" style="width:100%" @click="currentSlide(5)" alt="Nature and sunrise">
-                    </div>    
-                    <div class="column">
-                      <img class="demo cursor" src="/src/assets/img/pro-thu-6.jpg" style="width:100%" @click="currentSlide(6)" alt="Snowy Mountains">
-                    </div> -->
                   </div>
                   <!-- END:: GALLERY HERE -->
                 </div>
@@ -199,7 +161,8 @@
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-                    <router-link @click="forceclick(product.id)"
+                    <router-link
+                      @click="forceclick(product.id)"
                       :to="{
                         path: '/product',
                         query: { id: product.id },
@@ -243,7 +206,8 @@
             >
               <div class="product-item">
                 <div class="pro-img-bx">
-                  <router-link @click="forceclick(product.id)"
+                  <router-link
+                    @click="forceclick(product.id)"
                     :to="{
                       path: '/product',
                       query: { id: product.id },
@@ -260,7 +224,8 @@
                 </div>
                 <div class="pro-title-bx">
                   <h3 class="prod-title">
-                    <router-link @click="forceclick(product.id)"
+                    <router-link
+                      @click="forceclick(product.id)"
                       :key="product.id"
                       :to="{
                         path: '/product',
@@ -395,19 +360,19 @@ export default {
       this.productHistory();
 
       let result = axios.get(
-        axios.defaults.baseURL + "product/getForTemplate/" + this.$route.query.id
+        axios.defaults.baseURL +
+          "product/getForTemplate/" +
+          this.$route.query.id
       );
       console.log((await result).data);
       this.product_info = (await result).data;
       this.gallery = await this.product_info.images;
-      
+
       this.EndLoader();
     },
     async getRecommendedProducts() {
       let result = axios.get(
-        axios.defaults.baseURL +
-          "product/recommended/" +
-          this.$route.query.id
+        axios.defaults.baseURL + "product/recommended/" + this.$route.query.id
       );
       console.log((await result).data);
       this.recommended = (await result).data;
@@ -634,7 +599,6 @@ export default {
     },
 
     currentSlide(n) {
-      
       this.showSlides((this.slideIndex = parseInt(n)));
     },
     getImgUrl(vendor, pet) {

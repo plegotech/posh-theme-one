@@ -14,6 +14,7 @@
     "cors": "^2.8.5",
     "hooper": "^0.3.4",
     "laravel-vue-pagination": "^3.0.0",
+    "moment": "^2.29.4",
     "vue": "^3.2.31",
     "vue-carousel": "^0.18.0",
     "vue-google-autocomplete": "^1.1.3",
