@@ -335,6 +335,9 @@ export default {
     
   },
   methods: {
+    getAddressData: function (addressData, placeResultData, id) {
+        this.shipping.address = addressData;
+      },    
     async getShippingRate() {
       //       $shipperContact
       //         ->setCompanyName('Company Name')

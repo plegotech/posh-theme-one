@@ -43,6 +43,7 @@
                 <div class="bsc-slider-bx">
                   <!-- <img src="../assets/img/poshslider-1.png" alt="" class="img-fluid" /> -->
                   <a :href="images.link ? images.link : '#'" target="_blank">
+                    
                     <!-- <img
                       :src="getImgUrll(images.image)"
                       alt=""
@@ -479,21 +480,7 @@
           <div class="col-sm-10">
             <h2 class="title-about">ABOUT POSH MARKET</h2>
             <p>
-              Lörem ipsum jess mån rugbyförälder berade. Odyrade spenyda femissa
-              euktiga. Intraliga geoligt valigen kontrakåd. Pomeliga smygflyga.
-              Speskade vument tahet tefåskap. Lörem ipsum jess mån rugbyförälder
-              berade. Odyrade spenyda femissa euktiga. Intraliga geoligt valigen
-              kontrakåd. Pomeliga smygflyga. Speskade vument tahet tefåskap.
-              Lörem ipsum jess mån rugbyförälder berade. Odyrade spenyda femissa
-              euktiga. Intraliga geoligt valigen kontrakåd. Pomeliga smygflyga.
-              Speskade vument tahet tefåskap. Lörem ipsum jess mån rugbyförälder
-              berade. Odyrade spenyda femissa euktiga. Intraliga geoligt valigen
-              kontrakåd. Pomeliga smygflyga. Speskade vument tahet tefåskap.
-              Lörem ipsum jess mån rugbyförälder berade. Odyrade spenyda femissa
-              euktiga. Intraliga geoligt valigen kontrakåd. Pomeliga smygflyga.
-              Speskade vument tahet tefåskap. Lörem ipsum jess mån rugbyförälder
-              berade. Odyrade spenyda femissa euktiga. Intraliga geoligt valigen
-              kontrakåd. Pomeliga smygflyga. Speskade vument tahet tefåskap.
+              {{ list_about?.f_main_menu_title[1]}}
             </p>
           </div>
           <div class="col-sm-2">
@@ -607,7 +594,7 @@ export default {
     this.getBestSellerCategories();
     this.getFeaturedProducts();
     this.getJustForYouProducts();
-
+    this.getHeadFoot();
     if (localStorage.getItem("login")) {
       console.log("Login Data");
       const logindata = JSON.parse(localStorage.getItem("login"));
@@ -640,6 +627,10 @@ export default {
     this.EndLoader();
   },
   methods: {
+    async getHeadFoot() {
+      let result = axios.get(axios.defaults.baseURL + "headerfooter/"+this.seller_id);
+      this.list_about = (await result).data;
+    },
     addtocart2(item) {
       this.cartform.item_price = item.seller_price;
       this.cartform.product_id = item.id;

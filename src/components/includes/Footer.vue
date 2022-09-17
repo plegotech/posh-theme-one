@@ -208,6 +208,7 @@ export default {
       showTitle: true,
       // img_url: "https://posh-marketplace.plego.pro/img/product-images",
       img_url: axios.defaults.url + "/img/product-images",
+      seller_id: import.meta.env.VITE_SELLER_ID,
     };
   },
   mounted() {
@@ -215,7 +216,9 @@ export default {
   },
   methods: {
     async getHeadFoot() {
-      let result = axios.get(axios.defaults.baseURL + "headerfooter/977");
+      let result = axios.get(
+        axios.defaults.baseURL + "headerfooter/" + this.seller_id
+      );
       console.log("header footer");
       // console.log(result);
       // this.list = result;
@@ -225,7 +228,7 @@ export default {
       $(".about-foot p").html(this.list.about_us);
     },
     getImgUrll(pet) {
-      return this.img_url + "/977/" + pet;
+      return this.img_url + "/" + this.seller_id + "/" + pet;
     },
   },
 };

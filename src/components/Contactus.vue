@@ -70,7 +70,7 @@ export default {
         email: null,
         message: null,
         purpose: null,
-        seller_id: 977,
+        seller_id:import.meta.env.VITE_SELLER_ID,
       },
     };
   },

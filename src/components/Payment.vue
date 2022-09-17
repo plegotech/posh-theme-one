@@ -137,18 +137,16 @@
                     </div>
                     <div class="col-12">
                       <div id="smart-button-container">
-      <div style="text-align: center;">
-        <div id="paypal-button-container"></div>
-      </div>
-    </div>
+                        <div style="text-align: center">
+                          <div id="paypal-button-container"></div>
+                        </div>
+                      </div>
 
                       <button
-                      id="pyaro"
+                        id="pyaro"
                         class="primary nxtbtn"
                         v-on:click="placeorder"
                         v-if="count_cartitems"
-
-                       
                       >
                         PLACE ORDER
                       </button>
@@ -211,7 +209,9 @@
                 </div>
                 <div class="cartSummary-items">
                   <div class="csi-title">Est. Delivery</div>
-                  <div class="csi-title-amount">$<strong>{{shippingamount}}</strong></div>
+                  <div class="csi-title-amount">
+                    $<strong>{{ shippingamount }}</strong>
+                  </div>
                 </div>
                 <div class="cartSummary-items bt-0">
                   <div class="csi-title">Discount</div>
@@ -247,14 +247,11 @@ export default {
     this.loadSession();
     this.getCartData();
 
-    
     const script = document.createElement("script");
     script.src =
-    "https://www.paypal.com/sdk/js?client-id=AeGIexliJjrLgo1pvuD34jNON2clgKR1bcx4bAx1DSi-ryq-9gRE5Lr5Yh2v0XWUFFap9yTsYk6G9Zo-&currency=USD"
-      ;
+      "https://www.paypal.com/sdk/js?client-id=AeGIexliJjrLgo1pvuD34jNON2clgKR1bcx4bAx1DSi-ryq-9gRE5Lr5Yh2v0XWUFFap9yTsYk6G9Zo-&currency=USD";
     script.addEventListener("load", this.initPayPalButton);
     document.body.appendChild(script);
-
   },
 
   data() {
@@ -268,7 +265,7 @@ export default {
         user_id: null,
       },
       user_id: null,
-      shippingamount:0,
+      shippingamount: 0,
       cartitemslist: [],
       count_cartitems: 0,
       total_price: 0,
@@ -278,45 +275,56 @@ export default {
     };
   },
   methods: {
-
     initPayPalButton() {
-      paypal.Buttons({
-        style: {
-          shape: 'pill',
-          color: 'blue',
-          layout: 'vertical',
-          label: 'paypal',
-          
-        },
+      var totalamount = $(".csi-total-amount").children("strong").html();
+      paypal
+        .Buttons({
+          style: {
+            shape: "pill",
+            color: "blue",
+            layout: "vertical",
+            label: "paypal",
+          },
 
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{"amount":{"currency_code":"USD","value":26.05,"breakdown":{"item_total":{"currency_code":"USD","value":1},"shipping":{"currency_code":"USD","value":25},"tax_total":{"currency_code":"USD","value":0.05}}}}]
-          });
-        },
+          createOrder: function (data, actions) {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: totalamount,
+                  },
+                },
+              ],
+            });
+          },
 
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(orderData) {
-            
-            // Full available details
-            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+          onApprove: function (data, actions) {
+            return actions.order.capture().then(function (orderData) {
+              // Full available details
+              console.log(
+                "Capture result",
+                orderData,
+                JSON.stringify(orderData, null, 2)
+              );
 
-            // Show a success message within this page, e.g.
-            const element = document.getElementById('paypal-button-container');
-            element.innerHTML = '';
-            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+              // Show a success message within this page, e.g.
+              const element = document.getElementById(
+                "paypal-button-container"
+              );
+              element.innerHTML = "";
+              element.innerHTML = "<h3>Thank you for your payment!</h3>";
 
-            // this.placeorder();
-            document.getElementById("pyaro").click();
-            // Or go to another URL:  actions.redirect('thank_you.html');
-            
-          });
-        },
+              // this.placeorder();
+              document.getElementById("pyaro").click();
+              // Or go to another URL:  actions.redirect('thank_you.html');
+            });
+          },
 
-        onError: function(err) {
-          console.log(err);
-        }
-      }).render('#paypal-button-container');
+          onError: function (err) {
+            console.log(err);
+          },
+        })
+        .render("#paypal-button-container");
     },
 
     async placeorder() {
@@ -403,8 +411,8 @@ export default {
         console.log(logindata.id);
         this.user_id = logindata.id;
 
-        const shipping = JSON.parse(localStorage.getItem("shipping"))
-        this.shippingamount = parseInt(shipping.Amount) 
+        const shipping = JSON.parse(localStorage.getItem("shipping"));
+        this.shippingamount = parseInt(shipping.Amount);
       }
     },
     async getCartData() {
