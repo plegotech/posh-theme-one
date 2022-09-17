@@ -33,9 +33,10 @@
               src="/src/assets/img/notification-bell.png"
               class="notify"
               alt=""
-            /><span class="numberof-ma">4</span>
+            />
+            <span class="numberof-ma" v-if="notdata.length>0">{{ notdata.length }}</span>
           </a>
-          <div
+          <div v-if="notdata.length>0"
             class="dropdown-menu notificationBx"
             aria-labelledby="dropdownMenuButton22"
           >
@@ -46,15 +47,10 @@
                   {{ items.title + " (" + items.desc.name + ")" }}
                 </div>
                 <div>{{ "Price: " + items.desc.price }}</div>
-                <a href="#"
-                  ><strong> Product detailed descriptions </strong>
-                  <span class="time-boxx"
-                    ><span class="right-rem-bx">4 hours ago</span></span
-                  ></a
-                >
+                
               </li>
             </ul>
-            <div class="btn-delete-all-noti">Delete All</div>
+            <div class="btn-delete-all-noti" @click="readnotdata">Delete All</div>
           </div>
         </li>
         <li>
@@ -135,6 +131,17 @@ export default {
           this.notdata = data.data;
         });
     },
+    async readnotdata() {
+            document.getElementById('ajaxLoader').style.display = 'block';
+            await axios.get('/api/notifications/update/'+this.user_id).then(({data}) => {
+                console.log(data)
+                this.notdata=data.data;
+            })
+            this.fetchNotifications()
+            document.getElementById('ajaxLoader').style.display = 'none';
+            //<div class="btn-delete-all-noti" @click="readnotdata">Delete All</div>
+        }
+
   },
 };
 </script>

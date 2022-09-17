@@ -175,7 +175,7 @@
                           <span>{{ item.id }}</span>
                         </td>
                         <td>
-                          <span>{{ formattedDate(item.delivery_date) }}</span>
+                          <span>{{ moment(item.delivery_date).format("DD/MM/YYYY") }}</span>
                         </td>
                         <td>
                           <span>{{ item.shipping_address }}</span>

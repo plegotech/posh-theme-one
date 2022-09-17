@@ -11,7 +11,7 @@
               <ul>
                 <li v-for="item in list" :key="item.id">
                   <i class="menu-icon">
-                    <i class="fa" :class="item.icon" style="color:#000;"></i>
+                    <i class="fa" :class="item.icon" style="color: #000"></i>
                     <!-- <i class="menu-icon">
                     <img :src="getImgUrlCat(item.img)" /> -->
                   </i>
@@ -43,10 +43,19 @@
                 <div class="bsc-slider-bx">
                   <!-- <img src="../assets/img/poshslider-1.png" alt="" class="img-fluid" /> -->
                   <a :href="images.link ? images.link : '#'" target="_blank">
+                    <!-- <img
+                      :src="getImgUrll(images.image)"
+                      alt=""
+                      class="img-fluid"
+                    /> -->
                     <img
                       :src="getImgUrll(images.image)"
                       alt=""
                       class="img-fluid"
+                      @error="
+                        $event.target.src =
+                          'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                      "
                     />
                   </a>
                 </div>
@@ -87,19 +96,33 @@
             <div class="mb-3">
               <!-- <img src="../assets/img/mobile-phones-img.png" height="240" /> -->
               <a
-                :href="this.promotion.link1 ? this.promotion.link1 : '#'"
+                :href="this.promotion?.link1 ? this.promotion?.link1 : '#'"
                 target="_blank"
               >
-                <img :src="getImgUrll(this.promotion.image1)" alt="" />
+                <img
+                  :src="getImgUrll(this.promotion?.image1)"
+                  @error="
+                    $event.target.src =
+                      'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                  "
+                />
+                <!-- <img :src="getImgUrll(this.promotion?.image1)" alt="" /> -->
               </a>
             </div>
             <div class="mb-3">
               <!-- <img src="../assets/img/mobile-phones-img.png" height="240" /> -->
               <a
-                :href="this.promotion.link2 ? this.promotion.link2 : '#'"
+                :href="this.promotion?.link2 ? this.promotion?.link2 : '#'"
                 target="_blank"
               >
-                <img :src="getImgUrll(this.promotion.image2)" alt="" />
+                <img
+                  :src="getImgUrll(this.promotion?.image2)"
+                  @error="
+                    $event.target.src =
+                      'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                  "
+                />
+                <!-- <img :src="getImgUrll(this.promotion?.image2)" alt="" /> -->
               </a>
             </div>
           </div>
@@ -114,16 +137,21 @@
                 <!-- <source media="(min-width:991px)" :srcset="getImgUrll(this.catimages.images_new)" /> -->
                 <a
                   :href="
-                    this.catimages.link_new ? this.catimages.link_new : '#'
+                    this.catimages?.link_new ? this.catimages?.link_new : '#'
                   "
                   target="_blank"
                 >
                   <img
-                    :src="getImgUrll(this.catimages.images_new)"
+                    :src="getImgUrll(this.catimages?.images_new)"
                     alt=""
                     class="img-fluid"
                     height="323"
-                /></a>
+                    @error="
+                      $event.target.src =
+                        'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                    "
+                  />
+                </a>
               </picture>
             </div>
             <div class="mb-4">
@@ -132,15 +160,19 @@
                 <!-- <img src="../assets/img/hot-items-in-gaming-img-2.jpg" alt="" class="img-fluid" /> -->
                 <a
                   :href="
-                    this.catimages.link_hot ? this.catimages.link_hot : '#'
+                    this.catimages?.link_hot ? this.catimages?.link_hot : '#'
                   "
                   target="_blank"
                 >
                   <img
-                    :src="getImgUrll(this.catimages.images_hot)"
+                    :src="getImgUrll(this.catimages?.images_hot)"
                     alt=""
                     class="img-fluid"
                     height="210"
+                    @error="
+                      $event.target.src =
+                        'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                    "
                   />
                 </a>
               </picture>
@@ -152,16 +184,21 @@
                 <!-- <img src="../assets/img/hot_categories.png" width="100%" alt="" /> -->
                 <a
                   :href="
-                    this.catimages.link_cat ? this.catimages.link_cat : '#'
+                    this.catimages?.link_cat ? this.catimages?.link_cat : '#'
                   "
                   target="_blank"
                 >
                   <img
-                    :src="getImgUrll(this.catimages.images_cat)"
+                    :src="getImgUrll(this.catimages?.images_cat)"
                     width="100%"
                     alt=""
                     height="152"
-                /></a>
+                    @error="
+                      $event.target.src =
+                        'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                    "
+                  />
+                </a>
               </div>
               <div class="col-lg-5 mb-4">
                 <div class="for-signup">
@@ -185,31 +222,41 @@
                 <!-- <img src="../assets/img/electronic-deals-img.jpg" alt="" /> -->
                 <a
                   :href="
-                    this.catimages.link_elec ? this.catimages.link_elec : '#'
+                    this.catimages?.link_elec ? this.catimages?.link_elec : '#'
                   "
                   target="_blank"
                 >
                   <img
-                    :src="getImgUrll(this.catimages.images_elec)"
+                    :src="getImgUrll(this.catimages?.images_elec)"
                     alt=""
                     height="385"
-                /></a>
+                    @error="
+                      $event.target.src =
+                        'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                    "
+                  />
+                </a>
               </div>
               <div class="col-sm-7">
                 <!-- <img src="../assets/img/home_and_kitchens.png" width="100%" alt="" style="height: 100%" /> -->
                 <a
                   :href="
-                    this.catimages.link_home ? this.catimages.link_home : '#'
+                    this.catimages?.link_home ? this.catimages?.link_home : '#'
                   "
                   target="_blank"
                 >
                   <img
-                    :src="getImgUrll(this.catimages.images_home)"
+                    :src="getImgUrll(this.catimages?.images_home)"
                     width="100%"
                     alt=""
-                    height="385"
                     style="height: 100%"
-                /></a>
+                    height="385"
+                    @error="
+                      $event.target.src =
+                        'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                    "
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -222,11 +269,14 @@
             <div class="col-12">
               <h2 class="cat-title">Featured Products</h2>
               <div class="fea-prod-sm">
-                Show More <i class="fas fa-chevron-right"></i>
+                <!-- Show More <i class="fas fa-chevron-right"></i> -->
               </div>
             </div>
           </div>
           <div class="row">
+            <div v-if="featuredProducts.length == 0">
+              Sorry, No Product Found
+            </div>
             <div
               class="col-sm-3"
               v-for="(product, index) in featuredProducts"
@@ -245,7 +295,10 @@
                       :src="
                         getImgUrl(product.vendor_id, product.featured_image)
                       "
-                      alt=""
+                      @error="
+                        $event.target.src =
+                          'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                      "
                     />
                   </router-link>
                 </div>
@@ -267,7 +320,8 @@
                       ><img
                         @click="addtocart2(product)"
                         src="../assets/img/buy.png"
-                        class="img-fluid" /></span>
+                        class="img-fluid"
+                    /></span>
                   </div>
                 </div>
               </div>
@@ -276,25 +330,31 @@
           <div class="row">
             <div class="col-sm-6 mb-4 promotion-mid-bx">
               <a
-                :href="this.promotion.link3 ? this.promotion.link3 : '#'"
+                :href="this.promotion?.link3 ? this.promotion?.link3 : '#'"
                 target="_blank"
               >
                 <img
-                  :src="getImgUrll(this.promotion.image3)"
+                  :src="getImgUrll(this.promotion?.image3)"
                   height="240"
-                  alt=""
+                  @error="
+                    $event.target.src =
+                      'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                  "
                 />
               </a>
             </div>
             <div class="col-sm-6 promotion-mid-bx">
               <a
-                :href="this.promotion.link4 ? this.promotion.link4 : '#'"
+                :href="this.promotion?.link4 ? this.promotion?.link4 : '#'"
                 target="_blank"
               >
                 <img
-                  :src="getImgUrll(this.promotion.image4)"
+                  :src="getImgUrll(this.promotion?.image4)"
                   height="240"
-                  alt=""
+                  @error="
+                    $event.target.src =
+                      'https://posh-marketplace.plego.pro/img/product-images/997/no_image.png'
+                  "
                 />
               </a>
             </div>
@@ -302,19 +362,18 @@
         </div>
       </div>
 
-      <div class="container-fluid">
+      <div class="container-fluid" v-if="BestSellerProductsLength.length > 0">
         <div class="bsCategories">
           <div class="row">
             <div class="col-12">
               <h2 class="cat-title">Browse Seller Categories</h2>
               <div class="fea-prod-sm">
-                Show More <i class="fas fa-chevron-right"></i>
+                <!-- Show More <i class="fas fa-chevron-right"></i> -->
               </div>
             </div>
           </div>
-
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12" >
               <div class="seller-categories-box">
                 <Carousel :settings="settings" :breakpoints="breakpoints">
                   <Slide
@@ -328,8 +387,8 @@
                         <img
                           :src="
                             getImgUrl(
-                              this.BestSellerProducts[index].vendor_id,
-                              this.BestSellerProducts[index].featured_image
+                              this.BestSellerProducts[index]?.vendor_id,
+                              this.BestSellerProducts[index]?.featured_image
                             )
                           "
                           alt=""
@@ -350,13 +409,16 @@
           </div>
         </div>
       </div>
-      <div class="container-fluid bgcolor-gl">
+      <div
+        v-if="justForYouProducts.length > 0"
+        class="container-fluid bgcolor-gl"
+      >
         <div class="produ-listing-bx">
           <div class="row">
             <div class="col-12">
               <h2 class="cat-title">Just For You</h2>
               <div class="fea-prod-sm">
-                Show More <i class="fas fa-chevron-right"></i>
+                <!-- Show More <i class="fas fa-chevron-right"></i> -->
               </div>
             </div>
           </div>
@@ -534,7 +596,7 @@ export default {
       img_url_cat: axios.defaults.url + "/img/menu-template",
 
       user_id: 0,
-      seller_id:import.meta.env.VITE_SELLER_ID,
+      seller_id: import.meta.env.VITE_SELLER_ID,
     };
   },
   async mounted() {
@@ -676,7 +738,9 @@ export default {
     },
 
     async getSlidersPromotionsCategoryImages() {
-      let result = axios.get(axios.defaults.baseURL + "seller/homepage/"+this.seller_id);
+      let result = axios.get(
+        axios.defaults.baseURL + "seller/homepage/" + this.seller_id
+      );
       console.log((await result).data);
       this.list_homepage = (await result).data;
       this.catimages = (await result).data.CatImages;
@@ -700,13 +764,15 @@ export default {
       }
     },
     async getFeaturedProducts() {
-      let result = axios.get(axios.defaults.baseURL + "product/featured");
+      let result = axios.get(
+        axios.defaults.baseURL + "product/featured/" + this.seller_id
+      );
       console.log((await result).data);
       this.featuredProducts = (await result).data;
     },
     async getBestSellerCategories() {
       let result = axios.get(
-        axios.defaults.baseURL + "seller/bestcategories/"+this.seller_id
+        axios.defaults.baseURL + "seller/bestcategories/" + this.seller_id
       );
       console.log((await result).data);
       this.BestSellerProducts = (await result).data;
@@ -715,7 +781,11 @@ export default {
     },
     async getJustForYouProducts() {
       let result = axios.get(
-        axios.defaults.baseURL + "product/justforyou/" + this.user_id
+        axios.defaults.baseURL +
+          "product/justforyou/" +
+          this.user_id +
+          "/" +
+          this.seller_id
       );
       console.log((await result).data);
       this.justForYouProducts = (await result).data;
@@ -736,7 +806,7 @@ export default {
       return this.img_url + "/" + vendor + "/" + pet;
     },
     getImgUrll(pet) {
-      return this.img_url + "/" + this.catimages.seller_id + "/" + pet;
+      return this.img_url + "/" + this.seller_id + "/" + pet;
     },
     getImgUrlCat(pet) {
       return this.img_url_cat + "/" + pet;
