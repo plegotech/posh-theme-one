@@ -24,12 +24,10 @@
         </li>
         <li>
           <a
-            href=""
-            class="dropdown-toggle"
+            href="javascript:void(0)"
+            class="dropdown-toggle-"
             id="dropdownMenuButton22"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
+            @click="shownotlist()"
           >
             <img
               src="/src/assets/img/notification-bell.png"
@@ -64,10 +62,9 @@
           <div class="dropdown foruser-pmarket">
             <div
               id="dropdownMenuButton"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
+             @click="showcatlist()"
               class="userlogined dropdown-toggle"
+              aria-expanded="false"
             >
               {{ userTitle }}
             </div>
@@ -98,6 +95,7 @@ export default {
     };
   },
   mounted() {
+    
     if (localStorage.getItem("login")) {
       console.log("Login Data");
       const logindata = JSON.parse(localStorage.getItem("login"));
@@ -109,8 +107,26 @@ export default {
       this.userTitle = logindata.first_name + " " + logindata.last_name;
     }
     this.fetchNotifications();
+    $(document).click(function(){
+      
+    })
   },
   methods: {
+    showcatlist(){
+      $(".dropdown-menu-right").toggleClass("show")
+    },
+    // showcatlist(){
+    //   if($(".dropdown-menu-right").hasClass("show"))
+    //   $(".dropdown-menu-right").removeClass("show")
+    //   else
+    //   $(".dropdown-menu-right").addClass("show")
+    //   setTimeout(() => {
+    //     $(".dropdown-menu-right").removeClass("show")
+    //   }, 5000);
+    // },
+    shownotlist(){
+      $(".notificationBx").toggleClass("show")
+    },
     async fetchNotifications() {
       await axios
         .get(axios.defaults.baseURL + "notifications/get/" + this.user_id)

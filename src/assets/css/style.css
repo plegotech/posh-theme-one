@@ -422,11 +422,15 @@ h2.cat-title {
 div#MainSideBanner>div {
     flex-grow: 1;
 }
+
 div#MainSideBanner {
-    max-height: 478px;
+    max-height: 463px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+}
+.bsc-slider-bx {
+    width: 100%;
 }
 .about-foot {
     background: linear-gradient(45deg, #C1E7FF, transparent);
