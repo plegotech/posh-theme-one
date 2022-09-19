@@ -504,7 +504,7 @@ export default {
       let cat_result = axios.get(
         axios.defaults.baseURL +
           "seller/getcategorytitle/" +
-          this.parent_category
+          this.parent_category+"/"+this.sub_category
       );
       this.MainCategory = (await cat_result).data;
 
