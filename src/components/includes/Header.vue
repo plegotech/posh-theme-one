@@ -160,6 +160,7 @@ export default {
       catlist:[],
       showTitle: true,
       img_url: axios.defaults.url + "/img/product-images",
+      seller_id:import.meta.env.VITE_SELLER_ID,
     };
   },
   async callOutMethod() {
@@ -265,7 +266,7 @@ export default {
       // this.$router.push({name:"Allproducts"});
     },
     async getHeadFoot() {
-      let result = axios.get(axios.defaults.baseURL + "headerfooter/977");
+      let result = axios.get(axios.defaults.baseURL + "headerfooter/"+this.seller_id);
       console.log("header footer");
       this.list = (await result).data;
       if (this.list.logo) this.showTitle = false;

@@ -89,6 +89,7 @@ export default {
     async getCartData() {
       this.startLoader();
 
+      $(".bx-amount").html("");
       if (!localStorage.getItem("login")) {
         if (localStorage.getItem("guest")) {
           const guestdata = JSON.parse(localStorage.getItem("guest"));

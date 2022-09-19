@@ -290,6 +290,7 @@ export default {
       //img_url: "https://posh-marketplace.plego.pro/img/product-images",
       img_url: axios.defaults.url + "/img/product-images",
       gallery: [],
+      seller_id:import.meta.env.VITE_SELLER_ID,
     };
   },
   async mounted() {
@@ -349,6 +350,7 @@ export default {
           {
             user_id: this.cartform.user_id,
             product_id: this.cartform.product_id,
+            seller_id: this.seller_id,
           },
           { useCredentails: true }
         );
@@ -362,7 +364,7 @@ export default {
       let result = axios.get(
         axios.defaults.baseURL +
           "product/getForTemplate/" +
-          this.$route.query.id
+          this.$route.query.id+"/"+this.seller_id
       );
       console.log((await result).data);
       this.product_info = (await result).data;
