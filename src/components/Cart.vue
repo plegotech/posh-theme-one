@@ -119,10 +119,6 @@
                   <div class="csi-title-amount">$<strong>0</strong></div>
                 </div>
                 <div class="cartSummary-items">
-                  <div class="csi-title">Discount Code:</div>
-                  <div class="csi-title-dc">Posh200</div>
-                </div>
-                <div class="cartSummary-items">
                   <div class="csi-title-t">Total</div>
                   <div class="csi-total-amount">
                     $<strong>{{ total_price }}</strong>

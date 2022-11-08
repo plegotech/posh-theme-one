@@ -284,6 +284,8 @@ export default {
         user_id: 0,
         quantity: 1,
         item_price: 0,
+        vendor_id:0,
+        featured_image:0
       },
       product_info: [],
       slideIndex: 1,
@@ -392,6 +394,8 @@ export default {
         this.cartform.name = this.product_info.name;
         this.cartform.description = this.product_info.description;
         this.cartform.net_price = this.product_info.seller_price;
+        this.cartform.vendor_id = this.product_info.vendor_id;
+        this.cartform.featured_image = this.product_info.featured_image;
 
         if (localStorage.getItem("guest")) {
           const guestdata = JSON.parse(localStorage.getItem("guest"));
@@ -497,6 +501,8 @@ export default {
         this.cartform.name = item.name;
         this.cartform.description = item.description;
         this.cartform.net_price = item.seller_price;
+        this.cartform.vendor_id = item.vendor_id;
+        this.cartform.featured_image = item.featured_image;
 
         if (localStorage.getItem("guest")) {
           const guestdata = JSON.parse(localStorage.getItem("guest"));

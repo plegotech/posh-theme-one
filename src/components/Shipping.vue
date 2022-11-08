@@ -146,7 +146,7 @@
                   <div class="col-sm-6 mb-4">
                     <div class="form-group">
                       <label class="top-position">Postal Zip Code*</label>
-                      <input type="text" id="postcode" name="postcode" v-model="shippingdetails.zip" />
+                      <input type="number" id="postcode" name="postcode" v-model="shippingdetails.zip" />
                     </div>
                   </div>
                   <div class="col-sm-6 mb-4">
@@ -269,14 +269,10 @@
                     $<strong>{{ shippingamount }}</strong>
                   </div>
                 </div>
-                <div class="cartSummary-items bt-0">
-                  <div class="csi-title">Discount</div>
-                  <div class="csi-title-amount">-$<strong> 10.00</strong></div>
-                </div>
                 <div class="cartSummary-items justify-sbetw pt-4">
                   <div class="csi-title-t">Total</div>
                   <div class="csi-total-amount">
-                    $<strong>{{ total_price + shippingamount - 10 }}</strong>
+                    $<strong>{{ total_price + shippingamount }}</strong>
                   </div>
                 </div>
               </div>
@@ -335,6 +331,12 @@ export default {
     
   },
   methods: {
+    validateEmail(email) {
+        return email.match(
+          /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+      },
+
     getAddressData: function (addressData, placeResultData, id) {
         this.shipping.address = addressData;
       },    
@@ -359,7 +361,8 @@ export default {
       //         ->setPostalCode('20171')
       //         ->setCountryCode('US');
 
-      this.shippingdetails.address = $("#map").val()
+      if(this.validateEmail(this.shippingdetails.email)){
+        this.shippingdetails.address = $("#map").val()
       this.startLoader()
       axios
         .get(axios.defaults.baseURL + "shipping", {
@@ -404,6 +407,10 @@ export default {
           }
           console.log(result);
         });
+
+      } else {
+        alert("Please enter a valid email address");
+      }
       // this.EndLoader()
     },
     async getLocationFinder() {

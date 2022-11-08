@@ -187,7 +187,7 @@
         <div class="row">
           <div class="col-sm-12">
             <p class="copyright-text">
-              Copyright © 2021 Posh Market, Inc. All rights reserved.
+              Copyright © {{ new Date().getFullYear() }} Posh Market, Inc. All rights reserved.
             </p>
           </div>
         </div>

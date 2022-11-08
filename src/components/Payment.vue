@@ -147,6 +147,7 @@
                         class="primary nxtbtn"
                         v-on:click="placeorder"
                         v-if="count_cartitems"
+                        style="display: none;"
                       >
                         PLACE ORDER
                       </button>
@@ -213,14 +214,10 @@
                     $<strong>{{ shippingamount }}</strong>
                   </div>
                 </div>
-                <div class="cartSummary-items bt-0">
-                  <div class="csi-title">Discount</div>
-                  <div class="csi-title-amount">-$<strong> 10.00</strong></div>
-                </div>
                 <div class="cartSummary-items justify-sbetw pt-4">
                   <div class="csi-title-t">Total</div>
                   <div class="csi-total-amount">
-                    $<strong>{{ total_price + shippingamount - 10 }}</strong>
+                    $<strong>{{ total_price + shippingamount }}</strong>
                   </div>
                 </div>
               </div>
@@ -272,6 +269,7 @@ export default {
       count: 0,
       userdetails: [],
       img_url: "https://posh-marketplace.plego.pro/img/product-images/",
+      seller_id: import.meta.env.VITE_SELLER_ID,
     };
   },
   methods: {
@@ -346,6 +344,7 @@ export default {
           cvv: this.paymentdetails.cvv,
           expirymonth: this.paymentdetails.expirymonth,
           expiryyear: this.paymentdetails.expiryyear,
+          seller_id:this.seller_id
         })
         .then(
           (response) => {
