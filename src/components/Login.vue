@@ -20,10 +20,10 @@
                 v-model="login.email"
               />
               <span class="eye-icon-pass"
-                ><input
+                ><input id="myinput"
                   type="password"
                   placeholder="Password*"
-                  v-model="login.password" /><i class="fas fa-eye"></i
+                  v-model="login.password" /><i @click="myFunction()" class="fas fa-eye"></i
               ></span>
               <!-- <span class="invalidLogin alert alert-danger"></span> -->
               <label class="group">
@@ -188,6 +188,14 @@ export default {
           }
         });
     },
+    myFunction() {
+  var x = document.getElementById("myinput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
   },
 };
 </script>
